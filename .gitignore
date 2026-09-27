@@ -77,3 +77,6 @@ packages/overshoot-data/raw/scenes/scenes.json
 /packages/overshoot-data/release14/raw/odi-oil-gas/
 /packages/overshoot-data/release14/raw/odi-oil-gas.zip
 /launch-film/plates/
+/launch-film/out/
+/launch-film/generated/
+/launch-film/audio/
