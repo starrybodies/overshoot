@@ -73,7 +73,7 @@ export async function runQuery(name:QueryName,input:unknown,read:AssetReader):Pr
   }
   if(name==='source_observatory'){
     const q=data as z.infer<typeof querySchemas.source_observatory>;
-    const source=await read<{reviewedAt:string;method:string;sources:Array<{materials:string[];status:string}>}>('/data/v35/source-opportunities.json');
+    const source=await read<{reviewedAt:string;method:string;sources:Array<{materials:string[];status:string}>}>('/data/v39/source-opportunities.json');
     const sources=source.sources.filter(s=>(!q.material||s.materials.includes(q.material))&&(!q.status||s.status===q.status));
     return {snapshot,reviewedAt:source.reviewedAt,method:source.method,sources,matched:sources.length};
   }
