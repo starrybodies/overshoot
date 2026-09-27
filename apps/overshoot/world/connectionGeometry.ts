@@ -6,7 +6,7 @@ export function flowEndpoints(flow:Flow,coordinates:Map<string,[number,number]>)
  if(![a,b].every(p=>p.every(Number.isFinite)&&Math.abs(p[0])<=180&&Math.abs(p[1])<=90))return null;
  return {a,b};
 }
-export function flowLabel(flow:Flow,format:(n:number)=>string){return `${flow.originLabel} → ${flow.destinationLabel} · ${flow.connection?flow.connection.mode+' · operator-reported':format(flow.amount)+' '+flow.unit}`}
+export function flowLabel(flow:Flow,format:(n:number)=>string){return `${flow.originLabel} → ${flow.destinationLabel} · ${flow.connection?flow.connection.mode+' · '+(flow.connection.evidence==='government-reported'?'government-reported':'operator-reported')+' link':format(flow.amount)+' '+flow.unit}`}
 export function connectionBounds(flows:Flow[]):[[number,number],[number,number]]|null{
  if(!flows.length||flows.some(f=>!f.connection||!flowEndpoints(f,new Map())))return null;
  const points=flows.flatMap(f=>[f.connection!.from,f.connection!.to]),xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);

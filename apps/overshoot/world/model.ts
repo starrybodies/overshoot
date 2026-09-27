@@ -23,7 +23,7 @@ export function readState(search:string,initial?:Partial<WorldState>):WorldState
 export function stateQuery(s:WorldState){return new URLSearchParams({...s,estimates:s.estimates?'1':'0'}).toString()}
 export function wasteId(material:MaterialId):WasteMaterial|undefined{const m=materials.find(x=>x.id===material)!;return 'waste' in m?m.waste:undefined}
 export interface Country{id:string;name:string;numeric:string;center?:[number,number]}
-export interface Flow{connection?:{mode:string;from:[number,number];to:[number,number]};id:string;origin:string;destination:string;originLabel:string;destinationLabel:string;amount:number;unit:string;year:number;estimated:boolean;basis:string;sourceUrl:string;record:Record<string,unknown>}
+export interface Flow{connection?:{mode:string;from:[number,number];to:[number,number];evidence?:'government-reported'|'operator-reported'};id:string;origin:string;destination:string;originLabel:string;destinationLabel:string;amount:number;unit:string;year:number;estimated:boolean;basis:string;sourceUrl:string;record:Record<string,unknown>}
 export interface TradeRecord{id?:string;origin:string;destination:string;commodity:string;year:number;tonnes:number;reporter:string;reported_flow:'X'|'M';is_net_weight_estimated?:boolean;quantity_basis_note?:string;source_url?:string;[key:string]:unknown}
 export interface SiteFeature{type:'Feature';geometry:{type:'Point';coordinates:[number,number]};properties:{id:string;type:string;name:string;country:string;source_id:string;year:number|null;value:number|null;unit:string;metric:string;estimated?:boolean;state?:string;[key:string]:unknown}}
 let numberLocale='en';
