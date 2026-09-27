@@ -1,0 +1,37 @@
+[
+  {
+    "file": "discovery0.json",
+    "url": "https://comtradeapi.un.org/files/v1/app/reference/Reporters.json",
+    "retrievedAt": "2026-09-19",
+    "bytes": 80831,
+    "sha256": "f2a1d78949089831c1fc7714e009996887db724a8d5a43379cdc37be9449f74b"
+  },
+  {
+    "file": "discovery1.json",
+    "url": "https://comtradeapi.un.org/files/v1/app/reference/partnerAreas.json",
+    "retrievedAt": "2026-09-19",
+    "bytes": 96279,
+    "sha256": "2da5667693b5a7f8b203028964a431cdb46356d3a377c7369bb9736c59f03733"
+  },
+  {
+    "file": "un-m49.html",
+    "url": "https://unstats.un.org/unsd/methodology/m49/overview/",
+    "retrievedAt": "2026-09-19",
+    "bytes": 1721575,
+    "sha256": "b9048114f6e7f2abda83bf03d4263c9d7cd1bd7230e3d0461025ee7839a7a1fb"
+  },
+  {
+    "file": "basel-manual2025.docx",
+    "url": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-NationalReporting-Manual-2025.English.docx",
+    "retrievedAt": "2026-09-19",
+    "bytes": 187721,
+    "sha256": "78aacfd9fe597494b9276702c33dbaab5ed7e57b1022ed8446092189b306fd59"
+  },
+  {
+    "file": "catalog5.html",
+    "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/$metadata",
+    "retrievedAt": "2026-09-19",
+    "bytes": 227302,
+    "sha256": "634c6cc5530b522e7c50df313641f349a057d047d460191a63b190d479100c75"
+  }
+]

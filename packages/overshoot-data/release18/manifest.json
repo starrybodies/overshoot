@@ -1,0 +1,34 @@
+[
+  {
+    "id": "eurostat-municipal",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasmun?lang=EN",
+    "file": "raw/eurostat-municipal.json.gz",
+    "bytes": 235043,
+    "sha256": "aca835acffe160e7be50b1ca34e8468df22d7a8d8e3c113b6e5c163337841960",
+    "retrievedAt": "2026-09-23T17:17:27.563115+00:00"
+  },
+  {
+    "id": "eurostat-packaging",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_waspac?lang=EN&unit=T",
+    "file": "raw/eurostat-packaging.json.gz",
+    "bytes": 606397,
+    "sha256": "5092858d1b45c6aa919270eef7e63e6b7f44fa888809eae99be54fd297b55fb6",
+    "retrievedAt": "2026-09-23T17:17:27.386830+00:00"
+  },
+  {
+    "id": "sdg-city-collection",
+    "url": "https://unstats.un.org/SDGAPI/v1/sdg/Series/Data?seriesCode=EN_REF_WASCOL&pageSize=50000",
+    "file": "raw/sdg-city-collection.json.gz",
+    "bytes": 6312153,
+    "sha256": "8e9fd1318ca99c0562d13a39cf99e9fa443906a234c0a27fde3b307caa0c3fba",
+    "retrievedAt": "2026-09-23T17:17:52.018871+00:00"
+  },
+  {
+    "id": "sdg-city-series",
+    "url": "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/11.6.1/Series/List",
+    "file": "raw/sdg-city-series.json.gz",
+    "bytes": 454,
+    "sha256": "db9c03582ace53ecf7a2a2b5402b0e0ee95d8485f1087b9a19de74bf4da8b1b5",
+    "retrievedAt": "2026-09-23T17:17:27.167902+00:00"
+  }
+]

@@ -1,0 +1,13 @@
+.oa-invite-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(7,18,12,.66);display:grid;place-items:center;padding:18px;animation:oa-invite-in .25s ease-out}
+.oa-invite{position:relative;width:min(100%,560px);max-height:min(94dvh,740px);overflow:auto;border:1px solid var(--oa-line);border-radius:20px;background:var(--oa-panel);color:var(--oa-ink);box-shadow:0 24px 90px rgba(0,0,0,.28);padding:clamp(26px,6vw,46px)}
+.oa-invite-close{position:absolute;right:20px;top:18px;display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--oa-line);border-radius:50%;background:transparent}
+.oa-invite-kicker{font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:var(--oa-accent)}
+.oa-invite h2{font:600 clamp(32px,6vw,52px)/1.04 'Space Grotesk Variable',sans-serif;letter-spacing:-.055em;max-width:460px;margin:22px 0}
+.oa-invite p{line-height:1.55;color:var(--oa-muted);margin:0 0 28px}
+.oa-invite form>label:first-child{display:block;font-weight:650;margin-bottom:9px}
+.oa-invite-row{display:flex;gap:8px}.oa-invite-row input{flex:1;min-width:0;padding:14px 16px;border:1px solid var(--oa-line);border-radius:9px;background:var(--oa-bg);color:var(--oa-ink)}
+.oa-invite-row button{border:0;border-radius:9px;padding:12px 18px;background:var(--oa-accent);color:var(--oa-on-accent);font-weight:700}.oa-invite-row button:disabled{opacity:.55}
+.oa-invite-consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0 0;color:var(--oa-muted);font-size:14px;line-height:1.5}.oa-invite-consent input{accent-color:var(--oa-accent);margin:3px 0 0;min-width:17px;width:17px;height:17px}
+.oa-invite .oa-invite-privacy{font-size:13px;line-height:1.5;margin:12px 0 0}
+.oa-invite .oa-invite-status{min-height:1.3em;margin:14px 0 0;font-size:14px;color:var(--oa-accent)}.oa-invite-later{margin-top:12px;padding:9px 0;border:0;background:transparent;text-decoration:underline;text-underline-offset:4px;color:var(--oa-muted)}.oa-invite-trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@keyframes oa-invite-in{from{opacity:0}to{opacity:1}}@media(max-width:510px){.oa-invite-row{flex-direction:column}.oa-invite-row button{min-height:48px}}@media(prefers-reduced-motion:reduce){.oa-invite-backdrop{animation:none}}

@@ -1,0 +1,60 @@
+{
+  "version": "overshoot-resource-expansion-2026-09-19",
+  "files": [
+    {
+      "path": "resource-accounts.json",
+      "bytes": 9830305,
+      "sha256": "1b3296ff4bc5c04feecf13e2bba6edd6b20d095ceac41da5672069dd16d3a263"
+    },
+    {
+      "path": "agriculture.json",
+      "bytes": 147507,
+      "sha256": "6c513c052453a41d9ef493ee930f7d8574bd7122e5b54158648135a084a933f2"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 10036,
+      "sha256": "70d37bc1c364d1582ffe9295b1b63966ce292a44d198763213ac116ae5c34c48"
+    },
+    {
+      "path": "research-catalog.json",
+      "bytes": 27683,
+      "sha256": "a6e797613f2c5a2b6064396176fce1686e5c0e68ad769d6e423323c8ff545bf2"
+    },
+    {
+      "path": "normalize_resources.py",
+      "bytes": 6478,
+      "sha256": "a3cfe46b6ae285e9a4186c2ab51f40efdb4706d2beac5cab122d77c6ab00e845"
+    },
+    {
+      "path": "normalize_faostat.py",
+      "bytes": 3556,
+      "sha256": "c6ec86a8e8afeaca9d6f51e9680931835573161048240319c7e52a46f8fcf0df"
+    },
+    {
+      "path": "resource-accounts.schema.json",
+      "bytes": 5640,
+      "sha256": "e5f3bf766ed91e0b98a9008db84977faf4e4002802e9371d74681557abe8a070"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 5206,
+      "sha256": "b8936a655e9d9bbb36bef4d6aeb85856f1d21c80968df0975fb4cf3fdbf4c66a"
+    },
+    {
+      "path": "faostat-validation.json",
+      "bytes": 2651,
+      "sha256": "4e23b0f90d2c1a62f956b741e4ea054f0db6746886eec4c422b29b1b1727f148"
+    },
+    {
+      "path": "integration-validation.json",
+      "bytes": 279,
+      "sha256": "ff6bcf546171bbd6512932a53526421e2bea2edadd3dfb599a94d42e6aec4da8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5716,
+      "sha256": "60e06cbf61035093356913b7b054a17531022f5c72f0ddeb353044a53139ef14"
+    }
+  ]
+}

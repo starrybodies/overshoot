@@ -1,0 +1,220 @@
+{
+  "source_id": "irp-resource-accounts-2026",
+  "raw_sha256": "e52904a0521a35a58d2de940daeaeea29f4ce571e77360a30d7d512e69bf8bef",
+  "material_raw_sha256": "882363064ef25919a2673f726c126738feaccbd17a7353773e7db54cf19c1548",
+  "rawRows": 3346,
+  "normalizedRows": 12705,
+  "countriesIncludingWorld": 231,
+  "coverage": {
+    "extraction": {
+      "observations": 12169,
+      "countriesIncludingWorld": 231,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "domesticConsumption": {
+      "observations": 12169,
+      "countriesIncludingWorld": 231,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "footprint": {
+      "observations": 8245,
+      "countriesIncludingWorld": 159,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "imports": {
+      "observations": 12059,
+      "countriesIncludingWorld": 229,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "exports": {
+      "observations": 11949,
+      "countriesIncludingWorld": 227,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "physicalTradeBalance": {
+      "observations": 12059,
+      "countriesIncludingWorld": 229,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "rawMaterialEquivalentImports": {
+      "observations": 8245,
+      "countriesIncludingWorld": 159,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "rawMaterialEquivalentExports": {
+      "observations": 8245,
+      "countriesIncludingWorld": 159,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "domesticMaterialInput": {
+      "observations": 12169,
+      "countriesIncludingWorld": 231,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "population": {
+      "observations": 11894,
+      "countriesIncludingWorld": 226,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "extractionPerCapita": {
+      "observations": 11829,
+      "countriesIncludingWorld": 226,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "domesticConsumptionPerCapita": {
+      "observations": 11829,
+      "countriesIncludingWorld": 226,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "footprintPerCapita": {
+      "observations": 8245,
+      "countriesIncludingWorld": 159,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "importsPerCapita": {
+      "observations": 11774,
+      "countriesIncludingWorld": 225,
+      "years": [
+        1970,
+        2024
+      ]
+    },
+    "exportsPerCapita": {
+      "observations": 11719,
+      "countriesIncludingWorld": 224,
+      "years": [
+        1970,
+        2024
+      ]
+    }
+  },
+  "historicalCodesExcluded": [
+    "ANT530",
+    "CSK200",
+    "ETH230",
+    "SCG891",
+    "SDN736",
+    "SUN810",
+    "YEM886",
+    "YMD720",
+    "YUG890"
+  ],
+  "negativeDmcRetained": 47,
+  "maxDmcBalanceErrorTonnes": {
+    "country": "WORLD",
+    "year": 2022,
+    "differenceTonnes": 0.00799560546875
+  },
+  "maxFootprintIdentityDifferenceTonnes": {
+    "country": "WORLD",
+    "year": 2024,
+    "differenceTonnes": 1991247018.0599976
+  },
+  "world2024": {
+    "country": "WORLD",
+    "year": 2024,
+    "extraction": 106971469894.03,
+    "domesticConsumption": 106572693315.93,
+    "footprint": 104980222875.97,
+    "imports": 15424280422.952,
+    "exports": 15823057001.051,
+    "physicalTradeBalance": -398776578.0993,
+    "rawMaterialEquivalentImports": 32261374280.349,
+    "rawMaterialEquivalentExports": 32261374280.349,
+    "domesticMaterialInput": 122395750316.98,
+    "population": 8092997781,
+    "extractionPerCapita": 13.2178,
+    "domesticConsumptionPerCapita": 13.1685,
+    "footprintPerCapita": 12.9717,
+    "importsPerCapita": 1.9059,
+    "exportsPerCapita": 1.9552,
+    "source_id": "irp-resource-accounts-2026",
+    "original_unit": "t",
+    "estimated": true,
+    "footprintByMaterial": {
+      "biomass": 26815948772,
+      "fossil": 15635928523,
+      "metals": 9888447778,
+      "minerals": 52294437950
+    },
+    "footprintPerCapitaByMaterial": {
+      "biomass": 3.313475364463343,
+      "fossil": 1.9320317323833454,
+      "metals": 1.2218522784245898,
+      "minerals": 6.4616893968230285
+    }
+  },
+  "japan2024": {
+    "country": "JPN",
+    "year": 2024,
+    "extraction": 823117983.973,
+    "domesticConsumption": 1374728304.523,
+    "footprint": 2217476134.121,
+    "imports": 729551724.1381,
+    "exports": 177941403.588,
+    "physicalTradeBalance": 551610320.55,
+    "rawMaterialEquivalentImports": 1470774689.2508,
+    "rawMaterialEquivalentExports": 66170497.0565,
+    "domesticMaterialInput": 1552669708.1111,
+    "population": 122631432,
+    "extractionPerCapita": 6.7121,
+    "domesticConsumptionPerCapita": 11.2102,
+    "footprintPerCapita": 18.0824,
+    "importsPerCapita": 5.9491,
+    "exportsPerCapita": 1.451,
+    "source_id": "irp-resource-accounts-2026",
+    "original_unit": "t",
+    "estimated": true,
+    "footprintByMaterial": {
+      "biomass": 318511515,
+      "fossil": 366993193,
+      "metals": 504097003,
+      "minerals": 1027874423
+    },
+    "footprintPerCapitaByMaterial": {
+      "biomass": 2.597307311880693,
+      "fossil": 2.992651940980352,
+      "metals": 4.110667181966855,
+      "minerals": 8.381818643363799
+    }
+  }
+}

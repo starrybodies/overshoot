@@ -1,0 +1,33 @@
+import type {WasteMaterial} from '@/packages/overshoot-data/release7/types';
+export const materials=[
+ {id:'copper',name:'Copper',symbol:'Cu',color:'#b5532f',codes:['2603','7401','7402','7403','7404','7408'],example:'Wiring, pipes, motors',aliases:'copper wire cable pipes electrical'},
+ {id:'plastic',name:'Plastic',symbol:'PET',color:'#7d58a0',codes:['3915'],waste:'plastic',example:'Bottles, tubs, packaging',aliases:'plastic bottle packaging tubs bag'},
+ {id:'paper',name:'Paper & cardboard',symbol:'Pp',color:'#366b4b',codes:['4707'],waste:'paper',example:'Boxes, cartons, paper',aliases:'cardboard box carton newspaper paper'},
+ {id:'steel',name:'Iron & steel',symbol:'Fe',color:'#607784',codes:['2601','7204'],waste:'metal',example:'Buildings, tools, cans',aliases:'steel iron can tin'},
+ {id:'aluminium',name:'Aluminium',symbol:'Al',color:'#587476',codes:['7602'],waste:'metal',example:'Cans, foil, frames',aliases:'aluminum aluminium soda can foil'},
+ {id:'glass',name:'Glass',symbol:'Gl',color:'#21847c',codes:[],waste:'glass',example:'Jars, bottles',aliases:'glass jar bottle'},
+ {id:'food',name:'Food & organics',symbol:'Org',color:'#718327',codes:['1001'],waste:'food',example:'Food scraps, crops',aliases:'food scraps compost wheat crops organics'},
+ {id:'electronics',name:'Electronics',symbol:'Ee',color:'#986733',codes:['8549'],waste:'electronics',example:'Phones, computers, devices',aliases:'phone computer laptop electronics device television'},
+ {id:'textiles',name:'Textiles',symbol:'Tx',color:'#a34b64',codes:['6309'],example:'Clothing, fabric',aliases:'shirt clothes clothing fabric textiles t-shirt'},
+ {id:'wood',name:'Wood',symbol:'Wd',color:'#947242',codes:['4403'],example:'Timber, furniture',aliases:'wood timber lumber furniture log'},
+ {id:'fuels',name:'Fossil fuels',symbol:'C',color:'#656156',codes:['2709','2701'],example:'Oil, coal',aliases:'oil coal fuel petroleum'},
+ {id:'garbage',name:'Mixed garbage',symbol:'Mx',color:'#777261',codes:[],waste:'garbage',example:'Residual household waste',aliases:'trash garbage landfill rubbish waste'},
+ {id:'rigid-plastic',name:'Bulky plastics',symbol:'PP',color:'#916194',codes:[],waste:'rigid-plastic',example:'Chairs, toys, pools',aliases:'plastic chair toys pool bulky'},
+ {id:'other',name:'All BC products',symbol:'HS',color:'#657254',codes:[],example:'Search the full export catalogue',aliases:'all products salmon machinery vehicles stone crops exports catalogue'},
+] as const;
+export type MaterialId=typeof materials[number]['id'];
+export const forms:Record<string,string>={'2603':'Ore & concentrate','7401':'Matte & cement copper','7402':'Unrefined copper','7403':'Refined copper & alloys','7404':'Copper waste & scrap','7408':'Copper wire','2601':'Iron ore & concentrate','7204':'Iron & steel scrap','3915':'Plastic waste & scrap','4707':'Recovered paper & cardboard','7602':'Aluminium waste & scrap','1001':'Wheat & meslin','8549':'Electrical & electronic waste','6309':'Worn clothing','4403':'Unprocessed wood','2709':'Crude oil','2701':'Coal'};
+export type WorldState={material:MaterialId;place:string;direction:'out'|'in';view:'flows'|'sites';form:string;product:string;siteType:'landfill'|'mining-area';estimates:boolean};
+export const defaults:WorldState={material:'paper',place:'BC',direction:'out',view:'flows',form:'4707',product:'',siteType:'landfill',estimates:false};
+export function readState(search:string,initial?:Partial<WorldState>):WorldState{const q=new URLSearchParams(search);const base={...defaults,...initial};const m=materials.find(m=>m.id===q.get('material'))||materials.find(m=>m.id===base.material)!;const validForms=m.codes as readonly string[];const place=q.get('place')||q.get('country')||base.place;return{...base,material:m.id,place:/^([A-Z]{3}|BC|SSI|WORLD)$/.test(place)?place:base.place,form:validForms.includes(q.get('form')||q.get('commodity')||'')?(q.get('form')||q.get('commodity'))!:validForms.includes(base.form)?base.form:validForms[0]||'',direction:q.get('direction')==='in'||q.get('direction')==='M'?'in':base.direction,view:q.get('view')==='sites'?'sites':base.view,product:/^\d{6}:[A-Z/]+$/.test(q.get('product')||'')?q.get('product')!:'',siteType:q.get('siteType')==='mining-area'?'mining-area':base.siteType,estimates:q.get('estimates')==='1'}}
+export function stateQuery(s:WorldState){return new URLSearchParams({...s,estimates:s.estimates?'1':'0'}).toString()}
+export function wasteId(material:MaterialId):WasteMaterial|undefined{const m=materials.find(x=>x.id===material)!;return 'waste' in m?m.waste:undefined}
+export interface Country{id:string;name:string;numeric:string;center?:[number,number]}
+export interface Flow{connection?:{mode:string;from:[number,number];to:[number,number]};id:string;origin:string;destination:string;originLabel:string;destinationLabel:string;amount:number;unit:string;year:number;estimated:boolean;basis:string;sourceUrl:string;record:Record<string,unknown>}
+export interface TradeRecord{id?:string;origin:string;destination:string;commodity:string;year:number;tonnes:number;reporter:string;reported_flow:'X'|'M';is_net_weight_estimated?:boolean;quantity_basis_note?:string;source_url?:string;[key:string]:unknown}
+export interface SiteFeature{type:'Feature';geometry:{type:'Point';coordinates:[number,number]};properties:{id:string;type:string;name:string;country:string;source_id:string;year:number|null;value:number|null;unit:string;metric:string;estimated?:boolean;state?:string;[key:string]:unknown}}
+let numberLocale='en';
+export function setNumberLocale(locale:string){try{new Intl.NumberFormat(locale);numberLocale=locale}catch{numberLocale='en'}}
+export function number(n:number,max=1){if(n>0&&n<0.000001)return '<0.000001';const precision=n!==0&&Math.abs(n)<1?Math.max(max,Math.min(6,Math.ceil(-Math.log10(Math.abs(n)))+1)):max;return new Intl.NumberFormat(numberLocale,{maximumFractionDigits:precision}).format(n)}
+export function compact(n:number){return n>=1e9?`${number(n/1e9,2)}bn`:n>=1e6?`${number(n/1e6,2)}m`:n>=1e3?`${number(n/1e3,1)}k`:number(n,2)}
+export function normalizeTrade(r:TradeRecord,names:Map<string,string>):Flow{return{id:r.id||`${r.reporter}-${r.reported_flow}-${r.origin}-${r.destination}-${r.commodity}-${r.year}`,origin:r.origin,destination:r.destination,originLabel:names.get(r.origin)||r.origin,destinationLabel:names.get(r.destination)||r.destination,amount:r.tonnes,unit:'tonnes · source net weight',year:r.year,estimated:!!r.is_net_weight_estimated,basis:r.quantity_basis_note||'UN Comtrade netWgt (kg) ÷ 1,000. Weight of the traded form; not a pure-material conversion.',sourceUrl:r.source_url||'https://comtradeplus.un.org/',record:r}}

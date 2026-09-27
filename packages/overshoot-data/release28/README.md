@@ -1,0 +1,7 @@
+# Release 28: featured journey evidence
+
+`public/data/v28/connections.json` copies the reviewed v17 relationship catalog and adds a public authority location for the Puerto Coloso loading pier. DIRECTEMAR's 30 July 2020 authorization gives the pier head at 23°45′24.63″ S, 70°27′54.02″ W (decimal longitude/latitude `[-70.4650056, -23.7568417]`). It identifies Minera Escondida Ltda as operator. This point is a pier location; the displayed Escondida–Coloso line remains schematic. The existing Antofagasta PortWatch point has not been reused for Coloso.
+
+`public/data/v28/operator-observations.json` adds three 2025 Hydro figures and three FY2026 BHP figures from primary operator reports. Paragominas bauxite production refers to that mine; Hydro alumina and bauxite residue figures cover controlled operations, so they cannot be turned into site-specific conversion rates. Escondida's copper payable in concentrate and cathodes are metal quantities on a 100% operation basis. They do not measure wet concentrate mass or tonnage on a particular pipeline, railway or port link. Each figure retains source, period, unit and scope for display and download.
+
+The relationship catalog and numeric observations intentionally remain separate: a documented connection has no inferred tonnage merely because a nearby operation reports production. Source links and page locators are included in each JSON file. Reviewed 25 September 2026.

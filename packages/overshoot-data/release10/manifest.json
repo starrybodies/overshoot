@@ -1,0 +1,77 @@
+{
+  "retrievedAt": "2026-09-21",
+  "files": [
+    {
+      "file": "basel-convention-2025.pdf",
+      "url": "https://www.basel.int/Portals/4/download.aspx?e=UNEP-CHW-IMPL-CONVTEXT-2025.English.pdf",
+      "sha256": "427c1b3a77232447a6adc8033ce01c4b75ad957bf40940bd5d0c114ccee68473",
+      "bytes": 1802847
+    },
+    {
+      "file": "basel-convention.pdf",
+      "url": "https://www.basel.int/Portals/4/Basel%20Convention/docs/text/BaselConventionText-e.pdf",
+      "sha256": "868b20b4bae9aa3bac7acd8bd7abf8edc3bc7ea2162572b44284de9db9efd416",
+      "bytes": 538069
+    },
+    {
+      "file": "bc-disposal.csv",
+      "url": "https://catalogue.data.gov.bc.ca/dataset/d21ed158-0ac7-4afd-a03b-ce22df0096bc/resource/d2648733-e484-40f2-b589-48192c16686b/download/bc_municipal_solid_waste_disposal.csv",
+      "sha256": "62f5b1b0c28ba4b12af55827600ee1b48e032d280e389980fbeb9f0f96b8eb65",
+      "bytes": 31940
+    },
+    {
+      "file": "bc-districts.geojson.gz",
+      "url": "https://openmaps.gov.bc.ca/geo/pub/WHSE_ADMIN_BOUNDARIES.EBC_REGIONAL_DISTRICTS_SP/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=pub:WHSE_ADMIN_BOUNDARIES.EBC_REGIONAL_DISTRICTS_SP&outputFormat=application/json&srsName=EPSG:4326&count=100",
+      "sha256": "224cff0c7f5beda120094c24a46df073a33ecc2285ea115590a894ff2d00abbe",
+      "bytes": 6062957
+    },
+    {
+      "file": "bc-map-code.R",
+      "url": "https://raw.githubusercontent.com/bcgov/msw-disposal-indicator/master/dataviz/data.R",
+      "sha256": "12f1a328da017dd9c755d67b218cbc614fbaae2b0b0878f6879f0ffbd2fd54b6",
+      "bytes": 5164
+    },
+    {
+      "file": "bc-report-links.csv",
+      "url": "https://raw.githubusercontent.com/bcgov/msw-disposal-indicator/master/data/rd_report_links.csv",
+      "sha256": "5ec06efccd9ca1a1943e4b7f01312825d657f14201ad0ef08e3acc1c095ac8e3",
+      "bytes": 5129
+    },
+    {
+      "file": "hartland-december-2025.pdf",
+      "url": "https://www.crd.ca/media/file/crd-hartland-tonnage-report-december2025pdf",
+      "sha256": "5691ba9bfe3180d8af9bd8efd546b5e39a20db66c32f8afc2f5b113cef45cf7b",
+      "bytes": 308021
+    }
+  ],
+  "basel_snapshots": [
+    {
+      "file": "basel-detail0.json",
+      "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/GetBCREPORT_Export_Import_Format2?SurveyYear=2023&bcTable=4&$format=json",
+      "retrievedAt": "2026-09-19",
+      "sha256": "e138454a8ed2db1563a092527edab63054536175d2b8c595204a843432370bef",
+      "source_rows": 7994,
+      "year": 2023,
+      "table": 4
+    },
+    {
+      "file": "basel-detail1.json",
+      "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/GetBCREPORT_Export_Import_Format2?SurveyYear=2024&bcTable=4&$format=json",
+      "retrievedAt": "2026-09-19",
+      "sha256": "1c02b257c0b7b5042a78eea5b488e12685ae9cea48d0bdc33d438e3edb16531a",
+      "source_rows": 9509,
+      "year": 2024,
+      "table": 4
+    }
+  ],
+  "derived_inputs": [
+    {
+      "path": "public/data/v3/metrics-latest.json",
+      "sha256": "93b4cc6dce2f716266fb4291d39e806210f8a95e2dc2a9af18a263472fab08e3"
+    },
+    {
+      "path": "node_modules/world-atlas/countries-50m.json",
+      "sha256": "04342cdc1e3016bcd7db1630de95684d67b79fe3c8c460321e87aef469502394"
+    }
+  ]
+}

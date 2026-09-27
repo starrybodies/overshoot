@@ -1,0 +1,501 @@
+[
+  {
+    "id": "faostat-forestry",
+    "title": "FAOSTAT · Forest products",
+    "publisher": "FAO",
+    "dataset": "Forestry Production and Trade (FO)",
+    "edition": "Bulk metadata updated 9 January 2026",
+    "publicationYear": 2026,
+    "coverageYears": "Annual; exact series coverage varies by product",
+    "url": "https://www.fao.org/faostat/en/#data/FO",
+    "citation": "FAO. Forestry Production and Trade (FO). Bulk metadata updated 9 January 2026. Source inspected 19 September 2026.",
+    "license": "CC BY 4.0 plus FAO Statistical Database Terms of Use; verify third-party exceptions and retain attribution/no endorsement.",
+    "retrievedAt": "2026-09-19",
+    "method": "Roundwood removals and production/trade of wood, pulp and paper products. Preserve primary versus processed product distinctions.",
+    "units": "Cubic metres and tonnes by product. Do not convert timber volume to tonnes without a documented density basis.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global countries and territories",
+    "temporalCoverage": "Annual; exact series coverage varies by product",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued. Product/unit adapter and selected snapshot not yet normalized.",
+    "sourceDocumentation": [
+      "https://www.fao.org/contact-us/terms/db-terms-of-use/en/",
+      "https://bulks-faostat.fao.org/production/datasets_E.json"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "faostat-food-balances",
+    "title": "FAOSTAT · Food supply and uses",
+    "publisher": "FAO",
+    "dataset": "Food Balances (FBS)",
+    "edition": "Bulk metadata updated 28 October 2025",
+    "publicationYear": 2025,
+    "coverageYears": "2010 onward; annual",
+    "url": "https://www.fao.org/faostat/en/#data/FBS",
+    "citation": "FAO. Food Balances (FBS). Bulk metadata updated 28 October 2025. Source inspected 19 September 2026.",
+    "license": "CC BY 4.0 plus FAO Statistical Database Terms of Use; verify third-party exceptions and retain attribution/no endorsement.",
+    "retrievedAt": "2026-09-19",
+    "method": "Country commodity balances separate food, feed, seed, processing, stocks, trade and losses. They do not measure all food waste after sale.",
+    "units": "Commodity-specific tonnes, nutrient/energy and per-person measures; preserve the element unit.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global countries/territories",
+    "temporalCoverage": "2010 onward; annual",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued. Resolve product overlap and exact mass-unit elements before integration.",
+    "sourceDocumentation": [
+      "https://www.fao.org/contact-us/terms/db-terms-of-use/en/",
+      "https://bulks-faostat.fao.org/production/datasets_E.json"
+    ],
+    "scenes": [
+      "extraction",
+      "flow",
+      "discard"
+    ]
+  },
+  {
+    "id": "faostat-supply-utilization",
+    "title": "FAOSTAT · Agricultural supply–use accounts",
+    "publisher": "FAO",
+    "dataset": "Supply Utilization Accounts (SCL)",
+    "edition": "Bulk metadata updated 1 November 2025",
+    "publicationYear": 2025,
+    "coverageYears": "2010 onward; annual",
+    "url": "https://www.fao.org/faostat/en/#data/SCL",
+    "citation": "FAO. Supply Utilization Accounts (SCL). Bulk metadata updated 1 November 2025. Source inspected 19 September 2026.",
+    "license": "CC BY 4.0 plus FAO Statistical Database Terms of Use; verify third-party exceptions and retain attribution/no endorsement.",
+    "retrievedAt": "2026-09-19",
+    "method": "Detailed crop/livestock commodity supply and utilization. Complements FBS; not an independent mass quantity to add to it.",
+    "units": "Source item/element units including tonnes; processed outputs must not be added to raw input totals.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global countries/territories",
+    "temporalCoverage": "2010 onward; annual",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued. Detailed balance adapter not yet normalized.",
+    "sourceDocumentation": [
+      "https://www.fao.org/contact-us/terms/db-terms-of-use/en/",
+      "https://bulks-faostat.fao.org/production/datasets_E.json"
+    ],
+    "scenes": [
+      "extraction",
+      "flow",
+      "discard"
+    ]
+  },
+  {
+    "id": "faostat-trade-matrix",
+    "title": "FAOSTAT · Agricultural trade matrix",
+    "publisher": "FAO",
+    "dataset": "Detailed Trade Matrix (TM)",
+    "edition": "Bulk metadata updated 23 December 2025",
+    "publicationYear": 2025,
+    "coverageYears": "Annual; commodity-specific coverage",
+    "url": "https://www.fao.org/faostat/en/#data/TM",
+    "citation": "FAO. Detailed Trade Matrix (TM). Bulk metadata updated 23 December 2025. Source inspected 19 September 2026.",
+    "license": "CC BY 4.0 plus FAO Statistical Database Terms of Use; verify third-party exceptions and retain attribution/no endorsement.",
+    "retrievedAt": "2026-09-19",
+    "method": "Physical and monetary bilateral food/agriculture trade. Compiled from UNSD, Eurostat and national sources with partner-data adjustments; overlaps Comtrade.",
+    "units": "Only reported quantity units may become physical flows. Never infer weight from trade value.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Reporting countries and partners worldwide",
+    "temporalCoverage": "Annual; commodity-specific coverage",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued. Large bulk archive; use a selected commodity/reporting subset and retain source flags.",
+    "sourceDocumentation": [
+      "https://www.fao.org/contact-us/terms/db-terms-of-use/en/",
+      "https://bulks-faostat.fao.org/production/datasets_E.json"
+    ],
+    "scenes": [
+      "flow"
+    ]
+  },
+  {
+    "id": "faostat-fishstat",
+    "title": "FishStat · Aquatic biomass",
+    "publisher": "FAO",
+    "dataset": "Fisheries and Aquaculture statistics",
+    "edition": "Current corporate statistical database",
+    "publicationYear": null,
+    "coverageYears": "Coverage depends on capture, aquaculture and trade collection",
+    "url": "https://www.fao.org/fishery/en/fishstat",
+    "citation": "FAO. Fisheries and Aquaculture statistics. Current corporate statistical database. Source inspected 19 September 2026.",
+    "license": "CC BY 4.0 plus FAO Statistical Database Terms of Use; verify third-party exceptions and retain attribution/no endorsement.",
+    "retrievedAt": "2026-09-19",
+    "method": "Separate wild capture from aquaculture and product trade; conversion between product weight and live weight must be explicit.",
+    "units": "Source series include live-weight tonnes and product-specific weights.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global countries/areas and fisheries reporting areas",
+    "temporalCoverage": "Coverage depends on capture, aquaculture and trade collection",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued; specific collection snapshot and live-weight conventions need validation.",
+    "sourceDocumentation": [
+      "https://www.fao.org/contact-us/terms/db-terms-of-use/en/"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "usgs-minerals-2026",
+    "title": "USGS · Mineral commodities",
+    "publisher": "U.S. Geological Survey",
+    "dataset": "Mineral Commodity Summaries 2026; Minerals Yearbook",
+    "edition": "2026 edition",
+    "publicationYear": 2026,
+    "coverageYears": "2026 report: five-year series; country world-production tables vary",
+    "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries",
+    "citation": "U.S. Geological Survey. Mineral Commodity Summaries 2026; Minerals Yearbook. 2026 edition. Source inspected 19 September 2026.",
+    "license": "USGS-authored federal data are public domain unless marked otherwise; third-party content retains its rights.",
+    "retrievedAt": "2026-09-19",
+    "method": "Commodity production, reserves, apparent consumption and recycling details for more than 90 minerals/materials. Gross ore, contained metal and processed product are different mass bases.",
+    "units": "Commodity-specific units (including metric tonnes and contained-metal tonnes); no universal ore conversion.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "United States and world country tables",
+    "temporalCoverage": "2026 report: five-year series; country world-production tables vary",
+    "status": "blocked",
+    "integrationStatus": "catalogued",
+    "access": "access-blocked",
+    "blocker": "Official report/catalogue verified. Data-release DOI returned HTTP 403 in this environment; no source workbook snapshot acquired.",
+    "sourceDocumentation": [
+      "https://doi.org/10.5066/P1WKQ63T",
+      "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf",
+      "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "bgs-world-minerals",
+    "title": "BGS · World mineral statistics",
+    "publisher": "British Geological Survey",
+    "dataset": "World Mineral Statistics",
+    "edition": "World Mineral Production 2020–2024",
+    "publicationYear": 2026,
+    "coverageYears": "Archive from 1913; machine-readable production from 1970",
+    "url": "https://www.bgs.ac.uk/mineralsuk/statistics/world-mineral-statistics/",
+    "citation": "British Geological Survey. World Mineral Statistics. World Mineral Production 2020–2024. Source inspected 19 September 2026.",
+    "license": "Non-commercial academic/research use permitted; third-party redistribution/commercial use requires applicable copyright-holder or NERC permission.",
+    "retrievedAt": "2026-09-19",
+    "method": "Country commodity production for over 70 mineral commodities. API suppresses some publication symbols into null/zero; do not interpret every null as missing or every zero as measured nil.",
+    "units": "Commodity-specific source units and ore/metal bases.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Countries worldwide",
+    "temporalCoverage": "Archive from 1913; machine-readable production from 1970",
+    "status": "blocked",
+    "integrationStatus": "catalogued",
+    "access": "license-required",
+    "blocker": "Catalogued. Redistribution terms must be resolved before publishing source tables.",
+    "sourceDocumentation": [
+      "https://www.bgs.ac.uk/mineralsuk/statistics/world-mineral-statistics/bgs-mineral-statistics-terms-and-conditions-ipr/",
+      "https://www.bgs.ac.uk/mineralsuk/statistics/world-mineral-statistics/world-mineral-statistics-data-download/"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "eurostat-ew-mfa",
+    "title": "Eurostat · Economy-wide material accounts",
+    "publisher": "European Commission / Eurostat",
+    "dataset": "env_ac_mfa; env_ac_mfadpo; env_ac_mfabi",
+    "edition": "Current Eurostat datasets",
+    "publicationYear": null,
+    "coverageYears": "Annual; exact range varies by country and table",
+    "url": "https://ec.europa.eu/eurostat/databrowser/view/env_ac_mfa/default/table?lang=en",
+    "citation": "European Commission / Eurostat. env_ac_mfa; env_ac_mfadpo; env_ac_mfabi. Current Eurostat datasets. Source inspected 19 September 2026.",
+    "license": "EU reuse policy: CC BY 4.0 unless a dataset carries a specific exception; confirm metadata at acquisition.",
+    "retrievedAt": "2026-09-19",
+    "method": "National statistical accounts of extraction, direct trade and DMC; companion datasets add processed outputs and balancing items. Regional quality cross-check of IRP, not additional global mass.",
+    "units": "Selected unit must be validated; thousand tonnes must be multiplied by 1,000 for normalized tonnes.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "EU and reporting European countries",
+    "temporalCoverage": "Annual; exact range varies by country and table",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-api",
+    "blocker": "Catalogued. Preserve reporting flags, residence/territory conventions and edition differences.",
+    "sourceDocumentation": [
+      "https://ec.europa.eu/eurostat/cache/metadata/en/env_ac_mfa_sims.htm",
+      "https://commission.europa.eu/legal-notice_en"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "eurostat-material-footprint",
+    "title": "Eurostat · Material footprints",
+    "publisher": "European Commission / Eurostat",
+    "dataset": "Material footprints / raw material equivalents (env_ac_rme)",
+    "edition": "Current Eurostat dataset",
+    "publicationYear": null,
+    "coverageYears": "Annual; country and model coverage varies",
+    "url": "https://ec.europa.eu/eurostat/cache/metadata/en/env_ac_rme_esms.htm",
+    "citation": "European Commission / Eurostat. Material footprints / raw material equivalents (env_ac_rme). Current Eurostat dataset. Source inspected 19 September 2026.",
+    "license": "EU reuse policy: CC BY 4.0 unless specifically excepted.",
+    "retrievedAt": "2026-09-19",
+    "method": "Modelled raw-material consumption based on material-flow accounts. Alternative to the IRP footprint model; do not splice versions or mix national and EU aggregate boundaries.",
+    "units": "Source unit selection required; retain model and scale metadata.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "EU and available European country estimates",
+    "temporalCoverage": "Annual; country and model coverage varies",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-api",
+    "blocker": "Catalogued. An independent model comparison requires matched years and definitions.",
+    "sourceDocumentation": [
+      "https://commission.europa.eu/legal-notice_en"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "oecd-material-resources",
+    "title": "OECD · Material resources",
+    "publisher": "OECD",
+    "dataset": "Material resources / material consumption",
+    "edition": "Current OECD Data Explorer",
+    "publicationYear": null,
+    "coverageYears": "Annual; coverage depends on metric/country",
+    "url": "https://www.oecd.org/en/data/indicators/material-consumption.html",
+    "citation": "OECD. Material resources / material consumption. Current OECD Data Explorer. Source inspected 19 September 2026.",
+    "license": "OECD data terms permit reuse with credit, including commercial use, except additional dataset/third-party restrictions.",
+    "retrievedAt": "2026-09-19",
+    "method": "DMC is extraction plus imports less exports. This overlaps IRP/Eurostat accounts and is useful for reconciliation and national quality flags.",
+    "units": "Indicator page uses tonnes/person; underlying table contains metric-specific units.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "OECD and available partner countries",
+    "temporalCoverage": "Annual; coverage depends on metric/country",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-api",
+    "blocker": "Catalogued. Exact versioned SDMX dataflow/export not pinned in this pass.",
+    "sourceDocumentation": [
+      "https://www.oecd.org/en/about/terms-conditions.html"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "un-sdg-materials",
+    "title": "UN SDG · Material footprint and consumption",
+    "publisher": "UN Statistics Division / UNEP",
+    "dataset": "SDG 12.2.1 and 12.2.2 (also 8.4.1/8.4.2)",
+    "edition": "Metadata updated 28 March 2025",
+    "publicationYear": 2025,
+    "coverageYears": "Metadata documents 2000–2023; database refreshes separately",
+    "url": "https://unstats.un.org/sdgs/dataportal",
+    "citation": "UN Statistics Division / UNEP. SDG 12.2.1 and 12.2.2 (also 8.4.1/8.4.2). Metadata updated 28 March 2025. Source inspected 19 September 2026.",
+    "license": "UN/UNEP source-specific terms; no Creative Commons licence inferred.",
+    "retrievedAt": "2026-09-19",
+    "method": "International reporting of MF/DMC totals and ratios. Country validation can replace global model values. Source metadata warns that some zero values reflect source missing-data imputation; do not treat them as verified absence.",
+    "units": "Metric and per-capita/per-GDP series have different units; select exact series code and units.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "About 160 footprint countries per metadata; coverage varies",
+    "temporalCoverage": "Metadata documents 2000–2023; database refreshes separately",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-api",
+    "blocker": "Catalogued. Overlaps IRP; should serve as a separately versioned validation source, not be merged silently.",
+    "sourceDocumentation": [
+      "https://unstats.un.org/sdgs/metadata/files/Metadata-12-02-01.pdf",
+      "https://unstats.un.org/SDGAPI/swagger/"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "exiobase-3-10-2",
+    "title": "EXIOBASE · Supply-chain footprints",
+    "publisher": "EXIOBASE consortium / XIO Sustainability Analytics",
+    "dataset": "EXIOBASE 3 EE-MRIO",
+    "edition": "3.10.2; published 13 May 2026",
+    "publicationYear": 2026,
+    "coverageYears": "Annual tables; core updates to 2022 and later nowcasts as documented",
+    "url": "https://zenodo.org/records/20051562",
+    "citation": "EXIOBASE consortium / XIO Sustainability Analytics. EXIOBASE 3 EE-MRIO. 3.10.2; published 13 May 2026. Source inspected 19 September 2026.",
+    "license": "Customized non-commercial academic CC-BY-SA-NC derivative for v3.9+; commercial license separate. Latest record supersedes stale general-homepage license wording.",
+    "retrievedAt": "2026-09-19",
+    "method": "Industry/product environmental input-output model. Monetary transaction matrices are not shipment-tonne data. Material extensions overlap IRP inputs and require matrix calculations to form consumption footprints.",
+    "units": "Economic core: million EUR; environmental extensions have independent units.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "44 countries and 5 rest-of-world regions",
+    "temporalCoverage": "Annual tables; core updates to 2022 and later nowcasts as documented",
+    "status": "blocked",
+    "integrationStatus": "catalogued",
+    "access": "license-required",
+    "blocker": "Catalogued. Current license does not establish permission for Gaia commercial-product redistribution.",
+    "sourceDocumentation": [
+      "https://exiobase.eu/"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "eora2",
+    "title": "Eora2 · Global supply-chain accounts",
+    "publisher": "KGM & Associates / Eora",
+    "dataset": "Eora2 Global Supply Chain Database",
+    "edition": "Current Eora2 release",
+    "publicationYear": null,
+    "coverageYears": "1990–2024",
+    "url": "https://www.eora.org/",
+    "citation": "KGM & Associates / Eora. Eora2 Global Supply Chain Database. Current Eora2 release. Source inspected 19 September 2026.",
+    "license": "Active subscription/license required; eligible academic use has separate free license. Eora1 licenses do not transfer.",
+    "retrievedAt": "2026-09-19",
+    "method": "MRIO model with national industry classifications and a reduced environmental satellite set compared with Eora1. Monetary flows cannot be represented as physical shipments.",
+    "units": "Economic-account and satellite-specific units; require licensed metadata.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "190 countries",
+    "temporalCoverage": "1990–2024",
+    "status": "blocked",
+    "integrationStatus": "catalogued",
+    "access": "license-required",
+    "blocker": "No licensed credential available. Do not acquire or redistribute restricted tables.",
+    "sourceDocumentation": [
+      "https://worldmrio.com/"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "ghsl-pop-built",
+    "title": "GHSL · Population and built environment",
+    "publisher": "European Commission Joint Research Centre",
+    "dataset": "GHS-POP, GHS-BUILT-S/V; GHS-WUP population and built-up projections",
+    "edition": "R2023A and R2025A",
+    "publicationYear": 2025,
+    "coverageYears": "1975–2030 at five-year steps; WUP projections extend to 2100",
+    "url": "https://human-settlement.emergency.copernicus.eu/datasets.php",
+    "citation": "European Commission Joint Research Centre. GHS-POP, GHS-BUILT-S/V; GHS-WUP population and built-up projections. R2023A and R2025A. Source inspected 19 September 2026.",
+    "license": "Open reuse with source acknowledgement under the published GHSL terms.",
+    "retrievedAt": "2026-09-19",
+    "method": "Spatial context and population exposure. Separate historical estimates from projections. Built area and volume are not material mass.",
+    "units": "People per cell; square metres; cubic metres. No conversion to tonnes without a separate calibrated model.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global raster grids",
+    "temporalCoverage": "1975–2030 at five-year steps; WUP projections extend to 2100",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued. Raster acquisition, aggregation and tiling needed; native IRP population remains the current denominator.",
+    "sourceDocumentation": [],
+    "scenes": [
+      "stock",
+      "discard",
+      "extraction"
+    ]
+  },
+  {
+    "id": "worldpop",
+    "title": "WorldPop · Population geography",
+    "publisher": "WorldPop / University of Southampton",
+    "dataset": "WorldPop population counts and density",
+    "edition": "Current WorldPop Hub",
+    "publicationYear": null,
+    "coverageYears": "Year and projection coverage vary by population product",
+    "url": "https://hub.worldpop.org/",
+    "citation": "WorldPop / University of Southampton. WorldPop population counts and density. Current WorldPop Hub. Source inspected 19 September 2026.",
+    "license": "CC BY 4.0, with dataset-specific citation.",
+    "retrievedAt": "2026-09-19",
+    "method": "Gridded demographic estimates for local exposure and per-person analysis. Select a consistent population product/year; do not substitute national gaps using regional values.",
+    "units": "Population counts or density as defined by each raster.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global country products; coverage varies",
+    "temporalCoverage": "Year and projection coverage vary by population product",
+    "status": "partial",
+    "integrationStatus": "catalogued",
+    "access": "open-download",
+    "blocker": "Catalogued. No gridded raster normalized; avoid changing the IRP series denominator silently.",
+    "sourceDocumentation": [],
+    "scenes": [
+      "extraction",
+      "discard"
+    ]
+  },
+  {
+    "id": "unsd-energy",
+    "title": "UN Energy · Fossil-fuel balances",
+    "publisher": "United Nations Statistics Division",
+    "dataset": "Energy Statistics Database / UNdata DF_UNDATA_ENERGY",
+    "edition": "Current UNSD annual release",
+    "publicationYear": null,
+    "coverageYears": "Full archive from 1950; public online series from 1990",
+    "url": "https://unstats.un.org/unsd/energystats/data/",
+    "citation": "United Nations Statistics Division. Energy Statistics Database / UNdata DF_UNDATA_ENERGY. Current UNSD annual release. Source inspected 19 September 2026.",
+    "license": "UNSD permits attributed non-profit reuse; other uses require contacting UNSD. Full archive is separately distributed.",
+    "retrievedAt": "2026-09-19",
+    "method": "Production, trade, conversion and end use of fuels, electricity and heat. Fossil fuel mass is only a subset; energy quantities do not equal tonnes.",
+    "units": "Native metric tonnes, volume, GWh or terajoules depending on series. Preserve original units.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "More than 230 countries/territories",
+    "temporalCoverage": "Full archive from 1950; public online series from 1990",
+    "status": "blocked",
+    "integrationStatus": "catalogued",
+    "access": "license-required",
+    "blocker": "Catalogued. Resolve redistribution terms and select physical-mass series before integration.",
+    "sourceDocumentation": [
+      "https://data.un.org/WS",
+      "https://data.un.org/SdmxBrowser"
+    ],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  },
+  {
+    "id": "gloria-mrio",
+    "title": "GLORIA · Global resource input-output accounts",
+    "publisher": "IELab / University of Sydney",
+    "dataset": "Global Resource Input-Output Assessment (GLORIA)",
+    "edition": "Release not pinned",
+    "publicationYear": null,
+    "coverageYears": "Exact release/year coverage requires archive metadata",
+    "url": "https://www.ielab.info/resources/gloria",
+    "citation": "IELab / University of Sydney. Global Resource Input-Output Assessment (GLORIA). Release not pinned. Source inspected 19 September 2026.",
+    "license": "License not verified for a specific release.",
+    "retrievedAt": "2026-09-19",
+    "method": "Candidate high-resolution MRIO for upstream resource attribution. Keep independent from direct physical shipment statistics and from the existing IRP national accounts.",
+    "units": "Economic matrix and satellite units must be acquired from release metadata.",
+    "transformations": "No quantitative transformation or browser data published from this catalog entry.",
+    "geographicCoverage": "Global model; release-specific geography not yet verified",
+    "temporalCoverage": "Exact release/year coverage requires archive metadata",
+    "status": "blocked",
+    "integrationStatus": "catalogued",
+    "access": "access-blocked",
+    "blocker": "Landing page reachable but metadata did not render in the research tool; no specific archive or values acquired.",
+    "sourceDocumentation": [],
+    "scenes": [
+      "extraction",
+      "flow"
+    ]
+  }
+]

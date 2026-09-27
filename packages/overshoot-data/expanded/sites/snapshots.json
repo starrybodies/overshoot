@@ -1,0 +1,65 @@
+[
+  {
+    "file": "raw/Meijer2021_midpoint_emissions.zip",
+    "url": "https://ndownloader.figshare.com/files/27807774",
+    "retrieved_at": "2026-09-19",
+    "bytes": 707627,
+    "sha256": "26863ef86ecfe3082d52bc6aaeb569e9c09811904c2357b90e67d5d06db98b40"
+  },
+  {
+    "file": "raw/meijer-figshare-metadata.json",
+    "url": "https://api.figshare.com/v2/articles/14515590",
+    "retrieved_at": "2026-09-19",
+    "bytes": 4702,
+    "sha256": "e09eed4057c9718d478af7a3435e89b9478e8723ee15e64f8dc8071b734999ff"
+  },
+  {
+    "file": "raw/meijer-paper.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8087412/fullTextXML",
+    "retrieved_at": "2026-09-19",
+    "bytes": 161086,
+    "sha256": "844edaf7a003fbe2ae4c48fc59c0c91bc552ccd349139869006cbc6e6867b70c"
+  },
+  {
+    "file": "raw/global_mining_polygons_v2.gpkg",
+    "url": "https://download.pangaea.de/dataset/942325/files/global_mining_polygons_v2.gpkg",
+    "retrieved_at": "2026-09-19",
+    "bytes": 24657920,
+    "sha256": "6936e2743a21ba952b4de3e4b6f77099a0aa4479f7e2639d9d1b0787876a3ea1"
+  },
+  {
+    "file": "raw/mining-dataset.txt",
+    "url": "https://doi.pangaea.de/10.1594/PANGAEA.942325?format=textfile",
+    "retrieved_at": "2026-09-19",
+    "bytes": 6584,
+    "sha256": "7186c34dea050dc2c6160ef86353e6a9b54e3b6f94b1d046a10947a0152d771c"
+  },
+  {
+    "file": "raw/landfilllmopdata.xlsx",
+    "url": "https://www.epa.gov/system/files/documents/2024-09/landfilllmopdata.xlsx",
+    "retrieved_at": "2026-09-19",
+    "bytes": 768750,
+    "sha256": "2fc1d72ca9c022fb3ce9225f3b4ae5466b0b9c28b7d7efe7a10d2ac1415a0aa6"
+  },
+  {
+    "file": "raw/tailings-locations.json",
+    "url": "https://tailing.grida.no/api/taillingLoc?format=json",
+    "retrieved_at": "2026-09-19",
+    "bytes": 349458,
+    "sha256": "030488b1709681ea6fa7a4da77cefd5f7b2450b898d2bd312276558cd23691d4"
+  },
+  {
+    "file": "raw/tailings-disclosures.json",
+    "url": "https://tailing.grida.no/api/tailings_all?format=json",
+    "retrieved_at": "2026-09-19",
+    "bytes": 2661702,
+    "sha256": "ffd8957978461ca72629e4829f50d384b207d49e9f90ea9816e88c41bc8ff350"
+  },
+  {
+    "file": "raw/HydroWASTE_v10.zip",
+    "url": "https://ndownloader.figshare.com/files/31910714",
+    "retrieved_at": "2026-09-19",
+    "bytes": 2443159,
+    "sha256": "6e19d8f31d95d533b2b29056b823eeb915d933fa22ea090f234dc38f6427d044"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "reviewedAt": "2026-09-25",
+  "method": "Operator production figures describe an operation or a reporting group. They do not measure the amount moved on an individual connection. Units are metric tonnes, except a route length in kilometres. Fiscal years and calendar years are not interchangeable.",
+  "networks": {
+    "para-aluminium": {
+      "title": "From bauxite to aluminium and residue",
+      "period": "Calendar 2025",
+      "summary": "Hydro identifies the Paragominas mine, the 244 km bauxite pipeline, Alunorte refinery, Albras smelter and Alunorte residue storage. Production and waste observations below have different reporting boundaries.",
+      "observations": [
+        {"label":"Bauxite produced at Paragominas","value":10496000,"unit":"t","scope":"Paragominas mine · 2025","source":"hydro-2025"},
+        {"label":"Alumina produced","value":5458000,"unit":"t","scope":"Hydro controlled operations · 2025; not Alunorte alone","source":"hydro-2025"},
+        {"label":"Bauxite residue generated","value":5566000,"unit":"t","scope":"Hydro controlled operations · 2025; not a measured Alunorte deposit inflow","source":"hydro-2025"}
+      ],
+      "qualification": "These figures are context at different boundaries, not a mass balance for the three mapped links. The source does not publish how many tonnes crossed each link."
+    },
+    "escondida-ports": {
+      "title": "Copper leaves Escondida in two forms",
+      "period": "FY2026 · year ended 30 June 2026",
+      "summary": "BHP reports separate Escondida production for copper payable in concentrate and electrowon cathodes. Its property disclosure names the pipeline and rail export connections, but does not assign this production to a specific port.",
+      "observations": [
+        {"label":"Copper payable in concentrate","value":1046800,"unit":"t Cu","scope":"Escondida · 100% operation basis · FY2026","source":"bhp-fy2026"},
+        {"label":"Electrowon copper cathodes","value":214400,"unit":"t Cu","scope":"Escondida · 100% operation basis · FY2026","source":"bhp-fy2026"},
+        {"label":"Total copper production","value":1261200,"unit":"t Cu","scope":"Escondida · 100% operation basis · FY2026; BHP interest 57.5%","source":"bhp-fy2026"}
+      ],
+      "qualification": "These are copper metal production quantities, not wet concentrate mass, port exports or volumes carried by each line on the map."
+    }
+  },
+  "sources": {
+    "hydro-2025": {"publisher":"Norsk Hydro","title":"Integrated Annual Report 2025 · bauxite, alumina and waste reporting","url":"https://www.hydro.com/globalassets/06-investors/reports-and-presentations/annual-report/ar-2025/integrated-annual-report-2025.pdf","pages":"255–257"},
+    "bhp-fy2026": {"publisher":"BHP","title":"Operational review for year ended 30 June 2026 · Escondida production and sales","url":"https://www.bhp.com/-/media/documents/media/reports-and-presentations/2026/260716_bhpoperationalreviewfortheyearended30june2026.pdf","pages":"7–8"}
+  }
+}

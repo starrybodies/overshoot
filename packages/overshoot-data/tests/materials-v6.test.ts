@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {gunzipSync} from 'node:zlib';
+import {createHash} from 'node:crypto';
+import {bcQuantity,initialMaterialState,materialQuery,readMaterialState,selectBC,selectCopper,type BCObservation,type CopperObservation} from '../../../apps/overshoot/material-model';
+const root='public/data/v6/';
+const read=(p:string)=>JSON.parse((p.endsWith('.gz')?gunzipSync(fs.readFileSync(root+p)):fs.readFileSync(root+p)).toString());
+test('v6 publication hashes match every acquired artifact',()=>{for(const a of read('manifest.json').artifacts){const b=fs.readFileSync(root+a.path);assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256)}});
+test('BC copper remains contained metal, and only compatible product/unit records are selected',()=>{const rows=selectBC(read('bc/26.json.gz'),initialMaterialState);assert.equal(rows.length,7);const china=rows.find(r=>r.destination==='CN')!;assert.equal(china.quantity,119751288);assert.equal(bcQuantity(china,china.quantity).value,119751.288);assert.match(bcQuantity(china,china.quantity).unit,/contained metal/);assert(rows.every(r=>r.hs6==='260300'&&r.unit==='KGM'));assert.equal(bcQuantity({...china,unit:'NMB',unitLabel:'Number'},4).value,4)});
+test('all BC product/unit selections and source rows are preserved without incompatible totals',()=>{const c=read('bc/catalog.json.gz');assert.equal(c.products.length,3140);const chapters=new Set<string>(c.products.map((p:{hs6:string})=>p.hs6.slice(0,2)));const rows:BCObservation[]=[...chapters].flatMap(c=>read(`bc/${c}.json.gz`));assert.equal(rows.length,19205);assert(rows.every(r=>r.sourceId===c.source.id));assert.equal(new Set(rows.map(r=>r.id)).size,rows.length)});
+test('copper directions, reporter and estimate flags remain independent',()=>{const d=read('copper/CAN.json.gz');const all:CopperObservation[]=[...d.flows,...d.estimated_flows];const x=selectCopper(all,initialMaterialState);assert.equal(x.length,12);assert(x.every(r=>r.reporter==='CAN'&&r.reported_flow==='X'&&!r.is_net_weight_estimated));const expanded=selectCopper(all,{...initialMaterialState,estimates:true});assert.equal(expanded.length,19);assert(expanded.some(r=>r.is_net_weight_estimated));const imports=selectCopper(all,{...initialMaterialState,direction:'M'});assert(imports.every(r=>r.destination==='CAN'));assert.equal(read('copper/COD.json.gz').flows.length,0)});
+test('material selections including home product and destinations round-trip in URL',()=>{const s={...initialMaterialState,product:'440710',unit:'MTQ',country:'CHL',direction:'M' as const,estimates:true,destination:'a-record',family:'forest',search:'wood & paper'};assert.deepEqual(readMaterialState(materialQuery(s)),s)});

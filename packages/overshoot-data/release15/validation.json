@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "facilityRecords": 342962,
+  "addedNativePointSources": 105118,
+  "traceRecords": 124954,
+  "productionRecords": 394404,
+  "productionSourceRowsChecked": 6149,
+  "checks": [
+    "Valid coordinate bounds",
+    "Unique source IDs; provider overlap retained",
+    "Country and global index/detail agreement",
+    "Original point-source estimates, gas units and restricted native fields",
+    "Original production value, units, flags, notes and source row",
+    "No interpolation or parent/child aggregation"
+  ]
+}

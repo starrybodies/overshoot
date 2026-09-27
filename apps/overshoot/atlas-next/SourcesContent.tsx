@@ -1,0 +1,36 @@
+'use client';
+import {useState} from 'react';
+import {ArrowRight,ArrowUpRight,Search} from 'lucide-react';
+import {useMaterialArtifact} from '../material-data';
+import {references} from './data';
+import FeedRegister from './FeedRegister';
+import type {EnergyCatalog} from './EnergyMap';
+import {compact,number} from './common';
+import type {AtlasState} from './atlasState';
+type Source={status?:string;id:string;title:string;publisher:string;coverageYears?:string;publicationYear?:number;url:string;method?:string;units?:string;license?:string;retrievedAt?:string;citation?:string;limitations?:string[];transformations?:string;downloadUrls?:string[]};
+const datasets:Array<{title:string;count:string;detail:string;destination:Partial<AtlasState>}>= [
+ {title:'Facilities & footprints',count:'342,962 source records · 8 source families',detail:'Complete retained country indexes, original fields, measurement bases and source licenses.',destination:{view:'facilities',kind:'landfill',place:'CAN'}},
+ {title:'Open data & MCP',count:'25 read-only tools · JSON API',detail:'Query the shared evidence layer, measured mine-to-plant deliveries, material networks and the research source observatory.',destination:{view:'data'}},
+ {title:'BC glass deposit returns',count:'28 return regions · 2025',detail:'Returned beverage bottles, estimated weight and reported end uses, separate from food jars and dairy refillables.',destination:{view:'places',place:'BC'}},
+ {title:'Municipal waste',count:'217 countries · 262 city records',detail:'Composition, collection and treatment, with field-level source notes.',destination:{view:'places',placeView:'waste'}},
+ {title:'Material history',count:'55 years · 12,705 annual records',detail:'Extraction, material use and footprints from 1970 to 2024.',destination:{view:'places',place:'CAN'}},
+ {title:'Wood, pulp & paper',count:'38 forest products · 149,462 observations',detail:'1970–2024 histories in native units, with source flags and no interpolation.',destination:{view:'materials',material:'wood',layer:'production',form:'4403'}},
+ {title:'Food & natural fibres',count:'46 food & textile-input products · 244,942 observations',detail:'1970–2024 histories for selected crops, livestock products and natural fibres.',destination:{view:'materials',material:'food',layer:'production',form:'1001'}},
+];
+export default function SourcesContent({onGo}:{onGo:(update:Partial<AtlasState>)=>void}){
+ const [query,setQuery]=useState('');
+ const maritime=useMaterialArtifact<{count:number;observations:number}>('/data/v16/maritime/catalog.json');
+ const energy=useMaterialArtifact<EnergyCatalog>('/data/v13/energy/catalog.json');
+ const data=useMaterialArtifact<Source[]>('/data/v16/sources.json');
+ const term=query.toLowerCase();
+ const records=(data.data||[]).filter(s=>(s.title+' '+s.publisher+' '+(s.method||'')).toLowerCase().includes(term));
+ const guides=references.filter(s=>(s.title+' '+s.publisher+' '+(s.coverage||'')).toLowerCase().includes(term));
+ return <><p>Follow a figure back to the dataset, its definition and its original source. The reporting year can differ from the publication date.</p>
+  <div className="oa-source-datasets">{maritime.data&&<button onClick={()=>onGo({view:'materials',material:'fuels',form:'2709',layer:'journey',place:'WORLD',mapPorts:true,mapShipping:true})}><span><strong>Ports & shipping activity</strong><b>{number(maritime.data.count,0)} locations · {number(maritime.data.observations,0)} monthly observations</b><small>IMF PortWatch visits and modeled cargo, September 2025–August 2026. World Bank historical AIS activity, 2015–2021, as a separate density layer.</small></span><ArrowRight size={17}/></button>}{energy.data&&<button onClick={()=>onGo({view:'materials',material:'fuels',form:'2709',layer:'production',place:'SAU',energyRegion:'middle-east'})}><span><strong>Oil, gas & coal</strong><b>{compact(energy.data.numericRecords)} observations · {energy.data.measures.length} measures</b><small>EIA annual histories and JODI monthly oil reports. Production, consumption and trade retain their own definitions.</small></span><ArrowRight size={17}/></button>}{datasets.map(d=><button key={d.title} onClick={()=>onGo(d.destination)}><span><strong>{d.title}</strong><b>{d.count}</b><small>{d.detail}</small></span><ArrowRight size={17}/></button>)}</div>
+  <div className="oa-coverage"><strong>What coverage means here</strong><ul className="oa-source-coverage"><li><b>Place selection:</b> 250 countries and territories. Availability varies by dataset.</li><li><b>Fuels:</b> oil production for 215 countries / areas in 2025; natural gas production for 213 in 2024. Monthly reporting is less complete.</li><li><b>Waste trade:</b> 103 reporting countries across 2023–2024; these are reporting sections, not shipment tracking.</li><li><b>Commodity trade:</b> selected reporters and products, with reporter coverage shown in each view.</li><li><b>Local evidence:</b> World Bank city records, 27 BC disposal areas and documented Canadian operations. City boundaries differ.</li><li><b>Facility locations:</b> a point establishes a reported location. It does not establish a connection to every nearby material flow.</li></ul></div>
+  <label className="oa-inline-search"><Search size={17}/><input aria-label="Filter sources" placeholder="Find a publisher, material or dataset" value={query} onChange={e=>setQuery(e.target.value)}/></label>
+  <FeedRegister query={query} onGo={onGo}/><h3 className="oa-source-heading">Full source catalogue</h3><p className="oa-small">Open a dataset’s notes for its units, transformations and limits.</p>
+  {records.map(s=><details className="oa-source-detail" key={s.id}><summary><strong>{s.title}</strong><span className="oa-feed-status">{s.status==='available'?'Retained source':s.status==='partial'?'Partial coverage':s.status==='blocked'?'Acquisition incomplete':'Not yet integrated'}</span><small>{s.publisher}{s.coverageYears?' · '+s.coverageYears:s.publicationYear?' · '+s.publicationYear:''}</small></summary><div>{s.method&&<p>{s.method}</p>}{s.units&&<p><b>Units:</b> {s.units}</p>}{s.transformations&&<p><b>How it is prepared:</b> {s.transformations}</p>}{s.limitations?.length&&<ul>{s.limitations.map(l=><li key={l}>{l}</li>)}</ul>}{s.retrievedAt&&<p className="oa-small">Acquired {s.retrievedAt} · {s.license||'See original source terms'}</p>}<a className="oa-text-link" href={s.url} target="_blank" rel="noreferrer">Open the primary source<ArrowUpRight size={16}/></a>{s.downloadUrls?.slice(0,2).map((u,i)=><a className="oa-text-link" key={u} href={u} target="_blank" rel="noreferrer">Original data file{(s.downloadUrls?.length||0)>1?' '+(i+1):''}<ArrowUpRight size={14}/></a>)}{s.citation&&<p className="oa-source-citation">{s.citation}</p>}</div></details>)}
+  <h3 className="oa-source-heading">Operators, reports and material guides</h3>{guides.map(r=><a className="oa-source-row" key={r.id} href={r.url} target="_blank" rel="noreferrer"><span><strong>{r.title}</strong><small>{r.publisher}{r.year?' · '+r.year:''}</small>{r.coverage&&<p>{r.coverage}</p>}</span><ArrowUpRight size={17}/></a>)}{!records.length&&!guides.length&&<p>No additional catalogue or guide entries match this search.</p>}
+ </>;
+}

@@ -1,0 +1,9 @@
+{$MODEL_DOMAIN} {
+  @inference path /v1/*
+  handle @inference {
+    reverse_proxy model:8000
+  }
+  handle {
+    respond "Not found" 404
+  }
+}

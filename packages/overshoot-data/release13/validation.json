@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "numericObservations": 135334,
+  "missingMarkersPreserved": 14770,
+  "reportedZerosPreserved": 61039,
+  "negativeSourceValues": [],
+  "measures": 20,
+  "countriesAcrossHistory": 218,
+  "middleEastChecks": 16,
+  "sourceValueChecks": "Every published row checked against its original EIA series or JODI CSV row."
+}

@@ -1,0 +1,18 @@
+{
+  "material":"copper",
+  "geography":"United States",
+  "measure":"Copper and copper alloy products by end-use sector",
+  "publication":"USGS Mineral Commodity Summaries 2026, Copper",
+  "referenceYear":"Not separately specified for these shares in the report",
+  "source":"https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf",
+  "attribution":"USGS, citing the Copper Development Association",
+  "unit":"percent",
+  "sectors":[
+    {"name":"Building construction","share":42},
+    {"name":"Electrical and electronic products","share":23},
+    {"name":"Transportation equipment","share":18},
+    {"name":"Consumer and general products","share":10},
+    {"name":"Industrial machinery and equipment","share":7}
+  ],
+  "qualification":"A U.S. product-use distribution, not evidence that a mapped mine supplies a sector or a global consumption share. These percentages are reported by USGS from CDA; they are not a 2025 shipment route."
+}

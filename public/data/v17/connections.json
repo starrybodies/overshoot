@@ -1,0 +1,539 @@
+{
+  "release": "17",
+  "reviewedAt": "2026-09-23",
+  "method": "Curated relationships explicitly described by operators or public authorities. Location records are independently matched by facility identity, not proximity. A stated relationship is not independently audited shipment tracing or evidence of current service. Missing quantities remain null. Coverage is a small set of documented networks, not a global supply-chain inventory.",
+  "geometry": "Lines are schematic endpoint connections. They do not follow roads, railways, pipelines or navigable sea routes. Line width does not encode quantity.",
+  "sources": [
+    {
+      "id": "hydro-paragominas",
+      "title": "Paragominas",
+      "publisher": "Hydro",
+      "url": "https://www.hydro.com/en/global/about-hydro/hydro-worldwide/americas/brazil/paragominas/",
+      "publishedAt": null,
+      "reviewedAt": "2026-09-23",
+      "locator": "Operation description: crushed bauxite, 244 km pipeline, Alunorte.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "hydro-alunorte",
+      "title": "Alunorte",
+      "publisher": "Hydro",
+      "url": "https://www.hydro.com/br/global/about-hydro/a-hydro-no-mundo/americas/brasil/barcarena/alunorte/",
+      "publishedAt": null,
+      "reviewedAt": "2026-09-23",
+      "locator": "Operation description: Paragominas supply; alumina supplied to Albras; refinery residue storage. Portuguese source.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "qal-products",
+      "title": "Our products",
+      "publisher": "Queensland Alumina Limited",
+      "url": "https://qal.au/who-we-are/our-products/",
+      "publishedAt": null,
+      "reviewedAt": "2026-09-23",
+      "locator": "Bauxite and alumina sections: Weipa feedstock shipped to Gladstone.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "msq-weipa",
+      "title": "Weipa port procedures",
+      "publisher": "Maritime Safety Queensland",
+      "url": "https://www.msq.qld.gov.au/shipping/port-procedures/port-procedures-weipa",
+      "publishedAt": null,
+      "reviewedAt": "2026-09-23",
+      "locator": "Port description: bauxite exports to Gladstone refineries.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "rio-boyne",
+      "title": "Boyne Smelters Limited",
+      "publisher": "Rio Tinto",
+      "url": "https://www.riotinto.com/operations/anz/gladstone/boyne-smelters-ltd",
+      "publishedAt": null,
+      "reviewedAt": "2026-09-23",
+      "locator": "Opening operation description: QAL supplies alumina through a conveyor.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "lkab-narvik",
+      "title": "The ore trains are rolling towards Narvik again",
+      "publisher": "LKAB",
+      "url": "https://lkab.com/en/news/the-ore-trains-are-rolling-towards-narvik-again/",
+      "publishedAt": "2024-02-20",
+      "reviewedAt": "2026-09-23",
+      "locator": "Kiruna departures and iron-ore pellet trains to Narvik.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "bhp-coloso",
+      "title": "Colossal achievement in Coloso",
+      "publisher": "BHP",
+      "url": "https://www.bhp.com/es/news/articles/2018/06/colossal-achievement-in-coloso",
+      "publishedAt": "2018-06-27",
+      "reviewedAt": "2026-09-23",
+      "locator": "Copper concentrate stored and loaded onto ships at Coloso.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "bhp-escondida-20f",
+      "title": "BHP annual report / Form 20-F 2025",
+      "publisher": "BHP",
+      "url": "https://www.bhp.com/-/media/documents/investors/annual-reports/2025/bhpform20f2025.pdf",
+      "publishedAt": "2025",
+      "reviewedAt": "2026-09-23",
+      "locator": "Printed page 186 / PDF page 199, Escondida property: concentrate pipelines to Coloso; cathode rail transport to Antofagasta and Mejillones.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    },
+    {
+      "id": "novelis-jlr",
+      "title": "Aluminium solutions for the Jaguar XE",
+      "publisher": "Novelis",
+      "url": "https://investors.novelis.com/news-events/press-releases/detail/220/novelis-supplies-innovative-aluminium-solutions-for-new-jaguar-xe",
+      "publishedAt": "2014-12-09",
+      "reviewedAt": "2026-09-23",
+      "locator": "Paragraph beginning Since 2013: JLR aluminium manufacturing scrap recycled at Latchford.",
+      "reuse": "Operator facts paraphrased with attribution. No open license established for the publisher’s text."
+    }
+  ],
+  "networks": [
+    {
+      "id": "para-aluminium",
+      "material": "aluminium",
+      "title": "Bauxite to aluminium in Pará",
+      "region": "Brazil",
+      "summary": "A bauxite slurry pipeline feeds a refinery, which supplies a nearby smelter and stores its refining residue.",
+      "nodes": [
+        {
+          "id": "paragominas",
+          "name": "Paragominas mine",
+          "country": "BRA",
+          "stage": "extraction",
+          "coordinates": [
+            -47.72868,
+            -3.252055
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-42233048",
+            "kind": "mining"
+          }
+        },
+        {
+          "id": "alunorte",
+          "name": "Alunorte refinery",
+          "country": "BRA",
+          "stage": "refining",
+          "coordinates": [
+            -48.729556,
+            -1.545554
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-54502800",
+            "kind": "industry"
+          }
+        },
+        {
+          "id": "albras",
+          "name": "Albras smelter",
+          "country": "BRA",
+          "stage": "manufacturing",
+          "coordinates": [
+            -48.735802,
+            -1.557275
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-3672954",
+            "kind": "industry"
+          }
+        },
+        {
+          "id": "alunorte-residue",
+          "name": "Alunorte residue deposits DRS 1 / DRS 2",
+          "country": "BRA",
+          "stage": "disposal",
+          "coordinates": null,
+          "locationNote": "The relationship is documented; a sufficiently specific map location has not been retained.",
+          "locationSource": null
+        }
+      ],
+      "links": [
+        {
+          "id": "para-pipeline",
+          "from": "paragominas",
+          "to": "alunorte",
+          "materialForm": "Crushed bauxite slurry",
+          "mode": "pipeline",
+          "claim": "Hydro identifies a 244 km pipeline carrying bauxite from Paragominas to Alunorte.",
+          "sourceIds": [
+            "hydro-paragominas"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "Undated operating description; reviewed September 2026",
+          "geometry": "schematic",
+          "scope": "The source establishes the connection and transport mode, not its current throughput or the precise pipe alignment."
+        },
+        {
+          "id": "para-alumina",
+          "from": "alunorte",
+          "to": "albras",
+          "materialForm": "Alumina",
+          "mode": "unspecified",
+          "claim": "Hydro identifies Albras as a recipient of part of Alunorte’s alumina output.",
+          "sourceIds": [
+            "hydro-alunorte"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "Undated operating description; reviewed September 2026",
+          "geometry": "schematic",
+          "scope": "The receiving plant is named. The cited page does not specify the transport equipment or delivered quantity."
+        },
+        {
+          "id": "para-residue",
+          "from": "alunorte",
+          "to": "alunorte-residue",
+          "materialForm": "Washed and filtered refining residue",
+          "mode": "unspecified",
+          "claim": "Hydro describes washing and filtering refinery residue before storage in its DRS 1 and DRS 2 deposits.",
+          "sourceIds": [
+            "hydro-alunorte"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "Undated operating description; reviewed September 2026",
+          "geometry": "unmapped",
+          "scope": "Industrial residue from refining, not end-of-life aluminium. Deposit boundaries are not mapped here."
+        }
+      ],
+      "gaps": [
+        "Downstream product manufacturers and end users are not identified.",
+        "No source links this metal to a particular recovered product.",
+        "Residue deposits are documented but not assigned guessed coordinates."
+      ]
+    },
+    {
+      "id": "queensland-aluminium",
+      "material": "aluminium",
+      "title": "Bauxite by sea, alumina by conveyor",
+      "region": "Australia",
+      "summary": "Weipa’s bauxite reaches the Gladstone refinery by ship; a conveyor then supplies Boyne’s aluminium smelter.",
+      "nodes": [
+        {
+          "id": "weipa",
+          "name": "Weipa port",
+          "country": "AUS",
+          "stage": "transport",
+          "coordinates": [
+            141.8764767,
+            -12.6538801
+          ],
+          "locationNote": "PortWatch port-area anchor, not a particular berth.",
+          "locationSource": "imf-portwatch",
+          "portId": "port1387"
+        },
+        {
+          "id": "qal",
+          "name": "Queensland Alumina refinery",
+          "country": "AUS",
+          "stage": "refining",
+          "coordinates": [
+            151.289951,
+            -23.867048
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-54502660",
+            "kind": "industry"
+          }
+        },
+        {
+          "id": "boyne",
+          "name": "Boyne smelter",
+          "country": "AUS",
+          "stage": "manufacturing",
+          "coordinates": [
+            151.333843,
+            -23.922565
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-3672944",
+            "kind": "industry"
+          }
+        }
+      ],
+      "links": [
+        {
+          "id": "weipa-qal",
+          "from": "weipa",
+          "to": "qal",
+          "materialForm": "Bauxite",
+          "mode": "ship",
+          "claim": "QAL identifies Weipa as its bauxite origin and shipping to Gladstone as the transport leg. The maritime authority identifies Weipa as a bauxite export port.",
+          "sourceIds": [
+            "qal-products",
+            "msq-weipa"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "Undated operating descriptions; reviewed September 2026",
+          "geometry": "schematic",
+          "scope": "The origin marker represents the export port, not an individual mine. The line joins endpoints and does not depict a navigable sea route."
+        },
+        {
+          "id": "qal-boyne",
+          "from": "qal",
+          "to": "boyne",
+          "materialForm": "Alumina",
+          "mode": "conveyor",
+          "claim": "Rio Tinto describes a conveyor connection supplying alumina from Queensland Alumina to Boyne Smelters.",
+          "sourceIds": [
+            "rio-boyne"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "Undated operating description; reviewed September 2026",
+          "geometry": "schematic",
+          "scope": "The source identifies a physical connection. The diagram does not reproduce its surveyed alignment."
+        }
+      ],
+      "gaps": [
+        "The source does not isolate the contributing Weipa mine or pit.",
+        "Specific manufactured products, customers and waste destinations are not traced."
+      ]
+    },
+    {
+      "id": "kiruna-narvik",
+      "material": "steel",
+      "title": "Iron-ore pellets from Kiruna to Narvik",
+      "region": "Sweden → Norway",
+      "summary": "An operator-described rail connection carries processed iron ore across the border to an export port.",
+      "nodes": [
+        {
+          "id": "kiruna",
+          "name": "Kiruna mining and processing area",
+          "country": "SWE",
+          "stage": "extraction",
+          "coordinates": [
+            20.181001,
+            67.841016
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-43158503",
+            "kind": "mining"
+          }
+        },
+        {
+          "id": "narvik",
+          "name": "Narvik port",
+          "country": "NOR",
+          "stage": "transport",
+          "coordinates": [
+            17.41102647,
+            68.42231695
+          ],
+          "locationNote": "PortWatch port-area anchor, not a particular berth.",
+          "locationSource": "imf-portwatch",
+          "portId": "port796"
+        }
+      ],
+      "links": [
+        {
+          "id": "kiruna-rail",
+          "from": "kiruna",
+          "to": "narvik",
+          "materialForm": "Iron-ore pellets",
+          "mode": "rail",
+          "claim": "LKAB reports trains departing Kiruna for Narvik and describes the route carrying pellet-plant output.",
+          "sourceIds": [
+            "lkab-narvik"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "20 February 2024",
+          "geometry": "schematic",
+          "scope": "The mapped origin is a mine-area anchor, not a particular loading siding. Historical reporting does not establish today’s service or traffic volume."
+        }
+      ],
+      "gaps": [
+        "The source does not assign each shipment to a named steelworks.",
+        "Steelmaking, product use and scrap recovery are not traced by this record."
+      ]
+    },
+    {
+      "id": "escondida-ports",
+      "material": "copper",
+      "title": "Copper leaves Escondida in two forms",
+      "region": "Chile",
+      "summary": "Concentrate travels to Coloso by pipeline; copper cathodes use rail connections to export ports.",
+      "nodes": [
+        {
+          "id": "escondida",
+          "name": "Escondida mining and processing area",
+          "country": "CHL",
+          "stage": "extraction",
+          "coordinates": [
+            -69.073414,
+            -24.269995
+          ],
+          "locationNote": "Source facility point; boundary and internal production units are not resolved.",
+          "locationSource": "climate-trace-2025",
+          "facility": {
+            "id": "trace-45944563",
+            "kind": "mining"
+          }
+        },
+        {
+          "id": "coloso",
+          "name": "Coloso port",
+          "country": "CHL",
+          "stage": "transport",
+          "coordinates": null,
+          "locationNote": "The relationship is documented; a sufficiently specific map location has not been retained.",
+          "locationSource": null
+        },
+        {
+          "id": "antofagasta",
+          "name": "Antofagasta port",
+          "country": "CHL",
+          "stage": "transport",
+          "coordinates": [
+            -70.40489792,
+            -23.65094409
+          ],
+          "locationNote": "PortWatch port-area anchor, not a particular berth.",
+          "locationSource": "imf-portwatch",
+          "portId": "port56"
+        },
+        {
+          "id": "mejillones",
+          "name": "Mejillones port",
+          "country": "CHL",
+          "stage": "transport",
+          "coordinates": [
+            -70.39596391,
+            -23.08182757
+          ],
+          "locationNote": "PortWatch port-area anchor, not a particular berth.",
+          "locationSource": "imf-portwatch",
+          "portId": "port728"
+        }
+      ],
+      "links": [
+        {
+          "id": "escondida-coloso",
+          "from": "escondida",
+          "to": "coloso",
+          "materialForm": "Copper concentrate slurry",
+          "mode": "pipeline",
+          "claim": "BHP’s property disclosure identifies Escondida-owned concentrate pipelines to Coloso. Its port description documents loading concentrate onto ships.",
+          "sourceIds": [
+            "bhp-escondida-20f",
+            "bhp-coloso"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "2025 property disclosure; 2018 port description",
+          "geometry": "unmapped",
+          "scope": "Coloso is retained as a separate endpoint. The nearby Antofagasta port marker is not substituted for it."
+        },
+        {
+          "id": "escondida-antofagasta",
+          "from": "escondida",
+          "to": "antofagasta",
+          "materialForm": "Copper cathodes",
+          "mode": "rail",
+          "claim": "BHP’s property disclosure identifies rail transport of copper cathodes to Antofagasta.",
+          "sourceIds": [
+            "bhp-escondida-20f"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "2025 property disclosure",
+          "geometry": "schematic",
+          "scope": "Cathodes and concentrate are separate material forms; no quantities or shares are assigned."
+        },
+        {
+          "id": "escondida-mejillones",
+          "from": "escondida",
+          "to": "mejillones",
+          "materialForm": "Copper cathodes",
+          "mode": "rail",
+          "claim": "BHP’s property disclosure also identifies Mejillones as an export port for cathodes moved by rail.",
+          "sourceIds": [
+            "bhp-escondida-20f"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "2025 property disclosure",
+          "geometry": "schematic",
+          "scope": "This is a stated connection, not the railway alignment or a particular consignment."
+        }
+      ],
+      "gaps": [
+        "A verified Coloso point is not retained; its pipeline is documented in the list but not drawn.",
+        "Receiving smelters, fabricators and consumers are not established."
+      ]
+    },
+    {
+      "id": "jlr-aluminium-recovery",
+      "material": "aluminium",
+      "title": "Car-body scrap returns to aluminium production",
+      "region": "United Kingdom",
+      "summary": "Novelis describes recovering Jaguar Land Rover manufacturing scrap at Latchford for automotive sheet feedstock.",
+      "nodes": [
+        {
+          "id": "jlr",
+          "name": "Jaguar Land Rover manufacturing network",
+          "country": "GBR",
+          "stage": "manufacturing",
+          "coordinates": null,
+          "locationNote": "The relationship is documented; a sufficiently specific map location has not been retained.",
+          "locationSource": null
+        },
+        {
+          "id": "latchford",
+          "name": "Novelis Latchford recycling plant",
+          "country": "GBR",
+          "stage": "recovery",
+          "coordinates": null,
+          "locationNote": "The relationship is documented; a sufficiently specific map location has not been retained.",
+          "locationSource": null
+        }
+      ],
+      "links": [
+        {
+          "id": "jlr-scrap",
+          "from": "jlr",
+          "to": "latchford",
+          "materialForm": "Aluminium manufacturing scrap",
+          "mode": "unspecified",
+          "claim": "Novelis describes a recycling arrangement operating since 2013 that converts JLR aluminium production scrap into material for automotive sheet.",
+          "sourceIds": [
+            "novelis-jlr"
+          ],
+          "evidence": "operator-reported",
+          "quantity": null,
+          "period": "9 December 2014",
+          "geometry": "unmapped",
+          "scope": "This concerns manufacturing scrap. It does not establish recycling of vehicles after consumer use, a particular press shop or a direct delivery of finished sheet from Latchford."
+        }
+      ],
+      "gaps": [
+        "The cited announcement does not name the individual originating press shops or transport mode.",
+        "No facility coordinates are guessed from a company headquarters.",
+        "A return of finished sheet to a specific plant is not mapped."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '../vendor/shadcn-tailwind-4.13.0.css';
+:root{color-scheme:light;--background:#f9f8f3;--foreground:#222e27;--card:#fff;--card-foreground:#222e27;--popover:#fff;--popover-foreground:#222e27;--primary:#216347;--primary-foreground:#fff;--secondary:#efeee6;--secondary-foreground:#283b2e;--muted:#efeee6;--muted-foreground:#657267;--accent:#e8eee2;--accent-foreground:#214c35;--border:#d9ded3;--input:#d9ded3;--ring:#2a714f;--radius:.5rem;--display:'Space Grotesk Variable',sans-serif;--body:'DM Sans Variable',sans-serif;--number:'IBM Plex Mono',monospace}
+@theme inline{--color-background:var(--background);--color-foreground:var(--foreground);--color-card:var(--card);--color-card-foreground:var(--card-foreground);--color-popover:var(--popover);--color-popover-foreground:var(--popover-foreground);--color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);--color-secondary:var(--secondary);--color-secondary-foreground:var(--secondary-foreground);--color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);--color-accent:var(--accent);--color-accent-foreground:var(--accent-foreground);--color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);--font-sans:var(--body)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--background);color:var(--foreground);font-family:var(--body);font-size:16px}button,a,input,select{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer;font:inherit}button:disabled{cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid #2a714f;outline-offset:4px}a{color:inherit}svg{flex-shrink:0}button svg{pointer-events:none}::selection{background:#d8e5c7;color:#193c29}input{min-width:0;font:inherit}button{color:inherit}pre{white-space:pre-wrap;overflow-wrap:anywhere}summary{cursor:pointer}
+
+/* Shared color system, including controls rendered outside the app root. */
+:root {
+ --oa-bg:#f8faf6;--oa-panel:#ffffff;--oa-surface:#eef3ea;--oa-raised:#e1ebd9;
+ --oa-ink:#203b2f;--oa-muted:#5b6f5f;--oa-line:#d9e2d5;--oa-accent:#285d42;
+ --oa-on-accent:#ffffff;--oa-warn:#85562e;--oa-warn-bg:#f5f0e5;
+ --oa-map-water:#e8eeeb;--oa-map-land:#f4f4ed;--oa-map-border:#bbc7bf;
+ --oa-globe-water:#f0f4ed;--oa-globe-land:#dce5d5;--oa-globe-connected:#a8bc99;
+ --oa-globe-border:#91a987;--oa-globe-flow:#ac542e;
+ --background:var(--oa-bg);--foreground:var(--oa-ink);--card:var(--oa-panel);--card-foreground:var(--oa-ink);
+ --popover:var(--oa-panel);--popover-foreground:var(--oa-ink);--primary:var(--oa-accent);--primary-foreground:var(--oa-on-accent);
+ --secondary:var(--oa-surface);--secondary-foreground:var(--oa-ink);--muted:var(--oa-surface);--muted-foreground:var(--oa-muted);
+ --accent:var(--oa-raised);--accent-foreground:var(--oa-ink);--border:var(--oa-line);--input:var(--oa-line);--ring:var(--oa-accent);
+}
+html.dark {
+ color-scheme:dark;--oa-bg:#101914;--oa-panel:#17231b;--oa-surface:#202e23;--oa-raised:#2d402c;
+ --oa-ink:#edf2e8;--oa-muted:#a4b7a4;--oa-line:#344839;--oa-accent:#c3dfa4;
+ --oa-on-accent:#172c1e;--oa-warn:#dab88d;--oa-warn-bg:#302b21;
+ --oa-map-water:#18271f;--oa-map-land:#2c3b30;--oa-map-border:#506351;
+ --oa-globe-water:#13271e;--oa-globe-land:#294435;--oa-globe-connected:#5c7c50;
+ --oa-globe-border:#678366;--oa-globe-flow:#f4bb7c;
+}
+html { scroll-behavior:smooth;scroll-padding-top:108px }
+@media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto} }
+.oa-system-page{max-width:860px;margin:0 auto;padding:clamp(32px,8vw,96px) 24px;min-height:100dvh;color:var(--oa-ink)}
+.oa-system-brand{display:block;font:800 27px 'Syne Variable',sans-serif;letter-spacing:-.06em;text-decoration:none;margin-bottom:clamp(64px,12vh,140px)}
+.oa-system-label{font:12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--oa-muted)}
+.oa-system-page h1{font:500 clamp(38px,6vw,68px)/1.05 'Space Grotesk Variable',sans-serif;letter-spacing:-.055em;margin:24px 0}
+.oa-system-page p{font-size:18px;line-height:1.7;max-width:560px;color:var(--oa-muted)}
+.oa-system-page nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.oa-system-page nav a,.oa-system-page nav button{padding:12px 18px;border:1px solid var(--oa-line);border-radius:6px;text-decoration:none;background:var(--oa-panel);font-size:15px}
+.oa-system-page nav>:first-child{background:var(--oa-accent);color:var(--oa-on-accent)}

@@ -1,0 +1,25 @@
+{
+  "id": "worldbank-commercial-ais",
+  "title": "Commercial shipping activity",
+  "publisher": "World Bank",
+  "url": "https://datacatalog.worldbank.org/search/dataset/0037580/global-shipping-traffic-density",
+  "download": "https://datacatalogfiles.worldbank.org/ddh-published/0037580/5/DR0045405/shipdensity_commercial_.zip",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "period": "January 2015\u2013February 2021",
+  "retrievedAt": "2026-09-23",
+  "sourceSha256": "0cfdce41d9934982bbc8f16bd92ce7545cc088839327cbaa9b0ed1469dda31e8",
+  "sourceBytes": 480353369,
+  "sourceResolutionDegrees": 0.005,
+  "displayMaxZoom": 4,
+  "tileTemplate": "/data/v16/maritime/density/{z}/{x}/{y}.png",
+  "scale": "Log-scaled relative density; clipped at the positive-cell 99.5th percentile",
+  "displayScale": 30833806.0,
+  "method": "Source hourly AIS position reports, including stationary vessels. Source overviews averaged to a display grid, reprojected to Web Mercator, then averaged for lower zoom levels. Color is a relative visual index, not a quantity of ships or cargo.",
+  "limits": [
+    "Historical activity, not live vessel positions.",
+    "Generalized to a 4,096-pixel-wide world raster; do not interpret individual berths or vessels.",
+    "AIS coverage varies. Blank cells do not establish that no shipping occurred.",
+    "Activity is not specific to the material selected in OVERSHOOT."
+  ]
+}

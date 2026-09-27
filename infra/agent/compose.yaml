@@ -1,0 +1,35 @@
+services:
+  model:
+    image: vllm/vllm-openai:latest
+    restart: unless-stopped
+    gpus: all
+    ipc: host
+    command:
+      - Qwen/Qwen3-8B
+      - --served-model-name
+      - Qwen/Qwen3-8B
+      - --max-model-len
+      - "8192"
+    environment:
+      VLLM_API_KEY: ${MODEL_API_KEY:?Set MODEL_API_KEY in a private .env}
+      HF_HOME: /root/.cache/huggingface
+    volumes:
+      - hf-cache:/root/.cache/huggingface
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - model
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      MODEL_DOMAIN: ${MODEL_DOMAIN:?Set MODEL_DOMAIN in a private .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+volumes:
+  hf-cache:
+  caddy-data:
+  caddy-config:

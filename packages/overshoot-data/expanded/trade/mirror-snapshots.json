@@ -1,0 +1,8 @@
+[
+  {
+    "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=156&cmdCode=2603&flowCode=M&partnerCode=152&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+    "file": "mirror_china_chile_copper_2024.json",
+    "retrievedAt": "2026-09-19T15:46:49.089117+00:00",
+    "sha256": "61c5715f138809175650f02b0ba9d4e419ee276eb1f5a2136fdefe8151de96d5"
+  }
+]

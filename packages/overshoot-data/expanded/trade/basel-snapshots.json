@@ -1,0 +1,20 @@
+[
+  {
+    "file": "basel-detail0.json",
+    "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/GetBCREPORT_Export_Import_Format2?SurveyYear=2023&bcTable=4&$format=json",
+    "retrievedAt": "2026-09-19",
+    "sha256": "e138454a8ed2db1563a092527edab63054536175d2b8c595204a843432370bef",
+    "source_rows": 7994,
+    "year": 2023,
+    "table": 4
+  },
+  {
+    "file": "basel-detail1.json",
+    "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/GetBCREPORT_Export_Import_Format2?SurveyYear=2024&bcTable=4&$format=json",
+    "retrievedAt": "2026-09-19",
+    "sha256": "1c02b257c0b7b5042a78eea5b488e12685ae9cea48d0bdc33d438e3edb16531a",
+    "source_rows": 9509,
+    "year": 2024,
+    "table": 4
+  }
+]

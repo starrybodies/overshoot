@@ -1,0 +1,33 @@
+{
+  "checks_passed": true,
+  "comtrade_flow_count": 4963,
+  "comtrade_reporters": 13,
+  "comtrade_partner_count": 214,
+  "comtrade_commodities": 13,
+  "basel_record_count": 17314,
+  "basel_route_year_count": 1152,
+  "basel_reporter_count": 103,
+  "basel_exclusions": {
+    "reported_zero_amount": 2,
+    "self_partner": 182,
+    "unsupported_or_missing_country": 3,
+    "missing_amount": 2
+  },
+  "comtrade_exclusions": {
+    "noncountry_or_aggregate_partner": 178,
+    "estimated_or_unknown_weight": 739,
+    "missing_weight": 115,
+    "inactive_reporter_query_skipped": 5
+  },
+  "checks": [
+    "Raw snapshots SHA256",
+    "Unique physical-trade keys",
+    "Non-estimated net-weight flag",
+    "Exact kg-to-tonne conversion",
+    "No world/self/ambiguous partners",
+    "Source registry resolution",
+    "Unique Basel survey sections",
+    "Exact Basel raw tonne values",
+    "Exact route aggregation and lineage"
+  ]
+}

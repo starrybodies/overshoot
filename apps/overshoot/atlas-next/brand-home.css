@@ -1,0 +1,58 @@
+/* The striated O is crossed by a route that leaves its boundary. The lettering
+   stays editorial and quiet beside a dense research interface. */
+.oa-release .oa-wordmark{display:block;font-family:'Newsreader Variable',Georgia,serif;font-optical-sizing:auto;font-weight:690;font-size:1.81rem;line-height:1;letter-spacing:-.058em;font-kerning:normal;text-transform:uppercase}
+.oa-release .oa-brand{gap:11px}
+.oa-release .oa-brand-mark{width:43px;height:43px;flex:none}
+.oa-release .oa-brand small{font-size:11px;line-height:1.35;letter-spacing:.006em;margin-top:5px}
+.oa-release .oa-footer-brand .oa-wordmark{font-size:1.35rem;letter-spacing:-.06em}
+.dark .oa-release .oa-brand-mark{background:transparent;padding:0;border-radius:0;filter:brightness(2.15) saturate(.82)}
+
+.oa .oa-home-method{padding:58px 0 59px;border-top:1px solid var(--oa-line);border-bottom:1px solid var(--oa-line)}
+.oa .oa-home-method-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(270px,.65fr);gap:8%;align-items:end;margin-bottom:38px}
+.oa .oa-home-method h2{font:500 clamp(30px,3.4vw,49px)/1.1 'Space Grotesk Variable',sans-serif;letter-spacing:-.055em;max-width:760px;margin-top:12px}
+.oa .oa-home-method-head>p{font-size:16px;line-height:1.7;color:var(--oa-muted);max-width:440px;padding-bottom:3px}
+.oa .oa-home-chain{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:0;padding:0;border-left:1px solid var(--oa-line)}
+.oa .oa-home-chain li{display:flex;flex-direction:column;min-height:263px;padding:17px 22px 4px;border-right:1px solid var(--oa-line)}
+.oa .oa-home-chain-num{font:500 12px/1.4 'IBM Plex Mono',monospace;color:var(--oa-accent);margin-bottom:24px}
+.oa .oa-home-chain h3{font:550 clamp(19px,1.6vw,23px)/1.25 'Space Grotesk Variable',sans-serif;letter-spacing:-.04em;margin-bottom:10px}
+.oa .oa-home-chain p{font-size:14px;line-height:1.65;color:var(--oa-muted);margin:0 0 18px}
+.oa .oa-home-chain a{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;text-decoration:none;color:var(--oa-accent);width:max-content;max-width:100%}
+.oa .oa-home-chain a:hover{text-decoration:underline;text-underline-offset:4px}
+.oa .oa-home-questions{padding:57px 0 62px}
+.oa .oa-home-questions .oa-home-section-heading{margin-bottom:23px}
+.oa .oa-home-questions .oa-home-section-heading h2{max-width:850px}
+.oa .oa-home-question-grid{gap:26px 38px}
+.oa .oa-home-question-grid>a{min-height:252px}
+.oa .oa-home-question-grid h3{max-width:590px}
+.oa .oa-home-question-grid p{max-width:590px}
+@media(max-width:1140px){.oa .oa-home-chain{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 0}.oa .oa-home-chain li{min-height:242px}.oa .oa-home-chain li:nth-child(3){border-right:0}.oa .oa-home-chain li:nth-child(4){border-left:1px solid var(--oa-line);margin-left:-1px}}
+@media(max-width:700px){.oa-release .oa-wordmark{font-size:1.48rem;letter-spacing:-.065em}.oa-release .oa-brand-mark{width:38px;height:38px}.oa .oa-home-method{padding:38px 0 38px}.oa .oa-home-method-head{grid-template-columns:1fr;gap:15px;margin-bottom:22px}.oa .oa-home-method h2{font-size:34px}.oa .oa-home-method-head>p{font-size:15px}.oa .oa-home-chain{display:block;border:0;border-top:1px solid var(--oa-line)}.oa .oa-home-chain li,.oa .oa-home-chain li:nth-child(4){margin:0;min-height:0;padding:18px 0 20px;border:0;border-bottom:1px solid var(--oa-line)}.oa .oa-home-chain-num{margin-bottom:9px}.oa .oa-home-chain p{margin-bottom:12px}.oa .oa-home-questions{padding:38px 0}.oa .oa-home-question-grid>a{min-height:0}}
+@media(max-width:370px){.oa-release .oa-wordmark{font-size:1.31rem}.oa-release .oa-brand-mark{width:34px;height:34px}.oa-release .oa-brand small{font-size:10px}}
+/* Match the approved orbit-arrow identity in both themes. */
+.oa-release .oa-wordmark{font-family:'Space Grotesk Variable',sans-serif;font-weight:700;font-size:1.66rem;letter-spacing:.035em;line-height:1.03}
+.oa-release .oa-footer-brand .oa-wordmark{font-size:1.28rem;letter-spacing:.035em}
+.dark .oa-release .oa-brand-mark{filter:brightness(1.45) saturate(1.12)}
+
+/* The supplied lockup is one composition: keep its letterforms and orbit exact.
+   Its original canvas has generous white space, cropped here without altering the artwork. */
+.oa-release .oa-brand{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;min-width:210px}
+.oa-release .oa-brand-lockup{position:relative;display:block;width:218px;height:29px;overflow:hidden;background:#fff;flex:none}
+.oa-release .oa-brand-lockup img{position:absolute;width:249px;height:125px;max-width:none;left:-16px;top:-51px}
+.oa-release .oa-brand small{margin-top:3px;font-size:10px;line-height:1.2;letter-spacing:.035em}
+.oa-release .oa-footer-lockup{position:relative;display:block;width:175px;height:23px;overflow:hidden;background:#fff;flex:none}
+.oa-release .oa-footer-lockup img{position:absolute;width:200px;height:100px;max-width:none;left:-13px;top:-41px}
+.oa-release .oa-footer-brand{align-items:center;gap:9px}
+.dark .oa-release .oa-brand-lockup,.dark .oa-release .oa-footer-lockup{background:transparent;mix-blend-mode:screen}
+.dark .oa-release .oa-brand-lockup img,.dark .oa-release .oa-footer-lockup img{filter:invert(1) hue-rotate(180deg)}
+@media(max-width:600px){.oa-release .oa-brand{min-width:0}.oa-release .oa-brand-lockup{width:175px;height:23px}.oa-release .oa-brand-lockup img{width:200px;height:100px;left:-13px;top:-41px}.oa-release .oa-brand small{font-size:9px}}
+
+.oa-about-chain>p{font-size:16px;line-height:1.7;max-width:760px}
+.oa-about-chain ol{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:24px 0;padding:0;border:1px solid var(--oa-line);border-radius:9px;overflow:hidden}
+.oa-about-chain li{padding:22px;border-right:1px solid var(--oa-line);background:var(--oa-panel)}
+.oa-about-chain li:last-child{border-right:0}
+.oa-about-chain li strong{display:block;font:600 18px/1.3 'Space Grotesk Variable',sans-serif;letter-spacing:-.025em;margin-bottom:12px}
+.oa-about-chain li span{display:block;font-size:14px;line-height:1.65;color:var(--oa-muted)}
+.oa-about-chain-actions{display:flex;flex-wrap:wrap;gap:12px}
+.oa-about-section a:not(.oa-button){color:var(--oa-accent);text-underline-offset:3px}
+@media(max-width:900px){.oa-about-chain ol{grid-template-columns:repeat(2,minmax(0,1fr))}.oa-about-chain li:nth-child(2){border-right:0}.oa-about-chain li:nth-child(-n+2){border-bottom:1px solid var(--oa-line)}}
+@media(max-width:600px){.oa-about-chain ol{display:block}.oa-about-chain li{border-right:0;border-bottom:1px solid var(--oa-line)}.oa-about-chain li:last-child{border-bottom:0}.oa-about-chain-actions .oa-button{width:100%;justify-content:center}}

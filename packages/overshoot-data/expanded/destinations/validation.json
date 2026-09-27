@@ -1,0 +1,655 @@
+{
+  "tests_passed": 4,
+  "canonical_observations": 20502,
+  "non_missing_values": 20450,
+  "missing_with_status": 52,
+  "source_observations": {
+    "eurostat-waste-treatment": 5034,
+    "eurostat-weee": 15468
+  },
+  "treatment_closure": {
+    "complete_groups": 461,
+    "incomplete_groups": 123,
+    "rounding_differences": [
+      {
+        "country": "ALB",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ALB",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "BEL",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "BGR",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "BGR",
+        "year": 2020,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "BIH",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "CYP",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "DNK",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "DNK",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ESP",
+        "year": 2020,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "ESP",
+        "year": 2020,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "EST",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 3
+      },
+      {
+        "country": "EST",
+        "year": 2014,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 5
+      },
+      {
+        "country": "EST",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2012,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2014,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2016,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -10000
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -10000
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -10000
+      },
+      {
+        "country": "EU27_2020",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "EU28",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "EU28",
+        "year": 2012,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -10000
+      },
+      {
+        "country": "EU28",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -10000
+      },
+      {
+        "country": "EU28",
+        "year": 2014,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "EU28",
+        "year": 2014,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 10000
+      },
+      {
+        "country": "HRV",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "HRV",
+        "year": 2020,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "HRV",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "HUN",
+        "year": 2012,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "HUN",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 2
+      },
+      {
+        "country": "HUN",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "ISL",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "ISL",
+        "year": 2012,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ISL",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -4
+      },
+      {
+        "country": "LTU",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 2
+      },
+      {
+        "country": "LTU",
+        "year": 2020,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LTU",
+        "year": 2020,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -2
+      },
+      {
+        "country": "LTU",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "LTU",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "LVA",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LVA",
+        "year": 2010,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "LVA",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LVA",
+        "year": 2014,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 2
+      },
+      {
+        "country": "LVA",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LVA",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LVA",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MKD",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MKD",
+        "year": 2010,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -2
+      },
+      {
+        "country": "MKD",
+        "year": 2014,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MKD",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "MKD",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "MKD",
+        "year": 2020,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "MKD",
+        "year": 2020,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MKD",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MLT",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MLT",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MLT",
+        "year": 2014,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "MLT",
+        "year": 2016,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "MLT",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "POL",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "POL",
+        "year": 2018,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "POL",
+        "year": 2022,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "POL",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "PRT",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 2
+      },
+      {
+        "country": "ROU",
+        "year": 2020,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ROU",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "SRB",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "SRB",
+        "year": 2010,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -3
+      },
+      {
+        "country": "SRB",
+        "year": 2012,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "SRB",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "SVK",
+        "year": 2018,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "SVK",
+        "year": 2022,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "SVN",
+        "year": 2020,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "TUR",
+        "year": 2010,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "TUR",
+        "year": 2012,
+        "scope": "TOTAL",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "TUR",
+        "year": 2012,
+        "scope": "TOT_X_MIN",
+        "reported_total_minus_components_tonnes": -1
+      }
+    ],
+    "maximum_absolute_difference": 10000
+  },
+  "weee_destination_closure": {
+    "complete_groups": 167,
+    "incomplete_groups": 17,
+    "rounding_differences": [
+      {
+        "country": "AUT",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "BEL",
+        "year": 2020,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "BEL",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "CYP",
+        "year": 2022,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "CZE",
+        "year": 2021,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "CZE",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ESP",
+        "year": 2020,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "FIN",
+        "year": 2020,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "FIN",
+        "year": 2021,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "FRA",
+        "year": 2020,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "FRA",
+        "year": 2021,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "HUN",
+        "year": 2019,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ITA",
+        "year": 2021,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ITA",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "LTU",
+        "year": 2019,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "LTU",
+        "year": 2022,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "LUX",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LVA",
+        "year": 2019,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "LVA",
+        "year": 2021,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "MLT",
+        "year": 2022,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "NOR",
+        "year": 2021,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "NOR",
+        "year": 2022,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "NOR",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "PRT",
+        "year": 2022,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "PRT",
+        "year": 2023,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ROU",
+        "year": 2019,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      },
+      {
+        "country": "ROU",
+        "year": 2020,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": -1
+      },
+      {
+        "country": "SVK",
+        "year": 2018,
+        "scope": "EE6",
+        "reported_total_minus_components_tonnes": 1
+      }
+    ],
+    "maximum_absolute_difference": 1
+  },
+  "note": "Native totals are preserved. Rounding differences are documented, not filled into invented fates; incomplete confidential splits stay incomplete."
+}

@@ -1,0 +1,72 @@
+{
+  "version": "irp-gmfd-2024-retrieved-2026-09-19-v2",
+  "normalized_unit": "metric tonnes",
+  "source_ids": [
+    "circle-cgr-2025",
+    "comtrade",
+    "elhacham-2020",
+    "irp-2026",
+    "natural-earth",
+    "unep-gwmo-2024",
+    "worldbank-waw3-2026"
+  ],
+  "files": {
+    "scenes.json": {
+      "bytes": 143491,
+      "sha256": "673b00540249a4a3d7aaf17b9aceb4a482c7f38e8f60bb635fed81b937020b03"
+    },
+    "geography.json": {
+      "bytes": 447477,
+      "sha256": "15c06e23906266204bac8ff21cda2c8ad6d55c052b206e75aed650d65fd37300"
+    },
+    "sources.json": {
+      "bytes": 12316,
+      "sha256": "928c751b35d9490a148a03a433c6abf475c524f31f9e4e8433e63b4d6ca15acf"
+    },
+    "extraction.json": {
+      "bytes": 960246,
+      "sha256": "d11e3f5aa50aadadfd40f4d1558c106d380b197b08a93dbd44cdfd057a936f31"
+    },
+    "graticule.json": {
+      "bytes": 27662,
+      "sha256": "2fc59dd58203ef7a517d66ceabf0c90f5583ab2562533118a1d1026434491257"
+    }
+  },
+  "raw_snapshots": {
+    "scenes/anthropogenic_mass_2015.xlsx": {
+      "bytes": 20853,
+      "sha256": "22fbcabbc6e8b1443b357c0bec5125819b1e835386bd89c763342a93df99ba1a"
+    },
+    "scenes/anthropogenic_mass_composition.xlsx": {
+      "bytes": 21140,
+      "sha256": "17b72e1b2aa30d9f713d029707520076bff53b23b6a9632b8a2deb4ed429b25c"
+    },
+    "scenes/anthropogenic_mass_2037.xlsx": {
+      "bytes": 11011,
+      "sha256": "98cb622b72d2298781414a31fc7c82871d8dc1a316b0e11eacff9d5fd15a1ad3"
+    },
+    "scenes/biomass_dry.xlsx": {
+      "bytes": 7740,
+      "sha256": "5e2a1703793d2f859b4fc9c2bfe30d6ded99b0e98aa587c080331fcd6684f500"
+    },
+    "scenes/waw3-country.xlsx": {
+      "bytes": 7268712,
+      "sha256": "42ec5fb213bbf79b9f6d860c24da3d19fc7f7e0ed274fdea9d73791e356172ee"
+    },
+    "scenes/biomass_dry_uc.xlsx": {
+      "bytes": 7328,
+      "sha256": "cffaf4bc9067748b88c2090d3a0515375213a38979bb8829f23c1fac2564659b"
+    },
+    "irp/irp_population_de_ratios.csv": {
+      "bytes": 462853,
+      "sha256": "3cdbd45f9221bbc3dee437e91ed0e94599e389c887817888780daa758ef87761"
+    },
+    "irp/irp_de_4classes_export.csv": {
+      "bytes": 444375,
+      "sha256": "60779224616b80582c6c49115322a23abef308add755dab83acf88eb3728097b"
+    }
+  },
+  "records": 12815,
+  "countries": 232,
+  "build_seconds": 1.528
+}

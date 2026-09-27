@@ -1,0 +1,280 @@
+{
+  "eurostat-circularity-2025": {
+    "records": 405,
+    "countries": 27,
+    "years": [
+      2010,
+      2024
+    ],
+    "metrics": [
+      "circular_material_use_rate"
+    ]
+  },
+  "eurostat-municipal-2026": {
+    "records": 4697,
+    "countries": 37,
+    "years": [
+      2010,
+      2024
+    ],
+    "metrics": [
+      "municipal_dsp_i",
+      "municipal_dsp_i_rcv_e",
+      "municipal_dsp_l_oth",
+      "municipal_gen",
+      "municipal_prp_reu",
+      "municipal_rcv_e",
+      "municipal_rcy",
+      "municipal_rcy_c_d",
+      "municipal_rcy_m",
+      "municipal_trt"
+    ]
+  },
+  "eurostat-packaging-2026": {
+    "records": 11524,
+    "countries": 29,
+    "years": [
+      2018,
+      2023
+    ],
+    "metrics": [
+      "packaging_gen_w1501",
+      "packaging_gen_w150101",
+      "packaging_gen_w150102",
+      "packaging_gen_w150103",
+      "packaging_gen_w150104",
+      "packaging_gen_w15010401",
+      "packaging_gen_w15010402",
+      "packaging_gen_w150107",
+      "packaging_gen_w150199",
+      "packaging_rcv_e_pac_w1501",
+      "packaging_rcv_e_pac_w150101",
+      "packaging_rcv_e_pac_w150102",
+      "packaging_rcv_e_pac_w150103",
+      "packaging_rcv_e_pac_w150104",
+      "packaging_rcv_e_pac_w15010401",
+      "packaging_rcv_e_pac_w150199",
+      "packaging_rcv_oth_w1501",
+      "packaging_rcv_oth_w150101",
+      "packaging_rcv_oth_w150102",
+      "packaging_rcv_oth_w150103",
+      "packaging_rcv_oth_w150104",
+      "packaging_rcv_oth_w15010401",
+      "packaging_rcv_oth_w15010402",
+      "packaging_rcv_oth_w150107",
+      "packaging_rcv_oth_w150199",
+      "packaging_rcv_w1501",
+      "packaging_rcv_w150101",
+      "packaging_rcv_w150102",
+      "packaging_rcv_w150103",
+      "packaging_rcv_w150104",
+      "packaging_rcv_w15010401",
+      "packaging_rcv_w15010401_iba",
+      "packaging_rcv_w15010402",
+      "packaging_rcv_w15010402_iba",
+      "packaging_rcv_w150107",
+      "packaging_rcv_w150199",
+      "packaging_rcy_eu_for_w1501",
+      "packaging_rcy_eu_for_w150101",
+      "packaging_rcy_eu_for_w150102",
+      "packaging_rcy_eu_for_w150103",
+      "packaging_rcy_eu_for_w150104",
+      "packaging_rcy_eu_for_w15010401",
+      "packaging_rcy_eu_for_w15010401_iba",
+      "packaging_rcy_eu_for_w15010402",
+      "packaging_rcy_eu_for_w15010402_iba",
+      "packaging_rcy_eu_for_w150107",
+      "packaging_rcy_eu_for_w150199",
+      "packaging_rcy_nat_w1501",
+      "packaging_rcy_nat_w150101",
+      "packaging_rcy_nat_w150102",
+      "packaging_rcy_nat_w150103",
+      "packaging_rcy_nat_w150104",
+      "packaging_rcy_nat_w15010401",
+      "packaging_rcy_nat_w15010401_iba",
+      "packaging_rcy_nat_w15010402",
+      "packaging_rcy_nat_w15010402_iba",
+      "packaging_rcy_nat_w150107",
+      "packaging_rcy_nat_w150199",
+      "packaging_rcy_neu_w1501",
+      "packaging_rcy_neu_w150101",
+      "packaging_rcy_neu_w150102",
+      "packaging_rcy_neu_w150103",
+      "packaging_rcy_neu_w150104",
+      "packaging_rcy_neu_w15010401",
+      "packaging_rcy_neu_w15010401_iba",
+      "packaging_rcy_neu_w15010402",
+      "packaging_rcy_neu_w15010402_iba",
+      "packaging_rcy_neu_w150107",
+      "packaging_rcy_neu_w150199",
+      "packaging_rcy_w1501",
+      "packaging_rcy_w150101",
+      "packaging_rcy_w150102",
+      "packaging_rcy_w150103",
+      "packaging_rcy_w150104",
+      "packaging_rcy_w15010401",
+      "packaging_rcy_w15010401_iba",
+      "packaging_rcy_w15010402",
+      "packaging_rcy_w15010402_iba",
+      "packaging_rcy_w150107",
+      "packaging_rcy_w150199",
+      "packaging_rpr_w1501",
+      "packaging_rpr_w150103"
+    ]
+  },
+  "eurostat-packaging-recycling-2026": {
+    "records": 3651,
+    "countries": 29,
+    "years": [
+      2000,
+      2023
+    ],
+    "metrics": [
+      "packaging_recycling_rate_w1501",
+      "packaging_recycling_rate_w150101",
+      "packaging_recycling_rate_w150102",
+      "packaging_recycling_rate_w150103",
+      "packaging_recycling_rate_w150104",
+      "packaging_recycling_rate_w150107"
+    ]
+  },
+  "fao-food-loss-2026": {
+    "records": 45,
+    "countries": 1,
+    "years": [
+      2015,
+      2023
+    ],
+    "metrics": [
+      "food_loss_rate",
+      "food_loss_rate_anmprod",
+      "food_loss_rate_crl_pul",
+      "food_loss_rate_frt_vgt",
+      "food_loss_rate_rt_tbr"
+    ]
+  },
+  "mat-stocks-2024": {
+    "records": 531,
+    "countries": 177,
+    "years": [
+      2016,
+      2016
+    ],
+    "metrics": [
+      "in_use_stock",
+      "stock_additions",
+      "stock_end_of_life"
+    ]
+  },
+  "oecd-plastics-2022": {
+    "records": 12,
+    "countries": 1,
+    "years": [
+      2000,
+      2019
+    ],
+    "metrics": [
+      "plastic_aquatic_leakage",
+      "plastic_environmental_leakage",
+      "plastic_incinerated_share",
+      "plastic_landfilled_share",
+      "plastic_ocean_inflow",
+      "plastic_production",
+      "plastic_recycled_share",
+      "plastic_secondary_production",
+      "plastic_uncontrolled_share",
+      "plastic_waste_generated"
+    ]
+  },
+  "oecd-plastics-database-2022": {
+    "records": 1208,
+    "countries": 4,
+    "years": [
+      1990,
+      2019
+    ],
+    "metrics": [
+      "plastic_aquatic_leakage",
+      "plastic_environmental_leakage",
+      "plastic_ocean_inflow",
+      "plastic_stock_in_ocean",
+      "plastic_stock_in_rivers",
+      "plastic_use",
+      "plastic_waste_generated",
+      "plastic_waste_incinerated",
+      "plastic_waste_mismanaged",
+      "plastic_waste_recycled",
+      "plastic_waste_sanitary_landfill",
+      "plastic_waste_uncollected_litter"
+    ]
+  },
+  "unsd-ewaste-2026": {
+    "records": 1946,
+    "countries": 84,
+    "years": [
+      2000,
+      2025
+    ],
+    "metrics": [
+      "ewaste_generated",
+      "ewaste_per_capita",
+      "ewaste_recycled",
+      "ewaste_recycling_rate"
+    ]
+  },
+  "unsd-food-waste-2026": {
+    "records": 4108,
+    "countries": 228,
+    "years": [
+      2005,
+      2022
+    ],
+    "metrics": [
+      "food_service_food_waste",
+      "food_service_food_waste_per_capita",
+      "food_waste",
+      "food_waste_per_capita",
+      "household_food_waste",
+      "household_food_waste_per_capita",
+      "retail_food_waste",
+      "retail_food_waste_per_capita"
+    ]
+  },
+  "unsd-hazardous-2026": {
+    "records": 5199,
+    "countries": 123,
+    "years": [
+      2000,
+      2024
+    ],
+    "metrics": [
+      "hazardous_waste_generated",
+      "hazardous_waste_treated_incinrt",
+      "hazardous_waste_treated_incinrt_egy",
+      "hazardous_waste_treated_landfil",
+      "hazardous_waste_treated_otherwm",
+      "hazardous_waste_treated_recycl"
+    ]
+  },
+  "unsd-municipal-2026": {
+    "records": 4284,
+    "countries": 131,
+    "years": [
+      2000,
+      2024
+    ],
+    "metrics": [
+      "municipal_recycling_rate",
+      "municipal_waste_generated",
+      "municipal_waste_recycled"
+    ]
+  },
+  "mat-stocks-history": {
+    "records": 62127,
+    "countries": 177,
+    "years": [
+      1900,
+      2016
+    ]
+  }
+}

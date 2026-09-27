@@ -1,0 +1,769 @@
+{
+  "sources": [
+    {
+      "id": "saltDepot",
+      "title": "Salt Spring Recycling Depot",
+      "publisher": "Salt Spring Community Services",
+      "url": "https://saltspringcommunityservices.ca/recycle-depot/",
+      "retrievedAt": "2026-09-20T14:03:32.843214+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Local collection entry; Salt Spring Island",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "29940f45cd368e2b027e5e29890a5dc854a671fe8320c3b1c96768e7363f8549"
+    },
+    {
+      "id": "saltMaterials",
+      "title": "Accepted depot materials",
+      "publisher": "Salt Spring Community Services",
+      "url": "https://saltspringcommunityservices.ca/recycle-depot/what-can-be-recycled/",
+      "retrievedAt": "2026-09-20T14:03:32.845964+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Local acceptance guidance; not shipment destinations",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "49376f2f2cb89c3c0f9d6a6a02d9d3198bc41f06ead585d249726a5725c02daa"
+    },
+    {
+      "id": "rbcReport2025",
+      "title": "Recycle BC Annual Report 2025",
+      "publisher": "Recycle BC",
+      "url": "https://bc-webmedia-assets-prod-shared-ca-central-1.s3.ca-central-1.amazonaws.com/wp-content/uploads/2026/06/11123719/RecycleBC_AnnualReport2025_F_compressed.pdf",
+      "retrievedAt": "2026-09-20T14:03:32.847291+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Province-wide program; 2025 end markets and management quantities",
+      "year": 2025,
+      "method": "Source facts transcribed or paraphrased. Annual end-market tables visually checked at p.29; 2025 management table at p.47. Missing values remain missing. Program membership does not establish a shipment link.",
+      "sha256": "11975e89ad2b19ac9ee8d81fa8ec637de8fdbc6ffbcd00d41c051edb9bd5ea0b"
+    },
+    {
+      "id": "rbcPost",
+      "title": "What happens after collection",
+      "publisher": "Recycle BC",
+      "url": "https://recyclebc.ca/learn/the-recycling-process/post-collection/",
+      "retrievedAt": "2026-09-20T14:02:52.507662+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "BC packaging and paper process; program network, not individual shipments",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "84731610f53791cce09ddf4a4398dbe8d4fba1f7230a76011c3c34f738c00449"
+    },
+    {
+      "id": "rbcTransition",
+      "title": "Post-collection transition and infrastructure investments",
+      "publisher": "Recycle BC",
+      "url": "https://recyclebc.ca/recycle-bc-announces-transition-to-in-house-post-collection-services-and-major-infrastructure-investments/",
+      "retrievedAt": "2026-09-20T14:03:32.371217+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "April 2026 announcement: transition from June 2026; future facilities are plans",
+      "year": 2026,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "bb6f26edabb31bf036b48c264c936eb1ff196a468bdc9c511c6db5fc21dda226"
+    },
+    {
+      "id": "rbcPlastic",
+      "title": "Plastic recycling",
+      "publisher": "Recycle BC",
+      "url": "https://recyclebc.ca/learn/our-impact/plastic-recycling/",
+      "retrievedAt": "2026-09-20T14:04:00.214880+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "BC packaging plastics process and program end markets",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "dde935f72f822020319f220422f680cd6337de0ce78138d8aa3b92caddcfde41"
+    },
+    {
+      "id": "rbcPaper",
+      "title": "Paper",
+      "publisher": "Recycle BC",
+      "url": "https://recyclebc.ca/what-can-i-recycle/paper/",
+      "retrievedAt": "2026-09-20T14:05:36.897700+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Program acceptance and possible uses of recovered paper",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "382a41051c73c6203cfda82d4506529afc630949b3b8d0f4d73b02592b11cc96"
+    },
+    {
+      "id": "rbcContainers",
+      "title": "Containers",
+      "publisher": "Recycle BC",
+      "url": "https://recyclebc.ca/what-can-i-recycle/containers/",
+      "retrievedAt": "2026-09-20T14:05:36.897700+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Program container processing and possible material uses",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "382a41051c73c6203cfda82d4506529afc630949b3b8d0f4d73b02592b11cc96"
+    },
+    {
+      "id": "rbcGlass",
+      "title": "Glass",
+      "publisher": "Recycle BC",
+      "url": "https://recyclebc.ca/what-can-i-recycle/glass/",
+      "retrievedAt": "2026-09-20T14:05:36.897700+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Non-deposit packaging glass; not all beverage-container programs",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "382a41051c73c6203cfda82d4506529afc630949b3b8d0f4d73b02592b11cc96"
+    },
+    {
+      "id": "organics",
+      "title": "Organics",
+      "publisher": "Capital Regional District",
+      "url": "https://www.crd.ca/environment/reducing-waste/organics",
+      "retrievedAt": "2026-09-20T14:09:01.593659+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "CRD organics guidance; no Salt Spring composter assignment",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "d26d48aaf44d38723e0184b5e1ff0e7c41643db4a60c2d4d1cd7393553233e5e"
+    },
+    {
+      "id": "hartland",
+      "title": "Hartland landfill",
+      "publisher": "Capital Regional District",
+      "url": "https://www.crd.ca/programs-services/garbage-recycling/hartland-landfill",
+      "retrievedAt": "2026-09-20T14:03:32.841779+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Named regional disposal facility; does not identify each hauler’s route",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "8e0f3c7a4daa28074ebe7e818065b4f2a49e146e5b8456b8aef1bd7358ee154a"
+    },
+    {
+      "id": "hartlandProcess",
+      "title": "How landfills work at Hartland",
+      "publisher": "Capital Regional District",
+      "url": "https://www.crd.ca/programs-services/garbage-recycling/hartland-landfill/how-landfills-work",
+      "retrievedAt": "2026-09-20T14:09:01.592354+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Hartland gas and leachate controls; current operator guidance",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "7b77275a3c396f67603ce9de75ec72e05f828095b117d73651934030c68e6151"
+    },
+    {
+      "id": "hartlandDepot",
+      "title": "Hartland public drop-off depot",
+      "publisher": "Capital Regional District",
+      "url": "https://www.crd.ca/programs-services/garbage-recycling/hartland-landfill/public-drop-depot",
+      "retrievedAt": "2026-09-20T14:09:01.594939+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Accepted items and documented destinations, including non-packaging rigid plastics",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "11448837c158f7582759e9675eed2b63246b6ab40b652e8793990c4a5b37aa47"
+    },
+    {
+      "id": "epraFAQ",
+      "title": "Electronics recycling FAQs",
+      "publisher": "EPRA / Recycle My Electronics",
+      "url": "https://recyclemyelectronics.ca/bc/electronics-recycling-faqs",
+      "retrievedAt": "2026-09-20T14:09:01.596412+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "General electronics dismantling and downstream material processing",
+      "year": null,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "25bc051f4801aaedc5a50b9756ad756e183abde209946109e6a24b9970815581"
+    },
+    {
+      "id": "epra2025",
+      "title": "EPRA British Columbia Report to Director 2025",
+      "publisher": "Electronic Products Recycling Association",
+      "url": "https://www.recyclemy-assets.com/1782764928-epra-report-to-director-2025-final.pdf",
+      "retrievedAt": "2026-09-20T14:09:01.590213+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Approved processors, collection network and indicative primary-processor outputs",
+      "year": 2025,
+      "method": "Qualitative published guidance or operator reporting; no household-level or missing downstream route inferred.",
+      "sha256": "c93d618f7618b908e37e8cd1ee727ce765d15f7a48e6657b09fc767af3aee9e2"
+    },
+    {
+      "id": "rbcReport2024",
+      "title": "Recycle BC Annual Report 2024",
+      "publisher": "Recycle BC",
+      "url": "https://bc-webmedia-assets-prod-shared-ca-central-1.s3.ca-central-1.amazonaws.com/wp-content/uploads/2025/06/11123927/Recycle-BC_Annual-Report_2024_F.pdf",
+      "retrievedAt": "2026-09-20T14:09:01.588425+00:00",
+      "license": "No open redistribution licence established. Attributed factual paraphrases; full source not republished.",
+      "coverage": "Province-wide program; 2024 end markets",
+      "year": 2024,
+      "method": "Source facts transcribed or paraphrased. Annual end-market tables visually checked at p.29; 2025 management table at p.47. Missing values remain missing. Program membership does not establish a shipment link.",
+      "sha256": "348509fffb6c63317b66aafe381908035512d5cccdaf5b8e768b31ebf50be064"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ssi-packaging-collection",
+      "materials": [
+        "plastic",
+        "paper",
+        "glass",
+        "metal"
+      ],
+      "stage": "collection",
+      "place": "salt-spring",
+      "title": "Start at Salt Spring's recycling depot",
+      "plain": "An adult can take sorted household packaging and paper to the depot on Rainbow Road. The material goes into separate recycling streams.",
+      "technical": "The operator identifies its depot as residential recycling and explicitly ties packaging/paper acceptance to Recycle BC funding policy.",
+      "source_ids": [
+        "saltDepot",
+        "saltMaterials"
+      ],
+      "year": null,
+      "entity": "Salt Spring Recycling Depot · 349 Rainbow Road",
+      "kind": "public-guidance",
+      "gap": "No shipment-level record links a Salt Spring load to a named receiving or sorting facility. Do not describe the provincial downstream percentages as measured Salt Spring outcomes.",
+      "source_locators": [],
+      "supportedStages": [
+        "collection"
+      ],
+      "plainGap": "We know the depot accepts these items. We do not have the record naming the next facility for a particular load."
+    },
+    {
+      "id": "rbc-sorting-network",
+      "materials": [
+        "plastic",
+        "paper",
+        "glass",
+        "metal"
+      ],
+      "stage": "sorting",
+      "place": "bc",
+      "title": "Receiving, sorting and baling",
+      "plain": "Recycling travels to a receiving site and then to a sorting factory. Machines separate materials; similar materials are pressed into bales for the next factory.",
+      "technical": "The 2025 network was managed by GFL with 39 receiving facilities and two named MRFs: GFL Richmond and Urban Impact New Westminster.",
+      "source_ids": [
+        "rbcPost",
+        "rbcReport2025"
+      ],
+      "year": 2025,
+      "entity": "2025 Recycle BC network · GFL Richmond / Urban Impact New Westminster",
+      "kind": "program-report",
+      "gap": "Network membership does not identify which facility handled any Salt Spring household's material. Sorting/baling is an intermediate stage, not proof that a finished product was made.",
+      "source_locators": [
+        "2025 report p.22"
+      ],
+      "supportedStages": [
+        "sorting"
+      ],
+      "plainGap": "This lists the network. It does not tell us which factory handled your household’s material."
+    },
+    {
+      "id": "rbc-network-2026",
+      "materials": [
+        "plastic",
+        "paper",
+        "glass",
+        "metal"
+      ],
+      "stage": "sorting",
+      "place": "bc",
+      "title": "The sorting network changed in 2026",
+      "plain": "The recycling network changes over time. Our facility labels include dates so an old route is not mistaken for today's route.",
+      "technical": "The April 30, 2026 announcement separates the June management transition, existing/interim MRF services, and planned Delta capacity.",
+      "source_ids": [
+        "rbcTransition"
+      ],
+      "year": 2026,
+      "entity": "2026 Recycle BC post-collection network",
+      "kind": "program-report",
+      "gap": "No post-transition household shipment trail was obtained. Do not label the planned 2028 facility as operational in 2026. Green by Nature was not verified as the current operator in the sources used.",
+      "source_locators": [
+        "April 30, 2026 announcement"
+      ],
+      "supportedStages": [
+        "sorting"
+      ],
+      "plainGap": "This is a dated network announcement. It does not track an individual load or prove a planned factory is open."
+    },
+    {
+      "id": "packaging-plastics",
+      "materials": [
+        "plastic"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Plastic can become pellets",
+      "plain": "Sorted plastic can become pellets—small pieces of raw material that manufacturers use for new packaging and products.",
+      "technical": "Recycle BC identifies Merlin as its primary plastics recycler and describes pellets as the next material. The 2025 end-market table allocates plastics 99.5% to BC and 0.5% to export.",
+      "source_ids": [
+        "rbcPlastic",
+        "rbcReport2025"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · Merlin Plastics",
+      "kind": "program-report",
+      "gap": "These are end-market geography shares, not a 99.5% capture rate for all plastic sold. No plant-specific Salt Spring allocation or brand of new product is public in these sources. No mass yield from bales to finished pellets was obtained.",
+      "source_locators": [
+        "2025 report p.29; table visually checked"
+      ],
+      "supportedStages": [
+        "processing"
+      ],
+      "plainGap": "We cannot trace your item to a particular new product."
+    },
+    {
+      "id": "packaging-paper",
+      "materials": [
+        "paper"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Paper has several second lives",
+      "plain": "Sorted paper is sent to paper makers. It can become boxes, egg cartons, insulation or the paper layer on drywall.",
+      "technical": "The 2025 paper end-market table reports 6.3% BC, 46.7% USA and 47.0% export; other Canada is shown as a dash. Recycle BC lists several resulting paper products.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcPaper",
+        "rbcPost"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · receiving paper mills not individually identified",
+      "kind": "program-report",
+      "gap": "No specific mill-to-Salt Spring route or proportion for each new product was obtained. Preserve the source's dash for other Canada; it is not a separately reported numerical observation.",
+      "source_locators": [
+        "2025 report p.29; table visually checked"
+      ],
+      "supportedStages": [
+        "processing"
+      ],
+      "plainGap": "We do not know the exact mill or new product for a particular household’s paper."
+    },
+    {
+      "id": "packaging-metal",
+      "materials": [
+        "metal"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Metal becomes material for new things",
+      "plain": "Metal packaging is sorted for recycling. Recycled aluminum can be used for containers, road signs and window frames.",
+      "technical": "The 2025 metal allocation is 81.6% BC and 18.4% elsewhere in Canada. Recycle BC gives aluminum product examples, without naming mills.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcContainers",
+        "rbcPost"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · metal end markets",
+      "kind": "program-report",
+      "gap": "Do not apply aluminum product examples to all steel packaging. No named packaging-metal mill, Salt Spring shipment or finished product was verified.",
+      "source_locators": [
+        "2025 report p.29; table visually checked"
+      ],
+      "supportedStages": [
+        "processing"
+      ],
+      "plainGap": "We do not have the mill and final product for each shipment."
+    },
+    {
+      "id": "packaging-glass",
+      "materials": [
+        "glass"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Keep glass in its own stream",
+      "plain": "Glass jars travel in their own recycling stream. Keeping broken glass away from paper helps both materials be recycled.",
+      "technical": "Recycle BC explains why glass must stay separate; its 2025 end-market table places 100.0% of glass in BC.",
+      "source_ids": [
+        "rbcGlass",
+        "rbcPost",
+        "rbcReport2025"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · glass cleaning and BC end markets",
+      "kind": "program-report",
+      "gap": "A named receiving glass processor and final product were not verified. 100% refers to the end-market allocation table, not all glass discarded by residents. Non-deposit packaging glass and beverage-deposit systems must not be silently merged.",
+      "source_locators": [
+        "2025 report p.29; table visually checked"
+      ],
+      "supportedStages": [
+        "sorting",
+        "processing"
+      ],
+      "plainGap": "The report gives a region, but not the final glass factory for each load."
+    },
+    {
+      "id": "crd-organics",
+      "materials": [
+        "food"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Food scraps can feed soil",
+      "plain": "Food scraps are collected separately. Composting turns suitable scraps into material that helps soil and plants.",
+      "technical": "CRD describes organics as collection, processing and compost/soil-amendment manufacture. Food scraps and soiled paper have been banned from Hartland garbage since January 2015.",
+      "source_ids": [
+        "organics"
+      ],
+      "year": null,
+      "entity": "Capital Regional District · organics program",
+      "kind": "public-guidance",
+      "gap": "No Salt Spring collector-to-composter route was verified. No named current composter, process duration, local compost yield or garden receiving it was verified. Provider-specific accepted-item rules still apply.",
+      "source_locators": [],
+      "supportedStages": [
+        "collection",
+        "processing",
+        "after"
+      ],
+      "plainGap": "We do not have a record naming the composter that took a particular Salt Spring load."
+    },
+    {
+      "id": "hartland-residual",
+      "materials": [
+        "garbage"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Garbage has a place it ends up",
+      "plain": "Garbage delivered to Hartland goes into an engineered landfill. The site uses environmental controls and monitoring to reduce effects on the surrounding land, water and air.",
+      "technical": "CRD owns and operates Hartland, identifies it as the region's only solid-waste disposal facility, and describes its active face and environmental controls.",
+      "source_ids": [
+        "hartland",
+        "hartlandProcess"
+      ],
+      "year": null,
+      "entity": "Hartland landfill · Capital Regional District",
+      "kind": "operator-report",
+      "gap": "These sources do not establish that every Salt Spring garbage contractor sends every load here. Specific household delivery, tonnage and disposal date remain unknown. Do not present acceptance of recycling/organics at Hartland as disposal of those streams in the landfill.",
+      "source_locators": [],
+      "supportedStages": [
+        "collection",
+        "processing"
+      ],
+      "plainGap": "Hartland receives waste. That does not tell us where every garbage truck from Salt Spring goes."
+    },
+    {
+      "id": "hartland-gas",
+      "materials": [
+        "garbage"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Some buried waste makes gas",
+      "plain": "As buried organic waste breaks down, it makes gas. Wells and pipes collect gas, and equipment upgrades it for use in the FortisBC gas system.",
+      "technical": "The operator describes collection wells, gas upgrading by Waga Energy and delivery to the FortisBC network. The published annual energy figure is a forecast, not an acquired measurement, so it is not plotted here.",
+      "source_ids": [
+        "hartlandProcess"
+      ],
+      "year": 2026,
+      "entity": "Hartland landfill → Waga Energy upgrading → FortisBC gas network",
+      "kind": "operator-report",
+      "gap": "Captured gas is not all generated gas; capture fraction was not established here. The forecast is not measured annual energy and must not be assigned to a household bag. Avoid implying landfilling food is preferable to preventing waste or composting.",
+      "source_locators": [],
+      "supportedStages": [
+        "after"
+      ],
+      "plainGap": "Some gas is collected. We do not have a measured capture rate or a link to your bin."
+    },
+    {
+      "id": "hartland-leachate",
+      "materials": [
+        "garbage"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Rainwater needs a separate route",
+      "plain": "Water that passes through buried rubbish can pick up contaminants. Hartland collects this liquid, tests it and sends it through a pipe to the sanitary sewer.",
+      "technical": "CRD describes two leachate lagoons, testing before discharge, monthly chemical testing and continuous volume monitoring.",
+      "source_ids": [
+        "hartlandProcess"
+      ],
+      "year": null,
+      "entity": "Hartland landfill → collection lagoons → sanitary sewer",
+      "kind": "operator-report",
+      "gap": "This record stops at the sewer; no specific downstream wastewater-treatment route was verified. The source describes controls, not zero release or zero environmental risk.",
+      "source_locators": [],
+      "supportedStages": [
+        "after"
+      ],
+      "plainGap": "The record reaches the sewer. We have not verified the next treatment plant in this chain."
+    },
+    {
+      "id": "ssi-electronics-entry",
+      "materials": [
+        "electronics"
+      ],
+      "stage": "collection",
+      "place": "salt-spring",
+      "title": "Old devices have their own collection route",
+      "plain": "An old computer or television goes to an electronics collection point. It is kept out of the packaging bins.",
+      "technical": "The operator lists electronics acceptance; EPRA's 2025 collection-site appendix explicitly lists Salt Spring Island Recycling Depot at 349 Rainbow Road.",
+      "source_ids": [
+        "saltMaterials",
+        "epra2025"
+      ],
+      "year": 2025,
+      "entity": "Salt Spring Recycling Depot · 349 Rainbow Road",
+      "kind": "program-report",
+      "gap": "No assigned primary processor or load-level downstream trace from this depot was obtained. Acceptance does not prove reuse, and device data must be removed by its owner before drop-off (see EPRA FAQ).",
+      "source_locators": [
+        "EPRA 2025 report Appendix B, PDF page 32"
+      ],
+      "supportedStages": [
+        "collection"
+      ],
+      "plainGap": "The depot is documented. We do not know which approved recycler received a particular device."
+    },
+    {
+      "id": "electronics-processing",
+      "materials": [
+        "electronics"
+      ],
+      "stage": "processing",
+      "place": "bc",
+      "title": "Devices are taken apart into material streams",
+      "plain": "Recyclers take devices apart. Metal can be recovered in smelters; some plastic is sorted and made into pellets. Other material still goes to disposal or energy recovery.",
+      "technical": "EPRA lists three approved primary processors at December 31, 2025. Reported primary outputs were 94.39% for further processing, 1.28% energy-from-waste and 4.33% landfill; these categories are not exact final-fate allocations. Primary-processor outputs are reported as indicative; further processing is not proof of final recycling. The report flags a mass-balance variance for review.",
+      "source_ids": [
+        "epra2025",
+        "epraFAQ"
+      ],
+      "year": 2025,
+      "entity": "EPRA BC · eCycle Chilliwack / FCM Delta / HiTech Edmonton",
+      "kind": "program-report",
+      "gap": "The report calls downstream reporting qualitative and indicative; categories reflect common outcomes, not precise allocation. Report notes a 5% mass-balance variance against a 3% policy threshold, for management review in 2026. Do not label 94.39% as a finished-product recycling rate. Some unidentifiable plastic is landfilled or used as fuel.",
+      "source_locators": [
+        "EPRA 2025 report pp.13–14, PDF pages 13–14"
+      ],
+      "supportedStages": [
+        "processing"
+      ],
+      "plainGap": "These are approved processors, not a tracked route for your device. Further processing is not the same as a finished recycled product."
+    },
+    {
+      "id": "hartland-bulky-plastic",
+      "materials": [
+        "rigid-plastic"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Some plastic becomes landfill cover",
+      "plain": "Not all plastic follows the packaging route. At Hartland, certain bulky rigid plastics are ground up and mixed with wood to cover the active landfill area.",
+      "technical": "CRD explicitly describes rigid items such as lawn chairs, pools and toys being used as landfill cover after grinding and mixing with contaminated wood.",
+      "source_ids": [
+        "hartlandDepot"
+      ],
+      "year": null,
+      "entity": "Hartland public drop-off depot → landfill cover",
+      "kind": "operator-report",
+      "gap": "This is a landfill-use route, not evidence of remanufacture into new consumer products. Do not apply this route to Recycle BC packaging collected at the same site.",
+      "source_locators": [],
+      "supportedStages": [
+        "collection",
+        "processing",
+        "after"
+      ],
+      "plainGap": "This is Hartland’s stated use. It does not prove that your item went there."
+    },
+    {
+      "id": "rbc-residue",
+      "materials": [
+        "plastic",
+        "paper",
+        "glass",
+        "metal"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Sorting also leaves material for disposal",
+      "plain": "Some sorting leftovers are sent for disposal. This total covers the whole provincial packaging and paper program, not one material or your bin.",
+      "technical": "Recycle BC reports 206,756 tonnes managed by recycling and 11,816 tonnes by disposal in 2025. Shipment timing and scope prevent treating these as a household recycling rate. No disposal-facility assignment was obtained.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcReport2024"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · all program materials combined",
+      "kind": "program-report",
+      "gap": "No disposal-facility assignment for residues was obtained. Do not subtract recycling shipments from net household collections to invent a loss rate: scope and inventory timing differ. These totals do not say how much of a particular household bin was recycled.",
+      "source_locators": [
+        "2025 report pp.4,54; 2024 report p.29"
+      ],
+      "quantity": {
+        "value": 11816,
+        "unit": "tonnes",
+        "label": "2025 disposal · all Recycle BC program materials combined"
+      },
+      "supportedStages": [
+        "after"
+      ],
+      "plainGap": "The total does not name the disposal facility or tell us what happened to your bin."
+    },
+    {
+      "id": "end-markets-plastic",
+      "materials": [
+        "plastic"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Where the program reported end markets",
+      "plain": "These are the reported locations of buyers or processors for the program’s recovered material. They do not tell us where a particular household’s items went.",
+      "technical": "Material-specific end-market geography, Recycle BC annual reports p.29. The original “Canada” column is separate from “BC”; “Export” is separate from “USA”. A dash remains unavailable, not zero. These are not capture rates or final product yields.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcReport2024"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · province-wide program",
+      "kind": "program-report",
+      "gap": "No shipment linkage to Salt Spring Island, named final buyer for every flow, or product-level final fate is established.",
+      "plainGap": "These destinations describe the whole BC program. They do not trace a Salt Spring load or your item.",
+      "destinations": [
+        {
+          "label": "British Columbia",
+          "percent": 99.5,
+          "previousPercent": 99.4
+        },
+        {
+          "label": "Elsewhere in Canada",
+          "percent": null,
+          "previousPercent": null
+        },
+        {
+          "label": "United States",
+          "percent": null,
+          "previousPercent": null
+        },
+        {
+          "label": "Other export markets",
+          "percent": 0.5,
+          "previousPercent": 0.6
+        }
+      ],
+      "comparisonYear": 2024
+    },
+    {
+      "id": "end-markets-paper",
+      "materials": [
+        "paper"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Where the program reported end markets",
+      "plain": "These are the reported locations of buyers or processors for the program’s recovered material. They do not tell us where a particular household’s items went.",
+      "technical": "Material-specific end-market geography, Recycle BC annual reports p.29. The original “Canada” column is separate from “BC”; “Export” is separate from “USA”. A dash remains unavailable, not zero. These are not capture rates or final product yields.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcReport2024"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · province-wide program",
+      "kind": "program-report",
+      "gap": "No shipment linkage to Salt Spring Island, named final buyer for every flow, or product-level final fate is established.",
+      "plainGap": "These destinations describe the whole BC program. They do not trace a Salt Spring load or your item.",
+      "destinations": [
+        {
+          "label": "British Columbia",
+          "percent": 6.3,
+          "previousPercent": 7.0
+        },
+        {
+          "label": "Elsewhere in Canada",
+          "percent": null,
+          "previousPercent": 0.5
+        },
+        {
+          "label": "United States",
+          "percent": 46.7,
+          "previousPercent": 59.5
+        },
+        {
+          "label": "Other export markets",
+          "percent": 47,
+          "previousPercent": 33.0
+        }
+      ],
+      "comparisonYear": 2024
+    },
+    {
+      "id": "end-markets-metal",
+      "materials": [
+        "metal"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Where the program reported end markets",
+      "plain": "These are the reported locations of buyers or processors for the program’s recovered material. They do not tell us where a particular household’s items went.",
+      "technical": "Material-specific end-market geography, Recycle BC annual reports p.29. The original “Canada” column is separate from “BC”; “Export” is separate from “USA”. A dash remains unavailable, not zero. These are not capture rates or final product yields.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcReport2024"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · province-wide program",
+      "kind": "program-report",
+      "gap": "No shipment linkage to Salt Spring Island, named final buyer for every flow, or product-level final fate is established.",
+      "plainGap": "These destinations describe the whole BC program. They do not trace a Salt Spring load or your item.",
+      "destinations": [
+        {
+          "label": "British Columbia",
+          "percent": 81.6,
+          "previousPercent": 10.1
+        },
+        {
+          "label": "Elsewhere in Canada",
+          "percent": 18.4,
+          "previousPercent": 87.2
+        },
+        {
+          "label": "United States",
+          "percent": null,
+          "previousPercent": 2.7
+        },
+        {
+          "label": "Other export markets",
+          "percent": null,
+          "previousPercent": null
+        }
+      ],
+      "comparisonYear": 2024
+    },
+    {
+      "id": "end-markets-glass",
+      "materials": [
+        "glass"
+      ],
+      "stage": "after",
+      "place": "bc",
+      "title": "Where the program reported end markets",
+      "plain": "These are the reported locations of buyers or processors for the program’s recovered material. They do not tell us where a particular household’s items went.",
+      "technical": "Material-specific end-market geography, Recycle BC annual reports p.29. The original “Canada” column is separate from “BC”; “Export” is separate from “USA”. A dash remains unavailable, not zero. These are not capture rates or final product yields.",
+      "source_ids": [
+        "rbcReport2025",
+        "rbcReport2024"
+      ],
+      "year": 2025,
+      "entity": "Recycle BC · province-wide program",
+      "kind": "program-report",
+      "gap": "No shipment linkage to Salt Spring Island, named final buyer for every flow, or product-level final fate is established.",
+      "plainGap": "These destinations describe the whole BC program. They do not trace a Salt Spring load or your item.",
+      "destinations": [
+        {
+          "label": "British Columbia",
+          "percent": 100,
+          "previousPercent": 100.0
+        },
+        {
+          "label": "Elsewhere in Canada",
+          "percent": null,
+          "previousPercent": null
+        },
+        {
+          "label": "United States",
+          "percent": null,
+          "previousPercent": null
+        },
+        {
+          "label": "Other export markets",
+          "percent": null,
+          "previousPercent": null
+        }
+      ],
+      "comparisonYear": 2024
+    }
+  ]
+}

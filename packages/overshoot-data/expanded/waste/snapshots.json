@@ -1,0 +1,54 @@
+[
+  {
+    "file": "sdg-series-12.4.2.json",
+    "url": "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/12.4.2/Series/List",
+    "retrieved": "2026-09-19",
+    "sha256": "30c7b4400a8504cc1cb899363b96e93bf9ec126688b9f45e45ab772fc229fbef",
+    "bytes": 4011
+  },
+  {
+    "file": "sdg-series-12.5.1.json",
+    "url": "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/12.5.1/Series/List",
+    "retrieved": "2026-09-19",
+    "sha256": "434b537fa28519cd3071887fbd2f732f02a314a3ab11b6357350678545cde4fc",
+    "bytes": 1084
+  },
+  {
+    "file": "sdg-series-12.3.1.json",
+    "url": "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/12.3.1/Series/List",
+    "retrieved": "2026-09-19",
+    "sha256": "0d525d30379cab4d5d426594797fbf0bfe66131689f7a0008e276adc22aa9a86",
+    "bytes": 832
+  },
+  {
+    "file": "sdg-series-11.6.1.json",
+    "url": "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/11.6.1/Series/List",
+    "retrieved": "2026-09-19",
+    "sha256": "db9c03582ace53ecf7a2a2b5402b0e0ee95d8485f1087b9a19de74bf4da8b1b5",
+    "bytes": 454
+  },
+  {
+    "file": "eurostat-env_ac_cur.json",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_ac_cur?lang=en",
+    "retrieved": "2026-09-19",
+    "sha256": "1a59492dd813862dfe279fe850074e71a226828e8acb13066e76bae988e8a579",
+    "bytes": 8158
+  },
+  {
+    "file": "globalewaste.html",
+    "url": "https://globalewaste.org/",
+    "error": "The read operation timed out"
+  },
+  {
+    "file": "oecd-plastics.html",
+    "url": "https://www.oecd.org/en/publications/global-plastics-outlook_de747aef-en.html",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "ewaste-monitor.html",
+    "url": "https://ewastemonitor.info/the-global-e-waste-monitor-2024/",
+    "retrieved": "2026-09-19",
+    "sha256": "b149c7dbf34f5eaceed16d9f36440debb5404e8abbabe36856057429e124b731",
+    "bytes": 213345
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "file": "basel-convention-2025.pdf",
+    "url": "https://www.basel.int/Portals/4/download.aspx?e=UNEP-CHW-IMPL-CONVTEXT-2025.English.pdf",
+    "retrievedAt": "2026-09-19",
+    "bytes": 1802847,
+    "sha256": "427c1b3a77232447a6adc8033ce01c4b75ad957bf40940bd5d0c114ccee68473",
+    "status": "acquired"
+  },
+  {
+    "file": "annex-iv-amendment.html",
+    "url": "https://www.basel.int/TheConvention/Amendments/AmendmenttoAnnexIV/Overview/tabid/10270/Default.aspx",
+    "retrievedAt": "2026-09-19",
+    "bytes": 157934,
+    "sha256": "dde1f057e3ca09b5174830d9229a41cf7367c9cdeac642178ea94b9dff8db52a",
+    "status": "acquired"
+  },
+  {
+    "file": "terms-of-use.html",
+    "url": "https://www.basel.int/Home/TermsofUse/tabid/10656/Default.aspx",
+    "retrievedAt": "2026-09-19",
+    "bytes": 122392,
+    "sha256": "1fbb26b315f2303f3c9c2d523978e9e8e90c917be8b26334006b05b5fa5ab2a7",
+    "status": "acquired"
+  },
+  {
+    "file": "disposal-operations.json",
+    "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/vw_BC_DisposalOP?$format=json",
+    "retrievedAt": "2026-09-19",
+    "bytes": 1958,
+    "sha256": "df75c01b12e243e4b31458b53c49a9b0e7ddf9d2f7e4824e4b64c1a1ef06e800",
+    "status": "acquired"
+  },
+  {
+    "file": "recovery-operations.json",
+    "url": "https://ers.basel.int/eRSodataReports2/WcfERS_OdataService.svc/vw_BC_RecoveryOP?$format=json",
+    "retrievedAt": "2026-09-19",
+    "bytes": 1349,
+    "sha256": "e11454b0433ed17cd791b39209f2a52d445993b6749a8c3d9c49b22695edac8e",
+    "status": "acquired"
+  },
+  {
+    "file": "basel-manual2025.docx",
+    "url": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-NationalReporting-Manual-2025.English.docx",
+    "retrievedAt": "2026-09-19",
+    "bytes": 187721,
+    "sha256": "78aacfd9fe597494b9276702c33dbaab5ed7e57b1022ed8446092189b306fd59",
+    "status": "acquired",
+    "note": "Copied from same-day verified existing source snapshot."
+  }
+]

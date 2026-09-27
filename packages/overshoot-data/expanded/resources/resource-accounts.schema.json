@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OVERSHOOT IRP country resource accounts",
+  "type": "object",
+  "required": [
+    "source_id",
+    "years",
+    "unit",
+    "rows"
+  ],
+  "properties": {
+    "source_id": {
+      "const": "irp-resource-accounts-2026"
+    },
+    "years": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "unit": {
+      "const": "metric tonnes"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "country",
+          "year",
+          "extraction",
+          "domesticConsumption",
+          "footprint",
+          "imports",
+          "exports",
+          "physicalTradeBalance",
+          "rawMaterialEquivalentImports",
+          "rawMaterialEquivalentExports",
+          "domesticMaterialInput",
+          "population",
+          "extractionPerCapita",
+          "domesticConsumptionPerCapita",
+          "footprintPerCapita",
+          "importsPerCapita",
+          "exportsPerCapita",
+          "source_id",
+          "original_unit",
+          "estimated",
+          "footprintByMaterial",
+          "footprintPerCapitaByMaterial"
+        ],
+        "properties": {
+          "country": {
+            "type": "string",
+            "pattern": "^([A-Z]{3}|WORLD)$"
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 1970,
+            "maximum": 2024
+          },
+          "extraction": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "domesticConsumption": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "footprint": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "imports": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "exports": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "physicalTradeBalance": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "rawMaterialEquivalentImports": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "rawMaterialEquivalentExports": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "domesticMaterialInput": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "population": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "extractionPerCapita": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "domesticConsumptionPerCapita": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "footprintPerCapita": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "importsPerCapita": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "exportsPerCapita": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "source_id": {
+            "const": "irp-resource-accounts-2026"
+          },
+          "original_unit": {
+            "const": "t"
+          },
+          "estimated": {
+            "type": "boolean"
+          },
+          "footprintByMaterial": {
+            "type": "object",
+            "properties": {
+              "biomass": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "fossil": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "metals": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "minerals": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              }
+            },
+            "required": [
+              "biomass",
+              "fossil",
+              "metals",
+              "minerals"
+            ],
+            "additionalProperties": false
+          },
+          "footprintPerCapitaByMaterial": {
+            "type": "object",
+            "properties": {
+              "biomass": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "fossil": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "metals": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "minerals": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              }
+            },
+            "required": [
+              "biomass",
+              "fossil",
+              "metals",
+              "minerals"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

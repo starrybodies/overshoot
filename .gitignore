@@ -1,0 +1,78 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/.vinext/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+next-env.d.ts
+/dist/
+/.wrangler/
+# Checkout-local execution profile and tool state; never publish them.
+/.sites-runtime/
+/.agents/
+/.codex/
+/outputs/
+/work/
+__pycache__/
+packages/overshoot-data/raw/irp/extraction*.json
+packages/overshoot-data/raw/irp/population.json
+packages/overshoot-data/raw/irp/ratios_validation.json
+packages/overshoot-data/raw/scenes/scenes.json
+*.tsbuildinfo
+
+# Research-only source archives are kept outside the public repository.
+/packages/overshoot-data/raw/
+/packages/overshoot-data/snapshot-parts/
+/packages/overshoot-data/**/raw/
+/packages/overshoot-data/**/artifacts/
+/packages/overshoot-data/**/normalized/
+/packages/overshoot-data/**/*.parquet
+/packages/overshoot-data/**/*.tar.gz
+/packages/overshoot-data/**/*.gzpart
+
+# Large pinned snapshots are losslessly stored in snapshot-parts.
+/packages/overshoot-data/expanded/resources/raw/faostat-qcl.zip
+/packages/overshoot-data/expanded/resources/resource-accounts.json
+/packages/overshoot-data/expanded/sites/raw/global_mining_polygons_v2.gpkg
+/packages/overshoot-data/expanded/sites/raw/hydrowaste/HydroWASTE_v10.csv
+/packages/overshoot-data/expanded/trade/basel.json
+/packages/overshoot-data/expanded/trade/raw/extra0.txt
+/packages/overshoot-data/expanded/waste/metrics.json
+/packages/overshoot-data/expanded/waste/raw/MATSTOCKS_EU27_v1.csv
+/packages/overshoot-data/expanded/waste/raw/gem2024.pdf
+/packages/overshoot-data/expanded/waste/raw/miso2_global_data_v1.csv
+/packages/overshoot-data/expanded/waste/raw/oecd-plastics.pdf
+/packages/overshoot-data/release14/raw/odi-solid-waste/
+/packages/overshoot-data/release14/raw/odi-oil-gas/
+/packages/overshoot-data/release14/raw/odi-oil-gas.zip
