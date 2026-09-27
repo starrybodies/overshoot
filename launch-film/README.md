@@ -11,6 +11,7 @@ One copper journey runs through it: vein → ore → concentrate → cathode →
 | [`VO-SCRIPT.md`](VO-SCRIPT.md) | Voiceover with timecodes and direction, a clean read and a 30 s cut-down. |
 | [`capture/captures.mjs`](capture/captures.mjs) | The plate list: URL plus scripted camera moves through the atlas. |
 | [`capture/capture.mjs`](capture/capture.mjs) | Records the plates as 4K PNG keyframes and 1080p WebM moves. |
+| [`brand/gaia-ai-mark.png`](brand/gaia-ai-mark.png) | Gaia AI mark for the end card (cream, transparent). |
 
 ## Workflow
 
@@ -36,11 +37,11 @@ One copper journey runs through it: vein → ore → concentrate → cathode →
 
 3. **Record the VO** from `VO-SCRIPT.md` separately. Never let the video model speak or typeset lines.
 
-4. **Assemble** around the plates. Composite the interface in 3D space; never regenerate it. Set the two titles by lifting them from the homepage hero (plate P01), which already reads *Where did it come from? / Where did it go?* The end card uses `public/overshoot-mark.svg` and `public/overshoot-lockup.png`.
+4. **Assemble** around the plates. Composite the interface in 3D space; never regenerate it. Set the two titles by lifting them from the homepage hero (plate P01), which already reads *Where did it come from? / Where did it go?* The end card uses `public/overshoot-mark.svg`, `public/overshoot-lockup.png` and `brand/gaia-ai-mark.png`.
 
 ## Still to supply (not in this repo)
 
-- Gaia AI logo and wordmark (transparent SVG/PNG) for the end card.
+- Gaia AI wordmark, and a vector (SVG) of the mark for 4K. [`brand/gaia-ai-mark.png`](brand/gaia-ai-mark.png) is the mark alone: 1080×1080, cream on a transparent background, which is enough for the small end-card credit.
 - Optional real reference footage or images for the generator: an open-pit copper mine, crushing/flotation, a smelter, cathodes, bulk carriers, container ports, electronics assembly, e-waste, recovery.
 - Rights-cleared music, or a composer brief built from the *Sound* sections.
 

@@ -151,7 +151,7 @@ Real product only: crisp, full-frame, generously held. Cut on the music. The use
 
 - Earth fades to black; the pathways linger, then resolve into the **OVERSHOOT mark** (`public/overshoot-mark.svg`). Animate the real vector, and do not generate it.
 - Lockup (`public/overshoot-lockup.png`, or re-set from the SVG for 4K): **OVERSHOOT** / *A planetary atlas of material flows*.
-- Small: **A GAIA AI PRODUCT**. Use the supplied Gaia AI logo; it is not in this repo.
+- Small: the Gaia AI mark (`brand/gaia-ai-mark.png`) beside **A GAIA AI PRODUCT**. The mark is cream on transparent, so it sits directly on the black end card; keep it smaller than the OVERSHOOT mark.
 - *Explore the material world.* **overshoot.gaiaai.xyz**
 - Final line, held long enough to read twice: **Try it. Explore it. Tell us what we're missing.**
 - End on the mark alone. Sonic signature.
