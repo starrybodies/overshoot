@@ -48,7 +48,7 @@ export function readAtlasState(location:{pathname:string;search:string},initial:
   place:(['WORLD','BC','SSI'].includes(place)||['UNASSIGNED','ZNC'].includes(place)&&view==='facilities')||placeDirectory.some(c=>c.id===place)?place:base.place,
   network:/^[a-z0-9-]{1,80}$/.test(q.get('network')||'')?q.get('network')!:'',
   journeyLayers:(q.get('stages')||'').split(',').filter(s=>['none','extraction','refining','manufacturing','use','recovery','disposal','ocean'].includes(s)).join(','),
-  layer:['connections','journey','trade','waste','extraction','production','sites'].includes(q.get('layer')||'')?q.get('layer') as MaterialLayer:base.layer,
+  layer:['connections','journey','trade','waste','extraction','production','sites','minerals'].includes(q.get('layer')||'')?q.get('layer') as MaterialLayer:base.layer,
   dataset:q.get('dataset')==='controlled'?'controlled':base.dataset,
   direction:place!=='WORLD'&&(q.get('direction')==='in'||q.get('direction')==='M')?'in':'out',
   siteQuery:(q.get('q')||'').slice(0,120),siteRegion:(q.get('siteRegion')||'').slice(0,80),siteType:(q.get('type')||'').slice(0,120),siteSource:(q.get('source')||'').slice(0,100),siteBasis:['reported','modeled','estimated','capacity','unspecified','location','mapped'].includes(q.get('basis')||'')?q.get('basis')!:'',siteSort:q.get('sort')==='quantity'?'quantity':'name',

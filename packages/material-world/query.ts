@@ -15,6 +15,7 @@ const kind=z.enum(facilityKinds);
 const year=z.number().int().min(1900).max(2100);
 const facilitySelection={country,kind};
 export const querySchemas={
+  mineral_production:z.object({series:z.enum(['copper-mine','copper-refinery','aluminium-smelter','lithium-mine','steel-raw']).default('copper-mine'),country:country.default('WORLD'),limit:z.number().int().min(1).max(100).default(30),offset:z.number().int().min(0).max(1000).default(0)}).strict(),
   industrial_capacity:z.object({material:z.enum(['concrete','steel']),country:country.default('WORLD'),limit:z.number().int().min(1).max(100).default(30),offset:z.number().int().min(0).max(1000).default(0)}).strict(),
   glass_program:z.object({program:z.enum(['deposit','refillable','nondeposit']).default('deposit'),region:z.string().max(80).optional()}).strict(),
   source_observatory:z.object({material:z.enum(['fuels','copper','aluminium','steel','concrete','glass','paper','wood','plastic','textiles','food','electronics','garbage']).optional(),status:z.enum(['retained','source identified']).optional()}).strict(),
@@ -46,12 +47,19 @@ export type QueryName=keyof typeof querySchemas;
 type EnergyRow={country:string;period:string;value:number|null;rawValue:unknown;flag:unknown};
 type EnergyData={unit:string;description:string;sourceId:string;frequency:string;factor:number;series:Record<string,unknown>;rows:EnergyRow[]};
 type EnergyCatalog={sources:Record<string,unknown>;measures:Array<{id:string;name:string;unit:string;frequency:string;latestPeriod:string;countries:number}>;refreshMode:string;numericRecords:number};
-const snapshot={release:'30',publishedAt:'2026-09-25',refresh:'Reviewed snapshots; no live or automatic refresh.',missing:'A missing record or null value is not zero.'};
+const snapshot={release:'39',publishedAt:'2026-09-27',refresh:'Reviewed snapshots; no live or automatic refresh.',missing:'A missing record or null value is not zero.'};
 
 export async function runQuery(name:QueryName,input:unknown,read:AssetReader):Promise<Record<string,unknown>>{
   // All paths below are built from validated identifiers and catalogue membership.
   const data=querySchemas[name].parse(input);
   const catalog=()=>read<FacilityCatalog>(facilityCatalogPath);
+  if(name==='mineral_production'){
+    const q=data as z.infer<typeof querySchemas.mineral_production>;
+    const source=await read<{edition:string;reviewedAt:string;method:string;series:Array<{id:string;material:string;measure:string;year:number;basis:string;unit:string;source:string;sourcePdfSha256:string;worldTotal:number;rows:Array<{country:string;value:number}>}>}>('/data/v39/usgs-minerals-2025.json');
+    const series=source.series.find(s=>s.id===q.series)!;
+    const rows=q.country==='WORLD'?series.rows:series.rows.filter(r=>r.country===q.country);
+    return {snapshot,edition:source.edition,reviewedAt:source.reviewedAt,method:source.method,series:q.series,measure:series.measure,year:series.year,basis:series.basis,unit:series.unit,worldTotal:series.worldTotal,source:series.source,sourcePdfSha256:series.sourcePdfSha256,matched:rows.length,limit:q.limit,offset:q.offset,rows:rows.slice(q.offset,q.offset+q.limit),limitations:['The 2025 values are USGS estimates, not final production.','World totals include countries outside the named list and are rounded separately.','Production does not establish a supplier, customer or route.']};
+  }
   if(name==='glass_program'){
     const q=data as z.infer<typeof querySchemas.glass_program>;
     const source=await read<{depositBeverage:{regions:Array<{name:string;glassTonnes:number}>;source:string};refillableMilk:unknown;nonDeposit:unknown;scope:string}>('/data/v29/bc-glass.json');

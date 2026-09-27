@@ -17,6 +17,10 @@ These are rated annual capacities, in million metric tonnes per annum, not actua
 
 Other retained accounts include national material extraction and footprints, selected reported bilateral trade, waste series, product histories, geolocated facilities and some source-identified mine-to-plant deliveries. Coverage, licensing and exclusions are documented in [`packages/overshoot-data/SOURCES.md`](packages/overshoot-data/SOURCES.md) and the release-specific READMEs. A line between two places appears only when its evidence supports those endpoints; a route line is not a precise vehicle track.
 
+## 2025 mineral production estimates
+
+Release 39 adds USGS 2025 estimate columns for copper mining and refining, primary aluminium smelting, lithium mining and raw steel production: 63 named country-by-process observations. The world totals are the publisher’s rounded figures. They are shown as distinct country layers and exposed through the `mineral_production` MCP and JSON API tool. See [`packages/overshoot-data/release39/README.md`](packages/overshoot-data/release39/README.md) for the source PDFs, transformation, omissions and comparison limits.
+
 ## Run locally
 
 Use Node 22.13+ and the pinned pnpm version from `package.json`:
