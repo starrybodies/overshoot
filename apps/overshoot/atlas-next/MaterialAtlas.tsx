@@ -9,7 +9,7 @@ import {facilityKinds,kindLabels} from '@/packages/material-world/model';
 import {facilities,profiles,profileById,type Facility} from './data';
 import {FacilitySheet} from './common';
 import {PlacePicker,useCoverage,placeName} from './PlaceContext';
-import {setNumberLocale} from '../world/model';
+import {browserLocale,setNumberLocale} from '../world/model';
 import placeDirectory from '@/public/data/v11/countries.json';
 import MaterialPage from './MaterialPage';
 import TradePage from './TradePage';
@@ -52,7 +52,7 @@ export default function MaterialAtlas({initial={}}:{initial?:Partial<State>}){
  const profile=profileById(state.material);
  const coverage=useCoverage(state.place);
  const materialContext=state.view==='materials'||state.view==='trade'&&state.dataset==='commodity';
- useEffect(()=>{const locale=navigator.language||'en';setNumberLocale(locale);setDisplayLocale(locale)},[]);
+ useEffect(()=>{const locale=browserLocale();setNumberLocale(locale);setDisplayLocale(locale)},[]);
  useEffect(()=>{setState(readAtlasState(location,initial));if(typeof history.state?.overshootDepth!=='number')history.replaceState({...history.state,overshootDepth:0},'');setCanBack(history.state.overshootDepth>0);const pop=()=>{moveToView(()=>setState(readAtlasState(location,initial)));setCanBack((history.state?.overshootDepth||0)>0);setFacility(null)};window.addEventListener('popstate',pop);return()=>window.removeEventListener('popstate',pop)},[]);
  useEffect(()=>{document.title=state.view==='home'?'OVERSHOOT — A planetary atlas of material flows':`${state.view==='materials'?profile.name:state.view==='about'?'About':state.view==='data'?'Open data & MCP':nav.find(n=>n.id===state.view)?.label} · OVERSHOOT`},[state.view,profile.name]);
  useEffect(()=>{const key=(event:KeyboardEvent)=>{if((event.metaKey||event.ctrlKey)&&event.key==='k'){event.preventDefault();setSearch(open=>!open)}};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key)},[]);

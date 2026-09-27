@@ -3,6 +3,7 @@ import {useEffect,useMemo,useState} from 'react';
 import {ArrowRight,ArrowUpRight,LocateFixed,MapPin,Search} from 'lucide-react';
 import WorldMap from '../world/WorldMap';
 import type {Country,SiteFeature,Flow} from '../world/model';
+import {browserLocale} from '../world/model';
 import {facilityKinds,kindLabels,type FacilityPin} from '@/packages/material-world/model';
 import type {AtlasState} from './atlasState';
 import {AtlasLink} from './AtlasLink';
@@ -18,7 +19,7 @@ export default function LocalPage({state,countries,onChange}:{state:AtlasState;c
  const [lat,setLat]=useState(state.localLat),[lon,setLon]=useState(state.localLon);
  const [cityQuery,setCityQuery]=useState(state.localPlace),[cityResults,setCityResults]=useState<LocalCity[]>([]);
  const [cityOpen,setCityOpen]=useState(false),[cityLoading,setCityLoading]=useState(false),[cityError,setCityError]=useState(''),[activeCity,setActiveCity]=useState(0);
- const displayLanguage=typeof navigator==='undefined'?'en':navigator.language||'en';
+ const displayLanguage=browserLocale();
  const regionNames=useMemo(()=>new Intl.DisplayNames([displayLanguage],{type:'region'}),[displayLanguage]);
  function cityLabel(city:LocalCity){return [city[0],normalizePlace(city[4])===normalizePlace(city[0])?'':city[4],regionNames.of(city[3])||city[3]].filter(Boolean).join(', ')}
  const [data,setData]=useState<LocalResult|null>(null),[error,setError]=useState(''),[loading,setLoading]=useState(false),[located,setLocated]=useState(''),[selected,setSelected]=useState('');
@@ -27,7 +28,7 @@ export default function LocalPage({state,countries,onChange}:{state:AtlasState;c
  useEffect(()=>{
   if(!cityOpen||normalizePlace(cityQuery).length<2){setCityResults([]);setCityLoading(false);return}
   let active=true;setCityLoading(true);setCityError('');
-  const region=typeof navigator==='undefined'?'':navigator.language.split('-')[1]?.toUpperCase()||'';
+  const region=new Intl.Locale(browserLocale()).region||'';
   const timer=setTimeout(()=>{findLocalCities(cityQuery,region).then(results=>{if(active){setCityResults(results);setActiveCity(0)}}).catch(()=>{if(active){setCityResults([]);setCityError('Live place search is unavailable. Try a nearby town or enter coordinates below.')}}).finally(()=>{if(active)setCityLoading(false)})},350);
   return()=>{active=false;clearTimeout(timer)};
  },[cityQuery,cityOpen]);
