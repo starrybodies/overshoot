@@ -41,7 +41,7 @@ export const captures=[
  ]},
  {id:'P05-journey',title:'Copper journey: mine, smelt, refine, make, recover',url:'/materials?material=copper&layer=journey',steps:[
   {wait:2000},{scroll:520,ms:3000},{wait:3000},
-  {scrollTo:'Select a point to inspect',ms:5000},{wait:4000},
+  {scrollTo:'What happens to it?',ms:5000},{scroll:260,ms:2000},{wait:4000},
  ]},
  {id:'P06-extraction-sites',title:'Mines and extraction facilities worldwide',url:'/facilities?kind=mining',steps:[
   {wait:3000},{scroll:380,ms:3000},{wait:5000},
