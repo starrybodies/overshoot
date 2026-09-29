@@ -11,6 +11,9 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "launch-film/**",
+    ".sites-runtime/**",
+    "dist/**",
     "next-env.d.ts",
   ]),
   {

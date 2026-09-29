@@ -6,7 +6,7 @@ const json=(body:object,status=200)=>new Response(JSON.stringify(body),{status,h
 
 export async function POST(request:Request){
   const origin=request.headers.get('origin');
-  if(origin){try{if(new URL(origin).host!==new URL(request.url).host)return json({error:'Invalid origin.'},403)}catch{return json({error:'Invalid origin.'},403)}}
+  try{if(!origin||new URL(origin).host!==new URL(request.url).host)return json({error:'Invalid origin.'},403)}catch{return json({error:'Invalid origin.'},403)}
   let body:Record<string,unknown>;
   try{body=await request.json() as Record<string,unknown>}catch{return json({error:'Please enter a valid email address.'},400)}
   if(body.website)return json({ok:true}); // A hidden field discourages automated submissions.
