@@ -1,2 +1,2 @@
-import MaterialAtlas from '@/apps/overshoot/atlas-next/MaterialAtlas';
-export default function Page(){return <MaterialAtlas initial={{view:'places',place:'SSI'}}/>}
+import {redirect} from 'next/navigation';
+export default function Page(){redirect('/materials?layer=journey')}

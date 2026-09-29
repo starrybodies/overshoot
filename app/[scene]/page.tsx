@@ -1,12 +1,14 @@
-import MaterialAtlas from '@/apps/overshoot/atlas-next/MaterialAtlas';
-import {notFound} from 'next/navigation';
+import {notFound,redirect} from 'next/navigation';
+const scenes:Record<string,string>={
+ extraction:'/facilities?kind=mining&place=WORLD',
+ stock:'/places?place=WORLD',overview:'/places?place=WORLD',
+ discard:'/materials?material=garbage',
+ return:'/materials?material=plastic&form=3915',recycling:'/materials?material=plastic&form=3915',
+ flow:'/trade',flows:'/trade',
+ stories:'/',story:'/',explore:'/',explorer:'/',home:'/'
+};
 export default async function Page({params}:{params:Promise<{scene:string}>}){
- const {scene}=await params;
- if(scene==='extraction')return <MaterialAtlas initial={{view:'facilities',kind:'mining',place:'WORLD'}}/>;
- if(['stock','overview'].includes(scene))return <MaterialAtlas initial={{view:'places',place:'WORLD'}}/>;
- if(['discard','waste'].includes(scene))return <MaterialAtlas initial={{view:'materials',material:'garbage',form:''}}/>;
- if(['return','recycling'].includes(scene))return <MaterialAtlas initial={{view:'materials',material:'plastic',form:'3915'}}/>;
- if(['flow','flows','trade'].includes(scene))return <MaterialAtlas initial={{view:'trade'}}/>;
- if(['stories','story','explore','explorer','home'].includes(scene))return <MaterialAtlas/>;
- notFound();
+ const target=scenes[(await params).scene];
+ if(!target)notFound();
+ redirect(target);
 }
