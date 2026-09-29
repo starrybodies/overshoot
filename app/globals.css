@@ -10,8 +10,8 @@
  --oa-bg:#f8faf6;--oa-panel:#ffffff;--oa-surface:#eef3ea;--oa-raised:#e1ebd9;
  --oa-ink:#203b2f;--oa-muted:#5b6f5f;--oa-line:#d9e2d5;--oa-accent:#285d42;
  --oa-on-accent:#ffffff;--oa-warn:#85562e;--oa-warn-bg:#f5f0e5;
- --oa-map-water:#e8eeeb;--oa-map-land:#f4f4ed;--oa-map-border:#bbc7bf;
- --oa-globe-water:#f0f4ed;--oa-globe-land:#dce5d5;--oa-globe-connected:#a8bc99;
+ --oa-map-water:var(--map-water);--oa-map-land:var(--map-land);--oa-map-border:var(--map-line);
+ --oa-globe-water:var(--map-water);--oa-globe-land:var(--map-land);--oa-globe-connected:#a8bc99;
  --oa-globe-border:#91a987;--oa-globe-flow:#ac542e;
  --background:var(--oa-bg);--foreground:var(--oa-ink);--card:var(--oa-panel);--card-foreground:var(--oa-ink);
  --popover:var(--oa-panel);--popover-foreground:var(--oa-ink);--primary:var(--oa-accent);--primary-foreground:var(--oa-on-accent);
@@ -22,8 +22,8 @@ html.dark {
  color-scheme:dark;--oa-bg:#101914;--oa-panel:#17231b;--oa-surface:#202e23;--oa-raised:#2d402c;
  --oa-ink:#edf2e8;--oa-muted:#a4b7a4;--oa-line:#344839;--oa-accent:#c3dfa4;
  --oa-on-accent:#172c1e;--oa-warn:#dab88d;--oa-warn-bg:#302b21;
- --oa-map-water:#18271f;--oa-map-land:#2c3b30;--oa-map-border:#506351;
- --oa-globe-water:#13271e;--oa-globe-land:#294435;--oa-globe-connected:#5c7c50;
+ --oa-map-water:var(--map-water);--oa-map-land:var(--map-land);--oa-map-border:var(--map-line);
+ --oa-globe-water:var(--map-water);--oa-globe-land:var(--map-land);--oa-globe-connected:#5c7c50;
  --oa-globe-border:#678366;--oa-globe-flow:#f4bb7c;
 }
 html { scroll-behavior:smooth;scroll-padding-top:108px }
