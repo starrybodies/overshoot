@@ -13,7 +13,7 @@ import {placeName} from './PlaceContext';
 type Props={profile:Profile;place:string;countries:Country[];form:string;direction:'in'|'out';onChange:(p:{form?:string;direction?:'in'|'out';place?:string})=>void;onTrade:()=>void;onPlaces:(place?:string,waste?:boolean)=>void;onStage:(stage:number)=>void};
 export default function MaterialMap({profile,place,countries,form,direction,onChange,onTrade,onPlaces,onStage}:Props){
  const [selectedId,setSelectedId]=useState('');
- const {flows,loading,error,product,bc,world,disagreement,reportingBasis,reporterCount}=useTradeEvidence({profile,place,form,direction,countries});
+ const {flows,loading,error,product,bc,world,disagreement,reportingBasis}=useTradeEvidence({profile,place,form,direction,countries});
  const selected=flows.find(f=>f.id===selectedId)||flows[0];
  const guide=materialGuides[profile.id];
  const total=flows.reduce((sum,f)=>sum+f.amount,0);

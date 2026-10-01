@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useMemo,useRef,useState} from 'react';
+import {useOnChange} from '../useOnChange';
 import {Download} from 'lucide-react';
 import {Tabs,TabsList,TabsTrigger} from '@/components/ui/tabs';
 import {useMaterialArtifact} from '../material-data';
@@ -12,7 +13,7 @@ const measures={domesticConsumption:{label:'Material use',explanation:'Domestic 
 export default function CountryTrends({place,countries,year:committedYear,onYear}:{place:string;countries:Country[];year:string;onYear:(v:string)=>void}){
  const svgRef=useRef<SVGSVGElement>(null),[plotWidth,setPlotWidth]=useState(820);
  const [year,setYear]=useState(committedYear);
- useEffect(()=>setYear(committedYear),[committedYear]);
+ useOnChange([committedYear],()=>setYear(committedYear));
  const [measure,setMeasure]=useState<keyof typeof measures>('domesticConsumption'),[basis,setBasis]=useState('person'),[compare,setCompare]=useState('WORLD');
  const comparison=compare===place?(place==='WORLD'?'USA':'WORLD'):compare;
  const primary=useMaterialArtifact<History>('/data/v12/history/'+place+'.json'),secondary=useMaterialArtifact<History>('/data/v12/history/'+comparison+'.json');

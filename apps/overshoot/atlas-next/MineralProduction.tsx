@@ -1,5 +1,5 @@
 'use client';
-import {useMemo,useState} from 'react';
+import {useState} from 'react';
 import {ArrowRight,ArrowUpRight} from 'lucide-react';
 import {useMaterialArtifact} from '../material-data';
 import WorldMap from '../world/WorldMap';
@@ -21,11 +21,11 @@ export default function MineralProduction({material='',place='WORLD',countries,o
  const series=options.find(s=>s.id===id)||options[0];
  const listing=countries||directory.data||[];
  const current=onPlace?place:localPlace;
- const values=useMemo(()=>new Map(series?.rows.map(r=>[r.country,r.value])||[]),[series]);
- const sorted=useMemo(()=>[...values.values()].sort((a,b)=>a-b),[values]);
+ const values=new Map(series?.rows.map(r=>[r.country,r.value])||[]);
+ const sorted=[...values.values()].sort((a,b)=>a-b);
  const thresholds=[.2,.4,.6,.8].map(p=>sorted[Math.min(sorted.length-1,Math.floor(p*sorted.length))]||0);
  const selected=series?.rows.find(r=>r.country===current);
- const ranked=useMemo(()=>[...(series?.rows||[])].sort((a,b)=>b.value-a.value).slice(0,7),[series]);
+ const ranked=[...(series?.rows||[])].sort((a,b)=>b.value-a.value).slice(0,7);
  const changePlace=(id:string)=>onPlace?onPlace(id):setLocalPlace(id);
  return <section className="om-production" aria-label="USGS 2025 mineral production">
   <div className="om-header"><div><span className="oa-kicker">MEASURED BY PROCESS · 2025 ESTIMATES</span><h2>Where was it produced?</h2><p>Mine, refinery, smelter and steel output are separate measures. Select a country to inspect the estimate; these figures do not trace a shipment.</p></div><label>Production stage<select value={series?.id||id} onChange={e=>setChosen(e.target.value)}>{options.map(s=><option key={s.id} value={s.id}>{labels[s.id]}</option>)}</select></label></div>

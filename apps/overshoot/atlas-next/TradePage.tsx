@@ -1,5 +1,6 @@
 'use client';
-import {useState,useEffect} from 'react';
+import {useState} from 'react';
+import {useOnChange} from '../useOnChange';
 import {ArrowRight,ArrowUpRight,Download,Globe2,Search,SlidersHorizontal} from 'lucide-react';
 import {Tabs,TabsList,TabsTrigger} from '@/components/ui/tabs';
 import {Checkbox} from '@/components/ui/checkbox';
@@ -22,7 +23,7 @@ export default function TradePage({dataset,profile,place,form,product:productKey
  const sum=comparable?shown.reduce((a,f)=>a+f.amount,0):0,share=top&&sum?top.amount/sum*100:0;
  const title=bc?'British Columbia':world?'Selected world connections':names.get(place)||place;
  const activeForm=bc?product?.commodity:formNames[form]||profile.name;
- useEffect(()=>setSelected(null),[place,form,productKey,direction,measure,dataset,estimates]);
+ useOnChange([place,form,productKey,direction,measure,dataset,estimates],()=>setSelected(null));
  const selectedPeer=selected?(direction==='in'?selected.origin:selected.destination):'';
  const knownPeer=countries.some(c=>c.id===selectedPeer);
  return <div className="oa-trade-page">

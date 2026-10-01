@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
+import {useOnChange} from '../useOnChange';
 import {ArrowRight,ArrowUpRight,LocateFixed,MapPin,Search} from 'lucide-react';
 import WorldMap from '../world/WorldMap';
 import type {Country,SiteFeature,Flow} from '../world/model';
@@ -22,19 +23,22 @@ export default function LocalPage({state,countries,onChange}:{state:AtlasState;c
  const regionNames=useMemo(()=>new Intl.DisplayNames([displayLanguage],{type:'region'}),[displayLanguage]);
  function cityLabel(city:LocalCity){return [city[0],normalizePlace(city[4])===normalizePlace(city[0])?'':city[4],regionNames.of(city[3])||city[3]].filter(Boolean).join(', ')}
  const [data,setData]=useState<LocalResult|null>(null),[error,setError]=useState(''),[loading,setLoading]=useState(false),[located,setLocated]=useState(''),[selected,setSelected]=useState('');
- useEffect(()=>{setLat(state.localLat);setLon(state.localLon)},[state.localLat,state.localLon]);
- useEffect(()=>{setCityQuery(state.localPlace)},[state.localPlace]);
+ useOnChange([state.localLat,state.localLon],()=>{setLat(state.localLat);setLon(state.localLon)});
+ useOnChange([state.localPlace],()=>setCityQuery(state.localPlace));
+ const searchingCity=cityOpen&&normalizePlace(cityQuery).length>=2;
+ useOnChange([cityQuery,cityOpen],()=>{if(searchingCity){setCityLoading(true);setCityError('')}else{setCityResults([]);setCityLoading(false)}});
  useEffect(()=>{
-  if(!cityOpen||normalizePlace(cityQuery).length<2){setCityResults([]);setCityLoading(false);return}
-  let active=true;setCityLoading(true);setCityError('');
+  if(!searchingCity)return;
+  let active=true;
   const region=typeof navigator==='undefined'?'':navigator.language.split('-')[1]?.toUpperCase()||'';
   const timer=setTimeout(()=>{findLocalCities(cityQuery,region).then(results=>{if(active){setCityResults(results);setActiveCity(0)}}).catch(()=>{if(active){setCityResults([]);setCityError('Live place search is unavailable. Try a nearby town or enter coordinates below.')}}).finally(()=>{if(active)setCityLoading(false)})},350);
   return()=>{active=false;clearTimeout(timer)};
- },[cityQuery,cityOpen]);
+ },[cityQuery,searchingCity]);
  useEffect(()=>{if(cityOpen&&cityResults.length)document.getElementById(`lc-city-option-${activeCity}`)?.scrollIntoView({block:'nearest'})},[activeCity,cityOpen,cityResults]);
+ useOnChange([state.localLat,state.localLon,state.localRadius],()=>{if(state.localLat&&state.localLon){setLoading(true);setError('');setData(null)}});
  useEffect(()=>{
   if(!state.localLat||!state.localLon)return;
-  const controller=new AbortController();setLoading(true);setError('');setData(null);
+  const controller=new AbortController();
   const input={latitude:Number(state.localLat),longitude:Number(state.localLon),radiusKm:Number(state.localRadius)};
   fetch('/api/material-world?'+new URLSearchParams({query:'local_context',input:JSON.stringify(input)}),{signal:controller.signal,cache:'no-store'})
    .then(async r=>{const result=await r.json() as LocalResult&{error?:string};if(!r.ok)throw Error(result.error||'Location query failed');return result as LocalResult})

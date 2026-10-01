@@ -1,11 +1,12 @@
 'use client';
 import {useDeferredValue,useEffect,useMemo,useState,useRef} from 'react';
+import {useOnChange} from '../useOnChange';
 import {ArrowLeft,ArrowRight,ArrowUpRight,BookOpen,Check,ChevronLeft,ChevronRight,Copy,Database,Download,MapPin,Search,X} from 'lucide-react';
 import {useMaterialArtifact} from '../material-data';
 import WorldMap from '../world/WorldMap';
 import type {Country,Flow,SiteFeature} from '../world/model';
-import {facilities,profiles,type Facility} from './data';
-import {Choice,Empty,ErrorState,FacilityCard,Loading,exportCSV,number} from './common';
+import Link from 'next/link'; import {profiles} from './data';
+import {ErrorState,Loading,exportCSV,number} from './common';
 import {basisLabels,sourceAreaNames,facilityCatalogPath,facilityPins,type FacilityIndex,facilityKinds,kindLabels,kindQuestions,matchesFacility,measurementNote,type CountryCoverage,type FacilityKind,type FacilityCatalog,type FacilityPin,type FacilityRecord,type DataSource} from '@/packages/material-world/model';
 import {materialSiteLayers} from './materialSites';
 import './facilities.css';
@@ -23,15 +24,15 @@ function asFeature(r:FacilityPin):SiteFeature{return {type:'Feature',geometry:{t
 function locationLabel(r:FacilityPin){return [r.locality,provinces[r.region]||r.region].filter(Boolean).join(' · ')||(r.country==='UNASSIGNED'?'Country not assigned by source':r.country)}
 function basisSummary(rows:FacilityPin[]){const c=new Map<string,number>();rows.forEach(r=>c.set(r.basis,(c.get(r.basis)||0)+1));return [...c].sort((a,b)=>b[1]-a[1])}
 
-export default function FacilitiesPage({place,kind,countries,site='',filters=emptySiteFilters,onChange,onFacility}:{place:string;kind:SiteKind;countries:Country[];site?:string;filters?:SiteFilters;onChange:(p:SiteChange)=>void;onFacility:(f:Facility)=>void}){
+export default function FacilitiesPage({place,kind,countries,site='',filters=emptySiteFilters,onChange}:{place:string;kind:SiteKind;countries:Country[];site?:string;filters?:SiteFilters;onChange:(p:SiteChange)=>void}){
  const catalog=useMaterialArtifact<FacilityCatalog>(facilityCatalogPath);
  const names=useMemo(()=>new Map([...countries.map(c=>[c.id,c.name] as const),...Object.entries(sourceAreaNames)]),[countries]);
  const country=['BC','SSI'].includes(place)?'CAN':place;
  const placeLabel=place==='WORLD'?'the world':place==='BC'?'British Columbia':place==='SSI'?'Salt Spring Island':names.get(place)||place;
  return <div className="fw-page">
-  <div className="fw-heading"><div><span className="oa-kicker">THE PLACES BEHIND THE NUMBERS</span><h1>Facilities & footprints.</h1><p>Find a site. See what it handles, what is measured, and who reported it.</p></div><a className="fw-data-link" href="/data"><Database size={17}/><span>{catalog.data?number(catalog.data.totalRecords,0):'…'} records<small>Open data & MCP <ArrowUpRight size={12}/></small></span></a></div>
+  <div className="fw-heading"><div><span className="oa-kicker">THE PLACES BEHIND THE NUMBERS</span><h1>Facilities & footprints.</h1><p>Find a site. See what it handles, what is measured, and who reported it.</p></div><Link className="fw-data-link" href="/data"><Database size={17}/><span>{catalog.data?number(catalog.data.totalRecords,0):'…'} records<small>Open data & MCP <ArrowUpRight size={12}/></small></span></Link></div>
   <nav className="fw-layers" aria-label="Facility datasets">{facilityKinds.map(id=>{const d=catalog.data?.datasets[id];const count=country==='WORLD'?d?.count:d?.countries[country]?.count;return <button key={id} aria-pressed={kind===id} onClick={()=>onChange({...emptySiteFilters,kind:id,site:''})}><i style={{background:kindColor[id]}}/><span>{kindLabels[id]}</span><small>{count?number(count,0):'—'}</small></button>})}</nav>
-  {catalog.error?<ErrorState message={catalog.error}/>:!catalog.data?<Loading/>:kind==='documented'?<div className="fw-no-results"><h2>Use source-mapped locations</h2><p>The curated operation showcase has been retired from this data view. Search the geolocated inventories or investigate a coordinate.</p><a className="oa-button" href="/local">Open the local lens <ArrowRight size={16}/></a></div>:<FacilityWorkspace catalog={catalog.data} kind={kind} country={country} place={place} placeLabel={placeLabel} countries={countries} names={names} site={site} filters={filters} onChange={onChange}/>}
+  {catalog.error?<ErrorState message={catalog.error}/>:!catalog.data?<Loading/>:kind==='documented'?<div className="fw-no-results"><h2>Use source-mapped locations</h2><p>The curated operation showcase has been retired from this data view. Search the geolocated inventories or investigate a coordinate.</p><Link className="oa-button" href="/local">Open the local lens <ArrowRight size={16}/></Link></div>:<FacilityWorkspace catalog={catalog.data} kind={kind} country={country} place={place} placeLabel={placeLabel} countries={countries} names={names} site={site} filters={filters} onChange={onChange}/>}
  </div>
 }
 function FacilityWorkspace({catalog,kind,country,place,placeLabel,countries,names,site,filters,onChange}:{catalog:FacilityCatalog;kind:FacilityKind;country:string;place:string;placeLabel:string;countries:Country[];names:Map<string,string>;site:string;filters:SiteFilters;onChange:(p:SiteChange)=>void}){
@@ -39,10 +40,10 @@ function FacilityWorkspace({catalog,kind,country,place,placeLabel,countries,name
  const loadedCountry=country;
  const entry:CountryCoverage|undefined=world?dataset.world:dataset.countries[loadedCountry];
  const [query,setQuery]=useState(filters.siteQuery),[page,setPage]=useState(0),[showOutfall,setShowOutfall]=useState(false);
- useEffect(()=>setShowOutfall(false),[site]);
+ useOnChange([site],()=>setShowOutfall(false));
  const region=filters.siteRegion||(place==='BC'?'BC':''),type=filters.siteType,basis=filters.siteBasis,sort=filters.siteSort;
  const setRegion=(v:string)=>onChange({siteRegion:v,site:'',...(place==='BC'&&!v?{place:'CAN'}:{})});const setType=(v:string)=>onChange({siteType:v,site:''});const setBasis=(v:string)=>onChange({siteBasis:v,site:''});const setSort=(v:string)=>onChange({siteSort:v as 'name'|'quantity'});
- useEffect(()=>setQuery(filters.siteQuery),[filters.siteQuery]);
+ useOnChange([filters.siteQuery],()=>setQuery(filters.siteQuery));
  useEffect(()=>{if(query===filters.siteQuery)return;const timer=setTimeout(()=>onChange({siteQuery:query,site:''}),350);return()=>clearTimeout(timer)},[query,filters.siteQuery,onChange]);
  const resultsRef=useRef<HTMLDivElement>(null);
  const search=useDeferredValue(query);
@@ -63,7 +64,7 @@ function FacilityWorkspace({catalog,kind,country,place,placeLabel,countries,name
  const layer=useMemo(()=>({values:new Map(countryRows.map(r=>[r.id,r.count])),label:'Source records by country',unit:'records',year:'Source dates vary',thresholds:[10,100,1000,5000]}),[countryRows]);
  const sources=(entry?.sources||[...new Set(Object.values(dataset.countries).flatMap(e=>e.sources))]).map(id=>[id,catalog.sources[id]] as const);
  const pages=Math.max(1,Math.ceil(visible.length/30));
- useEffect(()=>setPage(0),[search,region,type,basis,sort,kind,place,filters.siteSource]);
+ useOnChange([search,region,type,basis,sort,kind,place,filters.siteSource],()=>setPage(0));
  useEffect(()=>{if(resultsRef.current)resultsRef.current.scrollTop=0},[page,search,region,type,basis,sort,kind,place,filters.siteSource]);
  function open(id:string){onChange({site:id})}
  function reset(){setQuery('');onChange({...emptySiteFilters,site:''});setPage(0)}
@@ -125,9 +126,4 @@ function PowerEvidence({attributes:a}:{attributes:FacilityRecord['attributes']})
  const generation=[2013,2014,2015,2016,2017,2018,2019].map(year=>({year,reported:a['generation_gwh_'+year],modeled:a['estimated_generation_gwh_'+year]})).filter(r=>r.reported!=null||r.modeled!=null);
  const fuels=[a.primary_fuel,a.other_fuel1,a.other_fuel2,a.other_fuel3].filter(Boolean);
  return <div className="fw-power-evidence"><span className="oa-kicker">FUEL & ELECTRICITY</span><p>{fuels.join(' · ')}. Other fuels are not ranked by use.</p>{generation.length?<><table><caption>Annual generation · GWh</caption><thead><tr><th>Year</th><th>Reported</th><th>Modeled</th></tr></thead><tbody>{generation.map(r=><tr key={r.year}><th>{r.year}</th><td>{r.reported==null?'—':number(Number(r.reported),1)}</td><td>{r.modeled==null?'—':number(Number(r.modeled),1)}</td></tr>)}</tbody></table><p>Reported and modeled values are alternatives, not additive. A dash is unavailable, not zero.</p></>:<p>No annual generation values are supplied for this plant.</p>}</div>
-}
-function DocumentedOperations({place,placeLabel,onFacility,onChange}:{place:string;placeLabel:string;onFacility:(f:Facility)=>void;onChange:(p:SiteChange)=>void}){
- const [query,setQuery]=useState(''),[material,setMaterial]=useState('all');
- const curated=facilities.filter(f=>(place==='WORLD'||place==='BC'&&f.region==='BC'||place==='SSI'&&f.id==='rainbow'||place===f.country)&&(material==='all'||f.materials.includes(material))&&(f.name+' '+f.place+' '+f.input+' '+f.output).toLowerCase().includes(query.toLowerCase()));
- return <><div className="fw-question"><h2>Understand a local operation.</h2><p>Selected Canadian examples explain inputs, processes and outputs. Use the map layers for the broader infrastructure records.</p></div><div className="oa-facility-filters"><Choice label="Material" value={material} onChange={setMaterial} options={[{id:'all',name:'All documented materials'},...profiles.map(p=>({id:p.id,name:p.name}))]}/><label className="oa-inline-search"><Search size={18}/><input placeholder="Find a named operation" aria-label="Find a named operation" value={query} onChange={e=>setQuery(e.target.value)}/></label></div><div className="oa-section-heading"><h2>{curated.length} documented operations · {placeLabel}</h2><button className="oa-text-link" onClick={()=>onChange({kind:'landfill',site:''})}>Open waste infrastructure<ArrowRight size={16}/></button></div>{curated.length?<div className="oa-facility-grid">{curated.map(f=><FacilityCard facility={f} key={f.id} onOpen={onFacility}/>)}</div>:<Empty title="No documented operation matches.">Select another material or open the infrastructure map.</Empty>}</>
 }

@@ -13,7 +13,7 @@ assert.equal(path.structuredContent.bcGlass.depositGlass.containersRecovered,159
 const glass=await rpc('tools/call',{name:'glass_program',arguments:{program:'deposit',region:'Capital Regional District'}});assert(!glass.isError);assert.equal(glass.structuredContent.regions[0].glassTonnes,5159);assert.equal(glass.structuredContent.summary.estimatedTonnesRecovered,54542);
 const dairy=await rpc('tools/call',{name:'glass_program',arguments:{program:'refillable'}});assert.equal(dairy.structuredContent.data.containersReturned,2666659);
 const discovery=await rpc('tools/call',{name:'source_observatory',arguments:{material:'glass',status:'retained'}});assert.equal(discovery.structuredContent.matched,1);assert.equal(discovery.structuredContent.sources[0].localData,'/data/v29/bc-glass.json');
-const fixture:AssetReader=async<T,>(_path:string)=>({products:{'99':{name:'Illustrative product',unit:'tonnes',path:'/fixture/rows.json'}},defaultItem:'99',publisher:'Fixture',url:'https://example.org',edition:'fixture',license:'fixture'} as T);
+const fixture:AssetReader=async<T,>()=>({products:{'99':{name:'Illustrative product',unit:'tonnes',path:'/fixture/rows.json'}},defaultItem:'99',publisher:'Fixture',url:'https://example.org',edition:'fixture',license:'fixture'} as T);
 const interpolatedReader:AssetReader=async<T,>(path:string)=>path==='/fixture/rows.json'?([{country:'CAN',year:2022,value:10,source_flag:'reported'},{country:'CAN',year:2024,value:30,source_flag:'reported'}] as T):fixture<T>(path);
 const estimate=await runQuery('estimate_production_gap',{material:'food',country:'CAN',item:'99',year:2023},interpolatedReader);
 assert.equal((estimate.estimate as {value:number}).value,20);assert.equal((estimate.estimate as {stored:boolean}).stored,false);

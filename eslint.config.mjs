@@ -11,7 +11,6 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
-    "launch-film/**",
     ".sites-runtime/**",
     "dist/**",
     "next-env.d.ts",
@@ -24,6 +23,13 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-unused-vars": "off",
       "react-hooks/purity": "off",
       "react-hooks/set-state-in-effect": "off",
+    },
+  },
+  {
+    files: ["scripts/checks/**/*.mts"],
+    rules: {
+      // Check scripts assert on untyped MCP/JSON responses.
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ]);

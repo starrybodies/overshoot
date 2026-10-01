@@ -1,6 +1,7 @@
 'use client';
-import {useEffect,useMemo,useState} from 'react';
-import {ArrowRight,Check,ChevronDown,Globe2,MapPin,Search} from 'lucide-react';
+import {useMemo,useState} from 'react';
+import {useBrowserLocale} from '../useBrowserLocale';
+import {ArrowRight,Check,ChevronDown,Globe2,MapPin} from 'lucide-react';
 import {CommandDialog,CommandEmpty,CommandGroup,CommandInput,CommandItem,CommandList} from '@/components/ui/command';
 import {useMaterialArtifact} from '../material-data';
 import type {Country} from '../world/model';
@@ -12,8 +13,8 @@ export function useCoverage(place:string){const data=useMaterialArtifact<{countr
 export function placeName(place:string,countries:Country[]){return place==='WORLD'?'Worldwide':place==='BC'?'British Columbia':place==='SSI'?'Salt Spring Island':countries.find(c=>c.id===place)?.name||sourceAreaNames[place]||place;}
 const regional=[{id:'BC',name:'British Columbia',region:'Canada · regional evidence'},{id:'SSI',name:'Salt Spring Island',region:'Canada · local collection evidence'}];
 export function PlacePicker({value,countries,onChange}:{value:string;countries:Country[];onChange:(id:string)=>void}){
- const [open,setOpen]=useState(false),[query,setQuery]=useState(''),[locale,setLocale]=useState('en');
- useEffect(()=>setLocale(navigator.language||'en'),[]);
+ const [open,setOpen]=useState(false),[query,setQuery]=useState('');
+ const locale=useBrowserLocale();
  const places=useMemo(()=>{const local=new Intl.DisplayNames([locale],{type:'region'});const multilingual=['es','fr','pt','de','ar','zh','ja','hi','ru'].map(l=>new Intl.DisplayNames([l],{type:'region'}));return (countries as PlaceRecord[]).map(c=>({...c,localName:c.alpha2?local.of(c.alpha2!):c.name,aliases:c.alpha2?multilingual.map(l=>l.of(c.alpha2!)).join(' '):''}));},[countries,locale]);
  function choose(id:string){onChange(id);setOpen(false)}
  return <><button className="oa-place-picker" onClick={()=>{setQuery('');setOpen(true)}} aria-label={'Change place: '+placeName(value,countries)} aria-haspopup="dialog"><Globe2 size={19}/><span><small>Looking at</small><strong>{placeName(value,countries)}</strong></span><ChevronDown size={17}/></button><CommandDialog filter={(value,search)=>value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(search.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase())?1:0} open={open} onOpenChange={setOpen} className="oa-dialog oa-place-dialog" title="Choose a place" description="Search countries and territories, or open a documented regional example."><div className="oa-picker-heading"><h2>Where in the world?</h2><p>Choose a country or territory. Available evidence follows your selection.</p></div><CommandInput value={query} onValueChange={setQuery} placeholder="Search a place or country code…"/><CommandList><CommandEmpty>No matching place. Search its country or territory; city-level coverage is currently limited to the regional examples.</CommandEmpty><CommandGroup heading="Global view"><CommandItem value="Worldwide World Global Earth" onSelect={()=>choose('WORLD')}><Globe2 size={19}/><span>Worldwide<small>Compare the evidence across countries</small></span>{value==='WORLD'&&<Check/>}</CommandItem></CommandGroup><CommandGroup heading="Countries & territories">{places.map(c=><CommandItem key={c.id} value={[c.name,c.id,c.alpha2,c.localName,c.aliases].filter(Boolean).join(' ')} onSelect={()=>choose(c.id)}><MapPin size={17}/><span><bdi>{c.name}</bdi><small>{c.localName!==c.name?<><bdi>{c.localName}</bdi> · </>:null}{c.subregion||c.region||'Country or territory'}</small></span>{value===c.id&&<Check/>}</CommandItem>)}</CommandGroup><CommandGroup heading="Regional evidence in depth">{regional.map(c=><CommandItem key={c.id} value={c.name+' '+c.id+' Canada'} onSelect={()=>choose(c.id)}><MapPin size={17}/><span>{c.name}<small>{c.region}</small></span>{value===c.id&&<Check/>}</CommandItem>)}</CommandGroup></CommandList><p className="oa-picker-note">{countries.length} countries and areas are selectable. Data depth varies; an absent record never means zero.</p></CommandDialog></>;

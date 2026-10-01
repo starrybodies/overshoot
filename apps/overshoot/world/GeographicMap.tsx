@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useId,useMemo,useRef,useState} from 'react';
+import {useOnChange} from '../useOnChange';
 import * as maplibregl from 'maplibre-gl';
 import type {Map as GLMap,StyleSpecification,GeoJSONSource} from 'maplibre-gl';
 import {geoGraticule10,geoBounds} from 'd3-geo';
@@ -22,7 +23,7 @@ const source=(data:FeatureCollection)=>({type:'geojson' as const,data});
 const gridGeo=collection([{type:'Feature',properties:{},geometry:geoGraticule10()}]);
 function baseStyle(dark:boolean):StyleSpecification{const p=palette(dark);return {version:8,sources:{},layers:[{id:'background',type:'background',paint:{'background-color':p.water}}]}}
 export default function GeographicMap(props:WorldMapProps&{onFallback:(reason?:string)=>void}){
- const {flows,sites,countries,place,selected,onFlow,onSite,onPlace,color,siteView,countryLayer,raster,shippingDensity,onFallback}=props;
+ const {flows,sites,countries,place,selected,color,siteView,countryLayer,raster,shippingDensity,onFallback}=props;
  const geography=useMaterialArtifact<FeatureCollection>('/data/v10/geography.json');
  const {dark}=useAppTheme();
  const container=useRef<HTMLDivElement>(null),frame=useRef<HTMLElement>(null),map=useRef<GLMap|null>(null);
@@ -42,7 +43,7 @@ export default function GeographicMap(props:WorldMapProps&{onFallback:(reason?:s
  const countryGeo=useMemo(()=>{const names=new Map(countries.map(c=>[c.numeric,c]));return collection((geography.data?.features||[]).map((f,i)=>{const c=names.get(String(f.properties?.numeric)),value=c?countryLayer?.values.get(c.id):undefined;return {...f,id:i,properties:{...f.properties,iso:c?.id||'',name:c?.name||f.properties?.name,value:value??null,connected:c?routes.has(c.id):false,label:(c?.name||f.properties?.name)+(countryLayer?' · '+(value===undefined?'No observation':number(value,1)+' '+countryLayer.unit):'')}}}))},[geography.data,countries,countryLayer?.values,countryLayer?.unit,routes]);
  const siteGeo=useMemo(()=>collection(sites.map(s=>({...s,properties:{...s.properties,label:s.properties.name+' · '+(s.properties.value===null?(s.properties.metric==='Source location'?'Source location':'Quantity not reported'):compact(s.properties.value)+' '+s.properties.unit)}}))),[sites]);
  const current=useRef({props,routeGeo,countryGeo,siteGeo,dark,projection,proportional,detail});
- current.current={props,routeGeo,countryGeo,siteGeo,dark,projection,proportional,detail};
+ useEffect(()=>{current.current={props,routeGeo,countryGeo,siteGeo,dark,projection,proportional,detail}});
  function fit(m:GLMap){const {props:p,countryGeo:g}=current.current;const bounds=connectionBounds(p.flows);if(bounds){m.fitBounds(bounds,{padding:65,maxZoom:11,duration:duration()});return}const local=p.place==='BC'||p.place==='SSI';if(p.siteView&&p.place!=='WORLD'||local){const f=g.features.find(f=>f.properties?.iso===p.place);if(f){const b=geoBounds(f);if(b.flat().every(Number.isFinite)&&b[0][0]<b[1][0]){m.fitBounds(b,{padding:45,maxZoom:8,duration:duration()});return}}const center=coordinates.get(p.place);if(center){m.easeTo({center,zoom:p.place==='SSI'?9:local?4:3,duration:duration(),pitch:0,bearing:0});return}}m.easeTo({center:[local?-130:15,15],zoom:Math.log2(Math.max(240,Math.min(m.getContainer().clientWidth-30,m.getContainer().clientHeight*1.8))/512),pitch:0,bearing:0,duration:duration()})}
  function update(m:GLMap){
   // Source processing also makes isStyleLoaded() false. Waiting for idle here
@@ -92,15 +93,15 @@ export default function GeographicMap(props:WorldMapProps&{onFallback:(reason?:s
  useEffect(()=>{if(map.current)update(map.current)},[ready,routeGeo,countryGeo,siteGeo,dark,projection,proportional,selected,color,detail,raster?.id,raster?.date,shippingDensity]);
  useEffect(()=>{if(map.current&&ready){fit(map.current);setHover('')}},[place,siteView,ready,flows.filter(f=>f.connection).map(f=>f.id).join('|')]);
  useEffect(()=>{const m=map.current,points=props.focusCoordinates;if(!m||!ready||!points?.length||points.length>220)return;const lng=points.map(p=>p[0]),lat=points.map(p=>p[1]);if(Math.max(...lng)-Math.min(...lng)>175)return;if(points.length===1){m.easeTo({center:points[0],zoom:Math.max(5,Math.min(m.getZoom(),8)),duration:duration(),pitch:0,bearing:0});return}m.fitBounds([[Math.min(...lng),Math.min(...lat)],[Math.max(...lng),Math.max(...lat)]],{padding:72,maxZoom:8,duration:duration()})},[props.focusKey,ready]);
- useEffect(()=>{setRasterError(false);if(raster)setDetail(false)},[raster?.id,raster?.date]);
+ useOnChange([raster?.id,raster?.date],()=>{setRasterError(false);if(raster)setDetail(false)});
  useEffect(()=>{const m=map.current;if(!m||!ready||!selected||!siteView)return;const f=current.current.props.flows.find(f=>f.id===selected&&f.connection);if(f){const bounds=connectionBounds([f]);if(bounds)m.fitBounds(bounds,{padding:70,maxZoom:11,duration:duration()});return}const s=current.current.props.sites.find(s=>s.properties.id===selected);if(s)m.flyTo({center:s.geometry.coordinates,zoom:Math.max(m.getZoom(),10),speed:1.5,curve:1.2,duration:duration(),essential:false})},[selected,ready,siteView]);
+ useOnChange([detail,dark,ready],()=>{if(ready&&detail)setDetailState('Loading geographic detail…')});
  useEffect(()=>{
   const m=map.current;if(!m||!ready)return;const controller=new AbortController();
   if(!detail){
    if(styleKind.current==='detail'){styleReady.current=false;styleKind.current='base';m.setStyle(baseStyle(dark),{diff:false})}
    return;
   }
-  setDetailState('Loading geographic detail…');
   const timeout=window.setTimeout(()=>{controller.abort();setDetail(false);setDetailState('Geographic detail unavailable. Showing the built-in world map.')},12000);
   fetch('https://tiles.openfreemap.org/styles/'+(dark?'dark':'liberty'),{signal:controller.signal}).then(r=>{if(!r.ok)throw Error('Unavailable');return r.json()}).then((style)=>{if(controller.signal.aborted)return;styleReady.current=false;styleKind.current='detail';m.setStyle(style as StyleSpecification,{diff:false});setDetailState('OpenStreetMap · OpenFreeMap');}).catch(e=>{if(e.name!=='AbortError'){setDetail(false);setDetailState('Geographic detail unavailable. Showing the built-in world map.')}}).finally(()=>window.clearTimeout(timeout));
   return()=>{controller.abort();window.clearTimeout(timeout)};

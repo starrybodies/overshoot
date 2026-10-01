@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
+import {useOnChange} from '../useOnChange';
 import {Anchor,ArrowUpRight,Download,Pause,Play,Search,Ship,Waves} from 'lucide-react';
 import {Sheet,SheetContent,SheetDescription,SheetTitle} from '@/components/ui/sheet';
 import {useMaterialArtifact} from '../material-data';
@@ -21,7 +22,7 @@ export function useMaritimeLayers(place:string,enabled=false){
  const features=useMemo<SiteFeature[]>(()=>!portsOn?[]:located.map(p=>{const r=monthRows.get(p.id),calls=portCalls(r,vessel);return {type:'Feature',geometry:{type:'Point',coordinates:p.coordinates},properties:{id:'port-'+p.id,name:p.name,type:'Maritime port',country:p.country,source_id:'imf-portwatch',year:Number(month.slice(0,4)),value:calls,unit:'port calls · '+monthLabel(month),metric:'Port calls',basis:'modeled',stageColor:'#328ca1',mapRadius:calls===null?4:4+Math.min(9,Math.log1p(calls)*1.3),transport:true,portId:p.id}}}),[portsOn,located,monthRows,vessel,month]);
  const chosen=ports.data?.find(p=>p.id===selected),history=useMemo(()=>(activity.data||[]).filter(r=>r.port===selected),[activity.data,selected]);
  const search=useMemo(()=>located.filter(p=>(p.name+' '+p.countryName+' '+(p.locode||'')).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(query.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase())).sort((a,b)=>(portCalls(monthRows.get(b.id),vessel)??-1)-(portCalls(monthRows.get(a.id),vessel)??-1)),[located,query,monthRows,vessel]);
- useEffect(()=>{if(!portsOn)setPlaying(false)},[portsOn]);
+ useOnChange([portsOn],()=>{if(!portsOn)setPlaying(false)});
  useEffect(()=>{if(!playing||!months.length)return;const timer=setInterval(()=>{if(document.hidden){setPlaying(false);return}setPeriod(p=>months[(months.indexOf(p||months.at(-1)!)+1)%months.length])},1200);return()=>clearInterval(timer)},[playing,months.join('|'),period]);
  const loading=portsOn&&(!catalog.data||!ports.data||!activity.data),error=catalog.error||ports.error||activity.error;
  function open(p:Port){setSelected(p.id);setPlaying(false)}

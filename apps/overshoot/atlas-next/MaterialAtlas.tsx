@@ -8,7 +8,8 @@ import type {Country} from '../world/model';
 import {facilityKinds,kindLabels} from '@/packages/material-world/model';
 import {facilities,profiles,profileById,type Facility} from './data';
 import {FacilitySheet} from './common';
-import {PlacePicker,useCoverage,placeName} from './PlaceContext';
+import {PlacePicker,placeName} from './PlaceContext';
+import {useBrowserLocale} from '../useBrowserLocale';
 import {setNumberLocale} from '../world/model';
 import placeDirectory from '@/public/data/v11/countries.json';
 import MaterialPage from './MaterialPage';
@@ -16,14 +17,14 @@ import TradePage from './TradePage';
 import PlacesPage from './PlacesPage';
 import WastePage from './WastePage';
 import {materialSiteLayers} from './materialSites';
-import FacilitiesPage,{emptySiteFilters,type SiteKind} from './FacilitiesPage';
+import FacilitiesPage,{emptySiteFilters} from './FacilitiesPage';
 import AboutPage from './AboutPage';
 import SourcesContent from './SourcesContent';
 import DataPage from './DataPage';
 import {ThemeToggle} from './AppTheme';
 import HomePage from './HomePage';
 import LocalPage from './LocalPage';
-import {atlasUrl,defaultAtlasState as defaults,readAtlasState,type AtlasState as State,type AtlasView} from './atlasState';
+import {atlasUrl,defaultAtlasState as defaults,readAtlasState,type AtlasState as State} from './atlasState';
 import {moveToView} from './motion';
 import {AtlasLink} from './AtlasLink';
 import {DropdownMenu,DropdownMenuContent,DropdownMenuItem,DropdownMenuTrigger} from '@/components/ui/dropdown-menu';
@@ -47,12 +48,15 @@ function productMaterial(hs:string){
  return chapter===39?'plastic':chapter===47||chapter===48?'paper':chapter===72||chapter===73?'steel':chapter===76?'aluminium':chapter===70?'glass':chapter===85?'electronics':chapter===44?'wood':chapter===27?'fuels':chapter===25||chapter===68?'concrete':chapter>=1&&chapter<=24?'food':chapter>=50&&chapter<=63?'textiles':'paper';
 }
 export default function MaterialAtlas({initial={}}:{initial?:Partial<State>}){
- const [state,setState]=useState<State>({...defaults,...initial}),[canBack,setCanBack]=useState(false),[search,setSearch]=useState(false),[searchQuery,setSearchQuery]=useState(''),[filter,setFilter]=useState(''),[sources,setSources]=useState(false),[materialPicker,setMaterialPicker]=useState(false),[materialQuery,setMaterialQuery]=useState(''),[displayLocale,setDisplayLocale]=useState('en'),[sharing,setSharing]=useState(false),[copied,setCopied]=useState(false),[copyError,setCopyError]=useState(false),[shareUrl,setShareUrl]=useState(''),[facility,setFacility]=useState<Facility|null>(null);
+ const [state,setState]=useState<State>({...defaults,...initial}),[canBack,setCanBack]=useState(false),[search,setSearch]=useState(false),[searchQuery,setSearchQuery]=useState(''),[filter,setFilter]=useState(''),[sources,setSources]=useState(false),[materialPicker,setMaterialPicker]=useState(false),[materialQuery,setMaterialQuery]=useState(''),[sharing,setSharing]=useState(false),[copied,setCopied]=useState(false),[copyError,setCopyError]=useState(false),[shareUrl,setShareUrl]=useState(''),[facility,setFacility]=useState<Facility|null>(null);
  const countries=placeDirectory as Country[];
  const profile=profileById(state.material);
- const coverage=useCoverage(state.place);
+
  const materialContext=state.view==='materials'||state.view==='trade'&&state.dataset==='commodity';
- useEffect(()=>{const locale=navigator.language||'en';setNumberLocale(locale);setDisplayLocale(locale)},[]);
+ const displayLocale=useBrowserLocale();
+ useEffect(()=>setNumberLocale(displayLocale),[displayLocale]);
+ // The URL is only readable on the client; sync it into state once after hydration.
+ // eslint-disable-next-line react-hooks/set-state-in-effect
  useEffect(()=>{setState(readAtlasState(location,initial));if(typeof history.state?.overshootDepth!=='number')history.replaceState({...history.state,overshootDepth:0},'');setCanBack(history.state.overshootDepth>0);const pop=()=>{moveToView(()=>setState(readAtlasState(location,initial)));setCanBack((history.state?.overshootDepth||0)>0);setFacility(null)};window.addEventListener('popstate',pop);return()=>window.removeEventListener('popstate',pop)},[]);
  useEffect(()=>{document.title=state.view==='home'?'OVERSHOOT — A planetary atlas of material flows':`${state.view==='materials'?profile.name:state.view==='about'?'About':state.view==='data'?'Open data & MCP':nav.find(n=>n.id===state.view)?.label} · OVERSHOOT`},[state.view,profile.name]);
  useEffect(()=>{const key=(event:KeyboardEvent)=>{if((event.metaKey||event.ctrlKey)&&event.key==='k'){event.preventDefault();setSearch(open=>!open)}};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key)},[]);
@@ -80,7 +84,7 @@ export default function MaterialAtlas({initial={}}:{initial?:Partial<State>}){
     {state.view==='materials'&&<MaterialPage network={state.network} onNetwork={(network,place)=>go({network,place,layer:'connections'},false)} journeyLayers={state.journeyLayers} onJourneyLayers={journeyLayers=>go({journeyLayers},false)} productionSelection={state} onProductionSelection={update=>go(update,false)} energySelection={state} onEnergySelection={update=>go(update,false)} layer={state.layer} onLayer={layer=>go({layer,...(layer==='production'?{energyRegion:'all' as const}:{})},false)} key={profile.id} profile={profile} place={state.place} countries={countries} form={profile.codes.includes(state.form)?state.form:profile.codes[0]||''} direction={state.direction} onMapChange={p=>go({...p,product:''},false)} onSites={selection=>go({...siteState(),...selection})} onMaterial={material} onTrade={(form,place)=>go({view:'trade',dataset:'commodity',form:form||state.form||profile.codes[0]||'',place:place||state.place,product:''})} onFacility={setFacility} onPlaces={(place=state.place,waste=false)=>go({view:'places',place,placeView:waste?'waste':'materials',wastePlace:''})} onControlledTrade={(direction='out',place=state.place)=>go({view:'trade',dataset:'controlled',place,direction})}/>}
     {state.view==='trade'&&<TradePage key={profile.id} dataset={state.dataset} profile={profile} place={state.place} form={state.form} product={state.product} direction={state.direction} countries={countries} onChange={p=>go(p,false)} onCountry={place=>go({view:'places',place})}/>}
     {state.view==='places'&&<PlacesPage onGo={go} onEnergy={energyMeasure=>go({view:'materials',material:'fuels',form:'2709',layer:'production',energyMeasure,energyPeriod:'',energyRegion:'all'})} placeView={state.placeView} wastePlace={state.wastePlace} year={state.accountYear} onYear={accountYear=>go({accountYear},false)} onView={placeView=>go({placeView,wastePlace:''},false)} onWastePlace={(place,wastePlace)=>go({place,wastePlace,placeView:'waste'},false)} onWaste={(direction,place=state.place)=>go({view:'trade',dataset:'controlled',place,direction})} place={state.place} countries={countries} onPlace={place=>go({place})} onMaterial={material} onTrade={trade} onFacility={setFacility} onSites={sites}/>}
-    {state.view==='facilities'&&<FacilitiesPage filters={state} site={state.site} place={state.place} kind={state.kind} countries={countries} onChange={p=>go(p,false)} onFacility={setFacility}/>}
+    {state.view==='facilities'&&<FacilitiesPage filters={state} site={state.site} place={state.place} kind={state.kind} countries={countries} onChange={p=>go(p,false)}/>}
     </div>
     <footer className="oa-footer"><button className="oa-footer-brand" onClick={()=>go({...defaults})}><span className="oa-footer-lockup"><img src="/overshoot-lockup.png" alt="" width="1500" height="750"/></span> <i>by Gaia AI</i></button><span className="oa-footer-note">A planetary atlas of material flows</span><button onClick={()=>go({view:'about'})}>About & how to use</button><button onClick={()=>setSources(true)}>Sources & coverage<ArrowUpRight size={14}/></button><AtlasLink href="/data" onNavigate={()=>go({view:'data'})}>Open data & MCP</AtlasLink></footer>
    </main>

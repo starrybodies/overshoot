@@ -22,7 +22,7 @@ export default function MaterialSitesMap({profile,place,countries,onPlace,onSite
  const dataset=catalog.data?.datasets[layer.kind];
  const entry=country==='WORLD'?dataset?.world:dataset?.countries[country];
  const data=useMaterialArtifact<FacilityIndex>(entry?.index||null);
- const rows=useMemo(()=>(data.data?Array.from(facilityPins(data.data)):empty).filter(r=>!layer.type||r.type===layer.type),[data.data,layer.type]);
+ const rows=(data.data?Array.from(facilityPins(data.data)):empty).filter(r=>!layer.type||r.type===layer.type);
  const features=useMemo<SiteFeature[]>(()=>rows.map(r=>({type:'Feature',geometry:{type:'Point',coordinates:r.coordinates},properties:{id:r.id,name:r.name,type:r.type,country:r.country,source_id:r.source,year:r.year,value:null,unit:'',metric:'Source location',basis:r.basis}})),[rows]);
  const loading=!catalog.data||!!entry&&!data.data&&!data.error;
  const leadingCountries=useMemo(()=>{const counts=new Map<string,number>();for(const r of rows)counts.set(r.country,(counts.get(r.country)||0)+1);return [...counts].sort((a,b)=>b[1]-a[1]).slice(0,3)},[rows]);

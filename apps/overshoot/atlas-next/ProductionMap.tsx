@@ -43,7 +43,7 @@ function ProductionTrend({rows,unit,selectedYear,onYear}:{rows:ProductionRow[];u
  const valid=rows.filter(r=>r.value!==null);if(valid.length<2)return null;
  const first=valid[0],last=valid.at(-1)!,max=Math.max(...valid.map(r=>r.value!)),span=last.year-first.year||1;
  const x=(y:number)=>(y-first.year)/span*280+4,y=(v:number)=>70-v/(max||1)*62;
- let previous=0;const line=valid.map(r=>{const move=r.year!==previous+1;previous=r.year;return `${move?'M':'L'}${x(r.year).toFixed(2)},${y(r.value!).toFixed(2)}`}).join(' ');
+ const line=valid.map((r,i)=>{const move=r.year!==(i?valid[i-1].year:0)+1;return `${move?'M':'L'}${x(r.year).toFixed(2)},${y(r.value!).toFixed(2)}`}).join(' ');
  const selected=valid.find(r=>r.year===selectedYear);
  return <div className="oa-production-trend"><strong>How production has changed</strong><svg viewBox="0 0 288 78" role="img" aria-label={`Production from ${first.year} to ${last.year}; latest ${number(last.value!,0)} ${unit}. Gaps are not interpolated.`}><path d="M4,70H284" stroke="var(--oa-line)"/><path d={line} stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke"/>{selected&&<circle cx={x(selectedYear)} cy={y(selected.value!)} r="4" fill="currentColor"/>}</svg><div><span>{first.year}</span><button onClick={()=>onYear(last.year)}>Latest: {compact(last.value!)} {unit} · {last.year}</button></div></div>
 }
