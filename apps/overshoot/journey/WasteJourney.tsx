@@ -1,5 +1,5 @@
 'use client';
-import {useEffect,useMemo,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,BookOpen,Check,Download,ExternalLink,FileSearch,HelpCircle,MapPin,Milk,Newspaper,GlassWater,Anvil,Apple,Monitor,Trash2,Armchair,Recycle,Search,Share2} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Tabs,TabsList,TabsTrigger,TabsContent} from '@/components/ui/tabs';
@@ -16,9 +16,11 @@ const datasetDownloadHref=exportHref(JSON.stringify(journeyData,null,2),'applica
 const placeNames:Record<JourneyPlace,string>={general:'How processes work',bc:'British Columbia', 'salt-spring':'Salt Spring Island'};
 const materialIcons={plastic:Milk,paper:Newspaper,glass:GlassWater,metal:Anvil,food:Apple,electronics:Monitor,garbage:Trash2,'rigid-plastic':Armchair};
 export default function WasteJourney({offline=false,initialState=initialJourney}:{offline?:boolean;initialState?:JourneyState}){
- const [state,setState]=useState<JourneyState>(initialState),[mounted,setMounted]=useState(false),[sourceIds,setSourceIds]=useState<string[]|null>(null),[record,setRecord]=useState<JourneyEvidence|null>(null),[share,setShare]=useState<string|null>(null),[copied,setCopied]=useState(false);
- useEffect(()=>{const restore=()=>setState(readJourney(offline?location.hash.slice(1):location.search));restore();setMounted(true);addEventListener('popstate',restore);return()=>removeEventListener('popstate',restore)},[offline]);
- useEffect(()=>{if(mounted)history.replaceState(null,'',offline?`#${journeyQuery(state)}`:`${location.pathname}?${journeyQuery(state)}`)},[state,mounted,offline]);
+ const [state,setState]=useState<JourneyState>(initialState),[sourceIds,setSourceIds]=useState<string[]|null>(null),[record,setRecord]=useState<JourneyEvidence|null>(null),[share,setShare]=useState<string|null>(null),[copied,setCopied]=useState(false);
+ const restored=useRef(false);
+ // Write the URL only once it has been read on mount (this effect runs first; the flag resets on cleanup), so neither the first commit nor a StrictMode remount overwrites a shared selection with the default state.
+ useEffect(()=>{if(restored.current)history.replaceState(null,'',offline?`#${journeyQuery(state)}`:`${location.pathname}?${journeyQuery(state)}`)},[state,offline]);
+ useEffect(()=>{const restore=()=>setState(readJourney(offline?location.hash.slice(1):location.search));restore();restored.current=true;addEventListener('popstate',restore);return()=>{restored.current=false;removeEventListener('popstate',restore)}},[offline]);
  const update=(patch:Partial<JourneyState>)=>{setState(s=>({...s,...patch,query:patch.material||patch.place?'':patch.query??s.query}));setRecord(null);setSourceIds(null)};
  const material=journeyData.materials.find(m=>m.id===state.material)!,step=material.steps[state.stage],stepIndex=stages.findIndex(s=>s.id===state.stage);
  const evidence=useMemo(()=>visibleEvidence(journeyData,state),[state]);

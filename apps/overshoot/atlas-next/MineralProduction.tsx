@@ -16,7 +16,7 @@ export default function MineralProduction({material='',place='WORLD',countries,o
  const result=useMaterialArtifact<Catalog>('/data/v39/usgs-minerals-2025.json');
  const directory=useMaterialArtifact<Country[]>(countries?null:'/data/v11/countries.json');
  const [chosen,setChosen]=useState(''),[localPlace,setLocalPlace]=useState('WORLD');
- const options=(result.data?.series||[]).filter(s=>!material||s.material===material);
+ const options=useMemo(()=>(result.data?.series||[]).filter(s=>!material||s.material===material),[result.data,material]);
  const id=options.some(s=>s.id===chosen)?chosen:defaults[material]||'copper-mine';
  const series=options.find(s=>s.id===id)||options[0];
  const listing=countries||directory.data||[];

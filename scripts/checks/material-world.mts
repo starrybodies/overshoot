@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {gunzipSync} from 'node:zlib';
 import {runQuery,type AssetReader} from '../../packages/material-world/query';
-import {matchesFacility} from '../../packages/material-world/model';
+import {matchesFacility,type FacilityPin} from '../../packages/material-world/model';
 const read:AssetReader=async<T,>(path:string)=>{const b=await readFile(new URL('../../public'+path,import.meta.url));return JSON.parse((b[0]===31&&b[1]===139?gunzipSync(b):b).toString()) as T};
 const search=await runQuery('facilities',{kind:'landfill',country:'CAN',query:'Vancouver',region:'BC',limit:2},read);
 assert.equal(search.matched,7);assert.equal(search.nextOffset,2);
@@ -33,7 +33,7 @@ await assert.rejects(runQuery('environment',{layer:'satellite',date:'2026-02-30'
 await assert.rejects(runQuery('facilities',{kind:'landfill',country:'../../x'},read));
 await assert.rejects(runQuery('facilities',{kind:'landfill',country:'CAN',limit:100000},read));
 await assert.rejects(runQuery('energy',{country:'CAN',measure:'../../x'},read));
-const p={coordinates:[179,0],country:'FJI',region:'',type:'test',basis:'location',name:'Île',locality:'',id:'x'} as any;
+const p:FacilityPin={coordinates:[179,0],country:'FJI',region:'',type:'test',basis:'location',name:'Île',locality:'',id:'x',source:'',value:null,unit:'',metric:'',year:null,status:null,part:0};
 assert(matchesFacility(p,{bbox:[170,-10,-170,10],query:'ile'}));assert(!matchesFacility({...p,coordinates:[0,0]},{bbox:[170,-10,-170,10]}));
 console.log('PASS: Real source queries, province search, pagination, record evidence, Saudi power/energy, waste, material accounts, environmental URLs, explicit interpolation, no extrapolation, nulls and invalid-input rejection.');
 
