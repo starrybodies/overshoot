@@ -273,3 +273,7 @@
 }
 /* Seven primary destinations retain comfortable targets on narrow screens. */
 @media(max-width:740px){.oa-release .oa-nav [data-slot=tabs-list]{justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;scroll-snap-type:x proximity}.oa-release .oa-nav [data-slot=tabs-list]::-webkit-scrollbar{display:none}.oa-release .oa-nav [data-slot=tabs-trigger]{flex:0 0 auto;min-width:65px;scroll-snap-align:start}}
+/* Segmented controls keep each label on one line from tablet width up; a crowded list scrolls instead of wrapping words. */
+@media(min-width:741px){.oa-release main [data-slot=tabs-list]{max-width:100%;overflow-x:auto;scrollbar-width:none}.oa-release main [data-slot=tabs-list]::-webkit-scrollbar{display:none}.oa-release main [data-slot=tabs-trigger]{white-space:nowrap;flex-shrink:0}}
+/* On phones the primary tabs scroll sideways; fade the trailing edge so the hidden destinations read as reachable. */
+@media(max-width:740px){.oa-release .oa-nav [data-slot=tabs-list]{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);padding-right:28px}}

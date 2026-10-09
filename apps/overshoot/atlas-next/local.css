@@ -29,3 +29,8 @@
 .lc-attribution{color:var(--oa-muted);font-size:.78rem;line-height:1.5;margin-top:17px}.lc-attribution a{color:inherit;text-underline-offset:2px}
 @media(max-width:750px){.lc-place-row{grid-template-columns:minmax(0,1fr) 126px}.lc-geolocate{grid-column:1/-1;justify-content:center}.lc-search-title>span{width:100%;margin-left:28px}}
 @media(max-width:550px){.lc-place-row{grid-template-columns:1fr}.lc-geolocate{grid-column:auto}.lc-coordinate-entry .lc-fields{grid-template-columns:1fr 1fr}.lc-coordinate-entry .lc-fields .oa-button{grid-column:1/-1;justify-content:center}.lc-search-title>span{margin-left:0}}
+.lc-examples{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:16px}
+.lc-examples span{font-size:.87rem;color:var(--oa-muted);margin-right:4px}
+.lc-examples button{border:1px solid var(--oa-line);background:var(--oa-panel);color:var(--oa-ink);border-radius:999px;padding:7px 14px;font-size:.87rem;line-height:1.2;cursor:pointer;transition:border-color .15s,background-color .15s}
+.lc-examples button:hover{border-color:var(--oa-accent);background:var(--oa-surface)}
+.lc-examples button:focus-visible{outline:2px solid var(--oa-accent);outline-offset:2px}

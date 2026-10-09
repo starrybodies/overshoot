@@ -15,38 +15,45 @@ import './local.css';
 type Nearby=FacilityPin&{kind:string;distanceKm:number;sourceUrl:string;sourceTitle:string};
 type LocalResult={location:{latitude:number;longitude:number;radiusKm:number;country:string|null;countryName:string|null;countryMethod:string;countryBoundary:string};counts:Record<string,number>;matched:number;records:Nearby[];nationalExtraction:null|{year:number;tonnes:number|null;estimated:boolean;source:{title?:string;url?:string}|null};definitions:{nearby:string;extraction:string;river:string};coverage:string};
 const noFlows:Flow[]=[];
+const noCities:LocalCity[]=[];
+// One-click starting points with dense nearby records across different regions and industries.
+const examplePlaces:LocalCity[]=[['Rotterdam',51.9225,4.47917,'NL','South Holland'],['Johannesburg',-26.20227,28.04363,'ZA','Gauteng'],['Mumbai',19.07283,72.88261,'IN','Maharashtra'],['Shanghai',31.22222,121.45806,'CN','Shanghai'],['Houston',29.76328,-95.36327,'US','Texas'],['Vancouver',49.24966,-123.11934,'CA','British Columbia']];
 export default function LocalPage({state,countries,onChange}:{state:AtlasState;countries:Country[];onChange:(patch:Partial<AtlasState>)=>void}){
  const [lat,setLat]=useState(state.localLat),[lon,setLon]=useState(state.localLon);
- const [cityQuery,setCityQuery]=useState(state.localPlace),[cityResults,setCityResults]=useState<LocalCity[]>([]);
- const [cityOpen,setCityOpen]=useState(false),[cityLoading,setCityLoading]=useState(false),[cityError,setCityError]=useState(''),[activeCity,setActiveCity]=useState(0);
+ const [cityQuery,setCityQuery]=useState(state.localPlace);
+ const [cityOpen,setCityOpen]=useState(false),[citySearch,setCitySearch]=useState<{key:string;results:LocalCity[];error:string}>({key:'',results:[],error:''}),[activeCity,setActiveCity]=useState(0);
  const displayLanguage=browserLocale();
  const regionNames=useMemo(()=>new Intl.DisplayNames([displayLanguage],{type:'region'}),[displayLanguage]);
  function cityLabel(city:LocalCity){return [city[0],normalizePlace(city[4])===normalizePlace(city[0])?'':city[4],regionNames.of(city[3])||city[3]].filter(Boolean).join(', ')}
- const [data,setData]=useState<LocalResult|null>(null),[error,setError]=useState(''),[loading,setLoading]=useState(false),[located,setLocated]=useState(''),[selected,setSelected]=useState('');
- useEffect(()=>{setLat(state.localLat);setLon(state.localLon)},[state.localLat,state.localLon]);
- useEffect(()=>{setCityQuery(state.localPlace)},[state.localPlace]);
+ const [result,setResult]=useState<{key:string;data:LocalResult|null;error:string}>({key:'',data:null,error:''}),[formError,setFormError]=useState({key:'',message:''}),[located,setLocated]=useState(''),[selected,setSelected]=useState('');
+ // Navigation can change the location from outside this page; reset the editable fields when it does.
+ const [synced,setSynced]=useState({lat:state.localLat,lon:state.localLon,place:state.localPlace});
+ if(synced.lat!==state.localLat||synced.lon!==state.localLon||synced.place!==state.localPlace){setSynced({lat:state.localLat,lon:state.localLon,place:state.localPlace});if(synced.lat!==state.localLat||synced.lon!==state.localLon){setLat(state.localLat);setLon(state.localLon)}if(synced.place!==state.localPlace)setCityQuery(state.localPlace)}
+ const cityKey=cityOpen&&normalizePlace(cityQuery).length>=2?cityQuery:'';
  useEffect(()=>{
-  if(!cityOpen||normalizePlace(cityQuery).length<2){setCityResults([]);setCityLoading(false);return}
-  let active=true;setCityLoading(true);setCityError('');
+  if(!cityKey)return;
+  let active=true;
   const region=new Intl.Locale(browserLocale()).region||'';
-  const timer=setTimeout(()=>{findLocalCities(cityQuery,region).then(results=>{if(active){setCityResults(results);setActiveCity(0)}}).catch(()=>{if(active){setCityResults([]);setCityError('Live place search is unavailable. Try a nearby town or enter coordinates below.')}}).finally(()=>{if(active)setCityLoading(false)})},350);
+  const timer=setTimeout(()=>{findLocalCities(cityKey,region).then(results=>{if(active){setCitySearch({key:cityKey,results,error:''});setActiveCity(0)}}).catch(()=>{if(active)setCitySearch({key:cityKey,results:[],error:'Live place search is unavailable. Try a nearby town or enter coordinates below.'})})},350);
   return()=>{active=false;clearTimeout(timer)};
- },[cityQuery,cityOpen]);
+ },[cityKey]);
+ const cityCurrent=cityKey&&citySearch.key===cityKey?citySearch:null,cityResults=cityCurrent?.results??noCities,cityError=cityCurrent?.error??'',cityLoading=!!cityKey&&!cityCurrent;
  useEffect(()=>{if(cityOpen&&cityResults.length)document.getElementById(`lc-city-option-${activeCity}`)?.scrollIntoView({block:'nearest'})},[activeCity,cityOpen,cityResults]);
+ const queryKey=state.localLat&&state.localLon?[state.localLat,state.localLon,state.localRadius].join(','):'';
  useEffect(()=>{
-  if(!state.localLat||!state.localLon)return;
-  const controller=new AbortController();setLoading(true);setError('');setData(null);
+  if(!queryKey)return;
+  const controller=new AbortController();
   const input={latitude:Number(state.localLat),longitude:Number(state.localLon),radiusKm:Number(state.localRadius)};
   fetch('/api/material-world?'+new URLSearchParams({query:'local_context',input:JSON.stringify(input)}),{signal:controller.signal,cache:'no-store'})
    .then(async r=>{const result=await r.json() as LocalResult&{error?:string};if(!r.ok)throw Error(result.error||'Location query failed');return result as LocalResult})
-   .then(setData).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:'Location unavailable')})
-   .finally(()=>{if(!controller.signal.aborted)setLoading(false)});
+   .then(data=>setResult({key:queryKey,data,error:''})).catch(e=>{if(!controller.signal.aborted)setResult({key:queryKey,data:null,error:e instanceof Error?e.message:'Location unavailable'})});
   return()=>controller.abort();
- },[state.localLat,state.localLon,state.localRadius]);
+ },[queryKey,state.localLat,state.localLon,state.localRadius]);
+ const current=queryKey&&result.key===queryKey?result:null,data=current?.data??null,loading=!!queryKey&&!current,error=(formError.key===queryKey?formError.message:'')||current?.error||'';
  const points=useMemo<SiteFeature[]>(()=>!data?[]:[{type:'Feature',geometry:{type:'Point',coordinates:[data.location.longitude,data.location.latitude]},properties:{id:'research-point',name:'Selected location',type:'Search centre',country:data.location.country||'WORLD',source_id:'user-coordinate',year:null,value:null,unit:'',metric:'Search point',basis:'location'}},...data.records.map(r=>({type:'Feature' as const,geometry:{type:'Point' as const,coordinates:r.coordinates},properties:{id:r.id,name:r.name,type:r.type,country:r.country,source_id:r.source,year:r.year,value:r.value,unit:r.unit,metric:r.metric,basis:r.basis}}))],[data]);
  const visible=selected?data?.records.find(r=>r.id===selected):null;
- function submit(e:React.FormEvent){e.preventDefault();const a=Number(lat),b=Number(lon);if(!lat.trim()||!lon.trim()||!Number.isFinite(a)||!Number.isFinite(b)||a< -90||a>90||b< -180||b>180){setError('Enter a latitude from −90 to 90 and a longitude from −180 to 180.');return}setSelected('');setCityQuery('');setCityOpen(false);onChange({localLat:a.toFixed(5),localLon:b.toFixed(5),localPlace:''})}
- function selectCity(city:LocalCity){const label=cityLabel(city);setCityQuery(label);setCityOpen(false);setCityResults([]);setLat(city[1].toFixed(5));setLon(city[2].toFixed(5));setLocated('');setSelected('');onChange({localLat:city[1].toFixed(5),localLon:city[2].toFixed(5),localPlace:label})}
+ function submit(e:React.FormEvent){e.preventDefault();const a=Number(lat),b=Number(lon);if(!lat.trim()||!lon.trim()||!Number.isFinite(a)||!Number.isFinite(b)||a< -90||a>90||b< -180||b>180){setFormError({key:queryKey,message:'Enter a latitude from −90 to 90 and a longitude from −180 to 180.'});return}setSelected('');setCityQuery('');setCityOpen(false);onChange({localLat:a.toFixed(5),localLon:b.toFixed(5),localPlace:''})}
+ function selectCity(city:LocalCity){const label=cityLabel(city);setCityQuery(label);setCityOpen(false);setLat(city[1].toFixed(5));setLon(city[2].toFixed(5));setLocated('');setSelected('');onChange({localLat:city[1].toFixed(5),localLon:city[2].toFixed(5),localPlace:label})}
  function choose(id:string){const c=countries.find(x=>x.id===id);if(!c?.center)return;setCityQuery('');setCityOpen(false);setSelected('');setLocated('Using the country centre as a starting point. Search for a city to refine this location.');onChange({localLat:c.center[1].toFixed(5),localLon:c.center[0].toFixed(5),localPlace:''})}
  function locate(){if(!navigator.geolocation){setLocated('Location services are unavailable here. Search for a city or enter coordinates.');return}setLocated('Requesting your approximate position…');navigator.geolocation.getCurrentPosition(p=>{setLocated('Showing records near your position.');setCityQuery('');setCityOpen(false);setSelected('');onChange({localLat:p.coords.latitude.toFixed(5),localLon:p.coords.longitude.toFixed(5),localPlace:''})},()=>setLocated('Location access was unavailable. Search for a city or enter coordinates.'),{enableHighAccuracy:false,timeout:12000})}
  return <div className="lc-page">
@@ -68,6 +75,7 @@ export default function LocalPage({state,countries,onChange}:{state:AtlasState;c
     <label className="lc-radius">Radius<select value={state.localRadius} onChange={e=>onChange({localRadius:e.target.value})}>{[10,25,50,100,250].map(n=><option key={n} value={n}>{n} km</option>)}</select></label>
     <button className="lc-geolocate" type="button" onClick={locate}><LocateFixed size={17}/>Use my position</button>
    </div>
+   {!state.localLat&&<div className="lc-examples"><span>Or try</span>{examplePlaces.map(city=><button type="button" key={city[0]} onClick={()=>selectCity(city)}>{city[0]}</button>)}</div>}
    {state.localPlace&&state.localLat&&state.localLon&&<p className="lc-current"><MapPin size={15}/> Showing records near <strong>{state.localPlace}</strong> · {state.localLat}°, {state.localLon}°</p>}
    <details className="lc-coordinate-entry"><summary>Use coordinates or a country centre</summary><form onSubmit={submit}><div className="lc-fields"><label>Latitude<input type="number" step="any" min="-90" max="90" value={lat} onChange={e=>setLat(e.target.value)} placeholder="−90 to 90" required/></label><label>Longitude<input type="number" step="any" min="-180" max="180" value={lon} onChange={e=>setLon(e.target.value)} placeholder="−180 to 180" required/></label><button className="oa-button" type="submit">Investigate coordinates</button></div></form><label className="lc-country-label">Or begin at a country centre<select value="" onChange={e=>choose(e.target.value)}><option value="">Choose a country…</option>{countries.filter(c=>c.center).map(c=><option value={c.id} key={c.id}>{c.name}</option>)}</select></label><p>Coordinates also work for places missing from the city index.</p></details>
    {located&&<p role="status" className="lc-status">{located}</p>}
