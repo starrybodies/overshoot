@@ -27,7 +27,10 @@ export interface Flow{connection?:{mode:string;from:[number,number];to:[number,n
 export interface TradeRecord{id?:string;origin:string;destination:string;commodity:string;year:number;tonnes:number;reporter:string;reported_flow:'X'|'M';is_net_weight_estimated?:boolean;quantity_basis_note?:string;source_url?:string;[key:string]:unknown}
 export interface SiteFeature{type:'Feature';geometry:{type:'Point';coordinates:[number,number]};properties:{id:string;type:string;name:string;country:string;source_id:string;year:number|null;value:number|null;unit:string;metric:string;estimated?:boolean;state?:string;[key:string]:unknown}}
 let numberLocale='en';
-export function setNumberLocale(locale:string){try{new Intl.NumberFormat(locale);numberLocale=locale}catch{numberLocale='en'}}
+// Browsers can report non-BCP 47 tags such as 'en-US@posix' (POSIX/C OS locales); Intl constructors throw RangeError on them.
+export function safeLocale(locale?:string|null){const tag=(locale||'').split('@')[0].replace(/_/g,'-').split('.')[0];if(/^(c|posix)?$/i.test(tag))return 'en';try{return Intl.getCanonicalLocales(tag)[0]||'en'}catch{return 'en'}}
+export function browserLocale(){return typeof navigator==='undefined'?'en':safeLocale(navigator.language)}
+export function setNumberLocale(locale:string){numberLocale=safeLocale(locale)}
 export function number(n:number,max=1){if(n>0&&n<0.000001)return '<0.000001';const precision=n!==0&&Math.abs(n)<1?Math.max(max,Math.min(6,Math.ceil(-Math.log10(Math.abs(n)))+1)):max;return new Intl.NumberFormat(numberLocale,{maximumFractionDigits:precision}).format(n)}
 export function compact(n:number){return n>=1e9?`${number(n/1e9,2)}bn`:n>=1e6?`${number(n/1e6,2)}m`:n>=1e3?`${number(n/1e3,1)}k`:number(n,2)}
 export function normalizeTrade(r:TradeRecord,names:Map<string,string>):Flow{return{id:r.id||`${r.reporter}-${r.reported_flow}-${r.origin}-${r.destination}-${r.commodity}-${r.year}`,origin:r.origin,destination:r.destination,originLabel:names.get(r.origin)||r.origin,destinationLabel:names.get(r.destination)||r.destination,amount:r.tonnes,unit:'tonnes · source net weight',year:r.year,estimated:!!r.is_net_weight_estimated,basis:r.quantity_basis_note||'UN Comtrade netWgt (kg) ÷ 1,000. Weight of the traded form; not a pure-material conversion.',sourceUrl:r.source_url||'https://comtradeplus.un.org/',record:r}}

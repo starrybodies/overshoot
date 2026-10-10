@@ -29,8 +29,10 @@ export default function FacilitiesPage({place,kind,countries,site='',filters=emp
  const country=['BC','SSI'].includes(place)?'CAN':place;
  const placeLabel=place==='WORLD'?'the world':place==='BC'?'British Columbia':place==='SSI'?'Salt Spring Island':names.get(place)||place;
  return <div className="fw-page">
+  {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Atlas views navigate via AtlasLink + MaterialAtlas's go(), which this page is not given (onChange only patches site filters); keep the existing full-document load of the default /data view rather than introducing next/link into the atlas. */}
   <div className="fw-heading"><div><span className="oa-kicker">THE PLACES BEHIND THE NUMBERS</span><h1>Facilities & footprints.</h1><p>Find a site. See what it handles, what is measured, and who reported it.</p></div><a className="fw-data-link" href="/data"><Database size={17}/><span>{catalog.data?number(catalog.data.totalRecords,0):'…'} records<small>Open data & MCP <ArrowUpRight size={12}/></small></span></a></div>
   <nav className="fw-layers" aria-label="Facility datasets">{facilityKinds.map(id=>{const d=catalog.data?.datasets[id];const count=country==='WORLD'?d?.count:d?.countries[country]?.count;return <button key={id} aria-pressed={kind===id} onClick={()=>onChange({...emptySiteFilters,kind:id,site:''})}><i style={{background:kindColor[id]}}/><span>{kindLabels[id]}</span><small>{count?number(count,0):'—'}</small></button>})}</nav>
+  {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Atlas views navigate via AtlasLink + MaterialAtlas's go(), which this page is not given (onChange only patches site filters); keep the existing full-document load of the default /local view rather than introducing next/link into the atlas. */}
   {catalog.error?<ErrorState message={catalog.error}/>:!catalog.data?<Loading/>:kind==='documented'?<div className="fw-no-results"><h2>Use source-mapped locations</h2><p>The curated operation showcase has been retired from this data view. Search the geolocated inventories or investigate a coordinate.</p><a className="oa-button" href="/local">Open the local lens <ArrowRight size={16}/></a></div>:<FacilityWorkspace catalog={catalog.data} kind={kind} country={country} place={place} placeLabel={placeLabel} countries={countries} names={names} site={site} filters={filters} onChange={onChange}/>}
  </div>
 }
@@ -39,10 +41,10 @@ function FacilityWorkspace({catalog,kind,country,place,placeLabel,countries,name
  const loadedCountry=country;
  const entry:CountryCoverage|undefined=world?dataset.world:dataset.countries[loadedCountry];
  const [query,setQuery]=useState(filters.siteQuery),[page,setPage]=useState(0),[showOutfall,setShowOutfall]=useState(false);
- useEffect(()=>setShowOutfall(false),[site]);
+ const [outfallSite,setOutfallSite]=useState(site);if(outfallSite!==site){setOutfallSite(site);setShowOutfall(false)}
  const region=filters.siteRegion||(place==='BC'?'BC':''),type=filters.siteType,basis=filters.siteBasis,sort=filters.siteSort;
  const setRegion=(v:string)=>onChange({siteRegion:v,site:'',...(place==='BC'&&!v?{place:'CAN'}:{})});const setType=(v:string)=>onChange({siteType:v,site:''});const setBasis=(v:string)=>onChange({siteBasis:v,site:''});const setSort=(v:string)=>onChange({siteSort:v as 'name'|'quantity'});
- useEffect(()=>setQuery(filters.siteQuery),[filters.siteQuery]);
+ const [syncedQuery,setSyncedQuery]=useState(filters.siteQuery);if(syncedQuery!==filters.siteQuery){setSyncedQuery(filters.siteQuery);setQuery(filters.siteQuery)}
  useEffect(()=>{if(query===filters.siteQuery)return;const timer=setTimeout(()=>onChange({siteQuery:query,site:''}),350);return()=>clearTimeout(timer)},[query,filters.siteQuery,onChange]);
  const resultsRef=useRef<HTMLDivElement>(null);
  const search=useDeferredValue(query);
@@ -63,7 +65,7 @@ function FacilityWorkspace({catalog,kind,country,place,placeLabel,countries,name
  const layer=useMemo(()=>({values:new Map(countryRows.map(r=>[r.id,r.count])),label:'Source records by country',unit:'records',year:'Source dates vary',thresholds:[10,100,1000,5000]}),[countryRows]);
  const sources=(entry?.sources||[...new Set(Object.values(dataset.countries).flatMap(e=>e.sources))]).map(id=>[id,catalog.sources[id]] as const);
  const pages=Math.max(1,Math.ceil(visible.length/30));
- useEffect(()=>setPage(0),[search,region,type,basis,sort,kind,place,filters.siteSource]);
+ const pageScope=JSON.stringify([search,region,type,basis,sort,kind,place,filters.siteSource]),[pagedScope,setPagedScope]=useState(pageScope);if(pagedScope!==pageScope){setPagedScope(pageScope);setPage(0)}
  useEffect(()=>{if(resultsRef.current)resultsRef.current.scrollTop=0},[page,search,region,type,basis,sort,kind,place,filters.siteSource]);
  function open(id:string){onChange({site:id})}
  function reset(){setQuery('');onChange({...emptySiteFilters,site:''});setPage(0)}

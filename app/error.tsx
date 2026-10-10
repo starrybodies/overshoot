@@ -1,4 +1,5 @@
 'use client';
 export default function ErrorPage({reset}:{error:Error&{digest?:string};reset:()=>void}){
+ // eslint-disable-next-line @next/next/no-html-link-for-pages -- Intentional full-document navigation: the boundary means client state or the router may be broken, and a soft navigation to '/' would not leave an error raised on '/' itself.
  return <main className="oa-system-page"><a href="/" className="oa-system-brand">OVERSHOOT</a><span className="oa-system-label">SOMETHING WENT WRONG</span><h1>This page<br/>could not load.</h1><p>Try again, or return to the homepage to continue.</p><nav aria-label="Page recovery"><button onClick={reset}>Try again</button><a href="/">Homepage</a></nav></main>;
 }

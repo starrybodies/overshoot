@@ -38,7 +38,8 @@ export default function WasteSystems({place,wastePlace,countries,onSelect,onTrad
  const ranked=useMemo(()=>records.filter(r=>r.level==='country'&&r[measure]!==null).sort((a,b)=>(b[measure] as number)-(a[measure] as number)),[index.data,measure]);
  const values=useMemo(()=>new Map(ranked.filter(r=>ids.has(r.country)).map(r=>[r.country,r[measure] as number])),[ranked,ids,measure]);
  const relatedCities=records.filter(r=>r.level==='city'&&(entry?r.country===entry.country:true));
- useEffect(()=>{setSelectedField(null);setLimit(8);if(scrollToRecord.current){document.getElementById('waste-record')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});scrollToRecord.current=false}},[id]);
+ const [recordId,setRecordId]=useState(id);if(recordId!==id){setRecordId(id);setSelectedField(null);setLimit(8)}
+ useEffect(()=>{if(scrollToRecord.current){document.getElementById('waste-record')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});scrollToRecord.current=false}},[id]);
  function select(r:WasteEntry){scrollToRecord.current=true;onSelect(ids.has(r.country)?r.country:'WORLD',r.id);setPicker(false);if(r.id===id){document.getElementById('waste-record')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});scrollToRecord.current=false}}
  useEffect(()=>{if(focusRecord&&record.data)document.getElementById('waste-record')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})},[focusRecord,record.data?.id]);
  const o=selectedField?record.data?.observations[selectedField]:undefined;

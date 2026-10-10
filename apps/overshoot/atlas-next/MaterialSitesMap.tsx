@@ -7,13 +7,13 @@ import WorldMap from '../world/WorldMap';
 import type {Country,SiteFeature} from '../world/model';
 import type {Profile} from './data';
 import type {SiteKind} from './FacilitiesPage';
-import {materialSiteLayers} from './materialSites';
+import {materialSiteLayers,type MaterialSiteLayer} from './materialSites';
 import {Choice,ErrorState,Loading,number} from './common';
 import {placeName} from './PlaceContext';
 export type OpenMaterialSites=(selection?:{kind?:SiteKind;siteType?:string;site?:string;place?:string})=>void;
-const empty:FacilityPin[]=[];
+const empty:FacilityPin[]=[],noLayers:MaterialSiteLayer[]=[];
 export default function MaterialSitesMap({profile,place,countries,onPlace,onSites}:{profile:Profile;place:string;countries:Country[];onPlace:(p:string)=>void;onSites:OpenMaterialSites}){
- const layers=materialSiteLayers[profile.id]||[];
+ const layers=materialSiteLayers[profile.id]||noLayers;
  const [choice,setChoice]=useState('0');
  const layer=layers[Number(choice)]||layers[0];
  const catalog=useMaterialArtifact<FacilityCatalog>(facilityCatalogPath);
