@@ -12,14 +12,27 @@ To preview it, open `index.html` in a browser, or run:
 python3 -m http.server -d sites/more-water 8080
 ```
 
-## Deploying
+## Deploying (Cloudflare Pages)
 
-Point any static host at this folder:
+**1. Put the domain on Cloudflare.** In the Cloudflare dashboard, add `thingsthattookmorewaterthanbuildingthis.site` as a domain on the Free plan. Cloudflare shows two nameservers. At the registrar, turn off DNSSEC if it's on, then replace the domain's nameservers with those two. The domain shows as Active in Cloudflare once the change has spread, usually within an hour. Cloudflare Pages needs this for a root domain; a plain CNAME at another DNS host won't work.
 
-- **Cloudflare Pages / Netlify:** build command empty, output directory `sites/more-water`.
-- **GitHub Pages:** publish this folder. `CNAME` already holds the custom domain.
+**2. Create the Pages project.** Go to Workers & Pages → Create → Pages → Connect to Git, choose `starrybodies/overshoot`, and use:
 
-Register the domain first. Once it's attached, the host serves `index.html` at the root.
+| Setting | Value |
+| --- | --- |
+| Production branch | `main` |
+| Framework preset | None |
+| Build command | `exit 0` |
+| Build output directory | `sites/more-water` |
+| Root directory | leave blank |
+| Environment variable | `SKIP_DEPENDENCY_INSTALL` = `1` |
+| Build watch paths (include) | `sites/more-water/*` |
+
+The environment variable stops Pages from installing the atlas app's dependencies from the repo root, which this page doesn't need. The watch path means only changes to this folder trigger a deploy.
+
+**3. Attach the domain.** In the Pages project, open Custom domains → Set up a custom domain and enter `thingsthattookmorewaterthanbuildingthis.site`. Cloudflare creates the DNS record and the HTTPS certificate itself. Add `www.thingsthattookmorewaterthanbuildingthis.site` the same way if you want it too.
+
+`CNAME` in this folder is only used by GitHub Pages. Cloudflare ignores it.
 
 ## The numbers
 
