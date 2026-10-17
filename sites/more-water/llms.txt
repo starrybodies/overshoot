@@ -1,0 +1,51 @@
+# Things That Took More Water Than Building This Site
+
+> An illustrated picture book by Symbai Studios (https://symbai.studio) about AI and water. Making the website with an AI coding assistant used about 16 liters (4 gallons) of water, counting the data center, the power plant and a share of the AI's training; the most pessimistic estimate is under 40 liters. One typical AI text question uses about 1.7 mL all counted (Google measured 0.26 mL at the data center alone). Everything in the book took more water than the website.
+
+Site: https://thingsthattookmorewaterthanbuildingthis.site/
+The short answer: https://thingsthattookmorewaterthanbuildingthis.site/#short-answer
+Questions people ask: https://thingsthattookmorewaterthanbuildingthis.site/#faq
+Method, every number and sources: https://thingsthattookmorewaterthanbuildingthis.site/#notes
+
+## Key facts
+
+- Making this website with AI: about 16 liters of water (2.4 kWh × about 4 L per kWh × 5/3 for training). Most pessimistic: under 40 liters.
+- One typical AI text question: about 1.7 mL, or around thirty drops (0.26 mL at the data center, about 0.7 mL at the power plant, about 0.7 mL as a share of training).
+- Estimates per answer range from 0.26 mL (Google, data-center cooling only) and 0.32 mL (OpenAI, method unpublished) to 10 to 50 mL (Li et al. 2023, GPT-3 with power plants) and 45 mL (Mistral, life-cycle analysis). They differ mainly in what they count.
+- Training: Mistral Large 2 training plus 18 months of use took about 281 million liters. GPT-3 training was estimated at about 5.4 million liters including power plants. Google reported about two-fifths of its machine-learning energy goes to training.
+- US data centers (all, not only AI) evaporated about 66 billion liters on site in 2023, plus about 800 billion liters at their power plants (Lawrence Berkeley National Laboratory).
+- US golf courses applied about 2 trillion liters to turf in 2024; one average course uses about 393,000 liters a day.
+- Running an open model at home needs no data-center cooling water; a mid-sized model uses about 0.3 Wh per answer, about 1 mL of power-plant water on the average US grid and almost none on solar or wind.
+
+## Things that took more water than making the website (liters)
+
+- One slice of bread: 40 (water footprint)
+- A five-minute shower: 45 (tap)
+- One person's toilet flushes for a day: 49 (tap)
+- One apple: 70 (water footprint)
+- One cup of coffee: 140 (water footprint)
+- A full bath: 150 (tap)
+- One egg: 200 (water footprint)
+- A week of brushing teeth with the tap running: 210 (tap)
+- Washing a car with a running hose: up to 380 (tap)
+- Watering a lawn for an hour: 1,000 (tap)
+- One 100 g chocolate bar: 1,700 (water footprint)
+- One hamburger: 2,400 (water footprint)
+- One cotton T-shirt: 2,700 (water footprint)
+- One pair of jeans: 7,500 (water footprint)
+- One smartphone: 12,760 (water footprint, 2015 estimate)
+- One day of watering an average US golf course: 393,000 (tap)
+
+Water footprints count all the water used to grow and make something, including rain on fields, so they are not perfectly comparable with tap water. Counting only tap water, a five-minute shower or one day of toilet flushes still beats the most pessimistic estimate for the website.
+
+## Sources
+
+- Zeke Hausfather, The real energy use of agentic AI (2026): https://skepticalscience.com/print.php?n=6600
+- Google's Gemini prompt measurement (2025), reported by The New Stack: https://thenewstack.io/google-says-the-median-gemini-prompt-uses-5-drops-of-water/
+- Li, Yang, Islam and Ren, Making AI Less "Thirsty" (2023): https://arxiv.org/abs/2304.03271
+- Patterson et al., The Carbon Footprint of Machine Learning Training Will Plateau, Then Shrink (2022): https://arxiv.org/abs/2204.05149
+- Mistral Large 2 life-cycle analysis, reported by The Decoder: https://the-decoder.com/mistral-ai-publishes-the-first-comprehensive-life-cycle-assessment-of-a-large-language-model/
+- Lawrence Berkeley National Laboratory, 2024 United States Data Center Energy Usage Report: https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report
+- GCSAA survey of 2024 golf course water use: https://www.gcsaa.org/who-we-are/media/news/2025/12/30/golf-courses-reduce-water-usage-by-31-percent-according-to-national-survey
+- Hoekstra, The water footprint of food (2010): https://ayhoekstra.nl/pubs/Hoekstra-2010-TheEnvironmentalist-01March-Issue93.pdf
+- Epoch AI on open and closed models: https://epoch.ai/data-insights/open-closed-eci-gap

@@ -4,7 +4,7 @@ A picture book at [thingsthattookmorewaterthanbuildingthis.site](https://thingst
 
 ## The site
 
-The whole site is `index.html`: no build step and no dependencies. The illustrations are drawn in the browser by a small seeded "pen" (wobbly ink lines, cross-hatching, rippling dream skies), so they come out the same on every visit. `og.png` is the link-preview image, a screenshot of the cover. Fonts come from Google Fonts and fall back to system serifs.
+The whole site is `index.html`: no build step and no dependencies. Every word is plain HTML, so search engines, AI answer engines and screen readers see the whole book; JavaScript only draws the pictures into each `figure[data-draw]` and makes the words pop. The illustrations are drawn in the browser by a small seeded "pen" (wobbly ink lines, cross-hatching, rippling dream skies), so they come out the same on every visit. `og.png` is the link-preview image, a screenshot of the cover. Fonts come from Google Fonts and fall back to system serifs.
 
 To preview it, open `index.html` in a browser, or run:
 
@@ -30,6 +30,10 @@ python3 -m http.server -d sites/more-water 8080
 
 GitHub checks the records and issues the HTTPS certificate, usually within an hour. `CNAME` in this folder carries the same domain for anyone publishing the folder another way.
 
+## Finding it
+
+`robots.txt` welcomes all crawlers, `sitemap.xml` lists the pages, `llms.txt` gives AI tools a plain-text summary with sources, and the page head carries Book and FAQPage structured data.
+
 ## The numbers
 
-The page's own "Notes for grown-ups" section gives every figure with its source and the method behind the one-bucket estimate for making the site (2.4 kWh × 4 L/kWh × 5/3 for training, about 16 liters; under 40 liters at the most pessimistic). Each page's big "×" number and the table at the back are computed from the liters in the `PAGES` array in `index.html`. The playful line under each number ("Seven hundred and fifty websites.") is written by hand, so update it if you change a figure.
+The page's own "Notes for grown-ups" section gives every figure with its source and the method behind the one-bucket estimate for making the site (2.4 kWh × 4 L/kWh × 5/3 for training, about 16 liters; under 40 liters at the most pessimistic). The figures appear in several places: each page's small print and big "×" number (liters ÷ 19), the table and FAQ in the notes, the JSON-LD block in the page head, and `llms.txt`. Change all of them together.
