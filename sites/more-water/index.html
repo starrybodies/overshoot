@@ -60,6 +60,7 @@ a:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-
 .cover h1 .b i:nth-child(4n+2) { color: #f6e08e; transform: rotate(3deg) translateY(-.04em); }
 .cover h1 .b i:nth-child(4n+3) { color: #bfe6cf; transform: rotate(-2deg) translateY(.03em); }
 .cover h1 .b i:nth-child(4n+4) { color: #d9c4f2; transform: rotate(4deg) translateY(-.02em); }
+.cover .imprint { font-family: var(--f-hand); font-size: 1.05rem; letter-spacing: .14em; text-transform: uppercase; color: #f6e08e; }
 .cover .sub { font-size: clamp(1.1rem, 2.4vw, 1.4rem); font-style: italic; color: #e9def8; max-width: 30ch; }
 .cover-art { position: relative; z-index: 1; margin-top: clamp(-120px, -9vw, -20px); aspect-ratio: 1200 / 690; max-height: 86vh; width: 100%; }
 .cover-art svg { display: block; width: 100%; height: 100%; }
@@ -143,8 +144,10 @@ tr.us td { font-weight: 700; background: #eaf2f8; }
 svg .ink { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 svg .frame { stroke-width: 3; }
 svg .contour { fill: none; stroke: var(--ink); stroke-width: 1; opacity: .38; vector-effect: non-scaling-stroke; }
-svg .hx { stroke: none; opacity: .4; }
-svg .hl { stroke: var(--ink); stroke-width: .75; }
+svg .hx { stroke: none; opacity: .5; }
+svg .hl { stroke: var(--ink); stroke-width: .5; }
+svg .furmark { fill: none; stroke: #9a5528; stroke-width: 1.3; stroke-linecap: round; opacity: .75; vector-effect: non-scaling-stroke; }
+svg .stripefill { fill: #8f4f26; }
 svg .grain { mix-blend-mode: multiply; opacity: .3; pointer-events: none; }
 svg .hand { font-family: var(--f-hand); fill: var(--ink); }
 svg .rain { stroke: var(--w-deep); stroke-width: 2; stroke-dasharray: 6 9; }
@@ -163,6 +166,12 @@ svg .moon { fill: var(--moon); } svg .nightf { fill: var(--night); }
 svg .pupil, svg .inkfill { fill: var(--ink); }
 svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 
+/* words pop in as they scroll into view; text that starts on screen is never hidden */
+.w { display: inline-block; }
+.await .w { opacity: 0; transform: translateY(.5em) scale(.6) rotate(-6deg); }
+.await.go .w { opacity: 1; transform: none; transition: opacity .3s ease, transform .6s cubic-bezier(.3, 1.8, .5, 1); transition-delay: calc(var(--i) * 28ms); }
+.x.await { opacity: 0; transform: scale(.3) rotate(-14deg); }
+.x.await.go { opacity: 1; transform: rotate(-3deg); transition: opacity .3s ease, transform .8s cubic-bezier(.3, 1.9, .5, 1); }
 .bob { animation: bob 3.4s ease-in-out infinite; }
 .drip { animation: drip 2.8s ease-in infinite; }
 .twinkle { animation: twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
@@ -178,8 +187,8 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <pattern id="h1" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><line x1="0" y1="0" x2="0" y2="6" class="hl"/></pattern>
-    <pattern id="h2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><line x1="0" y1="0" x2="0" y2="5" class="hl"/><line x1="0" y1="2.5" x2="5" y2="2.5" class="hl"/></pattern>
+    <pattern id="h1" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><line x1="0" y1="0" x2="0" y2="4" class="hl"/></pattern>
+    <pattern id="h2" width="3.6" height="3.6" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><line x1="0" y1="0" x2="0" y2="3.6" class="hl"/><line x1="0" y1="1.8" x2="3.6" y2="1.8" class="hl"/></pattern>
     <pattern id="wpRose" width="34" height="34" patternUnits="userSpaceOnUse"><rect width="34" height="34" fill="#f8d9d2"/><g fill="#eca59c"><circle cx="9" cy="5" r="3.2"/><circle cx="9" cy="13" r="3.2"/><circle cx="5" cy="9" r="3.2"/><circle cx="13" cy="9" r="3.2"/></g><circle cx="9" cy="9" r="2.2" fill="#f7d468"/><g fill="#eca59c"><circle cx="26" cy="22" r="3.2"/><circle cx="26" cy="30" r="3.2"/><circle cx="22" cy="26" r="3.2"/><circle cx="30" cy="26" r="3.2"/></g><circle cx="26" cy="26" r="2.2" fill="#f7d468"/></pattern>
     <pattern id="wpMint" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#d6eedd"/><circle cx="6" cy="6" r="3.4" fill="#a9d6bd"/><circle cx="19" cy="19" r="3.4" fill="#a9d6bd"/><circle cx="19" cy="6" r="1.6" fill="#7fb2d6"/><circle cx="6" cy="19" r="1.6" fill="#7fb2d6"/></pattern>
     <pattern id="wpLilac" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="#e6dcf3"/><path d="M15 3 L27 15 L15 27 L3 15Z" fill="none" stroke="#c4b0e2" stroke-width="2.4"/><circle cx="15" cy="15" r="3" fill="#f0a8a0"/></pattern>
@@ -192,6 +201,13 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/>
       <feColorMatrix type="matrix" values="0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .3  0 0 0 -1.4 .9"/>
     </filter>
+    <radialGradient id="gFur" cx=".38" cy=".3" r=".85"><stop offset="0" stop-color="#f6bb7c"/><stop offset=".55" stop-color="#dc8c4c"/><stop offset="1" stop-color="#a95f2e"/></radialGradient>
+    <radialGradient id="gFur2" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#d08a50"/><stop offset="1" stop-color="#93522a"/></radialGradient>
+    <radialGradient id="gBelly" cx=".45" cy=".35" r=".75"><stop offset="0" stop-color="#fff5dc"/><stop offset="1" stop-color="#f0d29e"/></radialGradient>
+    <linearGradient id="gHorn" x1="0" y1="1" x2=".4" y2="0"><stop offset="0" stop-color="#e3caa0"/><stop offset="1" stop-color="#fff9ea"/></linearGradient>
+    <radialGradient id="gEye" cx=".42" cy=".38" r=".75"><stop offset="0" stop-color="#fffef4"/><stop offset="1" stop-color="#f4e3a2"/></radialGradient>
+    <radialGradient id="gPupil" cx=".5" cy=".72" r=".75"><stop offset="0" stop-color="#5e4a6a"/><stop offset="1" stop-color="#1c1422"/></radialGradient>
+    <radialGradient id="gBlush"><stop offset="0" stop-color="#f27d7a" stop-opacity=".7"/><stop offset="1" stop-color="#f27d7a" stop-opacity="0"/></radialGradient>
     <clipPath id="plateClip"><rect width="400" height="300"/></clipPath>
   </defs>
 </svg>
@@ -206,6 +222,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       <span class="c">Than Building This Site</span>
     </h1>
     <p class="sub">A picture book for the curious, the skeptical, and the very small.</p>
+    <p class="imprint">A Symbai Studio production</p>
   </div>
   <div class="cover-art" id="cover-art" data-alt="Under a huge rippling moon, Glub, a fluffy orange wild thing with tiny horns and enormous eyes, waves from a hill beside a small bucket. Swirly trees and spotted mushrooms grow all around."></div>
   </div>
@@ -225,8 +242,8 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
 
     <div class="note">
       <h3>How we got one bucket</h3>
-      <p>This site was made in one long conversation with an AI coding assistant: a first draft, then a full redesign. Nobody can meter that exactly, so we started from a careful published estimate and leaned hard toward the thirsty side.</p>
-      <p>Climate scientist Zeke Hausfather logged his own AI coding sessions for eight weeks. He estimated that a median session uses about 0.6 kWh of electricity, with a range of 0.25 to 1.2 kWh. We allowed 2 kWh, well above the top of his range, to cover the draft and the redesign.</p>
+      <p>This site was made in one long conversation with an AI coding assistant: a first draft, then a few rounds of redesign. Nobody can meter that exactly, so we started from a careful published estimate and leaned hard toward the thirsty side.</p>
+      <p>Climate scientist Zeke Hausfather logged his own AI coding sessions for eight weeks. He estimated that a median session uses about 0.6 kWh of electricity, with a range of 0.25 to 1.2 kWh. We allowed 2 kWh, well above the top of his range, to cover the draft and every redesign.</p>
       <p>Each kWh uses water twice. The data center evaporates some to stay cool: Google's own measurement works out to about 1 liter per kWh, and the US average is lower. The power plant evaporates more: about 3 liters per kWh on the average US grid, the figure used in the "Making AI Less Thirsty" paper. We rounded the total up to 5 liters per kWh.</p>
       <p class="math">2 kWh × 5 liters per kWh = <strong>10 liters</strong>, one bucket (2.6 gallons).<br>A low-end estimate, 0.25 kWh × 1 liter per kWh, is about a cup.</p>
       <p>Not counted: water used to train the AI model, to make its chips, to build the data center, or to run the screen you're reading on. The footprints for jeans, phones and burgers do count their whole supply chains, so keep that in mind when comparing.</p>
@@ -271,7 +288,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       </ol>
     </div>
 
-    <p class="colophon">Written and drawn (in code) by a person and an AI helper, with a great deal of cross-hatching and less than one bucket of water.</p>
+    <p class="colophon">A Symbai Studio production.<br>Written and drawn (in code) by a person and an AI helper, with a great deal of cross-hatching and less than one bucket of water.</p>
   </div>
 </section>
 
@@ -282,120 +299,122 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
   var GAL = 0.264172;
 
   /* ================= the book ================= */
-  var BANDS = ["#fbe6c9", "#e5d8f2", "#d4ecdd", "#fcd7c7", "#f4e8ad", "#f7d2da", "#d3e4f1"];
+  var BANDS = ["#f4e2c4", "#e3d7e9", "#d7e4d4", "#f2d7c7", "#ece3b9", "#eed4d7", "#d4e0e7"];
   var POPS  = ["#f4a98f", "#f2b4c9", "#f6c38f", "#c9b6ec", "#f2a6a0", "#b9d9ef", "#f7cf7a"];
 
   var PAGES = [
-    { draw: "hello", alt: "Glub, a fluffy orange wild thing, waves hello under a rain cloud that drips into a puddle full of ripples.",
+    { draw: "hello", alt: "Glub, a round fluffy orange wild thing with little curled horns and huge shining eyes, waves under a rain cloud that drips into a rippling puddle.",
       h: "This is Glub.",
-      tell: ["Glub is a small wild thing with a big question.",
-             "Glub likes to know where water goes, and how much of it. And today Glub wants to know: how much water did it take to build this website?"] },
-    { draw: "bucket", alt: "Glub proudly hugs a bucket of water with a 10 liter mark on its side.",
+      tell: ["On the night of the rain, Glub could not sleep.",
+             "Glub is a small wild thing who keeps track of water: where it goes, and how much. And that night Glub had a question too big for one small head. How much water did it take to make this book?"] },
+    { draw: "bucket", alt: "Glub stands proudly beside a bucket of water marked 10 L while a single drop falls into it.",
       h: "Less than one bucket.",
-      tell: ["A person and an AI helper made this website together. The AI's computers live in a big building called a data center. They get hot, and water helps cool them down. The power plants that make their electricity use water too.",
-             "Glub added it all up, then rounded way, way up, just to be fair."],
+      tell: ["This book is a website. A person and an AI helper made it together, talking back and forth.",
+             "The AI does its thinking in a great humming building called a data center. Thinking makes heat, and water carries the heat away. The power plants that make the electricity drink water too.",
+             "Glub counted every drop, then rounded up, way up, to be fair."],
       bigx: "1 bucket", say: "At the very most. Probably much less.",
       fine: "10 liters, or 2.6 gallons. A low estimate is closer to a cup. The math is in the notes at the back." },
-    { night: ["Remember the bucket.", "Here are some things that took <em>more</em>."], small: 0 },
+    { night: ["So Glub picked up the bucket and set off through the night", "to find the things that are <em>thirstier</em> than a book."], small: 0 },
     { id: "flush", draw: "toilet", l: 13, h: "One flush of an old toilet.",
-      tell: "Whoosh! Gone. A brand-new toilet uses less, about half a bucket.",
-      say: "One whole website, plus a splash.", kind: "tap",
+      tell: "First Glub found an old toilet, rumbling on its chain. Whoosh! One flush, and more than a whole bucket was gone. A new toilet uses less, about half a bucket.",
+      say: "One whole book, plus a splash.", kind: "tap",
       note: "From the tap. Toilets from the 1980s and early '90s use about 3.5 gallons a flush.",
-      alt: "An old pull-chain toilet swirls on flowery wallpaper while Glub throws both arms up in surprise." },
+      alt: "An old pull-chain toilet swirls against flowered wallpaper while Glub throws both arms up, mouth a surprised O." },
     { id: "teeth", draw: "teeth", l: 15, h: "Brushing your teeth with the tap running.",
-      tell: "Two minutes of brushing, and the water never, ever stops. Turn it off, Glub!",
-      say: "One and a half websites, straight down the drain.", kind: "tap",
+      tell: "Then a tap that ran and ran while somebody brushed and brushed, and nobody turned it off.",
+      say: "One and a half books, straight down the drain.", kind: "tap",
       note: "From the tap. Two minutes at a standard bathroom faucet.",
       alt: "Glub brushes its tiny fang, foam bubbling, while the tap pours into the sink." },
     { id: "bread", draw: "bread", l: 40, h: "One slice of bread.",
-      tell: "The wheat drank rain and river water all summer long. Then it was ground and mixed and baked.",
-      say: "Four websites. In one slice.", kind: "fp",
+      tell: "Then a slice of bread, which still remembered being wheat: a whole summer of rain and river water.",
+      say: "Four books. In one slice.", kind: "fp",
       note: "A water footprint: counts all the water the wheat drank, rain included. One 30 g slice.",
       alt: "A giant slice of bread glows in front of a rippling sun, with Glub and stalks of wheat beside it." },
     { id: "shower", draw: "shower", l: 45, h: "A five-minute shower.",
-      tell: "Warm, steamy, lovely. Every single minute, another big bucketful whooshes down the drain.",
-      say: "Four and a half websites. Squeaky clean.", kind: "tap",
+      tell: "Then a shower, warm and steamy and lovely, pouring out a bucketful every single minute.",
+      say: "Four and a half books. Squeaky clean.", kind: "tap",
       note: "From the tap. Five minutes at a standard 2.5-gallon-a-minute showerhead.",
-      alt: "Glub stands under a showerhead with both arms up as water pours down onto wavy blue tiles." },
+      alt: "Glub stands under a showerhead with both arms up, laughing, as water pours down onto wavy blue tiles." },
     { id: "apple", draw: "apple", l: 70, h: "One apple.",
-      tell: "An apple tree is thirsty all year long, and it makes its apples slowly.",
-      say: "Seven websites. Crunch.", kind: "fp",
+      tell: "Then an apple, which an old tree had filled slowly, drop by drop, all year long.",
+      say: "Seven books. Crunch.", kind: "fp",
       note: "A water footprint: counts all the water the apple tree drank, rain included. One small (100 g) apple.",
       alt: "Glub reaches up toward a huge red apple glowing like a sunset." },
     { id: "coffee", draw: "coffee", l: 140, h: "One cup of coffee.",
-      tell: "Grown-ups love it. The coffee bushes grow far away in warm hills, and they drink and drink.",
-      say: "Fourteen websites, sip by sip.", kind: "fp",
+      tell: "Then a cup of coffee, grown on warm hills far away, which the grown-ups drink without thinking twice.",
+      say: "Fourteen books, sip by sip.", kind: "fp",
       note: "A water footprint: counts the water the coffee plants drank, rain included. One small 125 mL cup.",
       alt: "A tiny Glub sits on the saucer of a big steaming coffee cup, with beans scattered around." },
     { id: "bath", draw: "bath", l: 150, h: "One bath, filled to the very top.",
-      tell: "Plus bubbles. Plus one rubber duck.",
-      say: "Fifteen websites, and a duck.", kind: "tap",
+      tell: "Then a bath, filled to the very top, with bubbles and one very serious duck.",
+      say: "Fifteen books, and a duck.", kind: "tap",
       note: "From the tap. A full tub, about 40 gallons.",
       alt: "Glub sits in a clawfoot bathtub full of bubbles next to a rubber duck, in front of diamond wallpaper." },
     { id: "egg", draw: "egg", l: 200, h: "One egg.",
-      tell: "The hen ate grain. The grain grew in fields. The fields needed water, lots and lots of it.",
-      say: "Twenty websites. In one egg!", kind: "fp",
+      tell: "Then an egg. The hen ate the grain, and the grain drank the fields, and the fields drank the sky.",
+      say: "Twenty books. In one egg!", kind: "fp",
       note: "A water footprint: counts the water to grow the hen's food, rain included. One 60 g egg.",
       alt: "A speckled egg in a red egg cup glows with rippling rings of light while Glub gazes at it." },
     { id: "car", draw: "car", l: 380, h: "Washing the car with a hose.",
-      tell: "Most of the water runs down the driveway and away into the street.",
-      say: "Up to thirty-eight websites.", kind: "tap", upto: true,
+      tell: "Then a car being washed with a hose, the water running down the driveway and away into the street.",
+      say: "Up to thirty-eight books.", kind: "tap", upto: true,
       note: "From the tap. A hose left running while you wash can use up to 100 gallons.",
       alt: "Glub sprays a little blue car with a garden hose. A puddle spreads underneath." },
     { id: "lawn", draw: "lawn", l: 1000, h: "Watering the lawn for one hour.",
-      tell: "The grass says thank you. The sprinkler says tick-tick-tick-tick-tick.",
-      say: "A hundred websites. Every hour.", kind: "tap",
+      tell: "Then a lawn and a sprinkler going tick-tick-tick all afternoon, which the grass liked very much.",
+      say: "A hundred books. Every hour.", kind: "tap",
       note: "From the tap. A sprinkler running at about 4½ gallons a minute.",
       alt: "A lawn sprinkler throws arcs of water while Glub stays dry under a red umbrella." },
     { id: "chocolate", draw: "chocolate", l: 1700, h: "One bar of chocolate.",
-      tell: "Cacao trees grow in hot, rainy places, and every pod holds only a handful of beans.",
-      say: "A hundred and seventy websites. Yum.", kind: "fp",
+      tell: "Then a bar of chocolate, from trees in hot, rainy places where each pod holds only a handful of beans.",
+      say: "A hundred and seventy books. Yum.", kind: "fp",
       note: "A water footprint: counts the water the cacao trees drank, rain included. One 100 g bar.",
       alt: "A half-unwrapped chocolate bar, a cacao pod, and Glub with chocolate on its chin." },
     { id: "burger", draw: "burger", l: 2400, h: "One hamburger.",
-      tell: "The cow ate grass and grain for years and years. All of it had to grow.",
-      say: "Two hundred and forty websites.", kind: "fp",
+      tell: "Then a hamburger. Before it was a hamburger it was a cow, and the cow ate and drank for years and years.",
+      say: "Two hundred and forty books.", kind: "fp",
       note: "A water footprint: counts the water for the cow's food and drink, rain included. One 150 g beef burger.",
-      alt: "A towering hamburger glows in front of rippling sunset rings while a small Glub stares up at it." },
+      alt: "A towering hamburger glows in front of rippling sunset rings while a small Glub stares up at it, mouth open." },
     { id: "tshirt", draw: "tshirt", l: 2700, h: "One cotton T-shirt.",
-      tell: "Cotton plants are very, very thirsty, and one T-shirt takes a lot of cotton.",
-      say: "Two hundred and seventy websites.", kind: "fp",
+      tell: "Then a cotton T-shirt. Cotton plants are very, very thirsty, and it takes a great many of them to make one shirt.",
+      say: "Two hundred and seventy books.", kind: "fp",
       note: "A water footprint: counts the water the cotton drank, rain included.",
       alt: "A yellow T-shirt hangs on a clothesline beside a fluffy cotton plant, with Glub watching." },
     { id: "jeans", draw: "jeans", l: 7500, h: "One pair of jeans.",
-      tell: "Grow the cotton. Spin it. Dye it blue. Wash it soft.",
-      say: "Seven hundred and fifty websites.", kind: "fp",
+      tell: "Then a pair of jeans: grown, spun, dyed blue, and washed soft, and every step of it wet.",
+      say: "Seven hundred and fifty books.", kind: "fp",
       note: "A water footprint: counts the cotton field, the dyeing and the washing.",
       alt: "A pair of blue jeans drips on a clothesline next to a bucket of blue dye." },
     { id: "phone", draw: "phone", l: 12760, h: "One smartphone.",
-      tell: "Dig up the metals. Make the tiny chips. Rinse every little part spotless as it's made.",
-      say: "Nearly thirteen hundred websites.", kind: "fp",
+      tell: "Then a telephone small enough for a pocket, made from metals dug deep out of the ground and tiny chips rinsed clean again and again.",
+      say: "Nearly thirteen hundred books.", kind: "fp",
       note: "A water footprint: counts mining, chipmaking and cleaning the parts. An estimate from 2015.",
       alt: "Glub leans on a giant smartphone that glows inside rippling rings of night sky." },
     { id: "golf", draw: "golf", l: 393000, h: "One day of watering one golf course.",
-      tell: "Not a whole year. Just one day, on an average American golf course.",
-      say: "Thirty-nine thousand websites. Every. Single. Day.", kind: "tap",
+      tell: "And last of all, a golf course, so green and so wide, drinking and drinking under the sun. Not in a year. In one day.",
+      say: "Thirty-nine thousand books. Every. Single. Day.", kind: "tap",
       note: "From sprinklers. All the water US golf courses used in 2024, split across about 14,000 golf facilities and 365 days.",
       alt: "Rolling striped hills, a red flag, sprinklers arcing, and a tiny Glub holding a golf club under a rippling sun." },
-    { night: ["Okay. One more.", "What about asking an AI a question?"], small: 0 },
+    { night: ["Glub sat down in the wet grass and thought for a long time.", "Then Glub asked the smallest question of all."], small: 0 },
     { id: "question", draw: "ai", alt: "Tiny drops fall into a thimble while Glub studies them through a magnifying glass.",
       h: "One question is about twenty drops.",
-      tell: ["Google measured its own AI. A typical question used about five drops of water at the data center. Counting the power plant too, it's about twenty drops.",
-             "That means the water for one hamburger could answer a question every minute, all day and all night, for four and a half years."],
+      tell: ["Google measured its own AI. A typical question used about five drops of water at the data center, and the power plant adds about fifteen more.",
+             "Twenty drops. A sprinkler spills that in the blink of an eye. The water in one hamburger could answer a question every minute, all day and all night, for four and a half years."],
       bigx: "20 drops", say: "About one milliliter.",
       fine: "For a typical, short question. Long, complicated requests use more." },
     { id: "river", draw: "big", alt: "Glub looks across a river at a long data center building with steam rising, and a golf flag on a far hill.",
       h: "So is AI's water nothing at all?",
-      tell: ["No. One question is tiny, but people ask billions of them, and more every year.",
-             "In 2023, data centers in the United States used about 66 billion liters of water to keep cool. The power plants that ran them used an estimated 800 billion liters more. That water matters most in dry places, so it's fair to ask where new data centers get built and how they're cooled.",
-             "For comparison, American golf courses watered their grass with about 2 trillion liters in 2024."],
+      tell: ["No. Glub is a careful wild thing, and careful wild things know that lots of small drops make a river.",
+             "People ask AI billions of questions, and more every year. In 2023, data centers in the United States used about 66 billion liters of water to keep cool, and the power plants that ran them used an estimated 800 billion liters more. That water matters most in dry places, so it's fair to ask where new data centers are built and how they are cooled.",
+             "American golf courses, for comparison, watered their grass with about 2 trillion liters in 2024."],
       bigx: "Keep an eye on the river.", say: "Just don't blame the cup.", wordsx: true },
     { id: "tricks", draw: "tips", alt: "Glub holds an enormous wrench next to a dripping tap, looking very determined.",
       h: "Glub's best water tricks",
       list: ["Turn off the tap while you brush.", "Fix the toilet that runs and runs.", "Take the short shower.", "Eat fewer burgers.", "Wear your jeans for years and years.", "Keep asking good questions, about AI and about everything else."] },
     { id: "goodnight", draw: "end", alt: "Glub sleeps in a little red sailboat on calm water under a crescent moon ringed with light.",
       h: "Goodnight, Glub.",
-      tell: ["And Glub curled up and went to sleep. All the water in the world kept going round and round, the way it always does: rain to river, river to sea, sea to cloud, cloud to rain."],
+      tell: ["Then Glub grew sleepy and turned the little boat for home, through the night and over the dark water, back to a room where a glass of water stood waiting by the bed, cool and full.",
+             "And all the water in the world kept going round and round, the way it always has: rain to river, river to sea, sea to cloud, cloud to rain."],
       end: true }
   ];
 
@@ -443,7 +462,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     if (!closed) o.push(p[n - 1]);
     return o;
   }
-  function poly(p, step, jit) { return smooth(dens(p, true, step || 16, jit == null ? 1.3 : jit), true); }
+  function poly(p, step, jit) { return smooth(dens(p, true, step || 16, jit == null ? 1 : jit), true); }
   function line(p, step, jit) { return smooth(dens(p, false, step || 14, jit == null ? 1.1 : jit), false); }
   function blob(cx, cy, rx, ry, jit, n, rot) {
     jit = jit == null ? 0.05 : jit; n = n || 18; rot = rot || 0;
@@ -478,7 +497,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     return S(drop(x, y, s), "water") + '<ellipse cx="' + hx + '" cy="' + hy + '" rx="' + r1(s * 0.13) + '" ry="' + r1(s * 0.2) + '" class="glint" transform="rotate(20 ' + hx + " " + hy + ')"/>';
   }
   function S(d, c, h) {
-    return '<path d="' + d + '" class="f ' + c + '" transform="translate(1.6 1.2)"/>' +
+    return '<path d="' + d + '" class="f ' + c + '" transform="translate(.9 .7)"/>' +
       (h ? '<path d="' + d + '" class="hx" fill="url(#' + h + ')" mask="url(#shade)"/>' : "") +
       '<path d="' + d + '" class="ink"/>';
   }
@@ -492,10 +511,10 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
 
   /* dreamy ripple skies: rings of color radiating from the subject */
   var PAL = {
-    dusk:   ["#fde3a7", "#f9c99b", "#f2ae9d", "#e09bb0", "#bf90bd", "#9a8cc0"],
-    sea:    ["#f5f1c4", "#d9edc8", "#bae2cd", "#9ccfcc", "#86b8c9", "#7a9cc4"],
-    candy:  ["#fff0d0", "#fcd9c6", "#f6c0cb", "#e2b0d6", "#c3abde", "#a6b0e0"],
-    meadow: ["#fff5c6", "#f6e5a2", "#e3dc9c", "#c8d69d", "#acca9f", "#93bba2"],
+    dusk:   ["#f8e0a6", "#efc39a", "#e2a698", "#c993a6", "#a088ad", "#7c7aa6"],
+    sea:    ["#f1ecc2", "#d3e3c2", "#b2d3c3", "#94bdbd", "#7ea4b6", "#6f8aac"],
+    candy:  ["#fbeccf", "#f3d4c2", "#e9bcc2", "#d0a9c6", "#b0a0cc", "#9098c6"],
+    meadow: ["#fbf0c4", "#efdf9f", "#d9d396", "#bfcb95", "#a2bc96", "#88aa96"],
     night:  ["#f7e8b2", "#cdb990", "#8f80ad", "#6a5f9b", "#4a4283", "#2b2858"]
   };
   function psky(name, cx, cy, base, w, h) {
@@ -547,39 +566,88 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     return g;
   }
 
-  /* Glub: a round, fluffy little wild thing. Origin at the feet.
-     o.flip mirrors · o.arm = down | up | both | hold · o.look = [dx, dy] · o.sleep · o.extra = svg in Glub's own space */
+  /* Glub: a round, fluffy little wild thing, drawn the same way every time. Origin at the feet.
+     o.flip mirrors · o.arm = down | up | both | hold · o.look = [dx, dy] · o.mouth = smile | open | o
+     o.sleep closes the eyes · o.extra = svg in Glub's own space, drawn last */
+  // a fur edge of combed, pointed tufts; t(angle) sets how long each tuft is
+  function furEdge(cx, cy, rx, ry, n, t, skew) {
+    function P(a, e) { return r1(cx + Math.cos(a) * (rx + e)) + "," + r1(cy + Math.sin(a) * (ry + e)); }
+    var d = "";
+    for (var k = 0; k < n; k++) {
+      var a0 = k / n * Math.PI * 2, a1 = (k + 1) / n * Math.PI * 2, am = (a0 + a1) / 2 + (skew || 0.05);
+      d += (k ? "" : "M" + P(a0, 0)) + " Q" + P(am, t(am, k) * 1.7) + " " + P(a1, 0);
+    }
+    return d + "Z";
+  }
+  var GLUB = (function () {
+    var body = furEdge(0, -50, 38, 42, 22, function (a, k) {
+      var side = Math.abs(Math.cos(a)), top = Math.max(0, -Math.sin(a));
+      return 2.2 + side * side * 3.4 + top * 1.8 + Math.sin(k * 2.7) * 0.6;
+    });
+    var tail = furEdge(43, -20, 6, 5.5, 7, function () { return 2.6; }, 0.2);
+    function arm(cx, cy, rot) { var save = sd; seed(77); var d = blob(cx, cy, 7.5, 13, 0, 16, rot); sd = save; return d; }
+    return {
+      body: body, tail: tail,
+      armDownL: arm(-35, -34, 0.5), armDownR: arm(35, -34, -0.5),
+      armUpL: arm(-38, -68, -0.45), armUpR: arm(38, -68, 0.45),
+      holdL: (function () { var s = sd; seed(78); var d = blob(-20, -31, 13, 7, 0, 16, 0.25); sd = s; return d; })(),
+      holdR: (function () { var s = sd; seed(78); var d = blob(20, -31, 13, 7, 0, 16, -0.25); sd = s; return d; })()
+    };
+  })();
+  function GP(d, fill, extra) { return '<path d="' + d + '" fill="' + fill + '"' + (extra || "") + '/><path d="' + d + '" class="ink"/>'; }
   function glub(x, y, s, o) {
     o = o || {}; s = s || 1;
-    var fl = o.flip ? -1 : 1, lk = o.look || [1, 0], lx = lk[0] * fl * 3.2, ly = lk[1] * 3.2, g = "";
-    g += S(fluff(42, -22, 7, 6, 6, 2.2), "fur2");
-    g += S(blob(-15, -6, 12, 7.5, 0.05, 12), "fur2", "h1") + S(blob(15, -6, 12, 7.5, 0.05, 12), "fur2", "h1");
-    g += L("M-19,-6 v4 M-14,-5 v4 M11,-5 v4 M16,-6 v4", 1.1);
-    g += S(fluff(0, -50, 39, 43, 15, 4.2), "fur", "h2");
-    g += F(blob(0, -22, 22, 16, 0.04, 14), "belly");
-    g += '<path d="M-11,-92 q4,6 1,12 M0,-95 q4,7 1,13 M11,-92 q4,6 1,12" class="stripe"/>';
-    g += S("M-22,-80 C-34,-88 -34,-104 -23,-108 C-27,-99 -22,-91 -13,-88Z", "horn") + S("M22,-80 C34,-88 34,-104 23,-108 C27,-99 22,-91 13,-88Z", "horn");
+    var fl = o.flip ? -1 : 1, lk = o.look || [1, 0], lx = lk[0] * fl * 3, ly = lk[1] * 3, g = "";
+    var mouth = o.mouth || "smile";
+    g += '<ellipse cx="0" cy="-1" rx="34" ry="4.5" class="f inkfill" opacity=".16"/>';
+    g += GP(GLUB.tail, "url(#gFur2)");
+    // ears, tucked under the fur
+    g += GP("M-33,-77 C-46,-84 -54,-74 -49,-66 C-45,-69 -39,-70 -33,-69Z", "url(#gFur2)") + '<path d="M-36,-75 C-44,-79 -49,-74 -47,-69 C-44,-71 -40,-71 -37,-71Z" fill="#f2a59a"/>';
+    g += GP("M33,-77 C46,-84 54,-74 49,-66 C45,-69 39,-70 33,-69Z", "url(#gFur2)") + '<path d="M36,-75 C44,-79 49,-74 47,-69 C44,-71 40,-71 37,-71Z" fill="#f2a59a"/>';
+    // feet
+    g += GP("M-29,-5 C-29,-13 -3,-14 -3,-5 C-3,0 -29,0 -29,-5Z", "url(#gFur2)") + GP("M3,-5 C3,-14 29,-13 29,-5 C29,0 3,0 3,-5Z", "url(#gFur2)");
+    g += '<path d="M-21,-2 v-4 M-15,-1.5 v-4.5 M-9,-2 v-4 M9,-2 v-4 M15,-1.5 v-4.5 M21,-2 v-4" class="ink" style="stroke-width:1.1"/>';
+    // body: combed fur, soft light from the upper left, fine hatching on the shadow side
+    g += '<path d="' + GLUB.body + '" fill="url(#gFur)"/>';
+    g += '<path d="' + GLUB.body + '" class="hx" fill="url(#h1)" mask="url(#shade)" opacity=".28"/>';
+    g += '<path d="' + GLUB.body + '" class="ink" style="stroke-width:2.2"/>';
+    g += '<path d="M-30,-28 q3,-4 6,-1 M-34,-50 q3,-4 6,-1 M27,-24 q3,-4 6,-1 M31,-48 q3,-4 6,-1 M-22,-12 q3,-4 6,-1 M18,-10 q3,-4 6,-1 M-26,-80 q3,-3 6,-1 M22,-82 q3,-3 6,-1" class="furmark"/>';
+    g += '<ellipse cx="0" cy="-24" rx="20.5" ry="16.5" fill="url(#gBelly)"/>';
+    g += '<path d="M-8,-30 q2,-3 4,0 M3,-22 q2,-3 4,0 M-5,-16 q2,-3 4,0" class="furmark" style="stroke:#d7b47c"/>';
+    // crown stripes and curled horns
+    g += '<path d="M-12,-94 Q-8,-87 -10.5,-80 Q-6,-87 -8.5,-94Z M-2,-97 Q2,-89 -0.5,-81 Q4,-89 1.5,-97Z M8,-94 Q12,-87 9.5,-80 Q14,-87 11.5,-94Z" class="stripefill"/>';
+    g += GP("M-21,-83 C-31,-89 -34,-103 -25,-111 C-26,-101 -21,-94 -12,-89Z", "url(#gHorn)") + '<path d="M-27,-96 q4,1.5 6.5,-1.5 M-28.5,-103 q3.5,1 5.5,-1.5" class="ink" style="stroke-width:1"/>';
+    g += GP("M21,-83 C31,-89 34,-103 25,-111 C26,-101 21,-94 12,-89Z", "url(#gHorn)") + '<path d="M27,-96 q-4,1.5 -6.5,-1.5 M28.5,-103 q-3.5,1 -5.5,-1.5" class="ink" style="stroke-width:1"/>';
+    // face
+    g += '<ellipse cx="-27" cy="-45" rx="8" ry="5" fill="url(#gBlush)"/><ellipse cx="27" cy="-45" rx="8" ry="5" fill="url(#gBlush)"/>';
     if (o.sleep) {
-      g += L("M-25,-60 Q-15,-53 -5,-60 M5,-60 Q15,-53 25,-60", 2.4);
+      g += '<path d="M-25,-61 Q-15,-53 -5,-61 M5,-61 Q15,-53 25,-61" class="ink" style="stroke-width:2.6"/>';
+      g += '<path d="M-23,-58 l-2,3 M-15,-56 l0,3.4 M-7,-58 l2,3 M7,-58 l-2,3 M15,-56 l0,3.4 M23,-58 l2,3" class="ink" style="stroke-width:1.2"/>';
     } else {
-      g += S(blob(-15, -60, 12.5, 13.5, 0.03, 14), "eye") + S(blob(15, -60, 12.5, 13.5, 0.03, 14), "eye");
       [-15, 15].forEach(function (ex) {
-        g += '<circle cx="' + r1(ex + lx) + '" cy="' + r1(-59 + ly) + '" r="7.6" class="pupil"/>' +
-             '<circle cx="' + r1(ex + lx - 2.8) + '" cy="' + r1(-62.4 + ly) + '" r="2.8" class="glint"/>' +
-             '<circle cx="' + r1(ex + lx + 2.6) + '" cy="' + r1(-56 + ly) + '" r="1.2" class="glint"/>';
+        g += '<ellipse cx="' + ex + '" cy="-61" rx="12.2" ry="13.8" fill="url(#gEye)"/>';
+        g += '<circle cx="' + r1(ex + lx) + '" cy="' + r1(-60 + ly) + '" r="8.2" fill="url(#gPupil)"/>';
+        g += '<circle cx="' + r1(ex + lx - 3) + '" cy="' + r1(-63.6 + ly) + '" r="3.1" class="glint"/><circle cx="' + r1(ex + lx + 2.8) + '" cy="' + r1(-56.6 + ly) + '" r="1.4" class="glint"/>';
+        g += '<ellipse cx="' + ex + '" cy="-61" rx="12.2" ry="13.8" class="ink"/>';
+        g += '<path d="M' + (ex - 12.5) + ',-63 Q' + ex + ',-79 ' + (ex + 12.5) + ',-63" class="ink" style="stroke-width:3"/>';
+        g += '<path d="M' + (ex + (ex < 0 ? -12 : 12)) + ',-66 l' + (ex < 0 ? -3.5 : 3.5) + ',-3" class="ink" style="stroke-width:1.6"/>';
       });
+      g += '<path d="M-21,-80 q6,-4 11,-1 M10,-81 q5,-3 11,1" class="furmark" style="stroke-width:2"/>';
     }
-    g += '<ellipse cx="-28" cy="-43" rx="7" ry="4.2" class="blush"/><ellipse cx="28" cy="-43" rx="7" ry="4.2" class="blush"/>';
-    g += '<ellipse cx="0" cy="-47.5" rx="2.6" ry="1.8" class="pupil"/>';
-    g += L("M-7,-42 Q-3.5,-38.5 0,-42 Q3.5,-38.5 7,-42", 1.8);
-    g += '<path d="M3.2,-40.6 L4.8,-37.4 L6.2,-41Z" class="f white"/>';
-    var arm = o.arm || "down";
-    var left = S(blob(-36, -36, 7.5, 12, 0.06, 12, 0.5), "fur", "h1");
-    var right = S(blob(36, -36, 7.5, 12, 0.06, 12, -0.5), "fur", "h1");
-    if (arm === "up" || arm === "both") left = S(blob(-41, -70, 7.5, 14, 0.06, 12, -0.45), "fur", "h1");
-    if (arm === "both") right = S(blob(41, -70, 7.5, 14, 0.06, 12, 0.45), "fur", "h1");
-    if (arm === "hold") { left = S(blob(-20, -32, 13, 7, 0.06, 12, 0.25), "fur", "h1"); right = S(blob(20, -32, 13, 7, 0.06, 12, -0.25), "fur", "h1"); }
-    g += left + right;
+    g += '<path d="M-3.6,-49.5 Q0,-52 3.6,-49.5 Q2.2,-45.6 0,-45.2 Q-2.2,-45.6 -3.6,-49.5Z" class="f inkfill"/><ellipse cx="-1.1" cy="-49.6" rx="1.1" ry=".7" class="glint"/>';
+    if (mouth === "open") {
+      g += '<path d="M-7.5,-41.5 Q0,-42.5 7.5,-41.5 Q5.5,-31.5 0,-31 Q-5.5,-31.5 -7.5,-41.5Z" fill="#5c2f3c" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+      g += '<path d="M-4,-34.4 Q0,-37.6 4,-34.4 Q2.2,-31.8 0,-31.7 Q-2.2,-31.8 -4,-34.4Z" fill="#ef8f94"/><path d="M3,-41.6 L4.6,-38.2 L6.2,-41.7Z" class="f white"/>';
+    } else if (mouth === "o") {
+      g += '<ellipse cx="0" cy="-37.5" rx="3.6" ry="4.6" fill="#5c2f3c" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+    } else {
+      g += '<path d="M-8,-41.5 Q-4,-36.6 0,-40.6 Q4,-36.6 8,-41.5" class="ink" style="stroke-width:1.9"/><path d="M3.4,-39.7 L4.9,-36.6 L6.3,-40.4Z" class="f white"/>';
+    }
+    var arm = o.arm || "down", L0 = GLUB.armDownL, R0 = GLUB.armDownR;
+    if (arm === "up" || arm === "both") L0 = GLUB.armUpL;
+    if (arm === "both") R0 = GLUB.armUpR;
+    if (arm === "hold") { L0 = GLUB.holdL; R0 = GLUB.holdR; }
+    g += GP(L0, "url(#gFur)") + GP(R0, "url(#gFur)");
     if (o.extra) g += o.extra;
     return '<g transform="translate(' + x + " " + y + ')"><g class="' + (o.bob ? "bob" : "") + '"><g transform="scale(' + s * fl + " " + s + ')">' + g + "</g></g></g>";
   }
@@ -595,7 +663,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += '<linearGradient id="coverFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2858"/><stop offset="1" stop-color="#2b2858" stop-opacity="0"/></linearGradient><rect x="-5" y="-95" width="1210" height="190" fill="url(#coverFade)"/>';
       g += S(blob(1000, 190, 74, 74, 0.015, 26), "moon", "h1");
       [[970, 170, 12], [1030, 220, 9], [1005, 150, 6], [1040, 170, 5]].forEach(function (c) { g += FC(blob(c[0], c[1], c[2], c[2] * 0.85, 0.1, 10), "#efdca0"); });
-      [[80, 340], [210, 310], [340, 330], [450, 300], [640, 300], [1160, 40], [1170, 330], [880, 250], [780, 330], [900, 20]].forEach(function (p, i) { g += '<g style="animation-delay:' + (i * 0.37).toFixed(2) + 's">' + sparkle(p[0], p[1], 7 + (i % 3) * 2, "twinkle") + "</g>"; });
+      [[60, 380], [330, 350], [450, 300], [640, 300], [1160, 40], [1170, 330], [880, 250], [780, 330], [900, 20]].forEach(function (p, i) { g += '<g style="animation-delay:' + (i * 0.37).toFixed(2) + 's">' + sparkle(p[0], p[1], 7 + (i % 3) * 2, "twinkle") + "</g>"; });
       g += hill(430, "violet", 14, 3, W, 60);
       g += tree(1110, 480, 170, "teal") + tree(120, 520, 130, "moss") + tree(250, 530, 95, "teal");
       g += hill(500, "teal", 10, 2, W, 70);
@@ -606,7 +674,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += flower(420, 545, 26, "rose") + flower(760, 560, 22, "yellow") + flower(1130, 560, 30, "rose") + flower(60, 560, 24, "yellow");
       g += '<g class="drip">' + DROP(712, 392, 13) + "</g>";
       g += bucket(676, 466, 70, 62, "10 L");
-      g += glub(565, 548, 2.05, { arm: "up", look: [1, -1], bob: true });
+      g += glub(565, 548, 2.05, { arm: "up", look: [1, -1], bob: true, mouth: "open" });
       return g;
     },
     hello: function () {
@@ -618,7 +686,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += S(blob(290, 252, 66, 10, 0.05, 18), "water");
       g += L(blob(290, 252, 44, 6, 0.04, 14), 1.1) + L(blob(290, 252, 22, 3, 0.04, 10), 1.1);
       g += flower(52, 246, 22, "rose") + flower(214, 238, 18, "yellow") + flower(378, 248, 24, "rose");
-      g += glub(140, 268, 1.12, { arm: "up", look: [1, -1], bob: true });
+      g += glub(140, 268, 1.12, { arm: "up", look: [1, -1], bob: true, mouth: "open" });
       return g;
     },
     bucket: function () {
@@ -642,7 +710,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += S(blob(260, 192, 56, 14, 0.03, 18), "white") + S(blob(260, 192, 40, 9, 0.03, 16), "water");
       g += L(spiral(260, 192, 22, 2.2), 1.3);
       [[200, 166, 8], [326, 170, 9], [216, 146, 6], [306, 146, 7]].forEach(function (p) { g += DROP(p[0], p[1], p[2]); });
-      g += glub(104, 268, 1.05, { arm: "both", look: [1, 0.3] });
+      g += glub(104, 268, 1.05, { arm: "both", look: [1, 0.3], mouth: "o" });
       return g;
     },
     teeth: function () {
@@ -676,7 +744,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += S(poly([[262, 48], [294, 46], [300, 64], [256, 66]], 10, 0.4), "metal");
       for (var i = 0; i < 9; i++) { var x0 = 260 + i * 4.5; g += L("M" + x0 + ",70 L" + (x0 - 60 + i * 13) + ",250", 0, "rain"); }
       g += S(blob(250, 276, 82, 9, 0.05, 16), "water");
-      g += glub(250, 276, 1.08, { arm: "both", look: [0, -1] });
+      g += glub(250, 276, 1.08, { arm: "both", look: [0, -1], mouth: "open" });
       [[200, 120, 7], [304, 136, 7], [190, 180, 6], [324, 196, 6]].forEach(function (p) { g += DROP(p[0], p[1], p[2]); });
       return g;
     },
@@ -708,7 +776,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     bath: function () {
       seed(111);
       var g = wall("wpLilac", 246);
-      g += glub(222, 214, 0.95, { arm: "both", look: [1, -0.2] });
+      g += glub(222, 214, 0.95, { arm: "both", look: [1, -0.2], mouth: "open" });
       g += S(blob(220, 166, 112, 10, 0.02, 20), "water");
       [[150, 158, 9], [172, 150, 6], [272, 152, 8], [190, 160, 7], [252, 140, 5], [140, 140, 5], [204, 132, 4]].forEach(function (b) { g += S(blob(b[0], b[1], b[2], b[2], 0.06, 10), "white"); });
       g += S(blob(310, 158, 13, 9, 0.05, 12), "yellow") + S(blob(318, 145, 7, 7, 0.05, 10), "yellow") + S("M324,144 l9,2 l-8,4z", "red") + '<circle cx="319" cy="143" r="1.4" class="pupil"/>';
@@ -766,7 +834,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       var zz = "M120,150"; for (var x = 120; x < 302; x += 13) zz += " L" + (x + 6.5) + "," + r1(150 + (x - 120) * 0.066 - 6) + " L" + (x + 13) + "," + r1(150 + (x + 13 - 120) * 0.066);
       g += L(zz, 1.6) + T(206, 205, "CACAO", 22, "middle");
       g += S(blob(56, 236, 18, 34, 0.04, 16, 0.5), "ochre", "h1") + L(line([[44, 210], [68, 262]], 10, 1), 1) + L(line([[56, 204], [76, 258]], 10, 1), 1);
-      g += glub(354, 272, 0.8, { arm: "hold", flip: true, look: [-1, 0], extra: F(blob(-5, -36, 7, 3.5, 0.2, 10), "choc") });
+      g += glub(354, 272, 0.8, { arm: "hold", flip: true, look: [-1, 0], extra: F(blob(-6, -35, 6, 3, 0.2, 10), "choc") });
       return g;
     },
     burger: function () {
@@ -781,7 +849,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += S(smooth(lt, true), "moss", "h1");
       g += S(poly([[126, 184], [134, 140], [184, 108], [288, 108], [338, 140], [346, 184]], 16, 1.2), "ochre", "h2");
       [[184, 132], [214, 120], [252, 124], [286, 134], [234, 146], [312, 156], [164, 158]].forEach(function (p, k) { g += S(blob(p[0], p[1], 5, 2.6, 0.05, 8, k), "cream"); });
-      g += glub(62, 272, 0.8, { arm: "up", look: [1, -1] });
+      g += glub(62, 272, 0.8, { arm: "up", look: [1, -1], mouth: "open" });
       return g;
     },
     tshirt: function () {
@@ -937,6 +1005,31 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
   });
   document.getElementById("book").innerHTML = html;
   document.getElementById("numbers").innerHTML = rows;
+
+  /* ================= words that pop ================= */
+  function splitWords(el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [], n, i = 0;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function (t) {
+      var frag = document.createDocumentFragment();
+      t.nodeValue.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var w = document.createElement("span"); w.className = "w"; w.style.setProperty("--i", Math.min(i++, 45)); w.textContent = part; frag.appendChild(w);
+      });
+      t.parentNode.replaceChild(frag, t);
+    });
+  }
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!still && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("go"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -12% 0px" });
+    document.querySelectorAll(".story h2, .story > p, .tips li, .say, .fine, .night p, .x").forEach(function (b) {
+      if (!b.classList.contains("x")) splitWords(b);
+      if (b.getBoundingClientRect().top > window.innerHeight * 0.92) { b.classList.add("await"); io.observe(b); }
+    });
+  }
 
   var cover = document.getElementById("cover-art");
   cover.innerHTML = '<svg viewBox="0 -90 1200 690" preserveAspectRatio="xMidYMax slice" role="img" aria-label="' + cover.getAttribute("data-alt") + '">' + D.cover() + "</svg>";
