@@ -12,27 +12,23 @@ To preview it, open `index.html` in a browser, or run:
 python3 -m http.server -d sites/more-water 8080
 ```
 
-## Deploying (Cloudflare Pages)
+## Deploying (GitHub Pages)
 
-**1. Put the domain on Cloudflare.** In the Cloudflare dashboard, add `thingsthattookmorewaterthanbuildingthis.site` as a domain on the Free plan. Cloudflare shows two nameservers. At the registrar, turn off DNSSEC if it's on, then replace the domain's nameservers with those two. The domain shows as Active in Cloudflare once the change has spread, usually within an hour. Cloudflare Pages needs this for a root domain; a plain CNAME at another DNS host won't work.
+`.github/workflows/more-water-pages.yml` publishes this folder to GitHub Pages whenever it changes on `main`. It can also be run by hand from the Actions tab.
 
-**2. Create the Pages project.** Go to Workers & Pages → Create → Pages → Connect to Git, choose `starrybodies/overshoot`, and use:
+**1. Turn on Pages.** In the repo's Settings → Pages, set Source to **GitHub Actions**. Under Custom domain, enter `thingsthattookmorewaterthanbuildingthis.site` and save. Tick **Enforce HTTPS** once GitHub has issued the certificate.
 
-| Setting | Value |
-| --- | --- |
-| Production branch | `main` |
-| Framework preset | None |
-| Build command | `exit 0` |
-| Build output directory | `sites/more-water` |
-| Root directory | leave blank |
-| Environment variable | `SKIP_DEPENDENCY_INSTALL` = `1` |
-| Build watch paths (include) | `sites/more-water/*` |
+**2. Add DNS records at the registrar (Spaceship).** Make sure the domain uses Spaceship's own nameservers, then in Advanced DNS remove any parking records for `@` and `www` and add:
 
-The environment variable stops Pages from installing the atlas app's dependencies from the repo root, which this page doesn't need. The watch path means only changes to this folder trigger a deploy.
+| Type | Host | Value |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `starrybodies.github.io` |
 
-**3. Attach the domain.** In the Pages project, open Custom domains → Set up a custom domain and enter `thingsthattookmorewaterthanbuildingthis.site`. Cloudflare creates the DNS record and the HTTPS certificate itself. Add `www.thingsthattookmorewaterthanbuildingthis.site` the same way if you want it too.
-
-`CNAME` in this folder is only used by GitHub Pages. Cloudflare ignores it.
+GitHub checks the records and issues the HTTPS certificate, usually within an hour. `CNAME` in this folder carries the same domain for anyone publishing the folder another way.
 
 ## The numbers
 
