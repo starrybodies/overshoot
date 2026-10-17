@@ -1,0 +1,33 @@
+# Publishes the "Things That Took More Water" picture book (sites/more-water)
+# to GitHub Pages at thingsthattookmorewaterthanbuildingthis.site.
+name: Deploy more-water site
+
+on:
+  push:
+    branches: [main]
+    paths: ["sites/more-water/**", ".github/workflows/more-water-pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: sites/more-water
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Things That Took More Water</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A picture book about thirsty things. A toilet flush, a bath, a hamburger, a pair of jeans and a golf course all took more water than building this website with AI.">
+<meta property="og:title" content="Things That Took More Water Than Building This Site">
+<meta property="og:description" content="A picture book for the curious, the skeptical, and the very small.">
+<meta property="og:url" content="https://thingsthattookmorewaterthanbuildingthis.site/">
+<meta name="theme-color" content="#2b2858">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C21 11 26 16 26 21a10 10 0 0 1-20 0C6 16 11 11 16 3Z' fill='%237fb2d6' stroke='%232a1f2e' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: a picture book you scroll like turning pages. A night-sky cover, then one full-width page per thirsty thing,
+   each on its own pastel paper: a big picture, the story on the left, the count on the right. One visual world, one theme. */
+:root {
+  color-scheme: light;
+  --ink: #2a1f2e;          /* plum-black, for words and drawing */
+  --ink-soft: #5d4a5c;
+  --cobalt: #2f4fa8;       /* the big numbers */
+  --pop: #f6b8a8;          /* the misprinted shadow behind the big numbers */
+  --night: #2b2858;
+  --night-deep: #1f1c45;
+  --moon: #fbefc6;
+  --paper: #fbf3e2;        /* picture mats and notes */
+  --f-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-body: "Alegreya", "Iowan Old Style", Georgia, serif;
+  --f-hand: "Patrick Hand", "Chalkboard SE", "Comic Sans MS", cursive;
+
+  /* drawing washes */
+  --w-water: #7fb2d6; --w-deep: #3d6fa8; --w-moss: #9fbf73; --w-moss2: #c8dc95; --w-olive: #6f8f55;
+  --w-teal: #4f8c8a; --w-violet: #7d6aae; --w-yellow: #f7d468; --w-ochre: #eab04c; --w-red: #e0644a;
+  --w-rose: #f0a8a0; --w-blush: #f3877f; --w-fur: #d58c4f; --w-fur2: #b46f3c; --w-stripe: #8a4f2c;
+  --w-belly: #f7e3b8; --w-horn: #f6ecd4; --w-eye: #fdf3bf; --w-cream: #fbf1d8; --w-white: #fffaf0;
+  --w-floor: #d8ab79; --w-choc: #6b3f2a; --w-metal: #b8bfc8; --w-glass: #e3f1f4; --w-trunk: #8a5a3c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; background: var(--night-deep); }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 1.15rem; line-height: 1.55; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; font-variation-settings: "SOFT" 100, "WONK" 1; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--cobalt); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- cover ---------- */
+.cover { position: relative; background: var(--night); color: var(--moon); overflow: hidden; }
+.cover-text { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding-block: clamp(26px, 5vw, 56px) 0; display: grid; gap: 10px; }
+.domain { font-family: var(--f-hand); font-size: 1rem; color: #bdb4e6; overflow-wrap: anywhere; }
+.cover h1 { font-weight: 800; line-height: .9; display: grid; gap: .08em; }
+.cover h1 .a, .cover h1 .c { font-size: clamp(1.5rem, 4.4vw, 2.9rem); font-style: italic; font-weight: 500; color: #e9def8; }
+.cover h1 .b { font-size: clamp(3.6rem, 14vw, 10rem); letter-spacing: -.01em; display: flex; flex-wrap: wrap; column-gap: .22em; }
+.cover h1 .b > span { display: inline-flex; }
+.cover h1 .b i { font-style: normal; display: inline-block; text-shadow: .045em .045em 0 #1a1740; }
+.cover h1 .b i:nth-child(4n+1) { color: #ffc9a8; transform: rotate(-4deg) translateY(.02em); }
+.cover h1 .b i:nth-child(4n+2) { color: #f6e08e; transform: rotate(3deg) translateY(-.04em); }
+.cover h1 .b i:nth-child(4n+3) { color: #bfe6cf; transform: rotate(-2deg) translateY(.03em); }
+.cover h1 .b i:nth-child(4n+4) { color: #d9c4f2; transform: rotate(4deg) translateY(-.02em); }
+.cover .imprint { font-family: var(--f-hand); font-size: 1.05rem; letter-spacing: .14em; text-transform: uppercase; color: #f6e08e; }
+.cover .sub { font-size: clamp(1.1rem, 2.4vw, 1.4rem); font-style: italic; color: #e9def8; max-width: 30ch; }
+.cover-art { position: relative; z-index: 1; margin-top: clamp(-120px, -9vw, -20px); aspect-ratio: 1200 / 690; max-height: 86vh; width: 100%; }
+.cover-art svg { display: block; width: 100%; height: 100%; }
+.cover-foot { background: var(--night-deep); color: #cfc6ee; text-align: center; font-family: var(--f-hand); font-size: 1.15rem; padding-block: 14px 18px; }
+@media (max-width: 700px) {
+  .cover-art { aspect-ratio: 4 / 3.4; margin-top: 0; }
+}
+@media (min-width: 701px) {
+  .cover-top { display: grid; }
+  .cover-text, .cover-art { grid-area: 1 / 1; }
+  .cover-text { align-self: start; width: 100%; }
+  .cover-art { margin-top: 0; }
+}
+
+/* ---------- pages ---------- */
+.page { background: var(--band, var(--paper)); padding-block: clamp(46px, 8vw, 104px); }
+.page-inner { max-width: 960px; margin: 0 auto; display: grid; gap: clamp(26px, 4vw, 44px); }
+.plate {
+  margin: 0; background: var(--paper); padding: clamp(6px, 1.2vw, 12px); border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(42, 31, 46, .14), 0 26px 44px -30px rgba(42, 31, 46, .55);
+  transform: rotate(var(--tilt, -.7deg));
+}
+.page:nth-of-type(even) .plate { --tilt: .6deg; }
+.plate svg { display: block; width: 100%; height: auto; }
+.words.solo { grid-template-columns: minmax(0, 1fr); }
+.words { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(20px, 4vw, 56px); align-items: start; }
+.story { display: grid; gap: 14px; min-width: 0; }
+.story h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1; }
+.story p { font-size: clamp(1.18rem, 2vw, 1.38rem); max-width: 36ch; }
+.count { display: grid; gap: 8px; min-width: 0; padding-top: 4px; }
+.x {
+  font-family: var(--f-display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  font-size: clamp(4.2rem, 12vw, 7.6rem); line-height: .85; color: var(--cobalt);
+  text-shadow: .05em .05em 0 var(--pop); transform: rotate(-3deg); transform-origin: left bottom;
+  font-variant-numeric: lining-nums; white-space: nowrap;
+}
+.x.mid { font-size: clamp(3.4rem, 9vw, 5.8rem); }
+.x.long { font-size: clamp(2.6rem, 7vw, 4.4rem); }
+.x small { font-size: .5em; margin-left: .04em; }
+.x.words-x { font-size: clamp(2.4rem, 5.6vw, 3.6rem); white-space: normal; line-height: .95; }
+.say { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.15; text-wrap: balance; }
+.fine { font-size: 1rem; color: var(--ink-soft); max-width: 40ch; font-variant-numeric: lining-nums; }
+.folio { text-align: center; font-family: var(--f-display); font-style: italic; color: var(--ink-soft); font-size: 1rem; font-variant-numeric: lining-nums; }
+.folio::before { content: "~ "; } .folio::after { content: " ~"; }
+.story .theend { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: clamp(3rem, 8vw, 5rem); color: var(--cobalt); text-shadow: .05em .05em 0 var(--pop); }
+.tips { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; font-size: clamp(1.15rem, 2vw, 1.32rem); }
+.tips li { padding-left: 1.4em; position: relative; }
+.tips li::before { content: ""; position: absolute; left: .1em; top: .45em; width: .62em; height: .78em; background: var(--w-water); border: 2px solid var(--ink); border-radius: 50% 50% 50% 50% / 62% 62% 40% 40%; transform: rotate(180deg); }
+
+/* night interludes */
+.night { background: var(--night); color: var(--moon); text-align: center; padding-block: clamp(56px, 10vw, 120px); position: relative; overflow: hidden; }
+.night .in { position: relative; max-width: 820px; margin: 0 auto; display: grid; gap: 14px; }
+.night p { font-family: var(--f-display); font-weight: 600; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.05; text-wrap: balance; }
+.night p.small { font-family: var(--f-hand); font-weight: 400; font-size: 1.35rem; color: #cfc6ee; }
+.night p em { color: #f6e08e; }
+.night .stars { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ---------- notes ---------- */
+.notes { background: var(--paper); padding-block: 60px 90px; }
+.notes .in { max-width: 860px; margin: 0 auto; display: grid; gap: 30px; }
+.notes h2 { font-size: clamp(2.1rem, 5vw, 3rem); }
+.notes h3 { font-size: 1.55rem; }
+.note { display: grid; gap: 10px; max-width: 68ch; }
+.kicker { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.2rem; }
+.math { font-variant-numeric: lining-nums; background: #f3e6f3; border-radius: 10px; padding: 12px 16px; }
+.table-box { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 1rem; font-variant-numeric: lining-nums; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2d3c0; vertical-align: top; }
+th { font-family: var(--f-hand); font-weight: 400; font-size: 1.05rem; color: var(--ink-soft); }
+td.n { text-align: right; white-space: nowrap; }
+tr.us td { font-weight: 700; background: #eaf2f8; }
+.sources { padding-left: 1.2em; display: grid; gap: 6px; margin: 0; }
+.colophon { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.15rem; text-align: center; }
+
+@media (max-width: 760px) {
+  .words { grid-template-columns: minmax(0, 1fr); }
+  .x { transform: rotate(-2deg); }
+}
+
+/* ---------- drawing ---------- */
+svg .ink { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+svg .frame { stroke-width: 3; }
+svg .contour { fill: none; stroke: var(--ink); stroke-width: 1; opacity: .38; vector-effect: non-scaling-stroke; }
+svg .hx { stroke: none; opacity: .5; }
+svg .hl { stroke: var(--ink); stroke-width: .5; }
+svg .furmark { fill: none; stroke: #9a5528; stroke-width: 1.3; stroke-linecap: round; opacity: .75; vector-effect: non-scaling-stroke; }
+svg .stripefill { fill: #8f4f26; }
+svg .grain { mix-blend-mode: multiply; opacity: .3; pointer-events: none; }
+svg .hand { font-family: var(--f-hand); fill: var(--ink); }
+svg .rain { stroke: var(--w-deep); stroke-width: 2; stroke-dasharray: 6 9; }
+svg .spray { stroke: var(--w-deep); stroke-width: 2.2; stroke-dasharray: 1 8; }
+svg .steam { stroke-width: 1.6; opacity: .7; }
+svg .f { stroke: none; }
+svg .water { fill: var(--w-water); } svg .deep { fill: var(--w-deep); } svg .moss { fill: var(--w-moss); }
+svg .moss2 { fill: var(--w-moss2); } svg .olive { fill: var(--w-olive); } svg .teal { fill: var(--w-teal); }
+svg .violet { fill: var(--w-violet); } svg .yellow { fill: var(--w-yellow); } svg .ochre { fill: var(--w-ochre); }
+svg .red { fill: var(--w-red); } svg .rose { fill: var(--w-rose); } svg .blush { fill: var(--w-blush); opacity: .55; }
+svg .fur { fill: var(--w-fur); } svg .fur2 { fill: var(--w-fur2); } svg .belly { fill: var(--w-belly); }
+svg .horn { fill: var(--w-horn); } svg .eye { fill: var(--w-eye); } svg .cream { fill: var(--w-cream); }
+svg .white, svg .glint { fill: var(--w-white); } svg .floor { fill: var(--w-floor); } svg .choc { fill: var(--w-choc); }
+svg .metal { fill: var(--w-metal); } svg .glass { fill: var(--w-glass); } svg .trunk { fill: var(--w-trunk); }
+svg .moon { fill: var(--moon); } svg .nightf { fill: var(--night); }
+svg .pupil, svg .inkfill { fill: var(--ink); }
+svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+
+/* words pop in as they scroll into view; text that starts on screen is never hidden */
+.w { display: inline-block; }
+.await .w { opacity: 0; transform: translateY(.5em) scale(.6) rotate(-6deg); }
+.await.go .w { opacity: 1; transform: none; transition: opacity .3s ease, transform .6s cubic-bezier(.3, 1.8, .5, 1); transition-delay: calc(var(--i) * 28ms); }
+.x.await { opacity: 0; transform: scale(.3) rotate(-14deg); }
+.x.await.go { opacity: 1; transform: rotate(-3deg); transition: opacity .3s ease, transform .8s cubic-bezier(.3, 1.9, .5, 1); }
+.bob { animation: bob 3.4s ease-in-out infinite; }
+.drip { animation: drip 2.8s ease-in infinite; }
+.twinkle { animation: twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.breathe { animation: breathe 9s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+@keyframes drip { 0% { transform: translateY(-16px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(30px); opacity: 0; } }
+@keyframes twinkle { 50% { transform: scale(.55); opacity: .6; } }
+@keyframes breathe { 50% { transform: scale(1.025); } }
+@media (prefers-reduced-motion: reduce) { .bob, .drip, .twinkle, .breathe { animation: none; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="h1" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><line x1="0" y1="0" x2="0" y2="4" class="hl"/></pattern>
+    <pattern id="h2" width="3.6" height="3.6" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><line x1="0" y1="0" x2="0" y2="3.6" class="hl"/><line x1="0" y1="1.8" x2="3.6" y2="1.8" class="hl"/></pattern>
+    <pattern id="wpRose" width="34" height="34" patternUnits="userSpaceOnUse"><rect width="34" height="34" fill="#f8d9d2"/><g fill="#eca59c"><circle cx="9" cy="5" r="3.2"/><circle cx="9" cy="13" r="3.2"/><circle cx="5" cy="9" r="3.2"/><circle cx="13" cy="9" r="3.2"/></g><circle cx="9" cy="9" r="2.2" fill="#f7d468"/><g fill="#eca59c"><circle cx="26" cy="22" r="3.2"/><circle cx="26" cy="30" r="3.2"/><circle cx="22" cy="26" r="3.2"/><circle cx="30" cy="26" r="3.2"/></g><circle cx="26" cy="26" r="2.2" fill="#f7d468"/></pattern>
+    <pattern id="wpMint" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#d6eedd"/><circle cx="6" cy="6" r="3.4" fill="#a9d6bd"/><circle cx="19" cy="19" r="3.4" fill="#a9d6bd"/><circle cx="19" cy="6" r="1.6" fill="#7fb2d6"/><circle cx="6" cy="19" r="1.6" fill="#7fb2d6"/></pattern>
+    <pattern id="wpLilac" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="#e6dcf3"/><path d="M15 3 L27 15 L15 27 L3 15Z" fill="none" stroke="#c4b0e2" stroke-width="2.4"/><circle cx="15" cy="15" r="3" fill="#f0a8a0"/></pattern>
+    <pattern id="wpBlue" width="28" height="28" patternUnits="userSpaceOnUse"><rect width="28" height="28" fill="#d8e8f3"/><path d="M0 14 Q7 6 14 14 T28 14" fill="none" stroke="#a9c8e2" stroke-width="3"/></pattern>
+    <linearGradient id="sg" x1=".1" y1=".05" x2=".95" y2=".95"><stop offset="0" stop-color="#000"/><stop offset=".45" stop-color="#000"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <mask id="shade" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#sg)"/></mask>
+    <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#000"/></linearGradient>
+    <mask id="fadeDown" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#fd)"/></mask>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .3  0 0 0 -1.4 .9"/>
+    </filter>
+    <radialGradient id="gFur" cx=".38" cy=".3" r=".85"><stop offset="0" stop-color="#f6bb7c"/><stop offset=".55" stop-color="#dc8c4c"/><stop offset="1" stop-color="#a95f2e"/></radialGradient>
+    <radialGradient id="gFur2" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#d08a50"/><stop offset="1" stop-color="#93522a"/></radialGradient>
+    <radialGradient id="gBelly" cx=".45" cy=".35" r=".75"><stop offset="0" stop-color="#fff5dc"/><stop offset="1" stop-color="#f0d29e"/></radialGradient>
+    <linearGradient id="gHorn" x1="0" y1="1" x2=".4" y2="0"><stop offset="0" stop-color="#e3caa0"/><stop offset="1" stop-color="#fff9ea"/></linearGradient>
+    <radialGradient id="gEye" cx=".42" cy=".38" r=".75"><stop offset="0" stop-color="#fffef4"/><stop offset="1" stop-color="#f4e3a2"/></radialGradient>
+    <radialGradient id="gPupil" cx=".5" cy=".72" r=".75"><stop offset="0" stop-color="#5e4a6a"/><stop offset="1" stop-color="#1c1422"/></radialGradient>
+    <radialGradient id="gBlush"><stop offset="0" stop-color="#f27d7a" stop-opacity=".7"/><stop offset="1" stop-color="#f27d7a" stop-opacity="0"/></radialGradient>
+    <clipPath id="plateClip"><rect width="400" height="300"/></clipPath>
+  </defs>
+</svg>
+
+<header class="cover">
+  <div class="cover-top">
+  <div class="cover-text wrap">
+    <p class="domain">thingsthattookmorewaterthanbuildingthis.site</p>
+    <h1>
+      <span class="a">Things That Took</span>
+      <span class="b" aria-label="More Water"><span aria-hidden="true"><i>M</i><i>o</i><i>r</i><i>e</i></span><span aria-hidden="true"><i>W</i><i>a</i><i>t</i><i>e</i><i>r</i></span></span>
+      <span class="c">Than Building This Site</span>
+    </h1>
+    <p class="sub">A picture book for the curious, the skeptical, and the very small.</p>
+    <p class="imprint">A Symbai Studio production</p>
+  </div>
+  <div class="cover-art" id="cover-art" data-alt="Under a huge rippling moon, Glub, a fluffy orange wild thing with tiny horns and enormous eyes, waves from a hill beside a small bucket. Swirly trees and spotted mushrooms grow all around."></div>
+  </div>
+  <p class="cover-foot wrap">turn the page ↓</p>
+</header>
+
+<main id="book">
+  <noscript><section class="night wrap"><div class="in"><p>The pictures in this book are drawn by JavaScript. Every number is in the notes for grown-ups, below.</p></div></section></noscript>
+</main>
+
+<section class="notes wrap" id="notes" aria-labelledby="notes-title">
+  <div class="in">
+    <header>
+      <p class="kicker">the back of the book</p>
+      <h2 id="notes-title">Notes for grown-ups</h2>
+    </header>
+
+    <div class="note">
+      <h3>How we got one bucket</h3>
+      <p>This site was made in one long conversation with an AI coding assistant: a first draft, then a few rounds of redesign. Nobody can meter that exactly, so we started from a careful published estimate and leaned hard toward the thirsty side.</p>
+      <p>Climate scientist Zeke Hausfather logged his own AI coding sessions for eight weeks. He estimated that a median session uses about 0.6 kWh of electricity, with a range of 0.25 to 1.2 kWh. We allowed 2 kWh, well above the top of his range, to cover the draft and every redesign.</p>
+      <p>Each kWh uses water twice. The data center evaporates some to stay cool: Google's own measurement works out to about 1 liter per kWh, and the US average is lower. The power plant evaporates more: about 3 liters per kWh on the average US grid, the figure used in the "Making AI Less Thirsty" paper. We rounded the total up to 5 liters per kWh.</p>
+      <p class="math">2 kWh × 5 liters per kWh = <strong>10 liters</strong>, one bucket (2.6 gallons).<br>A low-end estimate, 0.25 kWh × 1 liter per kWh, is about a cup.</p>
+      <p>Not counted: water used to train the AI model, to make its chips, to build the data center, or to run the screen you're reading on. The footprints for jeans, phones and burgers do count their whole supply chains, so keep that in mind when comparing.</p>
+    </div>
+
+    <div class="note">
+      <h3>Tap water and footprints</h3>
+      <p>Some pages count water straight from the tap: flushes, showers, sprinklers. Others count a <em>water footprint</em>, every liter it took to grow and make something, including rain that fell on the fields. Rain on a wheat field isn't taken from anyone's river, so the two kinds aren't perfectly comparable. Each page's small print says which kind it is.</p>
+      <p>The answer doesn't change if you only count tap water. One old-style toilet flush beats the whole website, and a five-minute shower beats it more than four times over.</p>
+    </div>
+
+    <div class="note">
+      <h3>One question to an AI</h3>
+      <p>Google measured a median text prompt to its Gemini apps in May 2025 at 0.24 Wh and 0.26 mL of water, about five drops. That counts the data center, not the power plant. Adding about 3 liters per kWh for the power plant gives roughly 0.7 mL more, so about 1 mL in all, or twenty drops. Long or complicated requests use more, and other companies' models differ.</p>
+      <p class="math">2,400 liters ÷ 1 mL = 2.4 million questions. At one a minute, that's about 4.6 years.</p>
+    </div>
+
+    <div class="note">
+      <h3>Every number in the book</h3>
+      <div class="table-box">
+        <table>
+          <thead><tr><th scope="col">Thing</th><th scope="col">Liters</th><th scope="col">Gallons</th><th scope="col">× this site</th><th scope="col">Kind</th><th scope="col">Basis</th></tr></thead>
+          <tbody id="numbers"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note">
+      <h3>Sources</h3>
+      <ol class="sources">
+        <li>Zeke Hausfather, <a href="https://skepticalscience.com/print.php?n=6600">The real energy use of agentic AI</a>, Skeptical Science (2026).</li>
+        <li>Simon P. Couch, <a href="https://simonpcouch.com/blog/2026-01-20-cc-impact/">Electricity use of AI coding agents</a> (2026).</li>
+        <li>Google's measurement of a median Gemini text prompt (August 2025), as reported by <a href="https://thenewstack.io/google-says-the-median-gemini-prompt-uses-5-drops-of-water/">The New Stack</a>.</li>
+        <li>Pengfei Li, Jianyi Yang, Mohammad A. Islam, Shaolei Ren, <a href="https://arxiv.org/abs/2304.03271">Making AI Less "Thirsty"</a> (2023).</li>
+        <li>Lawrence Berkeley National Laboratory, <a href="https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report">2024 United States Data Center Energy Usage Report</a>.</li>
+        <li>GCSAA, <a href="https://www.gcsaa.org/who-we-are/media/news/2025/12/30/golf-courses-reduce-water-usage-by-31-percent-according-to-national-survey">Golf courses reduce water usage by 31 percent</a> (survey of 2024 water use). Facility count from the National Golf Foundation: about 14,000 US golf facilities at the end of 2024.</li>
+        <li>Arjen Y. Hoekstra, <a href="https://ayhoekstra.nl/pubs/Hoekstra-2010-TheEnvironmentalist-01March-Issue93.pdf">The water footprint of food</a> (2010), and the <a href="https://www.waterfootprint.org/">Water Footprint Network</a>: bread, apple, coffee, egg, chocolate, beef.</li>
+        <li>WWF, <a href="https://www.worldwildlife.org/stories/the-impact-of-a-cotton-t-shirt">The impact of a cotton T-shirt</a>.</li>
+        <li>UN Environment Programme, <a href="https://www.unep.org/news-and-stories/story/putting-brakes-fast-fashion">Putting the brakes on fast fashion</a>.</li>
+        <li>Friends of the Earth and Trucost smartphone estimate (2015), via the <a href="https://watercalculator.org/footprint/the-hidden-water-in-everyday-products/">Water Footprint Calculator</a>.</li>
+        <li>US EPA <a href="https://www.epa.gov/watersense">WaterSense</a>: toilets, faucets, showerheads and outdoor watering.</li>
+      </ol>
+    </div>
+
+    <p class="colophon">A Symbai Studio production.<br>Written and drawn (in code) by a person and an AI helper, with a great deal of cross-hatching and less than one bucket of water.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+  var SITE = 10; // liters: the generous ceiling for building this site
+  var GAL = 0.264172;
+
+  /* ================= the book ================= */
+  var BANDS = ["#f4e2c4", "#e3d7e9", "#d7e4d4", "#f2d7c7", "#ece3b9", "#eed4d7", "#d4e0e7"];
+  var POPS  = ["#f4a98f", "#f2b4c9", "#f6c38f", "#c9b6ec", "#f2a6a0", "#b9d9ef", "#f7cf7a"];
+
+  var PAGES = [
+    { draw: "hello", alt: "Glub, a round fluffy orange wild thing with little curled horns and huge shining eyes, waves under a rain cloud that drips into a rippling puddle.",
+      h: "This is Glub.",
+      tell: ["On the night of the rain, Glub could not sleep.",
+             "Glub is a small wild thing who keeps track of water: where it goes, and how much. And that night Glub had a question too big for one small head. How much water did it take to make this book?"] },
+    { draw: "bucket", alt: "Glub stands proudly beside a bucket of water marked 10 L while a single drop falls into it.",
+      h: "Less than one bucket.",
+      tell: ["This book is a website. A person and an AI helper made it together, talking back and forth.",
+             "The AI does its thinking in a great humming building called a data center. Thinking makes heat, and water carries the heat away. The power plants that make the electricity drink water too.",
+             "Glub counted every drop, then rounded up, way up, to be fair."],
+      bigx: "1 bucket", say: "At the very most. Probably much less.",
+      fine: "10 liters, or 2.6 gallons. A low estimate is closer to a cup. The math is in the notes at the back." },
+    { night: ["So Glub picked up the bucket and set off through the night", "to find the things that are <em>thirstier</em> than a book."], small: 0 },
+    { id: "flush", draw: "toilet", l: 13, h: "One flush of an old toilet.",
+      tell: "First Glub found an old toilet, rumbling on its chain. Whoosh! One flush, and more than a whole bucket was gone. A new toilet uses less, about half a bucket.",
+      say: "One whole book, plus a splash.", kind: "tap",
+      note: "From the tap. Toilets from the 1980s and early '90s use about 3.5 gallons a flush.",
+      alt: "An old pull-chain toilet swirls against flowered wallpaper while Glub throws both arms up, mouth a surprised O." },
+    { id: "teeth", draw: "teeth", l: 15, h: "Brushing your teeth with the tap running.",
+      tell: "Then a tap that ran and ran while somebody brushed and brushed, and nobody turned it off.",
+      say: "One and a half books, straight down the drain.", kind: "tap",
+      note: "From the tap. Two minutes at a standard bathroom faucet.",
+      alt: "Glub brushes its tiny fang, foam bubbling, while the tap pours into the sink." },
+    { id: "bread", draw: "bread", l: 40, h: "One slice of bread.",
+      tell: "Then a slice of bread, which still remembered being wheat: a whole summer of rain and river water.",
+      say: "Four books. In one slice.", kind: "fp",
+      note: "A water footprint: counts all the water the wheat drank, rain included. One 30 g slice.",
+      alt: "A giant slice of bread glows in front of a rippling sun, with Glub and stalks of wheat beside it." },
+    { id: "shower", draw: "shower", l: 45, h: "A five-minute shower.",
+      tell: "Then a shower, warm and steamy and lovely, pouring out a bucketful every single minute.",
+      say: "Four and a half books. Squeaky clean.", kind: "tap",
+      note: "From the tap. Five minutes at a standard 2.5-gallon-a-minute showerhead.",
+      alt: "Glub stands under a showerhead with both arms up, laughing, as water pours down onto wavy blue tiles." },
+    { id: "apple", draw: "apple", l: 70, h: "One apple.",
+      tell: "Then an apple, which an old tree had filled slowly, drop by drop, all year long.",
+      say: "Seven books. Crunch.", kind: "fp",
+      note: "A water footprint: counts all the water the apple tree drank, rain included. One small (100 g) apple.",
+      alt: "Glub reaches up toward a huge red apple glowing like a sunset." },
+    { id: "coffee", draw: "coffee", l: 140, h: "One cup of coffee.",
+      tell: "Then a cup of coffee, grown on warm hills far away, which the grown-ups drink without thinking twice.",
+      say: "Fourteen books, sip by sip.", kind: "fp",
+      note: "A water footprint: counts the water the coffee plants drank, rain included. One small 125 mL cup.",
+      alt: "A tiny Glub sits on the saucer of a big steaming coffee cup, with beans scattered around." },
+    { id: "bath", draw: "bath", l: 150, h: "One bath, filled to the very top.",
+      tell: "Then a bath, filled to the very top, with bubbles and one very serious duck.",
+      say: "Fifteen books, and a duck.", kind: "tap",
+      note: "From the tap. A full tub, about 40 gallons.",
+      alt: "Glub sits in a clawfoot bathtub full of bubbles next to a rubber duck, in front of diamond wallpaper." },
+    { id: "egg", draw: "egg", l: 200, h: "One egg.",
+      tell: "Then an egg. The hen ate the grain, and the grain drank the fields, and the fields drank the sky.",
+      say: "Twenty books. In one egg!", kind: "fp",
+      note: "A water footprint: counts the water to grow the hen's food, rain included. One 60 g egg.",
+      alt: "A speckled egg in a red egg cup glows with rippling rings of light while Glub gazes at it." },
+    { id: "car", draw: "car", l: 380, h: "Washing the car with a hose.",
+      tell: "Then a car being washed with a hose, the water running down the driveway and away into the street.",
+      say: "Up to thirty-eight books.", kind: "tap", upto: true,
+      note: "From the tap. A hose left running while you wash can use up to 100 gallons.",
+      alt: "Glub sprays a little blue car with a garden hose. A puddle spreads underneath." },
+    { id: "lawn", draw: "lawn", l: 1000, h: "Watering the lawn for one hour.",
+      tell: "Then a lawn and a sprinkler going tick-tick-tick all afternoon, which the grass liked very much.",
+      say: "A hundred books. Every hour.", kind: "tap",
+      note: "From the tap. A sprinkler running at about 4½ gallons a minute.",
+      alt: "A lawn sprinkler throws arcs of water while Glub stays dry under a red umbrella." },
+    { id: "chocolate", draw: "chocolate", l: 1700, h: "One bar of chocolate.",
+      tell: "Then a bar of chocolate, from trees in hot, rainy places where each pod holds only a handful of beans.",
+      say: "A hundred and seventy books. Yum.", kind: "fp",
+      note: "A water footprint: counts the water the cacao trees drank, rain included. One 100 g bar.",
+      alt: "A half-unwrapped chocolate bar, a cacao pod, and Glub with chocolate on its chin." },
+    { id: "burger", draw: "burger", l: 2400, h: "One hamburger.",
+      tell: "Then a hamburger. Before it was a hamburger it was a cow, and the cow ate and drank for years and years.",
+      say: "Two hundred and forty books.", kind: "fp",
+      note: "A water footprint: counts the water for the cow's food and drink, rain included. One 150 g beef burger.",
+      alt: "A towering hamburger glows in front of rippling sunset rings while a small Glub stares up at it, mouth open." },
+    { id: "tshirt", draw: "tshirt", l: 2700, h: "One cotton T-shirt.",
+      tell: "Then a cotton T-shirt. Cotton plants are very, very thirsty, and it takes a great many of them to make one shirt.",
+      say: "Two hundred and seventy books.", kind: "fp",
+      note: "A water footprint: counts the water the cotton drank, rain included.",
+      alt: "A yellow T-shirt hangs on a clothesline beside a fluffy cotton plant, with Glub watching." },
+    { id: "jeans", draw: "jeans", l: 7500, h: "One pair of jeans.",
+      tell: "Then a pair of jeans: grown, spun, dyed blue, and washed soft, and every step of it wet.",
+      say: "Seven hundred and fifty books.", kind: "fp",
+      note: "A water footprint: counts the cotton field, the dyeing and the washing.",
+      alt: "A pair of blue jeans drips on a clothesline next to a bucket of blue dye." },
+    { id: "phone", draw: "phone", l: 12760, h: "One smartphone.",
+      tell: "Then a telephone small enough for a pocket, made from metals dug deep out of the ground and tiny chips rinsed clean again and again.",
+      say: "Nearly thirteen hundred books.", kind: "fp",
+      note: "A water footprint: counts mining, chipmaking and cleaning the parts. An estimate from 2015.",
+      alt: "Glub leans on a giant smartphone that glows inside rippling rings of night sky." },
+    { id: "golf", draw: "golf", l: 393000, h: "One day of watering one golf course.",
+      tell: "And last of all, a golf course, so green and so wide, drinking and drinking under the sun. Not in a year. In one day.",
+      say: "Thirty-nine thousand books. Every. Single. Day.", kind: "tap",
+      note: "From sprinklers. All the water US golf courses used in 2024, split across about 14,000 golf facilities and 365 days.",
+      alt: "Rolling striped hills, a red flag, sprinklers arcing, and a tiny Glub holding a golf club under a rippling sun." },
+    { night: ["Glub sat down in the wet grass and thought for a long time.", "Then Glub asked the smallest question of all."], small: 0 },
+    { id: "question", draw: "ai", alt: "Tiny drops fall into a thimble while Glub studies them through a magnifying glass.",
+      h: "One question is about twenty drops.",
+      tell: ["Google measured its own AI. A typical question used about five drops of water at the data center, and the power plant adds about fifteen more.",
+             "Twenty drops. A sprinkler spills that in the blink of an eye. The water in one hamburger could answer a question every minute, all day and all night, for four and a half years."],
+      bigx: "20 drops", say: "About one milliliter.",
+      fine: "For a typical, short question. Long, complicated requests use more." },
+    { id: "river", draw: "big", alt: "Glub looks across a river at a long data center building with steam rising, and a golf flag on a far hill.",
+      h: "So is AI's water nothing at all?",
+      tell: ["No. Glub is a careful wild thing, and careful wild things know that lots of small drops make a river.",
+             "People ask AI billions of questions, and more every year. In 2023, data centers in the United States used about 66 billion liters of water to keep cool, and the power plants that ran them used an estimated 800 billion liters more. That water matters most in dry places, so it's fair to ask where new data centers are built and how they are cooled.",
+             "American golf courses, for comparison, watered their grass with about 2 trillion liters in 2024."],
+      bigx: "Keep an eye on the river.", say: "Just don't blame the cup.", wordsx: true },
+    { id: "tricks", draw: "tips", alt: "Glub holds an enormous wrench next to a dripping tap, looking very determined.",
+      h: "Glub's best water tricks",
+      list: ["Turn off the tap while you brush.", "Fix the toilet that runs and runs.", "Take the short shower.", "Eat fewer burgers.", "Wear your jeans for years and years.", "Keep asking good questions, about AI and about everything else."] },
+    { id: "goodnight", draw: "end", alt: "Glub sleeps in a little red sailboat on calm water under a crescent moon ringed with light.",
+      h: "Goodnight, Glub.",
+      tell: ["Then Glub grew sleepy and turned the little boat for home, through the night and over the dark water, back to a room where a glass of water stood waiting by the bed, cool and full.",
+             "And all the water in the world kept going round and round, the way it always has: rain to river, river to sea, sea to cloud, cloud to rain."],
+      end: true }
+  ];
+
+  /* ================= numbers ================= */
+  function sig(v, n) { if (!v) return 0; var p = Math.pow(10, n - Math.ceil(Math.log10(Math.abs(v)))); return Math.round(v * p) / p; }
+  function num(v) {
+    if (v < 10) return String(Math.round(v * 10) / 10);
+    if (v < 1000) return String(Math.round(v));
+    return sig(v, 3).toLocaleString("en-US");
+  }
+  function times(l) {
+    var r = l / SITE;
+    if (r < 2) return String(Math.round(r * 10) / 10);
+    if (r < 20) { var h = Math.round(r * 2) / 2; return Math.floor(h) + (h % 1 ? "½" : ""); }
+    return sig(r, 3).toLocaleString("en-US");
+  }
+
+  /* ================= the pen ================= */
+  var sd = 1;
+  function seed(n) { sd = n >>> 0 || 1; }
+  function rnd() { sd = (sd + 0x6D2B79F5) | 0; var t = Math.imul(sd ^ (sd >>> 15), 1 | sd); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
+  function J(a) { return (rnd() - 0.5) * 2 * a; }
+  function r1(n) { return Math.round(n * 10) / 10; }
+
+  function smooth(p, closed) {
+    var n = p.length, m = closed ? n : n - 1;
+    function g(i) { return closed ? p[((i % n) + n) % n] : p[Math.max(0, Math.min(n - 1, i))]; }
+    var d = "M" + r1(p[0][0]) + "," + r1(p[0][1]);
+    for (var i = 0; i < m; i++) {
+      var a = g(i - 1), b = g(i), c = g(i + 1), e = g(i + 2);
+      d += "C" + r1(b[0] + (c[0] - a[0]) / 6) + "," + r1(b[1] + (c[1] - a[1]) / 6) + " " +
+           r1(c[0] - (e[0] - b[0]) / 6) + "," + r1(c[1] - (e[1] - b[1]) / 6) + " " + r1(c[0]) + "," + r1(c[1]);
+    }
+    return closed ? d + "Z" : d;
+  }
+  function dens(p, closed, step, jit) {
+    var o = [], n = p.length, m = closed ? n : n - 1;
+    for (var i = 0; i < m; i++) {
+      var a = p[i], b = p[(i + 1) % n], k = Math.max(1, Math.round(Math.hypot(b[0] - a[0], b[1] - a[1]) / step));
+      for (var s = 0; s < k; s++) {
+        var t = s / k, q = s ? jit : jit * 0.3;
+        o.push([a[0] + (b[0] - a[0]) * t + J(q), a[1] + (b[1] - a[1]) * t + J(q)]);
+      }
+    }
+    if (!closed) o.push(p[n - 1]);
+    return o;
+  }
+  function poly(p, step, jit) { return smooth(dens(p, true, step || 16, jit == null ? 1 : jit), true); }
+  function line(p, step, jit) { return smooth(dens(p, false, step || 14, jit == null ? 1.1 : jit), false); }
+  function blob(cx, cy, rx, ry, jit, n, rot) {
+    jit = jit == null ? 0.05 : jit; n = n || 18; rot = rot || 0;
+    var p = [], c = Math.cos(rot), s = Math.sin(rot);
+    for (var i = 0; i < n; i++) {
+      var a = i / n * Math.PI * 2, k = 1 + J(jit), x = Math.cos(a) * rx * k, y = Math.sin(a) * ry * k;
+      p.push([cx + x * c - y * s, cy + x * s + y * c]);
+    }
+    return smooth(p, true);
+  }
+  // soft scalloped edge: fur, clouds, treetops
+  function fluff(cx, cy, rx, ry, n, bump) {
+    var p = [];
+    for (var i = 0; i < n * 2; i++) {
+      var a = (i + J(0.28)) / (n * 2) * Math.PI * 2, out = i % 2 ? bump * (0.35 + rnd() * 1.1) : J(0.5) - bump * 0.15;
+      p.push([cx + Math.cos(a) * (rx + out), cy + Math.sin(a) * (ry + out)]);
+    }
+    return smooth(p, true);
+  }
+  function spiral(cx, cy, r, turns) {
+    var p = [], T = turns * Math.PI * 2;
+    for (var t = 0.6; t <= T; t += 0.45) { var rr = r * t / T; p.push([cx + Math.cos(t) * rr, cy + Math.sin(t) * rr]); }
+    return smooth(p, false);
+  }
+  function drop(x, y, s) {
+    return "M" + x + "," + (y - s) + "C" + (x + s * 0.55) + "," + (y - s * 0.15) + " " + (x + s * 0.75) + "," + (y + s * 0.45) + " " + x + "," + (y + s * 0.62) +
+           "C" + (x - s * 0.75) + "," + (y + s * 0.45) + " " + (x - s * 0.55) + "," + (y - s * 0.15) + " " + x + "," + (y - s) + "Z";
+  }
+  // a clean water drop: wash, ink, and one soft highlight
+  function DROP(x, y, s) {
+    var hx = r1(x - s * 0.28), hy = r1(y + s * 0.12);
+    return S(drop(x, y, s), "water") + '<ellipse cx="' + hx + '" cy="' + hy + '" rx="' + r1(s * 0.13) + '" ry="' + r1(s * 0.2) + '" class="glint" transform="rotate(20 ' + hx + " " + hy + ')"/>';
+  }
+  function S(d, c, h) {
+    return '<path d="' + d + '" class="f ' + c + '" transform="translate(.9 .7)"/>' +
+      (h ? '<path d="' + d + '" class="hx" fill="url(#' + h + ')" mask="url(#shade)"/>' : "") +
+      '<path d="' + d + '" class="ink"/>';
+  }
+  function F(d, c) { return '<path d="' + d + '" class="f ' + c + '"/>'; }
+  function FC(d, color) { return '<path d="' + d + '" fill="' + color + '"/>'; }
+  function L(d, w, c) { return '<path d="' + d + '" class="ink' + (c ? " " + c : "") + '"' + (w ? ' style="stroke-width:' + w + '"' : "") + "/>"; }
+  function T(x, y, t, size, anchor) { return '<text x="' + x + '" y="' + y + '" class="hand" style="font-size:' + (size || 14) + 'px"' + (anchor ? ' text-anchor="' + anchor + '"' : "") + ">" + t + "</text>"; }
+  function sparkle(x, y, s, cls) {
+    return '<path d="M' + x + "," + (y - s) + " Q" + x + "," + y + " " + (x + s) + "," + y + " Q" + x + "," + y + " " + x + "," + (y + s) + " Q" + x + "," + y + " " + (x - s) + "," + y + " Q" + x + "," + y + " " + x + "," + (y - s) + 'Z" class="f yellow ' + (cls || "") + '"/>';
+  }
+
+  /* dreamy ripple skies: rings of color radiating from the subject */
+  var PAL = {
+    dusk:   ["#f8e0a6", "#efc39a", "#e2a698", "#c993a6", "#a088ad", "#7c7aa6"],
+    sea:    ["#f1ecc2", "#d3e3c2", "#b2d3c3", "#94bdbd", "#7ea4b6", "#6f8aac"],
+    candy:  ["#fbeccf", "#f3d4c2", "#e9bcc2", "#d0a9c6", "#b0a0cc", "#9098c6"],
+    meadow: ["#fbf0c4", "#efdf9f", "#d9d396", "#bfcb95", "#a2bc96", "#88aa96"],
+    night:  ["#f7e8b2", "#cdb990", "#8f80ad", "#6a5f9b", "#4a4283", "#2b2858"]
+  };
+  function psky(name, cx, cy, base, w, h) {
+    var p = PAL[name], W = w || 400, H = h || 300;
+    var g = '<rect x="-5" y="-5" width="' + (W + 10) + '" height="' + (H + 10) + '" fill="' + p[p.length - 1] + '"/>';
+    for (var i = p.length - 2; i >= 0; i--) { var r = (base || 26) * Math.pow(1.52, i + 1); g += FC(blob(cx, cy, r, r * 0.94, 0.022, 34), p[i]); }
+    return '<g class="breathe">' + g + "</g>" + '<rect x="-5" y="-5" width="' + (W + 10) + '" height="' + r1(H * 0.55) + '" class="hx" fill="url(#h1)" mask="url(#fadeDown)"/>';
+  }
+  function wall(pat, floorY) {
+    return '<rect x="-5" y="-5" width="410" height="310" fill="url(#' + pat + ')"/>' +
+      S(poly([[-20, floorY], [420, floorY], [420, 320], [-20, 320]], 40, 2), "floor", "h1") +
+      '<path d="' + line([[-5, floorY + 14], [405, floorY + 16]], 50, 1.2) + '" class="contour"/>';
+  }
+  // a hill with wavy contour stripes
+  function hill(y, cls, amp, stripes, W, step) {
+    W = W || 400; step = step || 30; amp = amp == null ? 5 : amp;
+    var top = [];
+    for (var x = -20; x <= W + 20; x += step) top.push([x, y + J(amp)]);
+    var p = top.concat([[W + 80, y + 10], [W + 80, y + 400], [-80, y + 400], [-80, y + 10]]);
+    var g = S(smooth(p, true), cls || "moss", "h2");
+    for (var k = 1; k <= (stripes == null ? 2 : stripes); k++) {
+      g += '<path d="' + smooth(top.map(function (q) { return [q[0], q[1] + k * 11 + J(1.5)]; }), false) + '" class="contour"/>';
+    }
+    return g;
+  }
+  function tufts(xs, y) { return xs.map(function (x) { return L("M" + (x - 4) + "," + y + " l-3,-9 M" + x + "," + y + " l0,-11 M" + (x + 4) + "," + y + " l3,-9", 1.4); }).join(""); }
+  function tree(x, y, h, cls) {
+    var g = S(poly([[x - 7, y], [x - 3, y - h * 0.8], [x + 3, y - h * 0.8], [x + 7, y]], 20, 1.2), "trunk", "h1");
+    g += S(fluff(x, y - h, h * 0.36, h * 0.3, 9, h * 0.05), cls || "moss", "h2");
+    g += L(spiral(x - h * 0.12, y - h - h * 0.04, h * 0.11, 2.3), 1.3) + L(spiral(x + h * 0.14, y - h + h * 0.08, h * 0.08, 2), 1.3);
+    return g;
+  }
+  function shroom(x, y, s) {
+    var g = S(poly([[x - 4 * s, y], [x - 3 * s, y - 12 * s], [x + 3 * s, y - 12 * s], [x + 4 * s, y]], 6, 0.4), "cream");
+    g += S("M" + (x - 13 * s) + "," + (y - 11 * s) + " Q" + x + "," + (y - 32 * s) + " " + (x + 13 * s) + "," + (y - 11 * s) + " Z", "red");
+    g += F(blob(x - 5 * s, y - 17 * s, 2.2 * s, 2 * s, 0.1, 8), "white") + F(blob(x + 4 * s, y - 20 * s, 1.8 * s, 1.6 * s, 0.1, 8), "white") + F(blob(x + 7 * s, y - 14 * s, 1.5 * s, 1.4 * s, 0.1, 8), "white");
+    return g;
+  }
+  function flower(x, y, h, cls) {
+    return L(line([[x, y], [x + J(3), y - h]], 8, 0.8), 1.5) + S(blob(x, y - h, 7, 7, 0.1, 10), cls || "rose") + F(blob(x, y - h, 3, 3, 0.05, 8), "yellow");
+  }
+  function bucket(x, y, w, h, label) {
+    // x,y = top-left of the rim
+    var g = L("M" + (x + 4) + "," + (y + 2) + " Q" + (x + w / 2) + "," + (y - h * 0.75) + " " + (x + w - 4) + "," + (y + 2), 2.4);
+    g += S(poly([[x, y], [x + w, y], [x + w - w * 0.12, y + h], [x + w * 0.12, y + h]], 14, 0.7), "metal", "h1");
+    g += S(blob(x + w / 2, y, w / 2, w * 0.11, 0.02, 16), "water");
+    g += L(line([[x + w * 0.04, y + h * 0.3], [x + w * 0.96, y + h * 0.3]], 12, 0.5), 1.2) + L(line([[x + w * 0.09, y + h * 0.75], [x + w * 0.91, y + h * 0.75]], 12, 0.5), 1.2);
+    if (label) g += T(x + w / 2, y + h * 0.6, label, Math.max(10, w * 0.2), "middle");
+    return g;
+  }
+
+  /* Glub: a round, fluffy little wild thing, drawn the same way every time. Origin at the feet.
+     o.flip mirrors · o.arm = down | up | both | hold · o.look = [dx, dy] · o.mouth = smile | open | o
+     o.sleep closes the eyes · o.extra = svg in Glub's own space, drawn last */
+  // a fur edge of combed, pointed tufts; t(angle) sets how long each tuft is
+  function furEdge(cx, cy, rx, ry, n, t, skew) {
+    function P(a, e) { return r1(cx + Math.cos(a) * (rx + e)) + "," + r1(cy + Math.sin(a) * (ry + e)); }
+    var d = "";
+    for (var k = 0; k < n; k++) {
+      var a0 = k / n * Math.PI * 2, a1 = (k + 1) / n * Math.PI * 2, am = (a0 + a1) / 2 + (skew || 0.05);
+      d += (k ? "" : "M" + P(a0, 0)) + " Q" + P(am, t(am, k) * 1.7) + " " + P(a1, 0);
+    }
+    return d + "Z";
+  }
+  var GLUB = (function () {
+    var body = furEdge(0, -50, 38, 42, 22, function (a, k) {
+      var side = Math.abs(Math.cos(a)), top = Math.max(0, -Math.sin(a));
+      return 2.2 + side * side * 3.4 + top * 1.8 + Math.sin(k * 2.7) * 0.6;
+    });
+    var tail = furEdge(43, -20, 6, 5.5, 7, function () { return 2.6; }, 0.2);
+    function arm(cx, cy, rot) { var save = sd; seed(77); var d = blob(cx, cy, 7.5, 13, 0, 16, rot); sd = save; return d; }
+    return {
+      body: body, tail: tail,
+      armDownL: arm(-35, -34, 0.5), armDownR: arm(35, -34, -0.5),
+      armUpL: arm(-38, -68, -0.45), armUpR: arm(38, -68, 0.45),
+      holdL: (function () { var s = sd; seed(78); var d = blob(-20, -31, 13, 7, 0, 16, 0.25); sd = s; return d; })(),
+      holdR: (function () { var s = sd; seed(78); var d = blob(20, -31, 13, 7, 0, 16, -0.25); sd = s; return d; })()
+    };
+  })();
+  function GP(d, fill, extra) { return '<path d="' + d + '" fill="' + fill + '"' + (extra || "") + '/><path d="' + d + '" class="ink"/>'; }
+  function glub(x, y, s, o) {
+    o = o || {}; s = s || 1;
+    var fl = o.flip ? -1 : 1, lk = o.look || [1, 0], lx = lk[0] * fl * 3, ly = lk[1] * 3, g = "";
+    var mouth = o.mouth || "smile";
+    g += '<ellipse cx="0" cy="-1" rx="34" ry="4.5" class="f inkfill" opacity=".16"/>';
+    g += GP(GLUB.tail, "url(#gFur2)");
+    // ears, tucked under the fur
+    g += GP("M-33,-77 C-46,-84 -54,-74 -49,-66 C-45,-69 -39,-70 -33,-69Z", "url(#gFur2)") + '<path d="M-36,-75 C-44,-79 -49,-74 -47,-69 C-44,-71 -40,-71 -37,-71Z" fill="#f2a59a"/>';
+    g += GP("M33,-77 C46,-84 54,-74 49,-66 C45,-69 39,-70 33,-69Z", "url(#gFur2)") + '<path d="M36,-75 C44,-79 49,-74 47,-69 C44,-71 40,-71 37,-71Z" fill="#f2a59a"/>';
+    // feet
+    g += GP("M-29,-5 C-29,-13 -3,-14 -3,-5 C-3,0 -29,0 -29,-5Z", "url(#gFur2)") + GP("M3,-5 C3,-14 29,-13 29,-5 C29,0 3,0 3,-5Z", "url(#gFur2)");
+    g += '<path d="M-21,-2 v-4 M-15,-1.5 v-4.5 M-9,-2 v-4 M9,-2 v-4 M15,-1.5 v-4.5 M21,-2 v-4" class="ink" style="stroke-width:1.1"/>';
+    // body: combed fur, soft light from the upper left, fine hatching on the shadow side
+    g += '<path d="' + GLUB.body + '" fill="url(#gFur)"/>';
+    g += '<path d="' + GLUB.body + '" class="hx" fill="url(#h1)" mask="url(#shade)" opacity=".28"/>';
+    g += '<path d="' + GLUB.body + '" class="ink" style="stroke-width:2.2"/>';
+    g += '<path d="M-30,-28 q3,-4 6,-1 M-34,-50 q3,-4 6,-1 M27,-24 q3,-4 6,-1 M31,-48 q3,-4 6,-1 M-22,-12 q3,-4 6,-1 M18,-10 q3,-4 6,-1 M-26,-80 q3,-3 6,-1 M22,-82 q3,-3 6,-1" class="furmark"/>';
+    g += '<ellipse cx="0" cy="-24" rx="20.5" ry="16.5" fill="url(#gBelly)"/>';
+    g += '<path d="M-8,-30 q2,-3 4,0 M3,-22 q2,-3 4,0 M-5,-16 q2,-3 4,0" class="furmark" style="stroke:#d7b47c"/>';
+    // crown stripes and curled horns
+    g += '<path d="M-12,-94 Q-8,-87 -10.5,-80 Q-6,-87 -8.5,-94Z M-2,-97 Q2,-89 -0.5,-81 Q4,-89 1.5,-97Z M8,-94 Q12,-87 9.5,-80 Q14,-87 11.5,-94Z" class="stripefill"/>';
+    g += GP("M-21,-83 C-31,-89 -34,-103 -25,-111 C-26,-101 -21,-94 -12,-89Z", "url(#gHorn)") + '<path d="M-27,-96 q4,1.5 6.5,-1.5 M-28.5,-103 q3.5,1 5.5,-1.5" class="ink" style="stroke-width:1"/>';
+    g += GP("M21,-83 C31,-89 34,-103 25,-111 C26,-101 21,-94 12,-89Z", "url(#gHorn)") + '<path d="M27,-96 q-4,1.5 -6.5,-1.5 M28.5,-103 q-3.5,1 -5.5,-1.5" class="ink" style="stroke-width:1"/>';
+    // face
+    g += '<ellipse cx="-27" cy="-45" rx="8" ry="5" fill="url(#gBlush)"/><ellipse cx="27" cy="-45" rx="8" ry="5" fill="url(#gBlush)"/>';
+    if (o.sleep) {
+      g += '<path d="M-25,-61 Q-15,-53 -5,-61 M5,-61 Q15,-53 25,-61" class="ink" style="stroke-width:2.6"/>';
+      g += '<path d="M-23,-58 l-2,3 M-15,-56 l0,3.4 M-7,-58 l2,3 M7,-58 l-2,3 M15,-56 l0,3.4 M23,-58 l2,3" class="ink" style="stroke-width:1.2"/>';
+    } else {
+      [-15, 15].forEach(function (ex) {
+        g += '<ellipse cx="' + ex + '" cy="-61" rx="12.2" ry="13.8" fill="url(#gEye)"/>';
+        g += '<circle cx="' + r1(ex + lx) + '" cy="' + r1(-60 + ly) + '" r="8.2" fill="url(#gPupil)"/>';
+        g += '<circle cx="' + r1(ex + lx - 3) + '" cy="' + r1(-63.6 + ly) + '" r="3.1" class="glint"/><circle cx="' + r1(ex + lx + 2.8) + '" cy="' + r1(-56.6 + ly) + '" r="1.4" class="glint"/>';
+        g += '<ellipse cx="' + ex + '" cy="-61" rx="12.2" ry="13.8" class="ink"/>';
+        g += '<path d="M' + (ex - 12.5) + ',-63 Q' + ex + ',-79 ' + (ex + 12.5) + ',-63" class="ink" style="stroke-width:3"/>';
+        g += '<path d="M' + (ex + (ex < 0 ? -12 : 12)) + ',-66 l' + (ex < 0 ? -3.5 : 3.5) + ',-3" class="ink" style="stroke-width:1.6"/>';
+      });
+      g += '<path d="M-21,-80 q6,-4 11,-1 M10,-81 q5,-3 11,1" class="furmark" style="stroke-width:2"/>';
+    }
+    g += '<path d="M-3.6,-49.5 Q0,-52 3.6,-49.5 Q2.2,-45.6 0,-45.2 Q-2.2,-45.6 -3.6,-49.5Z" class="f inkfill"/><ellipse cx="-1.1" cy="-49.6" rx="1.1" ry=".7" class="glint"/>';
+    if (mouth === "open") {
+      g += '<path d="M-7.5,-41.5 Q0,-42.5 7.5,-41.5 Q5.5,-31.5 0,-31 Q-5.5,-31.5 -7.5,-41.5Z" fill="#5c2f3c" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+      g += '<path d="M-4,-34.4 Q0,-37.6 4,-34.4 Q2.2,-31.8 0,-31.7 Q-2.2,-31.8 -4,-34.4Z" fill="#ef8f94"/><path d="M3,-41.6 L4.6,-38.2 L6.2,-41.7Z" class="f white"/>';
+    } else if (mouth === "o") {
+      g += '<ellipse cx="0" cy="-37.5" rx="3.6" ry="4.6" fill="#5c2f3c" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+    } else {
+      g += '<path d="M-8,-41.5 Q-4,-36.6 0,-40.6 Q4,-36.6 8,-41.5" class="ink" style="stroke-width:1.9"/><path d="M3.4,-39.7 L4.9,-36.6 L6.3,-40.4Z" class="f white"/>';
+    }
+    var arm = o.arm || "down", L0 = GLUB.armDownL, R0 = GLUB.armDownR;
+    if (arm === "up" || arm === "both") L0 = GLUB.armUpL;
+    if (arm === "both") R0 = GLUB.armUpR;
+    if (arm === "hold") { L0 = GLUB.holdL; R0 = GLUB.holdR; }
+    g += GP(L0, "url(#gFur)") + GP(R0, "url(#gFur)");
+    if (o.extra) g += o.extra;
+    return '<g transform="translate(' + x + " " + y + ')"><g class="' + (o.bob ? "bob" : "") + '"><g transform="scale(' + s * fl + " " + s + ')">' + g + "</g></g></g>";
+  }
+  // where Glub's raised paw is, in Glub's own space, for things Glub holds up
+  var PAW_UP = [-47, -82];
+
+  /* ================= the pictures ================= */
+  var D = {
+    cover: function () {
+      seed(11);
+      var W = 1200, H = 600;
+      var g = psky("night", 1000, 190, 62, W, H);
+      g += '<linearGradient id="coverFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2858"/><stop offset="1" stop-color="#2b2858" stop-opacity="0"/></linearGradient><rect x="-5" y="-95" width="1210" height="190" fill="url(#coverFade)"/>';
+      g += S(blob(1000, 190, 74, 74, 0.015, 26), "moon", "h1");
+      [[970, 170, 12], [1030, 220, 9], [1005, 150, 6], [1040, 170, 5]].forEach(function (c) { g += FC(blob(c[0], c[1], c[2], c[2] * 0.85, 0.1, 10), "#efdca0"); });
+      [[60, 380], [330, 350], [450, 300], [640, 300], [1160, 40], [1170, 330], [880, 250], [780, 330], [900, 20]].forEach(function (p, i) { g += '<g style="animation-delay:' + (i * 0.37).toFixed(2) + 's">' + sparkle(p[0], p[1], 7 + (i % 3) * 2, "twinkle") + "</g>"; });
+      g += hill(430, "violet", 14, 3, W, 60);
+      g += tree(1110, 480, 170, "teal") + tree(120, 520, 130, "moss") + tree(250, 530, 95, "teal");
+      g += hill(500, "teal", 10, 2, W, 70);
+      var front = [[300, 620], [380, 525], [520, 498], [660, 505], [800, 545], [880, 620]];
+      g += S(poly(front, 30, 2), "moss", "h2");
+      g += '<path d="' + line([[390, 540], [520, 512], [660, 518], [790, 556]], 30, 1.5) + '" class="contour"/>' + '<path d="' + line([[410, 560], [520, 530], [660, 536], [770, 570]], 30, 1.5) + '" class="contour"/>';
+      g += shroom(250, 560, 1.7) + shroom(860, 560, 1.3) + shroom(1000, 545, 2);
+      g += flower(420, 545, 26, "rose") + flower(760, 560, 22, "yellow") + flower(1130, 560, 30, "rose") + flower(60, 560, 24, "yellow");
+      g += '<g class="drip">' + DROP(712, 392, 13) + "</g>";
+      g += bucket(676, 466, 70, 62, "10 L");
+      g += glub(565, 548, 2.05, { arm: "up", look: [1, -1], bob: true, mouth: "open" });
+      return g;
+    },
+    hello: function () {
+      seed(21);
+      var g = psky("sea", 300, 70, 24);
+      g += S(fluff(300, 72, 64, 28, 9, 7), "white", "h1");
+      for (var i = 0; i < 6; i++) g += L("M" + (258 + i * 16) + ",108 l-6,116", 0, "rain");
+      g += hill(240, "moss", 5, 2);
+      g += S(blob(290, 252, 66, 10, 0.05, 18), "water");
+      g += L(blob(290, 252, 44, 6, 0.04, 14), 1.1) + L(blob(290, 252, 22, 3, 0.04, 10), 1.1);
+      g += flower(52, 246, 22, "rose") + flower(214, 238, 18, "yellow") + flower(378, 248, 24, "rose");
+      g += glub(140, 268, 1.12, { arm: "up", look: [1, -1], bob: true, mouth: "open" });
+      return g;
+    },
+    bucket: function () {
+      seed(31);
+      var g = psky("candy", 210, 150, 22);
+      g += hill(242, "moss", 4, 2);
+      g += tree(354, 250, 120, "teal");
+      g += shroom(40, 258, 1.2);
+      g += glub(150, 270, 1.15, { arm: "up", look: [1, 0.6], bob: true });
+      g += bucket(206, 214, 68, 54, "10 L");
+      g += '<g class="drip">' + DROP(240, 168, 9) + "</g>";
+      return g;
+    },
+    toilet: function () {
+      seed(51);
+      var g = wall("wpRose", 238);
+      g += S(poly([[232, 34], [326, 34], [322, 84], [236, 84]], 18, 1), "white", "h1");
+      g += S(poly([[252, 84], [262, 84], [262, 176], [252, 176]], 20, 0.6), "metal");
+      g += L(line([[318, 84], [318, 146]], 6, 0.4), 1.4) + S(blob(318, 152, 4, 7, 0.05, 8), "ochre");
+      g += S(poly([[208, 196], [312, 196], [292, 238], [276, 262], [244, 262], [228, 238]], 16, 1), "white", "h1");
+      g += S(blob(260, 192, 56, 14, 0.03, 18), "white") + S(blob(260, 192, 40, 9, 0.03, 16), "water");
+      g += L(spiral(260, 192, 22, 2.2), 1.3);
+      [[200, 166, 8], [326, 170, 9], [216, 146, 6], [306, 146, 7]].forEach(function (p) { g += DROP(p[0], p[1], p[2]); });
+      g += glub(104, 268, 1.05, { arm: "both", look: [1, 0.3], mouth: "o" });
+      return g;
+    },
+    teeth: function () {
+      seed(61);
+      var g = wall("wpMint", 240);
+      g += S(poly([[198, 204], [244, 204], [238, 262], [204, 262]], 18, 0.9), "white", "h1");
+      g += S(blob(222, 192, 92, 24, 0.03, 18), "white", "h1") + S(blob(222, 190, 70, 13, 0.03, 16), "glass");
+      g += S(poly([[212, 156], [212, 118], [258, 118], [258, 136], [246, 136], [246, 130], [224, 130], [224, 156]], 12, 0.5), "metal");
+      g += S(poly([[247, 136], [255, 136], [257, 190], [245, 190]], 12, 0.6), "water");
+      var p = PAW_UP;
+      g += glub(96, 270, 1.02, { arm: "up", flip: true, look: [1, 0],
+        extra: L("M" + p[0] + "," + p[1] + " L" + (p[0] + 30) + "," + (p[1] + 40), 4) + S("M" + (p[0] + 26) + "," + (p[1] + 34) + " l10,-6 l7,9 l-10,6z", "white") });
+      [[86, 228, 5], [98, 223, 4], [108, 229, 4.5], [92, 234, 3.5]].forEach(function (b) { g += S(blob(b[0], b[1], b[2], b[2], 0.08, 8), "white"); });
+      return g;
+    },
+    bread: function () {
+      seed(71);
+      var g = psky("meadow", 225, 150, 24);
+      g += hill(244, "moss", 4, 2);
+      g += S(poly([[160, 246], [160, 140], [148, 114], [164, 84], [200, 74], [236, 80], [256, 74], [288, 84], [302, 110], [290, 140], [290, 246]], 14, 1), "ochre", "h2");
+      g += S(poly([[171, 236], [171, 142], [161, 117], [176, 95], [204, 87], [235, 92], [256, 87], [280, 96], [290, 113], [279, 142], [279, 236]], 14, 1), "cream");
+      [[200, 130], [240, 160], [210, 200], [252, 214], [190, 170], [255, 120]].forEach(function (p) { g += L(blob(p[0], p[1], 3, 2, 0.2, 8), 1.2); });
+      [332, 354, 376].forEach(function (x, i) { g += L(line([[x, 262], [x + 4, 150 + i * 8]], 16, 1.2), 1.8); for (var k = 0; k < 5; k++) g += S(blob(x + 4 - (k % 2 ? 5 : -5), 152 + i * 8 + k * 9, 4, 7, 0.05, 10, k % 2 ? 0.5 : -0.5), "ochre"); });
+      g += glub(88, 268, 1.02, { look: [1, -0.5] });
+      return g;
+    },
+    shower: function () {
+      seed(81);
+      var g = wall("wpBlue", 250);
+      g += L(line([[340, -5], [340, 50], [292, 52]], 12, 0.3), 5);
+      g += S(poly([[262, 48], [294, 46], [300, 64], [256, 66]], 10, 0.4), "metal");
+      for (var i = 0; i < 9; i++) { var x0 = 260 + i * 4.5; g += L("M" + x0 + ",70 L" + (x0 - 60 + i * 13) + ",250", 0, "rain"); }
+      g += S(blob(250, 276, 82, 9, 0.05, 16), "water");
+      g += glub(250, 276, 1.08, { arm: "both", look: [0, -1], mouth: "open" });
+      [[200, 120, 7], [304, 136, 7], [190, 180, 6], [324, 196, 6]].forEach(function (p) { g += DROP(p[0], p[1], p[2]); });
+      return g;
+    },
+    apple: function () {
+      seed(91);
+      var g = psky("dusk", 222, 166, 26);
+      g += hill(246, "moss", 4, 2);
+      g += S(poly([[222, 104], [252, 92], [292, 112], [304, 160], [290, 214], [256, 246], [222, 236], [188, 246], [154, 214], [140, 160], [152, 112], [192, 92]], 18, 1.4), "red", "h2");
+      g += F(blob(178, 140, 8, 16, 0.05, 12, 0.4), "white");
+      g += L(line([[222, 104], [230, 74]], 8, 0.6), 3);
+      g += S("M230,82 C246,62 270,66 276,74 C262,88 242,90 230,82Z", "moss", "h1") + L("M234,80 Q252,72 270,74", 1);
+      g += glub(80, 270, 0.98, { arm: "up", flip: true, look: [1, -1] });
+      g += flower(360, 260, 20, "yellow") + tufts([30, 330], 266);
+      return g;
+    },
+    coffee: function () {
+      seed(101);
+      var g = psky("candy", 212, 80, 22);
+      g += S(poly([[-20, 222], [420, 222], [420, 320], [-20, 320]], 40, 2), "floor", "h1");
+      g += S(blob(296, 168, 24, 28, 0.03, 16), "white") + FC(blob(296, 168, 12, 16, 0.03, 14), "#e2b0d6") + L(blob(296, 168, 12, 16, 0.03, 14));
+      g += S(blob(212, 226, 118, 17, 0.02, 20), "white", "h1");
+      g += S(poly([[140, 126], [284, 126], [268, 214], [156, 214]], 18, 1), "white", "h1");
+      g += S(blob(212, 128, 70, 9, 0.02, 18), "choc");
+      [180, 212, 244].forEach(function (x) { g += L(line([[x, 112], [x - 8, 94], [x + 6, 76], [x - 4, 56]], 8, 1.4), 1.6, "steam"); });
+      [[60, 250], [90, 262], [352, 258], [376, 246]].forEach(function (p, i) { g += S(blob(p[0], p[1], 8, 5, 0.05, 10, i), "choc") + L("M" + (p[0] - 6) + "," + p[1] + " q6,-3 12,0", 1); });
+      g += glub(340, 222, 0.52, { arm: "up", look: [-1, -0.6] });
+      return g;
+    },
+    bath: function () {
+      seed(111);
+      var g = wall("wpLilac", 246);
+      g += glub(222, 214, 0.95, { arm: "both", look: [1, -0.2], mouth: "open" });
+      g += S(blob(220, 166, 112, 10, 0.02, 20), "water");
+      [[150, 158, 9], [172, 150, 6], [272, 152, 8], [190, 160, 7], [252, 140, 5], [140, 140, 5], [204, 132, 4]].forEach(function (b) { g += S(blob(b[0], b[1], b[2], b[2], 0.06, 10), "white"); });
+      g += S(blob(310, 158, 13, 9, 0.05, 12), "yellow") + S(blob(318, 145, 7, 7, 0.05, 10), "yellow") + S("M324,144 l9,2 l-8,4z", "red") + '<circle cx="319" cy="143" r="1.4" class="pupil"/>';
+      g += S(poly([[106, 166], [334, 166], [318, 222], [292, 238], [148, 238], [122, 222]], 16, 1), "white", "h2");
+      [[150, 244], [290, 244]].forEach(function (p) { g += S(blob(p[0], p[1], 8, 7, 0.08, 10), "ochre"); });
+      return g;
+    },
+    egg: function () {
+      seed(121);
+      var g = psky("meadow", 222, 160, 24);
+      g += hill(246, "moss", 4, 2);
+      g += S(poly([[186, 196], [258, 196], [248, 230], [232, 240], [244, 262], [200, 262], [212, 240], [196, 230]], 12, 0.8), "red", "h1");
+      var egg = []; for (var i = 0; i < 22; i++) { var a = i / 22 * Math.PI * 2, sn = Math.sin(a); egg.push([222 + Math.cos(a) * 38 * (1 + J(0.02)), 158 + sn * (sn < 0 ? 58 : 42)]); }
+      g += S(smooth(egg, true), "cream", "h1");
+      [[208, 130], [236, 150], [214, 172], [232, 116], [244, 178]].forEach(function (p) { g += F(blob(p[0], p[1], 2.4, 1.8, 0.2, 8), "fur2"); });
+      [[150, 90], [300, 96], [130, 160], [316, 170]].forEach(function (p, i) { g += '<g style="animation-delay:' + i * 0.5 + 's">' + sparkle(p[0], p[1], 7, "twinkle") + "</g>"; });
+      g += glub(92, 270, 1, { arm: "hold", look: [1, -0.4] });
+      g += tufts([340, 372], 266);
+      return g;
+    },
+    car: function () {
+      seed(131);
+      var g = psky("sea", 230, 120, 24);
+      g += hill(244, "olive", 2, 1);
+      g += S(blob(236, 254, 124, 10, 0.08, 18), "water");
+      g += S(poly([[118, 222], [126, 186], [166, 180], [192, 148], [272, 148], [298, 180], [340, 186], [344, 222]], 18, 1), "deep", "h2");
+      g += S(poly([[200, 156], [232, 156], [232, 180], [178, 180]], 10, 0.6), "glass") + S(poly([[242, 156], [268, 156], [288, 180], [242, 180]], 10, 0.6), "glass");
+      [[162, 224], [300, 224]].forEach(function (p) { g += S(blob(p[0], p[1], 20, 20, 0.02, 16), "inkfill") + S(blob(p[0], p[1], 8, 8, 0.02, 10), "metal"); });
+      for (var i = 0; i < 4; i++) g += L(line([[100, 192], [132 + i * 12, 152 + i * 4], [168 + i * 14, 166 + i * 6]], 10, 1), 0, "spray");
+      g += L(line([[-5, 262], [30, 258], [62, 252], [92, 206]], 12, 1), 3.5);
+      g += glub(60, 272, 0.86, { arm: "up", flip: true, look: [1, -0.3] });
+      return g;
+    },
+    lawn: function () {
+      seed(141);
+      var g = psky("meadow", 262, 226, 30);
+      g += hill(236, "moss2", 4, 2);
+      for (var k = -3; k <= 3; k++) { if (k === 0) continue; g += L("M262,226 Q" + (262 + k * 22) + ",86 " + (262 + k * 40) + ",238", 0, "spray"); }
+      g += S(poly([[254, 230], [270, 230], [274, 240], [250, 240]], 8, 0.4), "metal") + L("M262,230 v-6", 2.4);
+      [[200, 140, 6], [326, 150, 6], [176, 196, 5], [350, 198, 5], [262, 100, 6]].forEach(function (p) { g += DROP(p[0], p[1], p[2]); });
+      var p = PAW_UP;
+      g += glub(96, 270, 0.98, { arm: "up", look: [1, -0.5],
+        extra: S("M-100,-118 Q-46,-182 8,-118 Q-10,-128 -28,-118 Q-46,-128 -64,-118 Q-82,-128 -100,-118Z", "red", "h1") + L("M-46,-146 L" + p[0] + "," + (p[1] - 4), 2.4) });
+      g += tufts([24, 150, 380], 262);
+      return g;
+    },
+    chocolate: function () {
+      seed(151);
+      var g = psky("candy", 210, 150, 24);
+      g += hill(250, "olive", 3, 1);
+      g += S(poly([[136, 66], [296, 76], [288, 236], [126, 228]], 18, 1), "choc", "h2");
+      for (var c = 1; c < 3; c++) g += L(line([[136 + c * 53, 70], [127 + c * 54, 232]], 30, 1), 1.4);
+      for (var r = 1; r < 3; r++) g += L(line([[134, 66 + r * 40], [294, 76 + r * 40]], 30, 1), 1.4);
+      g += S(poly([[120, 150], [302, 162], [292, 240], [116, 232]], 18, 1), "red", "h1");
+      var zz = "M120,150"; for (var x = 120; x < 302; x += 13) zz += " L" + (x + 6.5) + "," + r1(150 + (x - 120) * 0.066 - 6) + " L" + (x + 13) + "," + r1(150 + (x + 13 - 120) * 0.066);
+      g += L(zz, 1.6) + T(206, 205, "CACAO", 22, "middle");
+      g += S(blob(56, 236, 18, 34, 0.04, 16, 0.5), "ochre", "h1") + L(line([[44, 210], [68, 262]], 10, 1), 1) + L(line([[56, 204], [76, 258]], 10, 1), 1);
+      g += glub(354, 272, 0.8, { arm: "hold", flip: true, look: [-1, 0], extra: F(blob(-6, -35, 6, 3, 0.2, 10), "choc") });
+      return g;
+    },
+    burger: function () {
+      seed(161);
+      var g = psky("dusk", 236, 170, 30);
+      g += S(poly([[-20, 244], [420, 244], [420, 320], [-20, 320]], 40, 2), "floor", "h1");
+      g += S(blob(236, 234, 96, 16, 0.03, 18), "ochre", "h1");
+      g += S(blob(236, 216, 104, 15, 0.04, 18), "choc", "h2");
+      g += S("M138,206 L160,222 L182,204 L204,224 L226,204 L248,224 L270,204 L292,224 L314,204 L334,212 L334,200 L138,200Z", "yellow");
+      g += S(blob(236, 198, 104, 8, 0.03, 18), "red");
+      var lt = []; for (var i = 0; i <= 24; i++) lt.push([128 + i * 9, 188 + (i % 2 ? 9 : 0) + J(1.5)]); lt.push([344, 182], [128, 182]);
+      g += S(smooth(lt, true), "moss", "h1");
+      g += S(poly([[126, 184], [134, 140], [184, 108], [288, 108], [338, 140], [346, 184]], 16, 1.2), "ochre", "h2");
+      [[184, 132], [214, 120], [252, 124], [286, 134], [234, 146], [312, 156], [164, 158]].forEach(function (p, k) { g += S(blob(p[0], p[1], 5, 2.6, 0.05, 8, k), "cream"); });
+      g += glub(62, 272, 0.8, { arm: "up", look: [1, -1], mouth: "open" });
+      return g;
+    },
+    tshirt: function () {
+      seed(171);
+      var g = psky("sea", 210, 150, 26);
+      g += hill(246, "moss", 4, 2);
+      g += L(line([[-5, 70], [200, 86], [405, 72]], 30, 0.8), 1.6);
+      g += S(poly([[152, 84], [186, 82], [200, 96], [222, 96], [236, 82], [270, 84], [302, 116], [280, 132], [266, 120], [264, 218], [158, 218], [156, 120], [142, 132], [120, 116]], 14, 1.1), "yellow", "h2");
+      g += S("M184,76 h7 v16 h-7z", "violet") + S("M232,76 h7 v16 h-7z", "violet");
+      [52, 70, 88].forEach(function (x, i) { g += L(line([[x, 264], [x + 4, 200 - i * 12]], 14, 1.2), 1.6); g += S(fluff(x + 4, 196 - i * 12, 10, 8, 5, 2.5), "white"); });
+      g += glub(336, 270, 1, { flip: true, look: [-1, -1] });
+      return g;
+    },
+    jeans: function () {
+      seed(181);
+      var g = psky("dusk", 212, 140, 24);
+      g += hill(246, "moss", 4, 2);
+      g += L(line([[-5, 64], [200, 80], [405, 66]], 30, 0.8), 1.6);
+      g += S(poly([[146, 76], [270, 80], [288, 246], [238, 248], [210, 120], [188, 248], [138, 246]], 16, 1), "deep", "h2");
+      g += L(line([[146, 92], [270, 96]], 20, 0.6), 1.4) + L("M160,96 q14,26 34,14 M256,98 q-14,26 -34,14", 1.1);
+      g += S("M164,70 h7 v16 h-7z", "violet") + S("M250,72 h7 v16 h-7z", "violet");
+      [[164, 262, 6], [264, 264, 6]].forEach(function (p) { g += DROP(p[0], p[1], p[2]); });
+      g += S(poly([[316, 214], [372, 214], [366, 264], [322, 264]], 14, 0.6), "metal", "h1") + S(blob(344, 214, 28, 5, 0.03, 14), "deep");
+      g += glub(78, 270, 0.98, { look: [1, -0.6] });
+      return g;
+    },
+    phone: function () {
+      seed(191);
+      var g = psky("night", 214, 150, 26);
+      g += hill(248, "teal", 4, 2);
+      g += S(poly([[156, 44], [272, 44], [272, 256], [156, 256]], 24, 1), "nightf", "h2");
+      g += FC(poly([[168, 64], [260, 64], [260, 230], [168, 230]], 20, 0.6), "#bae2cd");
+      g += DROP(214, 138, 26);
+      g += L("M200,242 h28", 3);
+      [[52, 252, 14], [74, 256, 10], [36, 258, 9]].forEach(function (b, i) { g += S(blob(b[0], b[1], b[2], b[2] * 0.7, 0.15, 9), i ? "metal" : "ochre", "h1"); });
+      g += glub(326, 270, 1.02, { arm: "up", look: [-1, -0.3] });
+      return g;
+    },
+    golf: function () {
+      seed(201);
+      var g = psky("meadow", 64, 58, 22);
+      g += S(blob(64, 58, 22, 22, 0.02, 16), "yellow");
+      g += hill(150, "olive", 12, 3, 400, 50);
+      g += hill(200, "moss", 10, 3, 400, 50);
+      g += S(blob(276, 228, 64, 14, 0.04, 18), "moss2") + F(blob(290, 228, 5, 2, 0.05, 8), "inkfill");
+      g += L("M290,228 L290,146", 2.2) + S("M290,146 L326,158 L290,170Z", "red");
+      [[150, 250], [360, 256], [60, 236]].forEach(function (s) { for (var k = -2; k <= 2; k++) { if (!k) continue; g += L("M" + s[0] + "," + s[1] + " Q" + (s[0] + k * 14) + "," + (s[1] - 70) + " " + (s[0] + k * 26) + "," + (s[1] + 4), 0, "spray"); } });
+      var p = PAW_UP;
+      g += glub(118, 278, 0.55, { arm: "up", flip: true, look: [1, -1], extra: L("M" + p[0] + "," + p[1] + " L" + (p[0] + 14) + "," + (p[1] - 44), 3) + S("M" + (p[0] + 10) + "," + (p[1] - 46) + " l-10,-4 l2,10z", "metal") });
+      return g;
+    },
+    ai: function () {
+      seed(211);
+      var g = psky("candy", 206, 130, 24);
+      g += hill(250, "moss", 4, 2);
+      [52, 82, 108, 132, 152, 170].forEach(function (y, i) { g += '<g class="drip" style="animation-delay:' + (i * 0.45).toFixed(2) + 's">' + DROP(206, y, 6) + "</g>"; });
+      g += S(poly([[182, 196], [230, 196], [236, 252], [176, 252]], 12, 0.6), "metal", "h1") + S(blob(206, 196, 25, 5, 0.02, 14), "water");
+      for (var r = 0; r < 4; r++) for (var c = 0; c < 4; c++) g += '<circle cx="' + (186 + c * 13 + (r % 2) * 6) + '" cy="' + (208 + r * 11) + '" r="1.6" class="pupil"/>';
+      var p = PAW_UP;
+      g += glub(320, 272, 1.02, { arm: "up", look: [-1, -0.5],
+        extra: L("M" + p[0] + "," + p[1] + " L" + (p[0] - 14) + "," + (p[1] - 12), 4) + S(blob(p[0] - 30, p[1] - 26, 19, 19, 0.02, 16), "glass") + L(blob(p[0] - 30, p[1] - 26, 19, 19, 0.02, 16), 3.4) });
+      g += T(82, 132, "twenty", 24, "middle") + T(82, 158, "drops!", 24, "middle");
+      return g;
+    },
+    big: function () {
+      seed(221);
+      var g = psky("dusk", 150, 110, 26);
+      g += hill(160, "violet", 8, 2, 400, 50);
+      [[90, 92], [124, 80], [200, 90]].forEach(function (c) { g += S(fluff(c[0], c[1], 20, 11, 6, 4), "white"); });
+      g += S(poly([[56, 112], [246, 112], [246, 186], [56, 186]], 20, 0.8), "metal", "h2");
+      for (var i = 0; i < 6; i++) g += S(poly([[68 + i * 30, 102], [88 + i * 30, 102], [88 + i * 30, 112], [68 + i * 30, 112]], 8, 0.3), "white");
+      for (var k = 0; k < 9; k++) g += L("M" + (70 + k * 20) + ",130 v40", 1.1);
+      g += L("M350,150 L350,112", 1.8) + S("M350,112 L370,119 L350,126Z", "red");
+      g += S(poly([[-20, 204], [420, 196], [420, 236], [-20, 246]], 30, 2.5), "water");
+      for (var w = 0; w < 6; w++) g += L("M" + (20 + w * 64) + "," + r1(220 + J(3)) + " q10,-5 20,0", 1.2);
+      g += hill(248, "moss", 4, 1);
+      g += glub(334, 276, 0.86, { flip: true, look: [-1, -0.6] });
+      return g;
+    },
+    tips: function () {
+      seed(241);
+      var g = wall("wpMint", 244);
+      g += S(poly([[236, 96], [236, 60], [300, 60], [300, 82], [284, 82], [284, 74], [250, 74], [250, 96]], 12, 0.5), "metal");
+      g += S(blob(243, 108, 30, 9, 0.03, 14), "white", "h1");
+      g += '<g class="drip">' + DROP(290, 100, 7) + "</g>";
+      g += S(blob(290, 252, 30, 6, 0.05, 14), "water");
+      var p = PAW_UP;
+      g += glub(150, 272, 1.08, { arm: "up", flip: true, look: [1, -0.6],
+        extra: S("M" + (p[0] - 6) + "," + (p[1] + 8) + " L" + (p[0] + 10) + "," + (p[1] - 62) + " L" + (p[0] + 20) + "," + (p[1] - 60) + " L" + (p[0] + 6) + "," + (p[1] + 10) + "Z", "metal") +
+               S(blob(p[0] + 14, p[1] - 72, 15, 12, 0.03, 14), "metal") + '<path d="' + blob(p[0] + 18, p[1] - 80, 6, 6, 0.03, 10) + '" fill="#d6eedd" class="ink"/>' });
+      return g;
+    },
+    end: function () {
+      seed(231);
+      var g = psky("night", 336, 70, 22);
+      g += S("M320,40 A34,34 0 1 0 352,92 A26,26 0 1 1 320,40Z", "moon", "h1");
+      [[50, 50], [120, 34], [200, 70], [250, 30], [90, 110], [380, 160]].forEach(function (p, i) { g += '<g style="animation-delay:' + (i * 0.45).toFixed(2) + 's">' + sparkle(p[0], p[1], 6, "twinkle") + "</g>"; });
+      g += L("M206,210 L206,90", 2.4) + S(poly([[210, 96], [272, 196], [210, 196]], 14, 0.8), "cream", "h1");
+      g += glub(166, 238, 0.78, { sleep: true });
+      g += S(poly([[-20, 228], [420, 222], [420, 320], [-20, 320]], 30, 3), "deep", "h2");
+      for (var w = 0; w < 7; w++) g += '<path d="M' + (10 + w * 60) + "," + r1(254 + J(8)) + ' q12,-6 24,0" class="contour" style="stroke:var(--w-cream);opacity:.8"/>';
+      g += S(poly([[96, 212], [304, 212], [276, 248], [126, 248]], 16, 1), "red", "h2");
+      g += T(118, 150, "z", 18) + T(102, 128, "z", 22) + T(84, 102, "Z", 28);
+      return g;
+    }
+  };
+
+  function picture(name, alt) {
+    var art = D[name]();
+    seed(7);
+    return '<svg viewBox="0 0 400 300" role="img" aria-label="' + alt + '"><g clip-path="url(#plateClip)">' + art +
+      '<rect width="400" height="300" class="grain" filter="url(#grain)"/></g><path d="' + poly([[5, 5], [395, 5], [395, 295], [5, 295]], 40, 1.1) + '" class="ink frame"/></svg>';
+  }
+  function starfield(n, sd0) {
+    seed(sd0); var g = "";
+    for (var i = 0; i < n; i++) g += '<g style="animation-delay:' + (rnd() * 3).toFixed(2) + 's">' + sparkle(r1(rnd() * 1000), r1(rnd() * 400), r1(4 + rnd() * 5), "twinkle") + "</g>";
+    return '<svg class="stars" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + g + "</svg>";
+  }
+
+  function sizeClass(t) { return t.length > 6 ? " long" : t.length > 4 ? " mid" : ""; }
+
+  /* ================= binding the book ================= */
+  var html = "", folio = 0, band = 0, rows = "";
+  rows += '<tr class="us"><td>Building this website (generous ceiling)</td><td class="n">10</td><td class="n">2.6</td><td class="n">1</td><td>Data center + power plant</td><td>2 kWh × 5 L per kWh, see above</td></tr>';
+
+  PAGES.forEach(function (p, idx) {
+    if (p.night) {
+      html += '<section class="night wrap">' + starfield(26, 300 + idx) + '<div class="in">' +
+        p.night.map(function (t, i) { return "<p" + (i === p.small ? ' class="small"' : "") + ">" + t + "</p>"; }).join("") + "</div></section>";
+      return;
+    }
+    folio++;
+    var b = BANDS[band % BANDS.length], pop = POPS[band % POPS.length]; band++;
+    var story = '<div class="story"><h2>' + p.h + "</h2>";
+    (p.tell ? (Array.isArray(p.tell) ? p.tell : [p.tell]) : []).forEach(function (t) { story += "<p>" + t + "</p>"; });
+    if (p.list) story += '<ul class="tips">' + p.list.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>";
+    if (p.end) story += '<p class="theend">The End.</p>';
+    story += "</div>";
+    var count = "";
+    if (p.l) {
+      var tx = times(p.l);
+      count = '<div class="count"><p class="x' + sizeClass(tx + "x") + '">' + tx + "<small>×</small></p>" +
+        '<p class="say">' + p.say + "</p>" +
+        '<p class="fine">' + (p.upto ? "Up to " : "About ") + num(p.l) + " liters (" + num(p.l * GAL) + " gallons). " + p.note + "</p></div>";
+      rows += "<tr><td>" + p.h.replace(/\.$/, "") + '</td><td class="n">' + num(p.l) + '</td><td class="n">' + num(p.l * GAL) + '</td><td class="n">' + times(p.l) + "</td><td>" + (p.kind === "tap" ? "Tap water" : "Water footprint") + "</td><td>" + p.note.replace(/^(From the tap|From sprinklers|A water footprint)[.:] ?/, "") + "</td></tr>";
+    } else if (p.bigx) {
+      count = '<div class="count"><p class="x' + (p.wordsx ? " words-x" : sizeClass(p.bigx)) + '">' + p.bigx + "</p>" + (p.say ? '<p class="say">' + p.say + "</p>" : "") + (p.fine ? '<p class="fine">' + p.fine + "</p>" : "") + "</div>";
+    }
+    html += '<section class="page wrap" id="' + (p.id || p.draw) + '" style="--band:' + b + ";--pop:" + pop + '" aria-label="Page ' + folio + '"><div class="page-inner">' +
+      '<figure class="plate">' + picture(p.draw, p.alt) + "</figure>" +
+      '<div class="words' + (count ? "" : " solo") + '">' + story + count + "</div>" +
+      '<p class="folio">' + folio + "</p></div></section>";
+  });
+  document.getElementById("book").innerHTML = html;
+  document.getElementById("numbers").innerHTML = rows;
+
+  /* ================= words that pop ================= */
+  function splitWords(el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [], n, i = 0;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function (t) {
+      var frag = document.createDocumentFragment();
+      t.nodeValue.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var w = document.createElement("span"); w.className = "w"; w.style.setProperty("--i", Math.min(i++, 45)); w.textContent = part; frag.appendChild(w);
+      });
+      t.parentNode.replaceChild(frag, t);
+    });
+  }
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!still && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("go"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -12% 0px" });
+    document.querySelectorAll(".story h2, .story > p, .tips li, .say, .fine, .night p, .x").forEach(function (b) {
+      if (!b.classList.contains("x")) splitWords(b);
+      if (b.getBoundingClientRect().top > window.innerHeight * 0.92) { b.classList.add("await"); io.observe(b); }
+    });
+  }
+
+  var cover = document.getElementById("cover-art");
+  cover.innerHTML = '<svg viewBox="0 -90 1200 690" preserveAspectRatio="xMidYMax slice" role="img" aria-label="' + cover.getAttribute("data-alt") + '">' + D.cover() + "</svg>";
+})();
+</script>
+</body>
+</html>
