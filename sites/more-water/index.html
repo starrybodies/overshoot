@@ -9,6 +9,11 @@
 <meta property="og:title" content="Things That Took More Water Than Building This Site">
 <meta property="og:description" content="A picture book for the curious, the skeptical, and the very small.">
 <meta property="og:url" content="https://thingsthattookmorewaterthanbuildingthis.site/">
+<meta property="og:image" content="https://thingsthattookmorewaterthanbuildingthis.site/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glub, a fluffy periwinkle wild thing, waves beside a bucket under a rippling moon. Title: Things That Took More Water Than Building This Site.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2b2858">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C21 11 26 16 26 21a10 10 0 0 1-20 0C6 16 11 11 16 3Z' fill='%237fb2d6' stroke='%232a1f2e' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,9 +151,9 @@ svg .frame { stroke-width: 3; }
 svg .contour { fill: none; stroke: var(--ink); stroke-width: 1; opacity: .38; vector-effect: non-scaling-stroke; }
 svg .hx { stroke: none; opacity: .5; }
 svg .hl { stroke: var(--ink); stroke-width: .5; }
-svg .furmark { fill: none; stroke: #9a5528; stroke-width: 1.3; stroke-linecap: round; opacity: .75; vector-effect: non-scaling-stroke; }
-svg .stripefill { fill: #8f4f26; }
-svg .grain { mix-blend-mode: multiply; opacity: .3; pointer-events: none; }
+svg .furmark { fill: none; stroke: #5562b4; stroke-width: 1.3; stroke-linecap: round; opacity: .75; vector-effect: non-scaling-stroke; }
+svg .stripefill { fill: #4c4f9e; }
+svg .grain { opacity: .55; pointer-events: none; }
 svg .hand { font-family: var(--f-hand); fill: var(--ink); }
 svg .rain { stroke: var(--w-deep); stroke-width: 2; stroke-dasharray: 6 9; }
 svg .spray { stroke: var(--w-deep); stroke-width: 2.2; stroke-dasharray: 1 8; }
@@ -197,17 +202,15 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     <mask id="shade" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#sg)"/></mask>
     <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#000"/></linearGradient>
     <mask id="fadeDown" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#fd)"/></mask>
-    <filter id="grain" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .3  0 0 0 -1.4 .9"/>
-    </filter>
-    <radialGradient id="gFur" cx=".38" cy=".3" r=".85"><stop offset="0" stop-color="#f6bb7c"/><stop offset=".55" stop-color="#dc8c4c"/><stop offset="1" stop-color="#a95f2e"/></radialGradient>
-    <radialGradient id="gFur2" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#d08a50"/><stop offset="1" stop-color="#93522a"/></radialGradient>
-    <radialGradient id="gBelly" cx=".45" cy=".35" r=".75"><stop offset="0" stop-color="#fff5dc"/><stop offset="1" stop-color="#f0d29e"/></radialGradient>
-    <linearGradient id="gHorn" x1="0" y1="1" x2=".4" y2="0"><stop offset="0" stop-color="#e3caa0"/><stop offset="1" stop-color="#fff9ea"/></linearGradient>
-    <radialGradient id="gEye" cx=".42" cy=".38" r=".75"><stop offset="0" stop-color="#fffef4"/><stop offset="1" stop-color="#f4e3a2"/></radialGradient>
-    <radialGradient id="gPupil" cx=".5" cy=".72" r=".75"><stop offset="0" stop-color="#5e4a6a"/><stop offset="1" stop-color="#1c1422"/></radialGradient>
-    <radialGradient id="gBlush"><stop offset="0" stop-color="#f27d7a" stop-opacity=".7"/><stop offset="1" stop-color="#f27d7a" stop-opacity="0"/></radialGradient>
+    <pattern id="grain" width="120" height="120" patternUnits="userSpaceOnUse"><image width="120" height="120" href="data:image/png;base64,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"/></pattern>
+    <radialGradient id="gFur" cx=".38" cy=".28" r=".85"><stop offset="0" stop-color="#c9d1fb"/><stop offset=".5" stop-color="#97a4ec"/><stop offset="1" stop-color="#6170c6"/></radialGradient>
+    <radialGradient id="gFur2" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#8e9be3"/><stop offset="1" stop-color="#4f5cb0"/></radialGradient>
+    <radialGradient id="gSheen"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gBelly" cx=".45" cy=".35" r=".75"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#f4e2c6"/></radialGradient>
+    <linearGradient id="gHorn" x1="0" y1="1" x2=".4" y2="0"><stop offset="0" stop-color="#f0c45e"/><stop offset="1" stop-color="#fff2c4"/></linearGradient>
+    <radialGradient id="gEye" cx=".42" cy=".38" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecfb"/></radialGradient>
+    <radialGradient id="gPupil" cx=".5" cy=".78" r=".8"><stop offset="0" stop-color="#7a63c9"/><stop offset=".55" stop-color="#2d2357"/><stop offset="1" stop-color="#15112b"/></radialGradient>
+    <radialGradient id="gBlush"><stop offset="0" stop-color="#ff7f9c" stop-opacity=".75"/><stop offset="1" stop-color="#ff7f9c" stop-opacity="0"/></radialGradient>
     <clipPath id="plateClip"><rect width="400" height="300"/></clipPath>
   </defs>
 </svg>
@@ -224,7 +227,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     <p class="sub">A picture book for the curious, the skeptical, and the very small.</p>
     <p class="imprint">A Symbai Studio production</p>
   </div>
-  <div class="cover-art" id="cover-art" data-alt="Under a huge rippling moon, Glub, a fluffy orange wild thing with tiny horns and enormous eyes, waves from a hill beside a small bucket. Swirly trees and spotted mushrooms grow all around."></div>
+  <div class="cover-art" id="cover-art" data-alt="Under a huge rippling moon, Glub, a fluffy periwinkle wild thing with golden horns and enormous eyes, waves from a hill beside a big bucket. Swirly trees and spotted mushrooms grow all around."></div>
   </div>
   <p class="cover-foot wrap">turn the page ↓</p>
 </header>
@@ -241,24 +244,32 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     </header>
 
     <div class="note">
-      <h3>How we got one bucket</h3>
-      <p>This site was made in one long conversation with an AI coding assistant: a first draft, then a few rounds of redesign. Nobody can meter that exactly, so we started from a careful published estimate and leaned hard toward the thirsty side.</p>
-      <p>Climate scientist Zeke Hausfather logged his own AI coding sessions for eight weeks. He estimated that a median session uses about 0.6 kWh of electricity, with a range of 0.25 to 1.2 kWh. We allowed 2 kWh, well above the top of his range, to cover the draft and every redesign.</p>
-      <p>Each kWh uses water twice. The data center evaporates some to stay cool: Google's own measurement works out to about 1 liter per kWh, and the US average is lower. The power plant evaporates more: about 3 liters per kWh on the average US grid, the figure used in the "Making AI Less Thirsty" paper. We rounded the total up to 5 liters per kWh.</p>
-      <p class="math">2 kWh × 5 liters per kWh = <strong>10 liters</strong>, one bucket (2.6 gallons).<br>A low-end estimate, 0.25 kWh × 1 liter per kWh, is about a cup.</p>
-      <p>Not counted: water used to train the AI model, to make its chips, to build the data center, or to run the screen you're reading on. The footprints for jeans, phones and burgers do count their whole supply chains, so keep that in mind when comparing.</p>
+      <h3>How we got one big bucket</h3>
+      <p>This book was made in one long conversation with an AI coding assistant: a first draft and several rounds of redesign, about sixteen messages from the person in all. Nobody can meter that exactly, so we built the estimate from published measurements and leaned toward the thirsty side.</p>
+      <p><strong>Electricity.</strong> Climate scientist Zeke Hausfather logged eight weeks of his own AI coding. It came to about 150 watt-hours for each message he typed, counting all the work the AI did in reply, with an uncertainty range of roughly 60 to 290. Sixteen messages at 150 Wh is about 2.4 kWh.</p>
+      <p><strong>Water per kWh.</strong> The data center evaporates some water to stay cool: Google's own measurement works out to about 1 liter per kWh, and the US average is lower. The power plant evaporates more: about 3 liters per kWh on the average US grid, the figure used in the "Making AI Less Thirsty" paper. That makes about 4 liters per kWh.</p>
+      <p><strong>Training.</strong> Before it answers anything, a model is trained, and that water counts too. Google reported that over three years about two-fifths of its machine-learning energy went to training and three-fifths to answering. So each kWh of answering carries about two-thirds of a kWh of training with it, and we multiply by 5/3.</p>
+      <p class="math">2.4 kWh × 4 liters per kWh × 5/3 ≈ <strong>16 liters</strong> (4.2 gallons), rounded up to one 5-gallon bucket (19 liters).<br>Most pessimistic: 4.7 kWh × 5 liters per kWh × 5/3 ≈ 39 liters. Every thing in this book took more than that.</p>
+      <p>Not counted: water used to make the chips, build the data center, or run the screen you're reading on. The footprints for jeans, phones and burgers do count their whole supply chains, so keep that in mind when comparing.</p>
     </div>
 
     <div class="note">
       <h3>Tap water and footprints</h3>
       <p>Some pages count water straight from the tap: flushes, showers, sprinklers. Others count a <em>water footprint</em>, every liter it took to grow and make something, including rain that fell on the fields. Rain on a wheat field isn't taken from anyone's river, so the two kinds aren't perfectly comparable. Each page's small print says which kind it is.</p>
-      <p>The answer doesn't change if you only count tap water. One old-style toilet flush beats the whole website, and a five-minute shower beats it more than four times over.</p>
+      <p>The answer doesn't change if you only count tap water. One person's flushes for a single day, or one five-minute shower, beat even the most pessimistic count for the book.</p>
     </div>
 
     <div class="note">
       <h3>One question to an AI</h3>
-      <p>Google measured a median text prompt to its Gemini apps in May 2025 at 0.24 Wh and 0.26 mL of water, about five drops. That counts the data center, not the power plant. Adding about 3 liters per kWh for the power plant gives roughly 0.7 mL more, so about 1 mL in all, or twenty drops. Long or complicated requests use more, and other companies' models differ.</p>
-      <p class="math">2,400 liters ÷ 1 mL = 2.4 million questions. At one a minute, that's about 4.6 years.</p>
+      <p>Google measured a median text prompt to its Gemini apps in May 2025 at 0.24 Wh and 0.26 mL of water, about five drops. That counts the data center, not the power plant. Adding about 3 liters per kWh for the power plant gives roughly 0.7 mL more, and the 5/3 training share brings the total to about 1.7 mL, or thirty-odd drops. Long or complicated requests use more, and other companies' models differ. Mistral's own analysis put a 400-token answer from its assistant at 45 mL, counting more of the supply chain, so treat these as rough.</p>
+      <p class="math">2,400 liters ÷ 1.7 mL ≈ 1.4 million questions. At one a minute, that's about 2.7 years.</p>
+    </div>
+
+    <div class="note">
+      <h3>Training, and models at home</h3>
+      <p>Mistral's life-cycle analysis of Mistral Large 2 found that training it and running it for 18 months used about 281,000 cubic meters of water (281 million liters), with training the largest part. The "Making AI Less Thirsty" paper estimated that training GPT-3 used about 5.4 million liters, counting the power plants. Frontier models today are larger, and their makers haven't published comparable numbers.</p>
+      <p>Open models run on home hardware skip the data center's cooling water entirely. A 2026 benchmark on a home graphics card (RTX 4060 Ti) measured about 2.4 joules per token for 7-billion-parameter models, measuring the graphics card alone, and about a tenth of that for the smallest models. A 500-token answer from a mid-sized model is about 0.33 Wh, similar to Google's data-center figure, and about 1 mL of power-plant water on the average US grid. Home computers don't batch work the way data centers do, so local AI doesn't automatically save energy. What it changes is where the water goes, and clean electricity can take it to nearly zero.</p>
+      <p>How soon? Epoch AI finds that open models have recently trailed the best closed models by only a few months, and that models small enough for a single consumer graphics card have reached the frontier's benchmark scores within about 6 to 12 months.</p>
     </div>
 
     <div class="note">
@@ -285,17 +296,22 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
         <li>UN Environment Programme, <a href="https://www.unep.org/news-and-stories/story/putting-brakes-fast-fashion">Putting the brakes on fast fashion</a>.</li>
         <li>Friends of the Earth and Trucost smartphone estimate (2015), via the <a href="https://watercalculator.org/footprint/the-hidden-water-in-everyday-products/">Water Footprint Calculator</a>.</li>
         <li>US EPA <a href="https://www.epa.gov/watersense">WaterSense</a>: toilets, faucets, showerheads and outdoor watering.</li>
+        <li>Water Research Foundation, Residential End Uses of Water (2016), summarized by the <a href="https://www.allianceforwaterefficiency.org/sites/default/files/assets/WaterDM%20Memo%20on%20REUWS%20Results%20FINAL.pdf">Alliance for Water Efficiency</a>: flushes per person per day and gallons per flush.</li>
+        <li>David Patterson et al., <a href="https://arxiv.org/abs/2204.05149">The Carbon Footprint of Machine Learning Training Will Plateau, Then Shrink</a> (2022): the training and inference shares of Google's machine-learning energy.</li>
+        <li>Mistral AI's life-cycle analysis of Mistral Large 2 (2025), as reported by <a href="https://the-decoder.com/mistral-ai-publishes-the-first-comprehensive-life-cycle-assessment-of-a-large-language-model/">The Decoder</a>.</li>
+        <li><a href="https://arxiv.org/abs/2608.00008">Energy Efficiency of Locally Deployed LLMs: A Preliminary Quantitative GPU Power Benchmark on Consumer Hardware</a> (2026).</li>
+        <li>Epoch AI, <a href="https://epoch.ai/data-insights/open-closed-eci-gap">the gap between open and closed models</a> and <a href="https://epochai.substack.com/p/whats-the-best-model-you-can-run">the best model you can run on a single consumer GPU</a>.</li>
       </ol>
     </div>
 
-    <p class="colophon">A Symbai Studio production.<br>Written and drawn (in code) by a person and an AI helper, with a great deal of cross-hatching and less than one bucket of water.</p>
+    <p class="colophon">A Symbai Studio production.<br>Written and drawn (in code) by a person and an AI helper, with a great deal of cross-hatching and about one big bucket of water.</p>
   </div>
 </section>
 
 <script>
 (function () {
   "use strict";
-  var SITE = 10; // liters: the generous ceiling for building this site
+  var SITE = 19; // liters: one 5-gallon bucket, the rounded-up estimate for making this book, training share included
   var GAL = 0.264172;
 
   /* ================= the book ================= */
@@ -303,105 +319,120 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
   var POPS  = ["#f4a98f", "#f2b4c9", "#f6c38f", "#c9b6ec", "#f2a6a0", "#b9d9ef", "#f7cf7a"];
 
   var PAGES = [
-    { draw: "hello", alt: "Glub, a round fluffy orange wild thing with little curled horns and huge shining eyes, waves under a rain cloud that drips into a rippling puddle.",
+    { draw: "hello", alt: "Glub, a round, fluffy periwinkle wild thing with golden curled horns and huge shining eyes, waves under a rain cloud that drips into a rippling puddle.",
       h: "This is Glub.",
       tell: ["On the night of the rain, Glub could not sleep.",
              "Glub is a small wild thing who keeps track of water: where it goes, and how much. And that night Glub had a question too big for one small head. How much water did it take to make this book?"] },
-    { draw: "bucket", alt: "Glub stands proudly beside a bucket of water marked 10 L while a single drop falls into it.",
-      h: "Less than one bucket.",
+    { draw: "bucket", alt: "Glub stands proudly beside a big bucket of water while a single drop falls into it.",
+      h: "About one big bucket.",
       tell: ["This book is a website. A person and an AI helper made it together, talking back and forth.",
              "The AI does its thinking in a great humming building called a data center. Thinking makes heat, and water carries the heat away. The power plants that make the electricity drink water too.",
-             "Glub counted every drop, then rounded up, way up, to be fair."],
-      bigx: "1 bucket", say: "At the very most. Probably much less.",
-      fine: "10 liters, or 2.6 gallons. A low estimate is closer to a cup. The math is in the notes at the back." },
+             "Glub even counted a fair share of the water it took to teach the AI in the first place. Then Glub rounded up, to be fair."],
+      bigx: "1 big bucket", say: "Even counting the AI's schooling.",
+      fine: "About 16 liters (4 gallons), rounded up to one 5-gallon bucket. Our most pessimistic count is under 40 liters. The math is in the notes at the back." },
     { night: ["So Glub picked up the bucket and set off through the night", "to find the things that are <em>thirstier</em> than a book."], small: 0 },
-    { id: "flush", draw: "toilet", l: 13, h: "One flush of an old toilet.",
-      tell: "First Glub found an old toilet, rumbling on its chain. Whoosh! One flush, and more than a whole bucket was gone. A new toilet uses less, about half a bucket.",
-      say: "One whole book, plus a splash.", kind: "tap",
-      note: "From the tap. Toilets from the 1980s and early '90s use about 3.5 gallons a flush.",
-      alt: "An old pull-chain toilet swirls against flowered wallpaper while Glub throws both arms up, mouth a surprised O." },
-    { id: "teeth", draw: "teeth", l: 15, h: "Brushing your teeth with the tap running.",
-      tell: "Then a tap that ran and ran while somebody brushed and brushed, and nobody turned it off.",
-      say: "One and a half books, straight down the drain.", kind: "tap",
-      note: "From the tap. Two minutes at a standard bathroom faucet.",
-      alt: "Glub brushes its tiny fang, foam bubbling, while the tap pours into the sink." },
     { id: "bread", draw: "bread", l: 40, h: "One slice of bread.",
-      tell: "Then a slice of bread, which still remembered being wheat: a whole summer of rain and river water.",
-      say: "Four books. In one slice.", kind: "fp",
+      tell: "First Glub found a slice of bread, which still remembered being wheat: a whole summer of rain and river water.",
+      say: "Two books. In one slice.", kind: "fp",
       note: "A water footprint: counts all the water the wheat drank, rain included. One 30 g slice.",
       alt: "A giant slice of bread glows in front of a rippling sun, with Glub and stalks of wheat beside it." },
     { id: "shower", draw: "shower", l: 45, h: "A five-minute shower.",
-      tell: "Then a shower, warm and steamy and lovely, pouring out a bucketful every single minute.",
-      say: "Four and a half books. Squeaky clean.", kind: "tap",
+      tell: "Then a shower, warm and steamy and lovely, pouring out half a big bucket every single minute.",
+      say: "Nearly two and a half books. Squeaky clean.", kind: "tap",
       note: "From the tap. Five minutes at a standard 2.5-gallon-a-minute showerhead.",
       alt: "Glub stands under a showerhead with both arms up, laughing, as water pours down onto wavy blue tiles." },
+    { id: "flush", draw: "toilet", l: 49, h: "One day of flushing.",
+      tell: "Then an old toilet, rumbling on its chain. Whoosh! One person, one ordinary day, about five flushes.",
+      say: "Two and a half books, flushed away.", kind: "tap",
+      note: "From the tap. A 2016 national study found about 5 flushes per person per day, at 2.6 gallons a flush on average.",
+      alt: "An old pull-chain toilet swirls against flowered wallpaper while Glub throws both arms up, mouth a surprised O." },
     { id: "apple", draw: "apple", l: 70, h: "One apple.",
       tell: "Then an apple, which an old tree had filled slowly, drop by drop, all year long.",
-      say: "Seven books. Crunch.", kind: "fp",
+      say: "Almost four books. Crunch.", kind: "fp",
       note: "A water footprint: counts all the water the apple tree drank, rain included. One small (100 g) apple.",
       alt: "Glub reaches up toward a huge red apple glowing like a sunset." },
     { id: "coffee", draw: "coffee", l: 140, h: "One cup of coffee.",
       tell: "Then a cup of coffee, grown on warm hills far away, which the grown-ups drink without thinking twice.",
-      say: "Fourteen books, sip by sip.", kind: "fp",
+      say: "Seven and a half books, sip by sip.", kind: "fp",
       note: "A water footprint: counts the water the coffee plants drank, rain included. One small 125 mL cup.",
       alt: "A tiny Glub sits on the saucer of a big steaming coffee cup, with beans scattered around." },
     { id: "bath", draw: "bath", l: 150, h: "One bath, filled to the very top.",
       tell: "Then a bath, filled to the very top, with bubbles and one very serious duck.",
-      say: "Fifteen books, and a duck.", kind: "tap",
+      say: "Eight books, and a duck.", kind: "tap",
       note: "From the tap. A full tub, about 40 gallons.",
       alt: "Glub sits in a clawfoot bathtub full of bubbles next to a rubber duck, in front of diamond wallpaper." },
     { id: "egg", draw: "egg", l: 200, h: "One egg.",
       tell: "Then an egg. The hen ate the grain, and the grain drank the fields, and the fields drank the sky.",
-      say: "Twenty books. In one egg!", kind: "fp",
+      say: "Ten and a half books. In one egg!", kind: "fp",
       note: "A water footprint: counts the water to grow the hen's food, rain included. One 60 g egg.",
       alt: "A speckled egg in a red egg cup glows with rippling rings of light while Glub gazes at it." },
+    { id: "teeth", draw: "teeth", l: 210, h: "A week of brushing with the tap running.",
+      tell: "Then a tap that ran and ran, morning and night for a whole week, while somebody brushed and brushed and never once turned it off.",
+      say: "Eleven books, straight down the drain.", kind: "tap",
+      note: "From the tap. Two minutes, twice a day, for seven days, at a standard bathroom faucet.",
+      alt: "Glub brushes its tiny fang, foam bubbling, while the tap pours into the sink." },
     { id: "car", draw: "car", l: 380, h: "Washing the car with a hose.",
       tell: "Then a car being washed with a hose, the water running down the driveway and away into the street.",
-      say: "Up to thirty-eight books.", kind: "tap", upto: true,
+      say: "Up to twenty books.", kind: "tap", upto: true,
       note: "From the tap. A hose left running while you wash can use up to 100 gallons.",
       alt: "Glub sprays a little blue car with a garden hose. A puddle spreads underneath." },
     { id: "lawn", draw: "lawn", l: 1000, h: "Watering the lawn for one hour.",
       tell: "Then a lawn and a sprinkler going tick-tick-tick all afternoon, which the grass liked very much.",
-      say: "A hundred books. Every hour.", kind: "tap",
+      say: "More than fifty books. Every hour.", kind: "tap",
       note: "From the tap. A sprinkler running at about 4½ gallons a minute.",
       alt: "A lawn sprinkler throws arcs of water while Glub stays dry under a red umbrella." },
     { id: "chocolate", draw: "chocolate", l: 1700, h: "One bar of chocolate.",
       tell: "Then a bar of chocolate, from trees in hot, rainy places where each pod holds only a handful of beans.",
-      say: "A hundred and seventy books. Yum.", kind: "fp",
+      say: "Nearly ninety books. Yum.", kind: "fp",
       note: "A water footprint: counts the water the cacao trees drank, rain included. One 100 g bar.",
       alt: "A half-unwrapped chocolate bar, a cacao pod, and Glub with chocolate on its chin." },
     { id: "burger", draw: "burger", l: 2400, h: "One hamburger.",
       tell: "Then a hamburger. Before it was a hamburger it was a cow, and the cow ate and drank for years and years.",
-      say: "Two hundred and forty books.", kind: "fp",
+      say: "More than a hundred and twenty books.", kind: "fp",
       note: "A water footprint: counts the water for the cow's food and drink, rain included. One 150 g beef burger.",
       alt: "A towering hamburger glows in front of rippling sunset rings while a small Glub stares up at it, mouth open." },
     { id: "tshirt", draw: "tshirt", l: 2700, h: "One cotton T-shirt.",
       tell: "Then a cotton T-shirt. Cotton plants are very, very thirsty, and it takes a great many of them to make one shirt.",
-      say: "Two hundred and seventy books.", kind: "fp",
+      say: "More than a hundred and forty books.", kind: "fp",
       note: "A water footprint: counts the water the cotton drank, rain included.",
       alt: "A yellow T-shirt hangs on a clothesline beside a fluffy cotton plant, with Glub watching." },
     { id: "jeans", draw: "jeans", l: 7500, h: "One pair of jeans.",
       tell: "Then a pair of jeans: grown, spun, dyed blue, and washed soft, and every step of it wet.",
-      say: "Seven hundred and fifty books.", kind: "fp",
+      say: "Nearly four hundred books.", kind: "fp",
       note: "A water footprint: counts the cotton field, the dyeing and the washing.",
       alt: "A pair of blue jeans drips on a clothesline next to a bucket of blue dye." },
     { id: "phone", draw: "phone", l: 12760, h: "One smartphone.",
       tell: "Then a telephone small enough for a pocket, made from metals dug deep out of the ground and tiny chips rinsed clean again and again.",
-      say: "Nearly thirteen hundred books.", kind: "fp",
+      say: "Six hundred and seventy books.", kind: "fp",
       note: "A water footprint: counts mining, chipmaking and cleaning the parts. An estimate from 2015.",
       alt: "Glub leans on a giant smartphone that glows inside rippling rings of night sky." },
     { id: "golf", draw: "golf", l: 393000, h: "One day of watering one golf course.",
       tell: "And last of all, a golf course, so green and so wide, drinking and drinking under the sun. Not in a year. In one day.",
-      say: "Thirty-nine thousand books. Every. Single. Day.", kind: "tap",
+      say: "Twenty thousand books. Every. Single. Day.", kind: "tap",
       note: "From sprinklers. All the water US golf courses used in 2024, split across about 14,000 golf facilities and 365 days.",
       alt: "Rolling striped hills, a red flag, sprinklers arcing, and a tiny Glub holding a golf club under a rippling sun." },
-    { night: ["Glub sat down in the wet grass and thought for a long time.", "Then Glub asked the smallest question of all."], small: 0 },
+    { night: ["Glub sat down in the wet grass and thought for a long time.", "Then Glub asked the smallest questions of all."], small: 0 },
     { id: "question", draw: "ai", alt: "Tiny drops fall into a thimble while Glub studies them through a magnifying glass.",
-      h: "One question is about twenty drops.",
-      tell: ["Google measured its own AI. A typical question used about five drops of water at the data center, and the power plant adds about fifteen more.",
-             "Twenty drops. A sprinkler spills that in the blink of an eye. The water in one hamburger could answer a question every minute, all day and all night, for four and a half years."],
-      bigx: "20 drops", say: "About one milliliter.",
+      h: "One question is about thirty drops.",
+      tell: ["Google measured its own AI. A typical question used about five drops of water at the data center. The power plant adds about fifteen more, and a fair share of the AI's training adds about thirteen.",
+             "Thirty-odd drops. A sprinkler spills that in the blink of an eye. The water in one hamburger could answer a question every minute, all day and all night, for nearly three years."],
+      bigx: "30 drops", say: "About a third of a teaspoon.",
       fine: "For a typical, short question. Long, complicated requests use more." },
+    { id: "school", draw: "school", alt: "Glub sits on a tall stack of giant books reading, beside a long humming data center with glowing windows under the night sky.",
+      h: "And what about teaching the AI?",
+      tell: ["Before an AI can answer anything, it has to learn. Learning takes enormous rooms of computers humming for months, and that drinks a great deal of water all at once.",
+             "One AI company, Mistral, measured its big model. Learning, plus a year and a half of answering everyone's questions, used about 281 million liters. That's about what one average American golf course drinks in two years.",
+             "But that water is shared by everyone who ever uses the model: millions of people asking billions of questions. This book's fair share is already in Glub's bucket."],
+      bigx: "281 million liters", wordsx: true, say: "Shared by everyone, a thin slice each.",
+      fine: "Mistral Large 2, as of January 2025. Training was by far the biggest part of that water." },
+    { id: "home", draw: "home", alt: "Glub sits at a desk with a glowing laptop at night, a small solar panel and a smiling sun drawn in the window.",
+      h: "Soon, the AI might live at home.",
+      tell: ["Some AI models are open: anyone can download one and run it on their own computer. No data center. No cooling towers.",
+             "Then the only water is at the power plant that makes your electricity. If your power comes from the sun or the wind, there's almost none at all.",
+             "Small open models already answer everyday questions on laptops and phones. The kind that could build a whole book like this one still needs a big, powerful computer, but they keep catching up. Models small enough for one home computer have been reaching what the best cloud AI could do within about six months to a year.",
+             "And a model only has to learn once. The more people share it, the thinner each slice of its training water gets."],
+      bigx: "0 cooling towers", wordsx: true, say: "Just you, your computer, and the sun.",
+      fine: "A mid-sized open model on a home graphics card uses about 2.4 joules per word-piece, so a typical answer takes about a third of a watt-hour. That is close to what a data center uses, but the only water is at the power plant: about 1 mL on the average US grid, and almost none on solar or wind." },
     { id: "river", draw: "big", alt: "Glub looks across a river at a long data center building with steam rising, and a golf flag on a far hill.",
       h: "So is AI's water nothing at all?",
       tell: ["No. Glub is a careful wild thing, and careful wild things know that lots of small drops make a river.",
@@ -429,7 +460,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     var r = l / SITE;
     if (r < 2) return String(Math.round(r * 10) / 10);
     if (r < 20) { var h = Math.round(r * 2) / 2; return Math.floor(h) + (h % 1 ? "½" : ""); }
-    return sig(r, 3).toLocaleString("en-US");
+    return sig(Math.round(r), 3).toLocaleString("en-US");
   }
 
   /* ================= the pen ================= */
@@ -566,7 +597,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     return g;
   }
 
-  /* Glub: a round, fluffy little wild thing, drawn the same way every time. Origin at the feet.
+  /* Glub: a round, fluffy, periwinkle little wild thing, drawn the same way every time. Origin at the feet.
      o.flip mirrors · o.arm = down | up | both | hold · o.look = [dx, dy] · o.mouth = smile | open | o
      o.sleep closes the eyes · o.extra = svg in Glub's own space, drawn last */
   // a fur edge of combed, pointed tufts; t(angle) sets how long each tuft is
@@ -580,68 +611,69 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     return d + "Z";
   }
   var GLUB = (function () {
-    var body = furEdge(0, -50, 38, 42, 22, function (a, k) {
-      var side = Math.abs(Math.cos(a)), top = Math.max(0, -Math.sin(a));
-      return 2.2 + side * side * 3.4 + top * 1.8 + Math.sin(k * 2.7) * 0.6;
+    var body = furEdge(0, -49, 38, 41, 24, function (a, k) {
+      var side = Math.abs(Math.cos(a)), top = Math.max(0, -Math.sin(a)), low = Math.max(0, Math.sin(a));
+      return 1.6 + side * side * 3 + top * 1.2 - low * 0.9 + Math.sin(k * 2.7) * 0.4;
     });
-    var tail = furEdge(43, -20, 6, 5.5, 7, function () { return 2.6; }, 0.2);
-    function arm(cx, cy, rot) { var save = sd; seed(77); var d = blob(cx, cy, 7.5, 13, 0, 16, rot); sd = save; return d; }
+    var tail = furEdge(42, -19, 6, 5.5, 7, function () { return 2.4; }, 0.2);
+    function arm(cx, cy, rot) { var save = sd; seed(77); var d = blob(cx, cy, 7.5, 12.5, 0, 16, rot); sd = save; return d; }
     return {
       body: body, tail: tail,
-      armDownL: arm(-35, -34, 0.5), armDownR: arm(35, -34, -0.5),
-      armUpL: arm(-38, -68, -0.45), armUpR: arm(38, -68, 0.45),
-      holdL: (function () { var s = sd; seed(78); var d = blob(-20, -31, 13, 7, 0, 16, 0.25); sd = s; return d; })(),
-      holdR: (function () { var s = sd; seed(78); var d = blob(20, -31, 13, 7, 0, 16, -0.25); sd = s; return d; })()
+      armDownL: arm(-34, -33, 0.5), armDownR: arm(34, -33, -0.5),
+      armUpL: arm(-37, -67, -0.45), armUpR: arm(37, -67, 0.45),
+      holdL: (function () { var s = sd; seed(78); var d = blob(-19, -30, 12.5, 7, 0, 16, 0.25); sd = s; return d; })(),
+      holdR: (function () { var s = sd; seed(78); var d = blob(19, -30, 12.5, 7, 0, 16, -0.25); sd = s; return d; })()
     };
   })();
-  function GP(d, fill, extra) { return '<path d="' + d + '" fill="' + fill + '"' + (extra || "") + '/><path d="' + d + '" class="ink"/>'; }
+  function GP(d, fill, w) { return '<path d="' + d + '" fill="' + fill + '"/><path d="' + d + '" class="ink" style="stroke-width:' + (w || 2.2) + '"/>'; }
   function glub(x, y, s, o) {
     o = o || {}; s = s || 1;
     var fl = o.flip ? -1 : 1, lk = o.look || [1, 0], lx = lk[0] * fl * 3, ly = lk[1] * 3, g = "";
     var mouth = o.mouth || "smile";
-    g += '<ellipse cx="0" cy="-1" rx="34" ry="4.5" class="f inkfill" opacity=".16"/>';
+    g += '<ellipse cx="0" cy="-1" rx="33" ry="4.5" class="f inkfill" opacity=".16"/>';
     g += GP(GLUB.tail, "url(#gFur2)");
     // ears, tucked under the fur
-    g += GP("M-33,-77 C-46,-84 -54,-74 -49,-66 C-45,-69 -39,-70 -33,-69Z", "url(#gFur2)") + '<path d="M-36,-75 C-44,-79 -49,-74 -47,-69 C-44,-71 -40,-71 -37,-71Z" fill="#f2a59a"/>';
-    g += GP("M33,-77 C46,-84 54,-74 49,-66 C45,-69 39,-70 33,-69Z", "url(#gFur2)") + '<path d="M36,-75 C44,-79 49,-74 47,-69 C44,-71 40,-71 37,-71Z" fill="#f2a59a"/>';
-    // feet
-    g += GP("M-29,-5 C-29,-13 -3,-14 -3,-5 C-3,0 -29,0 -29,-5Z", "url(#gFur2)") + GP("M3,-5 C3,-14 29,-13 29,-5 C29,0 3,0 3,-5Z", "url(#gFur2)");
-    g += '<path d="M-21,-2 v-4 M-15,-1.5 v-4.5 M-9,-2 v-4 M9,-2 v-4 M15,-1.5 v-4.5 M21,-2 v-4" class="ink" style="stroke-width:1.1"/>';
-    // body: combed fur, soft light from the upper left, fine hatching on the shadow side
+    g += GP("M-31,-75 C-44,-83 -53,-74 -48,-65 C-44,-68 -38,-69 -31,-68Z", "url(#gFur2)") + '<path d="M-34,-73 C-43,-78 -48,-73 -46,-68 C-43,-70 -39,-70 -35,-70Z" fill="#f6a9bd"/>';
+    g += GP("M31,-75 C44,-83 53,-74 48,-65 C44,-68 38,-69 31,-68Z", "url(#gFur2)") + '<path d="M34,-73 C43,-78 48,-73 46,-68 C43,-70 39,-70 35,-70Z" fill="#f6a9bd"/>';
+    // round little feet with toes
+    g += GP("M-28,-5 C-28,-14 -4,-14 -4,-5 C-4,-.5 -8,0 -10,-1.2 C-12,0 -15,0 -16,-1.2 C-18,0 -21,0 -22,-1.2 C-24,0 -28,0 -28,-5Z", "url(#gFur2)");
+    g += GP("M4,-5 C4,-14 28,-14 28,-5 C28,0 24,0 22,-1.2 C21,0 18,0 16,-1.2 C15,0 12,0 10,-1.2 C8,0 4,-.5 4,-5Z", "url(#gFur2)");
+    // body: combed fur, soft light from the upper left
     g += '<path d="' + GLUB.body + '" fill="url(#gFur)"/>';
-    g += '<path d="' + GLUB.body + '" class="hx" fill="url(#h1)" mask="url(#shade)" opacity=".28"/>';
-    g += '<path d="' + GLUB.body + '" class="ink" style="stroke-width:2.2"/>';
-    g += '<path d="M-30,-28 q3,-4 6,-1 M-34,-50 q3,-4 6,-1 M27,-24 q3,-4 6,-1 M31,-48 q3,-4 6,-1 M-22,-12 q3,-4 6,-1 M18,-10 q3,-4 6,-1 M-26,-80 q3,-3 6,-1 M22,-82 q3,-3 6,-1" class="furmark"/>';
-    g += '<ellipse cx="0" cy="-24" rx="20.5" ry="16.5" fill="url(#gBelly)"/>';
-    g += '<path d="M-8,-30 q2,-3 4,0 M3,-22 q2,-3 4,0 M-5,-16 q2,-3 4,0" class="furmark" style="stroke:#d7b47c"/>';
-    // crown stripes and curled horns
-    g += '<path d="M-12,-94 Q-8,-87 -10.5,-80 Q-6,-87 -8.5,-94Z M-2,-97 Q2,-89 -0.5,-81 Q4,-89 1.5,-97Z M8,-94 Q12,-87 9.5,-80 Q14,-87 11.5,-94Z" class="stripefill"/>';
-    g += GP("M-21,-83 C-31,-89 -34,-103 -25,-111 C-26,-101 -21,-94 -12,-89Z", "url(#gHorn)") + '<path d="M-27,-96 q4,1.5 6.5,-1.5 M-28.5,-103 q3.5,1 5.5,-1.5" class="ink" style="stroke-width:1"/>';
-    g += GP("M21,-83 C31,-89 34,-103 25,-111 C26,-101 21,-94 12,-89Z", "url(#gHorn)") + '<path d="M27,-96 q-4,1.5 -6.5,-1.5 M28.5,-103 q-3.5,1 -5.5,-1.5" class="ink" style="stroke-width:1"/>';
+    g += '<ellipse cx="-13" cy="-71" rx="17" ry="11" fill="url(#gSheen)"/>';
+    g += '<path d="' + GLUB.body + '" class="ink" style="stroke-width:2.4"/>';
+    g += '<path d="M-30,-27 q3,-4 6,-1 M-33,-48 q3,-4 6,-1 M27,-23 q3,-4 6,-1 M30,-46 q3,-4 6,-1 M-20,-11 q3,-4 6,-1 M16,-9 q3,-4 6,-1" class="furmark"/>';
+    g += '<path d="M-20,-24 C-20,-40 20,-40 20,-24 C20,-14 12,-8 0,-8 C-12,-8 -20,-14 -20,-24Z" fill="url(#gBelly)"/>';
+    g += '<path d="M-7,-29 q2,-3 4,0 M3,-22 q2,-3 4,0 M-5,-16 q2,-3 4,0" class="furmark" style="stroke:#e2c79a"/>';
+    // a curl of fur on the crown, stripes, and golden curled horns
+    g += GP("M-7,-88 C-10,-99 -2,-106 4,-101 C1,-99 0,-96 3,-94 C6,-100 13,-98 12,-91 C8,-88 0,-87 -7,-88Z", "url(#gFur)", 2);
+    g += '<path d="M-17,-86 Q-14,-80 -15.5,-74 Q-12,-80 -14,-86Z M15,-86 Q18,-80 16.5,-74 Q20,-80 18,-86Z" class="stripefill"/>';
+    g += GP("M-21,-80 C-31,-86 -34,-100 -25,-108 C-26,-98 -21,-91 -12,-86Z", "url(#gHorn)") + '<path d="M-27,-93 q4,1.5 6.5,-1.5 M-28.5,-100 q3.5,1 5.5,-1.5" class="ink" style="stroke-width:1"/>';
+    g += GP("M21,-80 C31,-86 34,-100 25,-108 C26,-98 21,-91 12,-86Z", "url(#gHorn)") + '<path d="M27,-93 q-4,1.5 -6.5,-1.5 M28.5,-100 q-3.5,1 -5.5,-1.5" class="ink" style="stroke-width:1"/>';
     // face
-    g += '<ellipse cx="-27" cy="-45" rx="8" ry="5" fill="url(#gBlush)"/><ellipse cx="27" cy="-45" rx="8" ry="5" fill="url(#gBlush)"/>';
+    g += '<ellipse cx="-26" cy="-44" rx="8.5" ry="5.2" fill="url(#gBlush)"/><ellipse cx="26" cy="-44" rx="8.5" ry="5.2" fill="url(#gBlush)"/>';
+    g += '<path d="M-29,-45 l2,-3 M-25.5,-45 l2,-3 M23,-45 l2,-3 M26.5,-45 l2,-3" class="ink" style="stroke-width:1;stroke:#d2607a"/>';
     if (o.sleep) {
-      g += '<path d="M-25,-61 Q-15,-53 -5,-61 M5,-61 Q15,-53 25,-61" class="ink" style="stroke-width:2.6"/>';
-      g += '<path d="M-23,-58 l-2,3 M-15,-56 l0,3.4 M-7,-58 l2,3 M7,-58 l-2,3 M15,-56 l0,3.4 M23,-58 l2,3" class="ink" style="stroke-width:1.2"/>';
+      g += '<path d="M-25,-59 Q-15,-51 -5,-59 M5,-59 Q15,-51 25,-59" class="ink" style="stroke-width:2.6"/>';
+      g += '<path d="M-23,-56 l-2,3 M-15,-54 l0,3.4 M-7,-56 l2,3 M7,-56 l-2,3 M15,-54 l0,3.4 M23,-56 l2,3" class="ink" style="stroke-width:1.2"/>';
     } else {
       [-15, 15].forEach(function (ex) {
-        g += '<ellipse cx="' + ex + '" cy="-61" rx="12.2" ry="13.8" fill="url(#gEye)"/>';
-        g += '<circle cx="' + r1(ex + lx) + '" cy="' + r1(-60 + ly) + '" r="8.2" fill="url(#gPupil)"/>';
-        g += '<circle cx="' + r1(ex + lx - 3) + '" cy="' + r1(-63.6 + ly) + '" r="3.1" class="glint"/><circle cx="' + r1(ex + lx + 2.8) + '" cy="' + r1(-56.6 + ly) + '" r="1.4" class="glint"/>';
-        g += '<ellipse cx="' + ex + '" cy="-61" rx="12.2" ry="13.8" class="ink"/>';
-        g += '<path d="M' + (ex - 12.5) + ',-63 Q' + ex + ',-79 ' + (ex + 12.5) + ',-63" class="ink" style="stroke-width:3"/>';
-        g += '<path d="M' + (ex + (ex < 0 ? -12 : 12)) + ',-66 l' + (ex < 0 ? -3.5 : 3.5) + ',-3" class="ink" style="stroke-width:1.6"/>';
+        g += '<ellipse cx="' + ex + '" cy="-60" rx="12.8" ry="14.2" fill="url(#gEye)"/>';
+        g += '<circle cx="' + r1(ex + lx) + '" cy="' + r1(-58.6 + ly) + '" r="9" fill="url(#gPupil)"/>';
+        g += '<circle cx="' + r1(ex + lx - 3.2) + '" cy="' + r1(-62.6 + ly) + '" r="3.4" class="glint"/><circle cx="' + r1(ex + lx + 3) + '" cy="' + r1(-54.8 + ly) + '" r="1.6" class="glint"/>';
+        g += '<ellipse cx="' + ex + '" cy="-60" rx="12.8" ry="14.2" class="ink" style="stroke-width:2"/>';
+        g += '<path d="M' + (ex - 13) + ',-62 Q' + ex + ',-78.5 ' + (ex + 13) + ',-62" class="ink" style="stroke-width:3"/>';
+        g += '<path d="M' + (ex + (ex < 0 ? -12.5 : 12.5)) + ',-65.5 l' + (ex < 0 ? -3.8 : 3.8) + ',-3.2" class="ink" style="stroke-width:1.6"/>';
       });
-      g += '<path d="M-21,-80 q6,-4 11,-1 M10,-81 q5,-3 11,1" class="furmark" style="stroke-width:2"/>';
     }
-    g += '<path d="M-3.6,-49.5 Q0,-52 3.6,-49.5 Q2.2,-45.6 0,-45.2 Q-2.2,-45.6 -3.6,-49.5Z" class="f inkfill"/><ellipse cx="-1.1" cy="-49.6" rx="1.1" ry=".7" class="glint"/>';
+    g += '<path d="M-3.4,-48.5 Q0,-51 3.4,-48.5 Q2.1,-44.8 0,-44.4 Q-2.1,-44.8 -3.4,-48.5Z" class="f inkfill"/><ellipse cx="-1.1" cy="-48.6" rx="1.1" ry=".7" class="glint"/>';
     if (mouth === "open") {
-      g += '<path d="M-7.5,-41.5 Q0,-42.5 7.5,-41.5 Q5.5,-31.5 0,-31 Q-5.5,-31.5 -7.5,-41.5Z" fill="#5c2f3c" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
-      g += '<path d="M-4,-34.4 Q0,-37.6 4,-34.4 Q2.2,-31.8 0,-31.7 Q-2.2,-31.8 -4,-34.4Z" fill="#ef8f94"/><path d="M3,-41.6 L4.6,-38.2 L6.2,-41.7Z" class="f white"/>';
+      g += '<path d="M-7,-40.5 Q0,-41.5 7,-40.5 Q5.2,-31 0,-30.6 Q-5.2,-31 -7,-40.5Z" fill="#4a2a4a" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+      g += '<path d="M-3.8,-33.6 Q0,-36.8 3.8,-33.6 Q2.1,-31.2 0,-31.1 Q-2.1,-31.2 -3.8,-33.6Z" fill="#f48ea0"/><path d="M2.8,-40.6 L4.3,-37.4 L5.8,-40.7Z" class="f white"/>';
     } else if (mouth === "o") {
-      g += '<ellipse cx="0" cy="-37.5" rx="3.6" ry="4.6" fill="#5c2f3c" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+      g += '<ellipse cx="0" cy="-36.8" rx="3.6" ry="4.4" fill="#4a2a4a" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
     } else {
-      g += '<path d="M-8,-41.5 Q-4,-36.6 0,-40.6 Q4,-36.6 8,-41.5" class="ink" style="stroke-width:1.9"/><path d="M3.4,-39.7 L4.9,-36.6 L6.3,-40.4Z" class="f white"/>';
+      g += '<path d="M-7.5,-40.5 Q-3.8,-36 0,-39.8 Q3.8,-36 7.5,-40.5" class="ink" style="stroke-width:1.9"/><path d="M3.2,-38.9 L4.6,-35.9 L6,-39.6Z" class="f white"/>';
     }
     var arm = o.arm || "down", L0 = GLUB.armDownL, R0 = GLUB.armDownR;
     if (arm === "up" || arm === "both") L0 = GLUB.armUpL;
@@ -652,7 +684,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     return '<g transform="translate(' + x + " " + y + ')"><g class="' + (o.bob ? "bob" : "") + '"><g transform="scale(' + s * fl + " " + s + ')">' + g + "</g></g></g>";
   }
   // where Glub's raised paw is, in Glub's own space, for things Glub holds up
-  var PAW_UP = [-47, -82];
+  var PAW_UP = [-42, -78];
 
   /* ================= the pictures ================= */
   var D = {
@@ -673,7 +705,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += shroom(250, 560, 1.7) + shroom(860, 560, 1.3) + shroom(1000, 545, 2);
       g += flower(420, 545, 26, "rose") + flower(760, 560, 22, "yellow") + flower(1130, 560, 30, "rose") + flower(60, 560, 24, "yellow");
       g += '<g class="drip">' + DROP(712, 392, 13) + "</g>";
-      g += bucket(676, 466, 70, 62, "10 L");
+      g += bucket(676, 466, 70, 62, "5 gal");
       g += glub(565, 548, 2.05, { arm: "up", look: [1, -1], bob: true, mouth: "open" });
       return g;
     },
@@ -696,7 +728,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += tree(354, 250, 120, "teal");
       g += shroom(40, 258, 1.2);
       g += glub(150, 270, 1.15, { arm: "up", look: [1, 0.6], bob: true });
-      g += bucket(206, 214, 68, 54, "10 L");
+      g += bucket(206, 214, 68, 54, "5 gal");
       g += '<g class="drip">' + DROP(240, 168, 9) + "</g>";
       return g;
     },
@@ -929,6 +961,38 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
       g += glub(334, 276, 0.86, { flip: true, look: [-1, -0.6] });
       return g;
     },
+    school: function () {
+      seed(251);
+      var g = psky("night", 300, 70, 22);
+      g += S(blob(300, 70, 20, 20, 0.02, 16), "moon", "h1");
+      g += hill(248, "teal", 4, 2);
+      g += S(poly([[176, 128], [392, 128], [392, 244], [176, 244]], 20, 0.8), "metal", "h2");
+      for (var r = 0; r < 3; r++) for (var c = 0; c < 6; c++) g += '<rect x="' + (188 + c * 33) + '" y="' + (144 + r * 30) + '" width="19" height="14" rx="2" fill="#f7e8b2" stroke="var(--ink)" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+      [[214, 112], [268, 100], [330, 110]].forEach(function (c) { g += S(fluff(c[0], c[1], 18, 10, 6, 3.5), "white"); });
+      g += S(poly([[34, 216], [152, 216], [152, 246], [34, 246]], 14, 0.6), "red", "h1") + L("M40,226 h106 M40,234 h106", 0.9);
+      g += S(poly([[42, 188], [146, 188], [146, 216], [42, 216]], 14, 0.6), "deep", "h1") + L("M48,198 h92 M48,206 h92", 0.9);
+      g += S(poly([[38, 160], [150, 160], [150, 188], [38, 188]], 14, 0.6), "ochre", "h1") + L("M44,170 h100 M44,178 h100", 0.9);
+      g += glub(94, 164, 0.66, { arm: "hold", look: [0, 0.8], extra: S("M-24,-37 L0,-31 L24,-37 L24,-19 L0,-13 L-24,-19Z", "white") + L("M0,-31 L0,-13 M-18,-31 l12,3 M-18,-26 l12,3 M6,-28 l12,-3 M6,-23 l12,-3", 1) });
+      return g;
+    },
+    home: function () {
+      seed(261);
+      var g = wall("wpLilac", 238);
+      g += S(poly([[34, 36], [168, 36], [168, 150], [34, 150]], 16, 0.4), "white");
+      g += '<rect x="42" y="44" width="118" height="98" fill="#fbe3a8"/>';
+      g += S(blob(100, 84, 17, 17, 0.02, 14), "yellow");
+      for (var a = 0; a < 8; a++) { var t = a / 8 * Math.PI * 2; g += L("M" + r1(100 + Math.cos(t) * 23) + "," + r1(84 + Math.sin(t) * 23) + " l" + r1(Math.cos(t) * 6) + "," + r1(Math.sin(t) * 6), 1.4); }
+      g += S(poly([[42, 126], [90, 112], [160, 124], [160, 142], [42, 142]], 14, 0.5), "moss");
+      g += S(poly([[112, 120], [150, 114], [154, 128], [116, 134]], 8, 0.3), "deep") + L("M124,118 l2,15 M137,116 l2,15 M114,127 l39,-6", 0.8);
+      g += L("M101,36 v114 M34,93 h134", 2.2);
+      g += S(poly([[206, 198], [394, 198], [394, 210], [206, 210]], 20, 0.5), "floor", "h1") + L("M218,210 v28 M382,210 v28", 3);
+      g += S(poly([[256, 144], [350, 144], [346, 196], [260, 196]], 12, 0.4), "nightf");
+      g += FC(poly([[264, 152], [342, 152], [339, 190], [267, 190]], 10, 0.3), "#bae2cd");
+      g += DROP(303, 171, 12);
+      g += S(poly([[242, 196], [364, 196], [374, 205], [232, 205]], 12, 0.3), "metal");
+      g += glub(150, 272, 1, { arm: "hold", look: [1, -0.5], mouth: "open" });
+      return g;
+    },
     tips: function () {
       seed(241);
       var g = wall("wpMint", 244);
@@ -961,7 +1025,7 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
     var art = D[name]();
     seed(7);
     return '<svg viewBox="0 0 400 300" role="img" aria-label="' + alt + '"><g clip-path="url(#plateClip)">' + art +
-      '<rect width="400" height="300" class="grain" filter="url(#grain)"/></g><path d="' + poly([[5, 5], [395, 5], [395, 295], [5, 295]], 40, 1.1) + '" class="ink frame"/></svg>';
+      '<rect width="400" height="300" class="grain" fill="url(#grain)"/></g><path d="' + poly([[5, 5], [395, 5], [395, 295], [5, 295]], 40, 1.1) + '" class="ink frame"/></svg>';
   }
   function starfield(n, sd0) {
     seed(sd0); var g = "";
@@ -973,7 +1037,8 @@ svg .stripe { stroke: var(--w-stripe); stroke-width: 2.6; fill: none; stroke-lin
 
   /* ================= binding the book ================= */
   var html = "", folio = 0, band = 0, rows = "";
-  rows += '<tr class="us"><td>Building this website (generous ceiling)</td><td class="n">10</td><td class="n">2.6</td><td class="n">1</td><td>Data center + power plant</td><td>2 kWh × 5 L per kWh, see above</td></tr>';
+  rows += '<tr class="us"><td>Making this book (best estimate)</td><td class="n">16</td><td class="n">4.2</td><td class="n">0.8</td><td>Data center + power plant + training share</td><td>2.4 kWh × 4 L per kWh × 5/3, see above</td></tr>' +
+    '<tr class="us"><td>Making this book (most pessimistic)</td><td class="n">39</td><td class="n">10</td><td class="n">2</td><td>Same, every input at its high end</td><td>4.7 kWh × 5 L per kWh × 5/3</td></tr>';
 
   PAGES.forEach(function (p, idx) {
     if (p.night) {
