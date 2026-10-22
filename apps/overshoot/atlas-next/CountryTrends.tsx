@@ -11,8 +11,8 @@ type History={country:string;rows:Row[]};
 const measures={domesticConsumption:{label:'Material use',explanation:'Domestic material consumption counts extraction plus physical imports minus exports. It measures material entering domestic use.'},footprint:{label:'Material footprint',explanation:'The material footprint estimates extraction worldwide associated with a country’s final demand, including raw materials embodied in imported products.'},extraction:{label:'Extraction',explanation:'Biomass, fossil fuels, metal ores and non-metallic minerals physically taken from the environment within the territory.'}};
 export default function CountryTrends({place,countries,year:committedYear,onYear}:{place:string;countries:Country[];year:string;onYear:(v:string)=>void}){
  const svgRef=useRef<SVGSVGElement>(null),[plotWidth,setPlotWidth]=useState(820);
- const [year,setYear]=useState(committedYear);
- useEffect(()=>setYear(committedYear),[committedYear]);
+ const [year,setYear]=useState(committedYear),[syncedYear,setSyncedYear]=useState(committedYear);
+ if(syncedYear!==committedYear){setSyncedYear(committedYear);setYear(committedYear)}
  const [measure,setMeasure]=useState<keyof typeof measures>('domesticConsumption'),[basis,setBasis]=useState('person'),[compare,setCompare]=useState('WORLD');
  const comparison=compare===place?(place==='WORLD'?'USA':'WORLD'):compare;
  const primary=useMaterialArtifact<History>('/data/v12/history/'+place+'.json'),secondary=useMaterialArtifact<History>('/data/v12/history/'+comparison+'.json');

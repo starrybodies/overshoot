@@ -36,13 +36,13 @@
 /* The supplied lockup is one composition: keep its letterforms and orbit exact.
    Its original canvas has generous white space, cropped here without altering the artwork. */
 .oa-release .oa-brand{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;min-width:210px}
-.oa-release .oa-brand-lockup{position:relative;display:block;width:218px;height:29px;overflow:hidden;background:#fff;flex:none}
+.oa-release .oa-brand-lockup{position:relative;display:block;width:218px;height:29px;overflow:hidden;flex:none}
 .oa-release .oa-brand-lockup img{position:absolute;width:249px;height:125px;max-width:none;left:-16px;top:-51px}
 .oa-release .oa-brand small{margin-top:3px;font-size:10px;line-height:1.2;letter-spacing:.035em}
-.oa-release .oa-footer-lockup{position:relative;display:block;width:175px;height:23px;overflow:hidden;background:#fff;flex:none}
+.oa-release .oa-footer-lockup{position:relative;display:block;width:175px;height:23px;overflow:hidden;flex:none}
 .oa-release .oa-footer-lockup img{position:absolute;width:200px;height:100px;max-width:none;left:-13px;top:-41px}
 .oa-release .oa-footer-brand{align-items:center;gap:9px}
-.dark .oa-release .oa-brand-lockup,.dark .oa-release .oa-footer-lockup{background:transparent;mix-blend-mode:screen}
+.dark .oa-release .oa-brand-lockup,.dark .oa-release .oa-footer-lockup{background:transparent}
 .dark .oa-release .oa-brand-lockup img,.dark .oa-release .oa-footer-lockup img{filter:invert(1) hue-rotate(180deg)}
 @media(max-width:600px){.oa-release .oa-brand{min-width:0}.oa-release .oa-brand-lockup{width:175px;height:23px}.oa-release .oa-brand-lockup img{width:200px;height:100px;left:-13px;top:-41px}.oa-release .oa-brand small{font-size:9px}}
 

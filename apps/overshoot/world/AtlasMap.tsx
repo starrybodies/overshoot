@@ -13,6 +13,8 @@ import {shippingTiles} from '@/packages/material-world/maritime';
 import type {EnvironmentLayer} from '@/packages/material-world/environment';
 export type CountryLayer={values:Map<string,number>;label:string;unit:string;year:string;thresholds:number[];loading?:boolean};
 const scaleColors=['#e0e8cd','#b9cd99','#81a873','#487950','#214f39'];
+/** Reports when any dependency differs from the previous render (and, with onMount, on the first render) so state can be adjusted during render. */
+function useDepsChange(deps:unknown[],onMount=false){const [seen,setSeen]=useState<unknown[]|null>(onMount?null:deps);const changed=!seen||deps.some((d,i)=>!Object.is(d,seen[i]));if(changed)setSeen(deps);return changed}
 
 export default function AtlasMap({flows,sites,countries,place,selected,onFlow,onSite,onPlace,color,siteView,countryLayer,raster,shippingDensity}:{shippingDensity?:boolean;raster?:EnvironmentLayer;countryLayer?:CountryLayer;flows:Flow[];sites:SiteFeature[];countries:Country[];place:string;selected:string;onFlow:(f:Flow)=>void;onSite:(s:SiteFeature)=>void;onPlace:(p:string)=>void;color:string;siteView:boolean}){
  const geography=useMaterialArtifact<FeatureCollection>('/data/v10/geography.json');
@@ -25,17 +27,18 @@ export default function AtlasMap({flows,sites,countries,place,selected,onFlow,on
  const dragFrame=useRef(0),pendingPointer=useRef({x:0,y:0,scale:1});
  useEffect(()=>()=>cancelAnimationFrame(dragFrame.current),[]);
  const [world,setWorld]=useState(false);
- useEffect(()=>{setZoom(1);setPan({x:0,y:0});setWorld(false)},[place,siteView]);
- useEffect(()=>{setProportional(false)},[sites[0]?.properties.type]);
- useEffect(()=>{if(raster||shippingDensity)setGlobe(false);setRasterError(false)},[raster?.id,raster?.date,shippingDensity]);
- useEffect(()=>setHover(''),[countryLayer?.values,flows,sites,place]);
+ if(useDepsChange([place,siteView])){setZoom(1);setPan({x:0,y:0});setWorld(false)}
+ if(useDepsChange([sites[0]?.properties.type]))setProportional(false);
+ if(useDepsChange([raster?.id,raster?.date,shippingDensity])){if(raster||shippingDensity)setGlobe(false);setRasterError(false)}
+ if(useDepsChange([countryLayer?.values,flows,sites,place]))setHover('');
  const local=place==='SSI'||place==='BC';
  const regional=!globe&&siteView&&place!=='WORLD'&&!local&&!world;
  const target=geography.data?.features.find(f=>String(f.properties?.numeric)===countries.find(c=>c.id===place)?.numeric);
  const linkBounds=connectionBounds(flows),linkKey=flows.filter(f=>f.connection).map(f=>f.id).join('|');
- useEffect(()=>{setZoom(1);setPan({x:0,y:0})},[linkKey]);
+ if(useDepsChange([linkKey])){setZoom(1);setPan({x:0,y:0})}
  const projection=useMemo(()=>linkBounds&&!globe&&!world?geoMercator().fitExtent([[90,65],[910,435]],{type:'MultiPoint',coordinates:linkBounds}):raster||shippingDensity?(regional&&target?geoMercator().fitExtent([[70,50],[930,440]],target):geoMercator().scale(1000/(2*Math.PI)).translate([500,250])):globe?geoOrthographic().rotate(rotation).translate([500,250]).scale(224).clipAngle(90):regional&&target?(place==='USA'?geoAlbersUsa():geoMercator()).fitExtent([[70,50],[930,440]],target):geoEqualEarth().rotate([local?-145:0,0]).fitExtent([[24,24],[976,470]],{type:'Sphere'}),[regional,target,local,place,globe,rotation,raster?.id,shippingDensity,linkKey,world]);
- useEffect(()=>{if(!selected||!siteView)return;const link=flows.find(f=>f.id===selected)?.connection;if(link&&!globe){const a=projection(link.from),b=projection(link.to);if(a&&b){const z=Math.min(64,Math.max(1,Math.min(800/Math.max(1,Math.abs(a[0]-b[0])),360/Math.max(1,Math.abs(a[1]-b[1])))));setZoom(z);setPan({x:(500-(a[0]+b[0])/2)*z,y:(250-(a[1]+b[1])/2)*z})}return}const s=sites.find(s=>s.properties.id===selected);if(!s)return;const p=projection(s.geometry.coordinates);if(p){const z=4;setZoom(z);setPan({x:(500-p[0])*z,y:(250-p[1])*z})}},[selected,linkKey]);
+ // Frame a newly selected connection or site, including one selected on first render.
+ if(useDepsChange([selected,linkKey],true)&&selected&&siteView){const link=flows.find(f=>f.id===selected)?.connection;if(link&&!globe){const a=projection(link.from),b=projection(link.to);if(a&&b){const z=Math.min(64,Math.max(1,Math.min(800/Math.max(1,Math.abs(a[0]-b[0])),360/Math.max(1,Math.abs(a[1]-b[1])))));setZoom(z);setPan({x:(500-(a[0]+b[0])/2)*z,y:(250-(a[1]+b[1])/2)*z})}}else{const s=sites.find(s=>s.properties.id===selected),p=s&&projection(s.geometry.coordinates);if(p){const z=4;setZoom(z);setPan({x:(500-p[0])*z,y:(250-p[1])*z})}}}
  const path=geoPath(projection);
  const coords=useMemo(()=>new Map(countries.filter(c=>c.center).map(c=>[c.id,c.center!])),[countries]);
  const countryIds=useMemo(()=>new Map(countries.map(c=>[c.numeric,c.id])),[countries]);
