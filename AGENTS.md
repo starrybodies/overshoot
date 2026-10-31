@@ -1,13 +1,13 @@
 # OVERSHOOT: map for coding agents
 
-Public atlas of material extraction, trade, use and waste (https://overshoot.gaiaai.xyz). Vinext (Next.js on Vite), built to a Cloudflare Worker. Every number on the site, the JSON API and the MCP server is read from committed, versioned artifacts in `public/data/vN/`. This file is a map; follow the pointers for detail.
+Public atlas of material extraction, trade, use and waste (https://overshoot.gaiaai.xyz). Vinext (Next.js on Vite), built to a Cloudflare Worker. The JSON API and the MCP server read every number from committed, versioned artifacts in `public/data/vN/`, and so does the site, except for some counts repeated by hand in UI copy (for example `apps/overshoot/atlas-next/DataPage.tsx`). This file is a map; follow the pointers for detail.
 
 ## Where things live
 - `app/`: routes and APIs (`api/mcp`, `api/material-world`, `api/agent`, `api/subscribe`).
 - `apps/overshoot/`: atlas UI; `atlas-next/` is the current interface.
 - `packages/material-world/`: the query surface (`query.ts`, one zod schema per tool) and the MCP server (`mcp.ts`). The API release label is `snapshot.release` in `query.ts`; the MCP version follows it.
-- `packages/overshoot-data/`: pipelines. `releaseN/README.md` records a release's source, edition, licence, units and decisions. Not every `vN` has one (v29, v30, v34, v42 do not).
-- `public/data/vN/`: published artifacts. Immutable. A `vN` number is not always an API release (v42 is a cache-busting copy of the source register).
+- `packages/overshoot-data/`: pipelines. `releaseN/README.md` records a release's source, edition, licence, units and decisions. Not every `vN` has one: v1–v3, v8, v9, v29, v30, v34 and v42 do not (v1–v7 are described in `apps/overshoot/BUILD.md`).
+- `public/data/vN/`: published artifacts. Immutable. A `vN` number is not always an API release: v42 is a corrected source register (2a37bfa) whose own `release` field still says v39.
 - `scripts/checks/`: executable acceptance checks; `run.mjs` runs the offline ones.
 - `sites/more-water/`: a separate static picture-book site with its own README and Pages workflow.
 
@@ -20,10 +20,10 @@ Public atlas of material extraction, trade, use and waste (https://overshoot.gai
 - One check: `node --import tsx scripts/checks/<name>.mts` (or `node scripts/checks/<name>.mjs`).
 
 ## Production is ahead of this repo
-`pnpm check:live` (2026-10-31): production serves API release 84 with 6 MCP tools that are not in this repo, 21 files differ at the same `/data/vN/` URL, and production no longer serves `v14`. The atlas is deployed from an external hosting project (`.openai/hosting.json`), not from this repo's CI. Do not assume the repo is what users see, and do not cut a data release here until the owner has reconciled it.
+`pnpm check:live` (2026-10-31): production serves API release 84 with 6 MCP tools that are not in this repo, 21 files differ at the same `/data/vN/` URL, 1,318 of the 1,929 `v14` files are no longer served, and production uses `vN` numbers above the repo's highest. These known differences are listed in `scripts/checks/live-parity-baseline.json`; the check fails only on new ones. The atlas is deployed from an external hosting project (`.openai/hosting.json`), not from this repo's CI. Do not assume the repo is what users see, and do not cut a data release here until the owner has reconciled it.
 
 ## Rules, and what enforces each one
-1. Never modify or delete a file under an existing `public/data/vN/`. Corrections go in a new `vN` (one above the highest existing N), then repoint the code. Only the owner removes a published file, for a licence withdrawal, listed in `scripts/checks/published-data-exceptions.json`. Enforced by `scripts/checks/published-data.mjs` (in `pnpm check` and CI) and a Claude Code hook.
+1. Never modify or delete a file under an existing `public/data/vN/`. Corrections go in a new `vN` (choose N as `packages/overshoot-data/RELEASING.md` says; production already uses numbers above the repo's), then repoint the code. Only the owner removes a published file, for a licence withdrawal, listed in `scripts/checks/published-data-exceptions.json`. Enforced by `scripts/checks/published-data.mjs` (in `pnpm check` and CI) and a Claude Code hook.
 2. Missing is not zero. Never interpolate, back-fill, zero-fill or replace a publisher's world total with a sum of rows. Only the `estimate_*` tools estimate, labelled and never stored. Partly enforced by `material-world.mts`, `mcp-protocol.mts`, `waste-research.mts` and `test_comtrade.py`.
 3. Keep evidence kinds apart: capacity is not production; exporter reports and mirror importer reports are never combined; a map line needs evidence for both endpoints. Partly enforced by `release16.mts`, `release17.mts` and `release35.mts`; otherwise by review.
 4. Every new artifact carries its source, edition or vintage, unit and licence or reuse terms. Not mechanically checked yet.

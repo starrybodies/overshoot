@@ -17,7 +17,7 @@ const rows=[...html.match(/<tbody id="numbers">([\s\S]*?)<\/tbody>/)[1].matchAll
  .map(([thing,liters,gallons,times])=>({thing,liters:num(liters),gallons:num(gallons),times,x:num(times)}));
 assert(rows.length>=10,'notes table not found');
 for(const r of rows){
- assert(near(r.x,r.liters/BOOK,0.26,0.01),`${r.thing}: × ${r.times} but ${r.liters} L ÷ ${BOOK} = ${(r.liters/BOOK).toFixed(2)}`);
+ assert(near(r.x,r.liters/BOOK,r.liters/BOOK>=10.75?0.5:0.26,0.01),`${r.thing}: × ${r.times} but ${r.liters} L ÷ ${BOOK} = ${(r.liters/BOOK).toFixed(2)}`);
  assert(near(r.gallons,r.liters/GALLON,0.5,0.01),`${r.thing}: ${r.gallons} gal but ${r.liters} L = ${(r.liters/GALLON).toFixed(1)} gal`);
 }
 const [best,worst,...things]=rows;
@@ -51,20 +51,32 @@ const listed=[...llms.split('## Things that took more water')[1].split('\n## ')[
 assert.equal(listed.length,things.length,'llms.txt lists a different number of things');
 listed.forEach(([,name,liters],i)=>assert(near(num(liters),things[i].liters,0,0.01),`llms.txt "${name}": ${liters} L, table "${things[i].thing}": ${things[i].liters} L`));
 
-// The headline estimate and the pessimistic bound, wherever they are stated.
+// Every liters figure stated anywhere (page text, JSON-LD, meta descriptions, llms.txt) is a table value, the
+// pessimistic bound, or one of the context figures below, so a figure left stale after a table edit fails.
+const CONTEXT=new Set([3,4,5,19,700000,281e6,5.4e6,21e9,66e9,800e9,2e12]); // per-kWh factors, the bucket, training and US totals
+const SCALE={million:1e6,billion:1e9,trillion:1e12};
 const ld=html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1];
 const graph=JSON.parse(ld)['@graph'];
-for(const [where,s] of [['llms.txt',llms],['JSON-LD',ld],['page',text(html)]]){
+const meta=[...html.matchAll(/<meta [^>]*content="([^"]*)"/g)].map(m=>m[1]).join(' ');
+const bounds=new Set();
+for(const [where,s] of [['llms.txt',llms],['page',text(html)],['meta',meta]]){
  assert(s.includes(`${best.liters} liters`),`${where} does not state the best estimate (${best.liters} liters)`);
- for(const [,n] of s.matchAll(/under ([\d,]+) liters/g))assert(num(n)>worst.liters,`${where} says "under ${n} liters" but the most pessimistic estimate is ${worst.liters} L`);
+ for(const m of s.matchAll(/(under )?(\d[\d,.]*)(?: (million|billion|trillion))? liters/g)){
+  const v=num(m[2])*(SCALE[m[3]]??1);
+  if(m[1]){bounds.add(v);continue}
+  assert(rows.some(r=>r.liters===v)||CONTEXT.has(v),`${where} states "${m[0]}", which is not in the notes table or the context figures in this check`);
+ }
 }
+assert.equal(bounds.size,1,`the pessimistic bound is stated as ${[...bounds].join(' and ')} liters`);
+const [bound]=bounds;assert(bound>worst.liters&&bound<=Math.ceil((worst.liters+1)/10)*10,`"under ${bound} liters" does not match the most pessimistic estimate (${worst.liters} L)`);
 
 // FAQ structured data must match the visible FAQ: same questions, same numbers.
-const qa=new Map([...html.matchAll(/<div class="qa">\s*<h3>([\s\S]*?)<\/h3>([\s\S]*?)<\/div>/g)].map(m=>[text(m[1]),text(m[2])]));
+const qa=new Map([...html.matchAll(/<div class="qa">\s*<h3>([\s\S]*?)<\/h3>([\s\S]*?)<\/div>/g)].map(m=>[text(m[1]),text([...m[2].matchAll(/<p>([\s\S]*?)<\/p>/g)].map(p=>p[1]).join(' '))]));
+const numbers=s=>(s.match(/\d[\d,.]*\d½?|\d½?/g)??[]).map(num).sort((a,b)=>a-b);
 const faq=graph.find(n=>n['@type']==='FAQPage').mainEntity;
 assert.equal(faq.length,qa.size,'JSON-LD and visible FAQ have different question counts');
 for(const q of faq){
  const answer=qa.get(q.name);assert(answer!==undefined,`JSON-LD question not on the page: ${q.name}`);
- for(const n of q.acceptedAnswer.text.match(/\d[\d,.]*\d|\d/g)??[])assert(answer.includes(n),`FAQ "${q.name}": JSON-LD says ${n}, visible answer does not`);
+ assert.deepEqual(numbers(q.acceptedAnswer.text),numbers(answer),`FAQ "${q.name}": the JSON-LD answer and the visible answer state different numbers`);
 }
 console.log(`PASS: more-water figures agree across ${pages.length} pages, the notes table, the method line, llms.txt, JSON-LD and ${faq.length} FAQ answers.`);

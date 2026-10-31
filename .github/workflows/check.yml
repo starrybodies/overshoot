@@ -11,8 +11,10 @@ on:
 permissions:
   contents: read
 
+# A newer push cancels an older run of the same pull request. Every push to main gets its own group so
+# each before..after range is checked; a cancelled main run could otherwise hide a bad push.
 concurrency:
-  group: check-${{ github.ref }}
+  group: check-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
   cancel-in-progress: true
 
 jobs:

@@ -1,6 +1,6 @@
 # OVERSHOOT source inventory
 
-> Frozen snapshot of the 2026-09-19 inventory (a rendering of `public/data/v2/sources.json`). Statuses here have not been updated: for example, GEM cement and steel capacity (release 35) and USGS 2025 estimates (release 39) were ingested later. The living register is the `source_observatory` MCP tool, read from `public/data/v42/source-opportunities.json`.
+> Frozen snapshot of the 2026-09-19 inventory (a rendering of `public/data/v2/sources.json`). Statuses here have not been updated (for example, USGS mineral commodities is listed as blocked, but USGS 2025 estimates were ingested in release 39), and sources added later, such as GEM cement and steel capacity (release 35), are absent. The living register is the `source_observatory` MCP tool, read from `public/data/v42/source-opportunities.json`.
 
 Snapshot: 19 September 2026. This is a broad inventory of relevant international and national databases, not a claim that every database on Earth is integrated. Acquisition and public visualization are separate: reports, metadata, detailed offline snapshots and normalized display records are identified in each entry.
 
