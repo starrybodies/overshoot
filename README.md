@@ -30,6 +30,8 @@ pnpm install
 pnpm dev
 ```
 
+`pnpm check` runs the typecheck, unit tests and every offline check in `scripts/checks` in about 30 seconds. CI runs it with `pnpm lint` and `pnpm check:build` on every pull request. `pnpm check:live` compares this repository with what the live site serves. Coding agents start from [`AGENTS.md`](AGENTS.md).
+
 `pnpm build` creates the Cloudflare-compatible Worker and static assets through the supplied Vinext adapter. The public browser artifacts are committed and do not require a statistics-provider API at runtime. This public mirror omits acquired raw source files, normalized research archives and snapshot parts. Source transformation scripts and manifests remain for inspection, but rerunning many data pipelines requires reacquiring source files under their original terms. See the respective release README for acquisition and transformation steps.
 
 The website can be explored locally without a production database. The optional email signup requires a configured Cloudflare D1 `DB` binding and the `newsletter_subscribers` migration; see `app/api/subscribe/route.ts` and `drizzle/`. Do not use a local signup as a production subscriber store.

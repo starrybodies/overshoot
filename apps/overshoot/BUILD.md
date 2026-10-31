@@ -1,5 +1,7 @@
 # OVERSHOOT — implementation record
 
+> Historical record of releases 1–7 (2026-09-19 to 2026-09-20). It is no longer maintained and some environment notes are out of date. For the current map, see [`AGENTS.md`](../../AGENTS.md).
+
 ## Architecture and environment · 2026-09-19
 
 The Symbai monorepo and the requested `/mnt/skills/public/frontend-design/SKILL.md` are not present in the mounted Linux workspace. Laptop filesystem access is not exposed to this session. App source is isolated in `apps/overshoot`; pipeline, typed queries and source registry in `packages/overshoot-data`. The root Next.js App Router uses a Vinext adapter to the supplied Sites runtime. This is a portable independent checkout, not a claimed Symbai integration.

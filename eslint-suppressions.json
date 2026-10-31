@@ -1,0 +1,155 @@
+{
+  "app/error.tsx": {
+    "@next/next/no-html-link-for-pages": {
+      "count": 4
+    }
+  },
+  "app/not-found.tsx": {
+    "@next/next/no-html-link-for-pages": {
+      "count": 6
+    }
+  },
+  "apps/overshoot/Atlas.tsx": {
+    "@next/next/no-html-link-for-pages": {
+      "count": 1
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/FlowMotion.tsx": {
+    "react-hooks/refs": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/Globe.tsx": {
+    "react-hooks/refs": {
+      "count": 1
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 2
+    }
+  },
+  "apps/overshoot/MaterialExplorer.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/WebGLGlobe.tsx": {
+    "react-hooks/refs": {
+      "count": 4
+    }
+  },
+  "apps/overshoot/atlas-next/CountryTrends.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/atlas-next/EnergyMap.tsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/atlas-next/FacilitiesPage.tsx": {
+    "@next/next/no-html-link-for-pages": {
+      "count": 2
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 3
+    }
+  },
+  "apps/overshoot/atlas-next/LocalPage.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 4
+    }
+  },
+  "apps/overshoot/atlas-next/MaterialAtlas.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 2
+    }
+  },
+  "apps/overshoot/atlas-next/MaterialSitesMap.tsx": {
+    "react-hooks/preserve-manual-memoization": {
+      "count": 2
+    }
+  },
+  "apps/overshoot/atlas-next/MineralProduction.tsx": {
+    "react-hooks/preserve-manual-memoization": {
+      "count": 3
+    }
+  },
+  "apps/overshoot/atlas-next/PlaceContext.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/atlas-next/ProductionMap.tsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/atlas-next/TradePage.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/atlas-next/WasteSystems.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/journey/WasteJourney.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/world/AtlasMap.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 6
+    }
+  },
+  "apps/overshoot/world/GeographicMap.tsx": {
+    "react-hooks/refs": {
+      "count": 1
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 2
+    }
+  },
+  "apps/overshoot/world/MaritimeContext.tsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/world/MaterialWorld.tsx": {
+    "@next/next/no-html-link-for-pages": {
+      "count": 3
+    },
+    "prefer-const": {
+      "count": 1
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "apps/overshoot/world/TransportState.tsx": {
+    "react-hooks/refs": {
+      "count": 1
+    }
+  },
+  "scripts/checks/material-world.mts": {
+    "@typescript-eslint/no-explicit-any": {
+      "count": 1
+    }
+  },
+  "scripts/checks/mcp-protocol.mts": {
+    "@typescript-eslint/no-explicit-any": {
+      "count": 8
+    }
+  },
+  "scripts/checks/waste-research.mts": {
+    "@typescript-eslint/no-explicit-any": {
+      "count": 9
+    }
+  }
+}
