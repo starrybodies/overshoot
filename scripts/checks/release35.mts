@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {runQuery,type AssetReader} from '../../packages/material-world/query';
+import {rawAvailable} from './raw';
 
 const root=new URL('../../',import.meta.url);
 const read:AssetReader=async<T,>(path:string)=>JSON.parse(await readFile(new URL('public'+path,root),'utf8')) as T;
@@ -12,7 +13,7 @@ for(const [material,file,count] of [['concrete','cement-country.json',171],['ste
  assert.equal(table.rows.length,count);
  assert.equal(new Set(table.rows.map(r=>r.country)).size,count);
  assert(table.rows.every(r=>r.country!=='WORLD'&&r.plants>=0));
- for(const [id,meta] of Object.entries(table.sourceTables)){
+ if(rawAvailable(new URL('../../packages/overshoot-data/release35/raw/',import.meta.url),'release35 '+material))for(const [id,meta] of Object.entries(table.sourceTables)){
   const filename={cementCapacity:'operating-capacity.csv',cementPlants:'operating-plants.csv',steelCapacity:'steel-operating-capacity.csv',steelPlants:'steel-operating-plants.csv'}[id as 'cementCapacity'];
   assert.equal(createHash('sha256').update(await readFile(new URL('../../packages/overshoot-data/release35/raw/'+filename,import.meta.url))).digest('hex'),meta.sha256);
  }
@@ -32,4 +33,4 @@ assert.equal(cement.world.cementMtpa,5651.9);
 assert.equal(cement.world.plants,3455);
 assert.equal(cement.rows.find(r=>r.country==='CAN')?.cementMtpa,22.1);
 await assert.rejects(runQuery('industrial_capacity',{material:'glass'},read));
-console.log('PASS: GEM raw hashes, country mapping, independent world totals, null capacity, bounded industrial-capacity queries.');
+console.log('PASS: GEM country mapping, independent world totals, null capacity, bounded industrial-capacity queries.');

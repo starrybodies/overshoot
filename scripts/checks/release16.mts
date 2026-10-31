@@ -7,6 +7,7 @@ import {selectTradeEvidence} from '../../packages/material-world/trade';
 import {portCalls,type Port,type PortActivity,type MaritimeCatalog} from '../../packages/material-world/maritime';
 import {readAtlasState,atlasUrl,defaultAtlasState} from '../../apps/overshoot/atlas-next/atlasState';
 import type {TradeRecord} from '../../apps/overshoot/world/model';
+import {rawAvailable} from './raw';
 const root=new URL('../../',import.meta.url);
 const read:AssetReader=async<T,>(path:string)=>{const b=await readFile(new URL('public'+path,root));return JSON.parse((b[0]===31&&b[1]===139?gunzipSync(b):b).toString()) as T};
 const catalog=await read<MaritimeCatalog>('/data/v16/maritime/catalog.json');
@@ -47,9 +48,9 @@ const state={...defaultAtlasState,view:'materials' as const,material:'fuels',for
 assert.deepEqual(readAtlasState(new URL(atlasUrl(state),'https://example.test')),state);
 // Verify every source response hash used by the new tabular feeds.
 let verified=0;
-for(const folder of ['portwatch','oil-imports']){
+if(rawAvailable(new URL('packages/overshoot-data/release16/raw/portwatch/manifest.json',root),'release16'))for(const folder of ['portwatch','oil-imports']){
  const path='packages/overshoot-data/release16/raw/'+folder+'/';
  const manifest=JSON.parse(await readFile(new URL(path+'manifest.json',root),'utf8')) as Array<{file:string;sha256?:string;status?:number}>;
  for(const item of manifest){if(!item.sha256)continue;const raw=gunzipSync(await readFile(new URL(path+item.file,root)));assert.equal(createHash('sha256').update(raw).digest('hex'),item.sha256);verified++}
 }
-console.log(`PASS: ${verified} source hashes; 2,065 ports; 24,780 monthly observations; Venezuela oil, refinery and port queries; preserved zero/null semantics; reporting-side deduplication; bounded APIs; shareable overlays.`);
+console.log(`PASS: ${verified?verified+' source hashes':'source hashes skipped'}; 2,065 ports; 24,780 monthly observations; Venezuela oil, refinery and port queries; preserved zero/null semantics; reporting-side deduplication; bounded APIs; shareable overlays.`);

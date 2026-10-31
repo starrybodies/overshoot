@@ -47,7 +47,7 @@ export type QueryName=keyof typeof querySchemas;
 type EnergyRow={country:string;period:string;value:number|null;rawValue:unknown;flag:unknown};
 type EnergyData={unit:string;description:string;sourceId:string;frequency:string;factor:number;series:Record<string,unknown>;rows:EnergyRow[]};
 type EnergyCatalog={sources:Record<string,unknown>;measures:Array<{id:string;name:string;unit:string;frequency:string;latestPeriod:string;countries:number}>;refreshMode:string;numericRecords:number};
-const snapshot={release:'39',publishedAt:'2026-09-27',refresh:'Reviewed snapshots; no live or automatic refresh.',missing:'A missing record or null value is not zero.'};
+export const snapshot={release:'39',publishedAt:'2026-09-27',refresh:'Reviewed snapshots; no live or automatic refresh.',missing:'A missing record or null value is not zero.'};
 
 export async function runQuery(name:QueryName,input:unknown,read:AssetReader):Promise<Record<string,unknown>>{
   // All paths below are built from validated identifiers and catalogue membership.

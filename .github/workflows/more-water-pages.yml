@@ -25,6 +25,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      # Refuse to publish if the figures disagree across pages, notes, FAQ, JSON-LD and llms.txt.
+      - run: node scripts/checks/more-water.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

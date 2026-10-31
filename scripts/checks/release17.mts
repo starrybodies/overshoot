@@ -40,10 +40,11 @@ const ordinary={...flowExamples[0],connection:undefined,origin:'BC',destination:
 assert.deepEqual(flowEndpoints(ordinary,new Map([['JPN',[138,36]]]))?.a,[-125,54]);
 assert.equal(flowEndpoints({...ordinary,amount:0},new Map([['JPN',[138,36]]])),null);
 assert.equal(connectionBounds([ordinary]),null);
-const all=await runQuery('connections',{},read);assert.equal(all.links,10);assert.equal(all.mappedLinks,8);
+const coal=await read<ConnectionCatalog>('/data/v30/coal-paths.json');const all=await runQuery('connections',{},read);assert.equal(all.matched,catalog.networks.length+coal.networks.length);
+for(const n of catalog.networks){const one=await runQuery('connections',{network:n.id},read);assert.equal(one.links,n.links.length);assert.equal(one.mappedLinks,n.links.filter(l=>l.geometry==='schematic').length)}
 const norway=await runQuery('connections',{country:'NOR'},read);assert.equal(norway.matched,1);assert.equal((norway.networks as ConnectionCatalog['networks'])[0].id,'kiruna-narvik');
 const brazil=await runQuery('connections',{material:'aluminium',country:'BRA'},read);assert.equal(brazil.links,3);assert.equal(brazil.mappedLinks,2);assert.equal((brazil.sources as unknown[]).length,2);
-const missing=await runQuery('connections',{material:'fuels',country:'VEN'},read);assert.equal(missing.matched,0);assert.match(missing.coverage as string,/coverage gaps/);
+const missing=await runQuery('connections',{material:'fuels',country:'VEN'},read);assert.equal(missing.matched,0);assert.match(missing.coverage as string,/not a global inventory/);
 await assert.rejects(runQuery('connections',{network:'not-a-network'},read));
 await assert.rejects(runQuery('connections',{network:'../../secret'},read));
 await assert.rejects(runQuery('connections',{country:'CHL',unexpected:true},read));
