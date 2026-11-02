@@ -12,18 +12,26 @@ import {facilityCatalogPath,facilityPins,facilityKinds,matchesFacility,type Faci
 export type AssetReader = <T>(path:string)=>Promise<T>;
 const country=z.string().regex(/^(?:[A-Z]{3}|WORLD|UNASSIGNED)$/);
 // A well-formed but unknown code (GER, NED) would otherwise match nothing and read as a confident absence.
-// Accepted: ISO 3166-1 alpha-3 codes in /data/v11/countries.json, plus the codes the retained data uses beyond
-// ISO: ZNC (facility catalog), CHI (Channel Islands, World Bank waste) and UKN (Eurostat packaging aggregates).
-export const dataCountryCodes=['WORLD','UNASSIGNED','ZNC','CHI','UKN'];
+// Accepted: ISO 3166-1 alpha-3 codes in /data/v11/countries.json, plus the non-ISO codes the retained data uses:
+// UNASSIGNED and ZNC (facility and journey catalogs) for every tool, and CHI (Channel Islands, World Bank waste
+// comparison) only for waste_compare, because elsewhere CHI is almost always Chile's Olympic code.
+export const dataCountryCodes=['WORLD','UNASSIGNED','ZNC'];
+export const toolCountryCodes:Partial<Record<QueryName,string[]>>={waste_compare:['CHI']};
 // Common non-ISO codes (mostly Olympic/FIFA) that clients send instead of the ISO alpha-3 code.
-export const isoCodeFor:Record<string,string>={GER:'DEU',NED:'NLD',SUI:'CHE',DEN:'DNK',POR:'PRT',CRO:'HRV',GRE:'GRC',RSA:'ZAF',KSA:'SAU',UAE:'ARE',INA:'IDN',MAS:'MYS',PHI:'PHL',VIE:'VNM',IRI:'IRN',ALG:'DZA',ANG:'AGO',BUL:'BGR',LAT:'LVA',SLO:'SVN',TPE:'TWN',ENG:'GBR',NGR:'NGA',ZIM:'ZWE',ZAM:'ZMB',URU:'URY',PAR:'PRY',CRC:'CRI',KUW:'KWT',MYA:'MMR',NEP:'NPL',SRI:'LKA',BAN:'BGD',MGL:'MNG',KOS:'XKX',ROM:'ROU'};
-export async function knownCountries(read:AssetReader){return new Map([...dataCountryCodes.map(id=>[id,id] as const),...(await read<Array<{id:string;name:string}>>('/data/v11/countries.json')).map(c=>[c.id,c.name] as const)])}
-async function checkCountries(codes:string[],read:AssetReader){
-  if(!codes.length)return;
-  const known=await knownCountries(read),unknown=codes.find(c=>!known.has(c));
+export const isoCodeFor:Record<string,string>={CHI:'CHL',GER:'DEU',NED:'NLD',SUI:'CHE',DEN:'DNK',POR:'PRT',CRO:'HRV',GRE:'GRC',RSA:'ZAF',KSA:'SAU',UAE:'ARE',INA:'IDN',MAS:'MYS',PHI:'PHL',VIE:'VNM',IRI:'IRN',ALG:'DZA',ANG:'AGO',BUL:'BGR',LAT:'LVA',SLO:'SVN',TPE:'TWN',ENG:'GBR',NGR:'NGA',ZIM:'ZWE',ZAM:'ZMB',URU:'URY',PAR:'PRY',CRC:'CRI',KUW:'KWT',MYA:'MMR',NEP:'NPL',SRI:'LKA',BAN:'BGD',MGL:'MNG',KOS:'XKX',ROM:'ROU'};
+const directories=new WeakMap<AssetReader,Promise<Array<{id:string;name:string}>>>();
+export function countryDirectory(read:AssetReader){
+  let directory=directories.get(read);
+  if(!directory){directory=read<Array<{id:string;name:string}>>('/data/v11/countries.json');directories.set(read,directory)}
+  return directory;
+}
+export async function knownCountries(read:AssetReader,name?:QueryName){return new Map([...[...dataCountryCodes,...(name&&toolCountryCodes[name]||[])].map(id=>[id,id] as const),...(await countryDirectory(read)).map(c=>[c.id,c.name] as const)])}
+async function checkCountries(name:QueryName,codes:string[],read:AssetReader){
+  if(codes.every(c=>dataCountryCodes.includes(c)||toolCountryCodes[name]?.includes(c)))return;
+  const known=await knownCountries(read,name),unknown=codes.find(c=>!known.has(c));
   if(!unknown)return;
-  const likely=isoCodeFor[unknown];
-  throw Error(`Unknown country code ${unknown}.${likely&&known.has(likely)?` Did you mean ${likely} (${known.get(likely)})?`:''} Use an ISO 3166-1 alpha-3 code or WORLD; /data/v11/countries.json lists them. A code with no records returns matched 0, but an unknown code is an error.`);
+  const likely=isoCodeFor[unknown],only=Object.entries(toolCountryCodes).filter(([,codes])=>codes.includes(unknown)).map(([tool])=>tool);
+  throw Error(`Unknown country code ${unknown}.${likely&&known.has(likely)?` Did you mean ${likely} (${known.get(likely)})?`:''}${only.length?` ${unknown} is accepted only by ${only.join(', ')}.`:''} Use an ISO 3166-1 alpha-3 code or WORLD; /data/v11/countries.json lists them. A code with no records returns matched 0, but an unknown code is an error.`);
 }
 const kind=z.enum(facilityKinds);
 const year=z.number().int().min(1900).max(2100);
@@ -67,7 +75,7 @@ export async function runQuery(name:QueryName,input:unknown,read:AssetReader):Pr
   // All paths below are built from validated identifiers and catalogue membership.
   const data=querySchemas[name].parse(input);
   const scope=data as {country?:string;countries?:string[];place?:string};
-  await checkCountries([scope.country,...(scope.countries??[]),name==='research_path'&&!['BC','SSI'].includes(scope.place!)?scope.place:undefined].filter((c):c is string=>!!c),read);
+  await checkCountries(name,[scope.country,...(scope.countries??[]),name==='research_path'&&!['BC','SSI'].includes(scope.place!)?scope.place:undefined].filter((c):c is string=>!!c),read);
   const catalog=()=>read<FacilityCatalog>(facilityCatalogPath);
   if(name==='mineral_production'){
     const q=data as z.infer<typeof querySchemas.mineral_production>;
@@ -310,7 +318,7 @@ export async function runQuery(name:QueryName,input:unknown,read:AssetReader):Pr
   }
   const q=data as z.infer<typeof querySchemas.material_accounts>;
   if(q.from>q.to)throw Error('from must be before or equal to to.');
-  const directory=await read<Array<{id:string}>>('/data/v11/countries.json');
+  const directory=await countryDirectory(read);
   if(q.country!=='WORLD'&&!directory.some(c=>c.id===q.country))throw Error('Unknown country.');
   const table=await read<{sourceId:string;country:string;rows:Array<{year:number}>}>(`/data/v12/history/${q.country}.json`);
   const sources=await read<Array<{id:string}>>('/data/v3/sources.json');
