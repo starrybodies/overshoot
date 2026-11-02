@@ -11,6 +11,20 @@ import {facilityCatalogPath,facilityPins,facilityKinds,matchesFacility,type Faci
 
 export type AssetReader = <T>(path:string)=>Promise<T>;
 const country=z.string().regex(/^(?:[A-Z]{3}|WORLD|UNASSIGNED)$/);
+// A well-formed but unknown code (GER, NED) would otherwise match nothing and read as a confident absence.
+// Accepted: ISO 3166-1 alpha-3 codes in /data/v11/countries.json, plus the codes the retained data uses beyond
+// ISO: ZNC (facility catalog), CHI (Channel Islands, World Bank waste) and UKN (Eurostat packaging aggregates).
+export const dataCountryCodes=['WORLD','UNASSIGNED','ZNC','CHI','UKN'];
+// Common non-ISO codes (mostly Olympic/FIFA) that clients send instead of the ISO alpha-3 code.
+export const isoCodeFor:Record<string,string>={GER:'DEU',NED:'NLD',SUI:'CHE',DEN:'DNK',POR:'PRT',CRO:'HRV',GRE:'GRC',RSA:'ZAF',KSA:'SAU',UAE:'ARE',INA:'IDN',MAS:'MYS',PHI:'PHL',VIE:'VNM',IRI:'IRN',ALG:'DZA',ANG:'AGO',BUL:'BGR',LAT:'LVA',SLO:'SVN',TPE:'TWN',ENG:'GBR',NGR:'NGA',ZIM:'ZWE',ZAM:'ZMB',URU:'URY',PAR:'PRY',CRC:'CRI',KUW:'KWT',MYA:'MMR',NEP:'NPL',SRI:'LKA',BAN:'BGD',MGL:'MNG',KOS:'XKX',ROM:'ROU'};
+export async function knownCountries(read:AssetReader){return new Map([...dataCountryCodes.map(id=>[id,id] as const),...(await read<Array<{id:string;name:string}>>('/data/v11/countries.json')).map(c=>[c.id,c.name] as const)])}
+async function checkCountries(codes:string[],read:AssetReader){
+  if(!codes.length)return;
+  const known=await knownCountries(read),unknown=codes.find(c=>!known.has(c));
+  if(!unknown)return;
+  const likely=isoCodeFor[unknown];
+  throw Error(`Unknown country code ${unknown}.${likely&&known.has(likely)?` Did you mean ${likely} (${known.get(likely)})?`:''} Use an ISO 3166-1 alpha-3 code or WORLD; /data/v11/countries.json lists them. A code with no records returns matched 0, but an unknown code is an error.`);
+}
 const kind=z.enum(facilityKinds);
 const year=z.number().int().min(1900).max(2100);
 const facilitySelection={country,kind};
@@ -52,6 +66,8 @@ export const snapshot={release:'39',publishedAt:'2026-09-27',refresh:'Reviewed s
 export async function runQuery(name:QueryName,input:unknown,read:AssetReader):Promise<Record<string,unknown>>{
   // All paths below are built from validated identifiers and catalogue membership.
   const data=querySchemas[name].parse(input);
+  const scope=data as {country?:string;countries?:string[];place?:string};
+  await checkCountries([scope.country,...(scope.countries??[]),name==='research_path'&&!['BC','SSI'].includes(scope.place!)?scope.place:undefined].filter((c):c is string=>!!c),read);
   const catalog=()=>read<FacilityCatalog>(facilityCatalogPath);
   if(name==='mineral_production'){
     const q=data as z.infer<typeof querySchemas.mineral_production>;
