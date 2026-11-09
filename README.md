@@ -43,4 +43,8 @@ The website can be explored locally without a production database. The optional 
 - `public/data/`: immutable, versioned browser artifacts.
 - `scripts/checks/`: release, map and protocol checks.
 
+## License
+
+The code is licensed under the [Apache License 2.0](LICENSE). Third-party code keeps its own license, including the MIT licenses filed in `vendor/` and `build/`.
+
 This repository includes the same public browser data that the live atlas serves, with third-party source-specific reuse terms. Attribution and licenses are recorded beside the data; a repository copy does not replace those terms. Some identified datasets are catalogued but withheld from public quantitative redistribution. The source notes distinguish a researched source from an ingested observation. The private research archive remains separate from this public mirror.
